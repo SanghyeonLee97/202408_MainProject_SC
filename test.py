@@ -16,7 +16,7 @@ query = {
     "size": 19
 }
 
-response = es.search(index="postgres_test_2024.239.26", body=query)
+response = es.search(index="my_index", body=query)
 
 
 for hit in response['hits']['hits']:

@@ -1,14 +1,28 @@
-CREATE DATABASE es_db;
-USE es_db;
-DROP TABLE IF EXISTS es_table;
 CREATE TABLE es_table (
   id BIGINT(20) UNSIGNED NOT NULL,
   PRIMARY KEY (id),
   UNIQUE KEY unique_id (id),
   client_name VARCHAR(32) NOT NULL,
-  modification_time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  insertion_time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+  modification_time datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  insertion_time datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
+drop table es_table;
+insert into es_table(id,client_name) values(1,'test1');
+insert into es_table(id,client_name) values(2,'test2');
+insert into es_table(id,client_name) values(3,'test3');
+
+insert into es_table(id,client_name) values(4,'test4');
+
+insert into es_table(id,client_name) values(5,'test5');
+
+insert into es_table(id,client_name) values(6,'test5');
+
+select * from es_table;
+SELECT MAX(insertion_time) FROM es_table;
+desc es_table
+
+
+
 
 package com.spring.biz;
 
