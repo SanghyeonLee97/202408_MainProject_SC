@@ -46,3 +46,7 @@ public class test2 {
         }
     }
 }
+
+
+pip install opensearch-py
+python -m pip install opensearch-py
