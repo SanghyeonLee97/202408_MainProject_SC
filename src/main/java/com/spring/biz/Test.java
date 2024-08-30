@@ -27,7 +27,7 @@ public class Test {
 	
 	@RequestMapping(value="/insert.do")
 	public String insert() {
-		String name = "홍길동";
+		String name = "마이바티스로 넣은 데이터";
 		ss.selectList("testName.testInsert", name);
 		return "home";
 	}
