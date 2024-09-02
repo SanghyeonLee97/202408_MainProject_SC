@@ -27,8 +27,12 @@ public class Test {
 	
 	@RequestMapping(value="/insert.do")
 	public String insert() {
-		String name = "마이바티스로 넣은 데이터";
-		ss.selectList("testName.testInsert", name);
+		HashMap<String, Object> Map = new HashMap<>();
+		int id = 5;
+		String name = "qwdqwdqwd";
+		Map.put("id", id);
+		Map.put("name", name);
+		ss.selectList("testName.testInsert", Map);
 		return "home";
 	}
 	
