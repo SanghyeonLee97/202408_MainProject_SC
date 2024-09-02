@@ -20,7 +20,7 @@ public class IndexController {
     public String connectIndex(HttpServletResponse response) {
     	indexService.setIndexHeaders(response);
         
-        System.out.println("Test"); // 콘솔에 "Test" 출력
-        return "index"; // index.jsp로 이동
+        System.out.println("Test");
+        return "index";
     }
 }
