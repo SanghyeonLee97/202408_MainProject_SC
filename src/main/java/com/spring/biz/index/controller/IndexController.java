@@ -1,18 +1,24 @@
-package com.spring.biz.common;
+package com.spring.biz.index.controller;
 
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.spring.biz.index.service.IndexService;
+
+
+//index 접근시 반드시 실행
 @Controller
 public class IndexController {
 	
+	@Autowired
+	private IndexService indexService;
+	
     @RequestMapping("/index")
     public String connectIndex(HttpServletResponse response) {
-    	response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
-        response.setHeader("Pragma", "no-cache");
-        response.setDateHeader("Expires", 0);
+    	indexService.setIndexHeaders(response);
         
         System.out.println("Test"); // 콘솔에 "Test" 출력
         return "index"; // index.jsp로 이동
