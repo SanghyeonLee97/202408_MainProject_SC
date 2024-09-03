@@ -20,5 +20,6 @@
     <!-- 매퍼 설정 -->
     <mappers>
         <mapper resource="mapper/MyMapper.xml"/>
+       <mapper resource="com/spring/biz/member/mapper/MemberMapper.xml"/>
     </mappers>
 </configuration>
