@@ -8,7 +8,7 @@
 </head>
 <body>
 	<!-- 마이바티스 작동 테스트 -->
-	<a href="select.do">전체출력테스트</a>
+	<a href="membertest.do">전체출력테스트</a>
 	<a href="insert.do">삽입테스트</a>
 	<a href="update.do">수정테스트</a>
 	<a href="delete.do">삭제테스트</a>
