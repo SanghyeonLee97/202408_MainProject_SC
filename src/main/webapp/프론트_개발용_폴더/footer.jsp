@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ include file="../WEB-INF/views/common/header.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -37,9 +38,9 @@ a:visited {
 	<div id='wrap'>
         <footer>
         	<nav>
-        		<a href=''>개인정보처리방침</a>
-        		<a href=''>이용약관</a>
-        		<a href=''>고객센터</a>
+        		<a href='' id='footer_A'>개인정보처리방침</a>
+        		<a href='' id='footer_A'>이용약관</a>
+        		<a href='' id='footer_A'>고객센터</a>
         	</nav>
        		<hr>
 				<p>
