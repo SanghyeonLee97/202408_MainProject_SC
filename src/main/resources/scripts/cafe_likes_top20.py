@@ -15,7 +15,7 @@ import json
 import sys
 
 # UTF-8 인코딩 설정 (파이썬에서 실행 시 주석처리 해야함, 자바에서 사용시 주석 해제)
-# sys.stdout.reconfigure(encoding='utf-8')
+sys.stdout.reconfigure(encoding='utf-8')
 
 
 # OpenSearch 클라이언트 설정
