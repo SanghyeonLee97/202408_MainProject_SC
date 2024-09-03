@@ -1,5 +1,6 @@
 package com.spring.biz.member.controller;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -12,8 +13,10 @@ import com.spring.biz.member.mapper.MemberMapper;
 
 @Controller
 public class MemberController{
+	
 	@Autowired
 	MemberMapper mapper;
+	
 	@RequestMapping("/membertest.do")
 	public String login() {
 		List<MemberDTO> mem = mapper.membertest();
@@ -22,6 +25,16 @@ public class MemberController{
 			
 		}
 		
+		return "home";
+	}
+	
+	@RequestMapping("/insert.do")
+	public String insert() {
+		HashMap<String, Object> Map = new HashMap<String, Object>();
+		int member_id = 103;
+		String member_name = "요요요";
+		Map.put("id", member_id);
+		Map.put("name", member_name);
 		return "home";
 	}
 }
