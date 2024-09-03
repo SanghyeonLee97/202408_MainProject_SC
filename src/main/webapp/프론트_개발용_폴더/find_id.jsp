@@ -1,35 +1,25 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ include file="../WEB-INF/views/common/header.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>find_id</title>
 <style type="text/css">
-	main>section{
-		width: 800px;
-		margin-left: 200px;
-		padding-top: 40px;
-		padding-bottom: 40px;
-	}
-	main>section>header{
-		width:100%; height: 160px;
+	
+	main>section>header>div{
+		margin-left: 870px;
+		margin-top: 100px;
 	}
 	main>section>article{
-		width: 100%; height:300px;
-		margin-left: 150px;
+		height:200px;
+		margin-left: 800px;
+		margin-top: 100px;
 	}
 	main>section>nav{
-		width: 100%; height:100px;
-		margin-left: 260px;
+		margin-left: 800px;
 	}
-
-	header>div {
-		position: absolute;
-		top:30px;
-		text-align: center;
-		margin-left:300px;
-}
 	#idfindform{
 		height:35px;
 		width: 300px;
@@ -37,6 +27,8 @@
 	#idbt{
 		height: 50px;
 		width: 100px;
+		background:#F0CB85;
+		border: none;
 	}
 	
 	/*  text-decoration-line' 속성을 none */
