@@ -14,17 +14,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class Test {
 	@Autowired
-	SqlSession ss; 
+	Mapper mapper;
 	
 	@RequestMapping(value="/select.do")
 	public String select() {
-		List<DTO> test = ss.selectList("testName.testSelect");
+		List<DTO> test = mapper.testSelect();
 		for(int i=0;i<test.size();i++) {
 			System.out.println(test.get(i).getId()+" "+test.get(i).getName());
 		}
 		return "home";
 	}
-	
+	/*
 	@RequestMapping(value="/insert.do")
 	public String insert() {
 		HashMap<String, Object> Map = new HashMap<>();
@@ -54,5 +54,5 @@ public class Test {
 		ss.selectList("testName.testDelete",id);
 		return "home";
 	}
-
+*/
 }
