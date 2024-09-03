@@ -8,7 +8,7 @@
 <title>회원가입</title>
 <style type="text/css">
 	section>article {
-		
+	margin-top: 100px;	
 	}
 	
 	body {
@@ -16,9 +16,11 @@
 	}	
 
  	#regbt {
- 		width: 100px;
- 		height: 30px;
- 		background:#FFE6E6;
+ 		width: 150px;
+ 		height: 50px;
+ 		background:#F0CB85;
+ 		margin-top: 70px;
+ 		border: none;
  	}
  
 </style>
@@ -40,8 +42,8 @@
  						  <input type='radio' name='gender' value='male' />남성<br><br>
   					
 				<h4>선호하는 까페 취향을 골라주세요</h4>
-					<input type='radio' name='cafe' value='franchise' />프랜차이즈
- 					<input type='radio' name='cafe' value='individual' />개인<br>
+					<input type='checkbox' name='cafe' value='franchise' />프랜차이즈
+ 					<input type='checkbox' name='cafe' value='individual' />개인<br>
  				<h4>분위기</h4>
  					<input type="checkbox" name="" value="">까페에서 공부하는 분위기<br><br>
  					<input type="checkbox" name="" value="">까페에서 수다떠는 분위기<br><br>
