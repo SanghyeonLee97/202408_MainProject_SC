@@ -11,7 +11,7 @@ import sys
 
 
 # UTF-8 인코딩 설정
-# sys.stdout.reconfigure(encoding='utf-8')
+sys.stdout.reconfigure(encoding='utf-8')
 
 # OpenSearch 클라이언트 설정
 es = OpenSearch('http://localhost:9200')
