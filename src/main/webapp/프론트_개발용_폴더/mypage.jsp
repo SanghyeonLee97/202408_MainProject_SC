@@ -1,32 +1,60 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ include file="../WEB-INF/views/common/header.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>회원가입</title>
+<title>내 정보 수정</title>
 <style type="text/css">
-	section>article {
+	section>aside{
+	
+		width: 200px; height: 400px;
+		float: left;
+		background-color: beige; 
 		
 	}
-	
-	body {
-		text-align: center;
-	}	
-
- 	#regbt {
- 		width: 100px;
- 		height: 30px;
- 		background:#FFE6E6;
- 	}
- 
+	section>article{
+		width: 500px;
+		height: 800px;
+		float: left;
+		margin-left: 600px;
+		margin-top: 100px;
+	}
+	section>header{
+		margin-left: 900px;
+		margin-top: 70px;
+	}
+	#mypagebt {
+		position: relative;
+		top:750px;
+		right: 300px;
+		border: none;
+		width: 100px;
+		height: 40px;
+		background: #F0CB85;
+	}
 </style>
 </head>
+
 <body>
 	<main>
 		<section>
+			<aside>
+				<ul>
+					<li><a href="">내 정보 수정</a></li>
+				</ul>
+				<h4>나의 활동</h4>
+				<ul>
+					<li><a href="">좋아요 누른 까페</a></li>
+					<li><a href="">리뷰를 작성한 까페</a></li>
+				</ul>
+				<ul>
+					<li><a href=""></a>회원탈퇴</li>
+				</ul>
+			</aside>
 			<header>
-				<div><h2>회원가입</h2></div>
+				<h3>내 정보 수정</h3>
 			</header>
 			<article>
 				<form id="" action="">
@@ -50,10 +78,9 @@
  					
 				
 				</form>
-			
 			</article>
 			<nav>
-					<button id="regbt" type="submit" form="" >회원가입</button>
+					<button id="mypagebt" type="submit" form="" >수정</button>
 			</nav>
 		</section>
 	</main>
