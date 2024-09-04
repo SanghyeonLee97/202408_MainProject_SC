@@ -17,6 +17,7 @@
             <img src="https://${likeCafe.IMAGE_URL}" width="300px" height="300px">
         </c:if>
     </c:forEach>
+    <a href="likeCafeMore.do">더보기</a>
     <hr>
     <h1>#리뷰가 많은 카페</h1>
     <c:forEach var="reviewsCafe" items="${RRArrCDTO}" varStatus="status">
@@ -25,5 +26,6 @@
             <img src="https://${reviewsCafe.IMAGE_URL}" width="300px" height="300px">
         </c:if>
     </c:forEach>
+    <a href="reviewsCafeMore.do">더보기</a>
 </body>
 </html>

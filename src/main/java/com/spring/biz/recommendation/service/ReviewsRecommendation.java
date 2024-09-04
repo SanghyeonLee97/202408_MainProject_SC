@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import com.spring.biz.common.dto.CafeDTO;
 import com.spring.biz.common.util.PythonRead;
 
+//요청을 받으면 cafe_reviews_top20.py를 실행시키고 결과를 ArrayList<CafeDTO>로 변환하여 반환하는 서비스
 @Service
 public class ReviewsRecommendation {
 	
