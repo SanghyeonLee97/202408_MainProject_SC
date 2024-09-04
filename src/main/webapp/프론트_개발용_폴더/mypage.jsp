@@ -13,14 +13,15 @@
 		width: 200px; height: 400px;
 		float: left;
 		background-color: beige; 
-		margin-left: 400px;
+		margin-left: 300px;
+		margin-right: 200px;
 		
 	}
 	section>article{
 		width: 500px;
 		height: 800px;
 		float: left;
-		margin-left: 200px;
+		margin-left: 300px;
 		margin-top: 50px;
 	}
 	section>header{
@@ -29,8 +30,7 @@
 	}
 	 #mypagebt {
 		position: relative;
-		top:850px;
-		right: 350px;
+		top : 30px;
 		border: none;
 		width: 150px;
 		height: 40px;
@@ -41,7 +41,17 @@
  		height: 30px;
  	}
  	
-
+	#mypagediv{
+		background-color:#FAFAD2; 
+	    padding: 50px;
+	    display: flex;
+	    flex-direction: column;
+	    align-items: center;
+	    margin-top: 100px;
+	    width: 500px;
+	   
+	    
+	}
 </style>
 </head>
 
@@ -61,37 +71,39 @@
 					<li><a href=""></a>회원탈퇴</li>
 				</ul>
 			</aside>
-			<header>
-				<h2>내 정보 수정</h2>
-			</header>
-			<article>
-				<form id="" action="">
-				  	이메일&nbsp;&nbsp;&nbsp;&nbsp;
-				        <input id="regform" type="text" placeholder="aaa@aaa.com" name="Email"><br><br>
-					비밀번호&nbsp;&nbsp;<input id="regform" type="text" name="memberPw"><br><br>
-					이름&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					 	<input id="regform" type="text" name="memberName"><br><br>
-					전화번호&nbsp; <input id="regform" type="tel" name="memberTel"><br><br>
-					생년월일 &nbsp;<input id="regform" type="date" name="birth"><br><br>
-					성별&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 	 
-						  <input type='radio' name='gender' value='female' />여성 &nbsp;&nbsp;
- 						  <input type='radio' name='gender' value='male' />남성<br><br>
-  					
-				<h4>선호하는 까페 취향을 골라주세요 (중복가능)</h4>
-					<input type='checkbox' name='cafe' value='franchise' />프랜차이즈&nbsp;&nbsp;
- 					<input type='checkbox' name='cafe' value='individual' />개인<br>
- 				<h4>분위기  (중복가능)</h4>
- 					<input type="checkbox" name="" value="">까페에서 공부하는 분위기<br><br>
- 					<input type="checkbox" name="" value="">까페에서 수다떠는 분위기<br><br>
- 					<input type="checkbox" name="" value="">까페에서 연인과 데이트하는 분위기<br><br>
- 					<input type="checkbox" name="" value="">인스타 감성으로 사진찍기 좋은 까페<br><br>
- 					<input type="checkbox" name="" value="">체험,테마 위주 까페 
-				
-				</form>
-			</article>
-			<nav>
-					<button id="mypagebt" type="submit" form="" >수정</button>
-			</nav>
+			<div id="mypagediv">
+				<header>
+					<h2>내 정보 수정</h2>
+				</header>
+				<article>
+					<form id="" action="">
+					  	이메일&nbsp;&nbsp;&nbsp;&nbsp;
+					        <input id="regform" type="text" placeholder="aaa@aaa.com" name="Email"><br><br>
+						비밀번호&nbsp;&nbsp;<input id="regform" type="text" name="memberPw"><br><br>
+						이름&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						 	<input id="regform" type="text" name="memberName"><br><br>
+						전화번호&nbsp; <input id="regform" type="tel" name="memberTel"><br><br>
+						생년월일 &nbsp;<input id="regform" type="date" name="birth"><br><br>
+						성별&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 	 
+							  <input type='radio' name='gender' value='female' />여성 &nbsp;&nbsp;
+	 						  <input type='radio' name='gender' value='male' />남성<br><br>
+	  					
+					<h4>선호하는 까페 취향을 골라주세요 (중복가능)</h4>
+						<input type='checkbox' name='cafe' value='franchise' />프랜차이즈&nbsp;&nbsp;
+	 					<input type='checkbox' name='cafe' value='individual' />개인<br>
+	 				<h4>분위기  (중복가능)</h4>
+	 					<input type="checkbox" name="" value="">까페에서 공부하는 분위기<br><br>
+	 					<input type="checkbox" name="" value="">까페에서 수다떠는 분위기<br><br>
+	 					<input type="checkbox" name="" value="">까페에서 연인과 데이트하는 분위기<br><br>
+	 					<input type="checkbox" name="" value="">인스타 감성으로 사진찍기 좋은 까페<br><br>
+	 					<input type="checkbox" name="" value="">체험,테마 위주 까페 
+					
+					</form>
+				</article>
+				<nav>
+						<button id="mypagebt" type="submit" form="" >수정하기</button>
+				</nav>
+			</div>
 		</section>
 	</main>
 </body>
