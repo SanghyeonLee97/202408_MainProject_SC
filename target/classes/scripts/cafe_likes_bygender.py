@@ -5,6 +5,9 @@ Created on Tue Sep  3 20:36:56 2024
 @author: ledle
 """
 
+
+#%% 성별 좋아요 Top20 반환
+
 from opensearchpy import OpenSearch
 import json
 import sys
@@ -13,11 +16,14 @@ import sys
 sys.stdout.reconfigure(encoding='utf-8')
 
 # OpenSearch 클라이언트 설정
+try:
+    es = OpenSearch('http://localhost:9200')
+except Exception as e:
+    print(f"Error connecting to OpenSearch: {e}")
+    exit(1)
 
-es = OpenSearch('http://localhost:9200')
 
-
-gender = sys.argv[1]
+gender = sys.argv[1] # 자바에서 인자로 넘겨받아야 함
 
 # 쿼리 생성
 query = {
