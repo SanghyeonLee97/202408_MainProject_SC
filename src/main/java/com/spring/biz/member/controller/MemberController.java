@@ -31,7 +31,7 @@ public class MemberController{
 		
 		return "home";
 	}
-	
+	//회원가입
 	@RequestMapping(value="/프론트_개발용_폴더/addMember.do",method = RequestMethod.POST)
 	public String addMember(MemberDTO memberDTO) {
 		System.out.println("========등록처리");
@@ -41,5 +41,8 @@ public class MemberController{
 		memberService.addMember(memberDTO);
 		return "redirect:login.jsp";
 	}
+	
+	//로그인
+	
 }
 
