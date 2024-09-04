@@ -43,6 +43,10 @@ public class MemberController{
 	}
 	
 	//로그인
-	
+	@RequestMapping(value="/프론트_개발용_폴더/login.do",method = RequestMethod.POST)
+	public String login(MemberDTO memberDTO) {
+		System.out.println("============로그인처리");
+		return "redirect:Main";
+	}
 }
 
