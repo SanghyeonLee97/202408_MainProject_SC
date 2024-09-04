@@ -60,7 +60,7 @@
 				<div><h2>로그인</h2></div>
 			</header>
 			<article>
-				<form id="" action="login.do">
+				<form id="" action="login.do" method="post">
 					<input id="loginput" type="text" name="" placeholder="아이디" ><br><br>
 					<input id="loginput" type="text" name="" placeholder="비밀번호" ><br><br>
 				<button id="loginbt"  type="submit" >로그인</button><br><br>
