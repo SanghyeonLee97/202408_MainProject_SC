@@ -8,25 +8,32 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
-	section>aside{
+		section>aside{
 	
-			width: 200px; height: 400px;
-			float: left;
-			background-color: #FFE4E1; 
+		width: 200px; height: 400px;
+		float: left;
+		background-color: #FFE4E1;
+		margin-left: 300px;
+		margin-top: 50px;
 			 
 	}
-		section>article>div{
+	section>article {
+		width: 1000px;
+		float: left;
+	}
+	section>article>div{
 		width: 300px; 
 		height: 300px;
 		float: left;
 		background: beige; 
-		margin-left: 100px;
+		margin-left: 130px;
 		margin-top: 70px;
 	}
 	section>header{
 		margin-left: 870px;
 		margin-top: 40px;
 	}
+	
 </style>
 </head>
 <body>
@@ -50,20 +57,16 @@
 			</header>
 			<article>
 				<div>
-					<img alt="" src="">
-					<a href="">ㅇㅇ까페</a>
+					<a href=""><img alt="" src="">ㅇㅇ까페</a>
 				</div>
 				<div>
-					<img alt="" src="">
-					<a href="">ㅇㅇ까페</a>
+					<a href=""><img alt="" src="">ㅇㅇ까페</a>
 				</div>
 				<div>
-					<img alt="" src="">
-					<a href="">ㅇㅇ까페</a>
+					<a href=""><img alt="" src="">ㅇㅇ까페</a>
 				</div>
 				<div>
-					<img alt="" src="">
-					<a href="">ㅇㅇ까페</a>
+					<a href=""><img alt="" src="">ㅇㅇ까페</a>
 				</div>
 			</article>
 		</section>

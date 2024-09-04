@@ -58,20 +58,16 @@
 			</header>
 			<article>
 				<div>
-					<img alt="" src=""><br>
-					<a href="">ㅇㅇ까페</a>
+					<a href=""><img alt="" src="">ㅇㅇ까페</a>
 				</div>
 				<div>
-					<img alt="" src="">
-					<a href="">ㅇㅇ까페</a>
+					<a href=""><img alt="" src="">ㅇㅇ까페</a>
 				</div>
 				<div>
-					<img alt="" src="">
-					<a href="">ㅇㅇ까페</a>
+					<a href=""><img alt="" src="">ㅇㅇ까페</a>
 				</div>
 				<div>
-					<img alt="" src="">
-					<a href="">ㅇㅇ까페</a>
+					<a href=""><img alt="" src="">ㅇㅇ까페</a>
 				</div>
 				
 			</article>
