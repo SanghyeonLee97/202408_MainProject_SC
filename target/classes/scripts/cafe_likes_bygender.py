@@ -17,7 +17,7 @@ sys.stdout.reconfigure(encoding='utf-8')
 es = OpenSearch('http://localhost:9200')
 
 
-gender = "M" #sys.argv[1]
+gender = sys.argv[1]
 
 # 쿼리 생성
 query = {
