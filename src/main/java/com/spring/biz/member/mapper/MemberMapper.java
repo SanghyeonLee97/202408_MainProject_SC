@@ -7,4 +7,5 @@ import com.spring.biz.member.dto.MemberDTO;
 public interface MemberMapper {
 
 	List<MemberDTO> membertest();
+	public void addMember(MemberDTO memberDTO);
 }
