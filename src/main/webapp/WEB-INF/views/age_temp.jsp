@@ -9,12 +9,12 @@
 </head>
 <body>
 	<h1>
-		<a href="age.do?age=10대">10대</a>
-		<a href="age.do?age=20대">20대</a>
-		<a href="age.do?age=30대">30대</a>
-		<a href="age.do?age=40대">40대</a>
-		<a href="age.do?age=50대">50대</a>
-		<a href="age.do?age=60대">60대</a>
+		<a href="age.do?age=10">10대</a>
+		<a href="age.do?age=20">20대</a>
+		<a href="age.do?age=30">30대</a>
+		<a href="age.do?age=40">40대</a>
+		<a href="age.do?age=50">50대</a>
+		<a href="age.do?age=60">60대</a>
 	</h1>
 
 	<c:forEach var="likeCafe" items="${ARArrCDTO}">
