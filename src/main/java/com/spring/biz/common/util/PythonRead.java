@@ -17,7 +17,7 @@ import org.springframework.stereotype.Component;
 //파이썬 파일이름을 입력받아서 실행시킨후 결과를 jsonArray로 반환하는 코드
 @Component
 public class PythonRead {
-	public JSONArray pythonRead(String pyName) {
+	public JSONArray pythonRead(String pyName,String argument) {
 		try {
             Resource resource = new ClassPathResource("scripts/"+pyName);
             InputStream inputStream = resource.getInputStream();
@@ -33,8 +33,15 @@ public class PythonRead {
             try (BufferedWriter writer = new BufferedWriter(new FileWriter(tempScript))) {
                 writer.write(scriptContent.toString());
             }
-            
-        	ProcessBuilder pb = new ProcessBuilder("python",tempScript.getAbsolutePath());
+            ProcessBuilder pb;
+            System.out.println(argument);
+            if(argument==null || argument.equals("")) {
+            	pb = new ProcessBuilder("python",tempScript.getAbsolutePath());
+            	System.out.println("트루다");
+            }else {
+            	System.out.println("펄스다");
+            	pb = new ProcessBuilder("python",tempScript.getAbsolutePath(),argument);
+            }
             Process p = pb.start();
 
             BufferedReader in = new BufferedReader(new InputStreamReader(p.getInputStream(), StandardCharsets.UTF_8));

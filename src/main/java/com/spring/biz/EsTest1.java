@@ -13,7 +13,7 @@ public class EsTest1 {
 	
 	public static void main(String[] args) {
         try {
-        	ProcessBuilder pb = new ProcessBuilder("python","src/main/resources/scripts/cafe_list.py");
+        	ProcessBuilder pb = new ProcessBuilder("python","src/main/resources/scripts/cafe_likes_byage.py","10");
             Process p = pb.start();
 
             BufferedReader in = new BufferedReader(new InputStreamReader(p.getInputStream(), StandardCharsets.UTF_8));

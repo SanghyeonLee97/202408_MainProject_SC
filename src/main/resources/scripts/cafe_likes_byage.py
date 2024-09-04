@@ -27,7 +27,7 @@ age_group = sys.argv[1] # 자바에서 인자로 넘겨받아야 함 (주의: '1
 query = {
   "query": {
     "term": {
-      "age_group.keyword": age_group
+      "age_group.keyword": age_group+'대'
     }
   },
   "sort": [

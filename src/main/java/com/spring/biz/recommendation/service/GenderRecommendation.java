@@ -10,18 +10,17 @@ import org.springframework.stereotype.Service;
 import com.spring.biz.common.dto.CafeDTO;
 import com.spring.biz.common.util.PythonRead;
 
-//요청을 받으면 cafe_reviews_top20.py를 실행시키고 결과를 ArrayList<CafeDTO>로 변환하여 반환하는 서비스
 @Service
-public class ReviewsRecommendation {
+public class GenderRecommendation {
 	
 	@Autowired
 	PythonRead pythonRead;
 	
-	public ArrayList<CafeDTO> reviewsRecommendation(){
+	public ArrayList<CafeDTO> genderRecommendation(String pyName,String gender){
 		ArrayList<CafeDTO> arrcdto = new ArrayList<CafeDTO>();
 		
 		try {
-			JSONArray jsonArray = pythonRead.pythonRead("cafe_reviews_top20.py",null);
+			JSONArray jsonArray = pythonRead.pythonRead(pyName,gender);
 
             for (int i = 0; i < jsonArray.length(); i++) {
             	CafeDTO cdto = new CafeDTO();
@@ -42,5 +41,4 @@ public class ReviewsRecommendation {
             return null;
         }
 	}
-
 }

@@ -19,9 +19,9 @@ public class LikeRecommendation {
 	
 	public ArrayList<CafeDTO> likeRecommendation(){
 		ArrayList<CafeDTO> arrcdto = new ArrayList<CafeDTO>();
-		
+		ArrayList<CafeDTO> arrcdto2 = new ArrayList<CafeDTO>();
 		try {
-			JSONArray jsonArray = pythonRead.pythonRead("cafe_likes_top20.py");
+			JSONArray jsonArray = pythonRead.pythonRead("cafe_likes_top20.py",null);
 
             for (int i = 0; i < jsonArray.length(); i++) {
             	CafeDTO cdto = new CafeDTO();
@@ -33,6 +33,7 @@ public class LikeRecommendation {
                 cdto.setIMAGE_URL(obj.optString("image_url", "N/A"));
                 
                 arrcdto.add(cdto);
+                
                 
             }
             return arrcdto;
