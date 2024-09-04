@@ -7,23 +7,27 @@
 <meta charset="UTF-8">
 <title>find_pw</title>
 <style type="text/css">
-
-	main>section>header>div{
-		margin-left: 870px;
-		margin-top: 100px;
+	main{
+	display: flex;
+    justify-content: center;
+	
 	}
+	main>section{
+	background-color:#FAFAD2; 
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 100px;
+    width: 400px;
+	} 
 	main>section>article{
 		height:200px;
-		margin-left: 800px;
-		margin-top: 100px;
+		margin-top: 30px;
 	}
-	main>section>nav{
-		margin-left: 800px;
-	}
-
 	#pwfindform {
 		height:35px;
-		width: 300px;
+		width: 300px; 
 	
 	}
  	#pwbt{

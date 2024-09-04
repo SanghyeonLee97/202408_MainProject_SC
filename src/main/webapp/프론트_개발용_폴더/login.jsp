@@ -7,17 +7,30 @@
 <meta charset="UTF-8">
 <title>login</title>
 <style type="text/css">
+	main {
+    display: flex;
+    justify-content: center;
+}
+	main>section{
+	background-color:#FAFAD2; 
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 100px;
+    width: 400px;
+	} 
+	
 	main>section>header>div{
-		margin-left: 900px;
-		margin-top: 100px;
+	
+	
 	}
 	main>section>article{
 		height:200px;
-		margin-left: 800px;
-		margin-top: 100px;
+		
 	}
 	main>section>nav{
-		margin-left: 800px;
+	/* 	margin-left: 800px; */
 	}
 	#loginput{
 		height:35px;
@@ -32,10 +45,11 @@
 	}
 	#loginbt{
 		height: 50px;
-		width: 300px;
+		width: 310px;
 		background:#F0CB85;
 		border: none;
 	}
+	
 	
 </style>
 </head>

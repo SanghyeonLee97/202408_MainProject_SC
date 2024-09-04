@@ -7,18 +7,30 @@
 <meta charset="UTF-8">
 <title>find_id</title>
 <style type="text/css">
+	main{
+	display: flex;
+    justify-content: center;
 	
+	}
+	main>section{
+	background-color:#FAFAD2; 
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 100px;
+    width: 400px;
+	} 
 	main>section>header>div{
-		margin-left: 870px;
-		margin-top: 100px;
+	
 	}
 	main>section>article{
 		height:200px;
-		margin-left: 800px;
-		margin-top: 100px;
+		margin-top: 30px;
+
 	}
 	main>section>nav{
-		margin-left: 800px;
+		
 	}
 	#idfindform{
 		height:35px;
@@ -31,7 +43,7 @@
 		border: none;
 	}
 	
-	/*  text-decoration-line' 속성을 none */
+	
 
 </style>
 </head>
