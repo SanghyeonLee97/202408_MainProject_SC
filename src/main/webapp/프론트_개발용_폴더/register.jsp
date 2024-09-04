@@ -31,15 +31,15 @@
 			<header>
 				<div><h2>회원가입</h2></div>
 			</header>
+				<form action="addMember.do" method="post">
 			<article>
-				<form id="" action="">
-				        이메일<input type="text" placeholder="aaa@aaa.com" name="Email"><br><br>
-					비밀번호<input type="text" name="memberPw"><br><br>
-					이름 <input type="text" name="memberName"><br><br>
-					전화번호 <input type="tel" name="memberTel"><br><br>
-					생년월일 <input type="date" name="birth"><br><br>
-					성별 	  <input type='radio' name='gender' value='female' />여성
- 						  <input type='radio' name='gender' value='male' />남성<br><br>
+				        이메일<input type="text" placeholder="aaa@aaa.com" name="email"><br><br>
+					비밀번호<input type="password" name="pw"><br><br>
+					이름 <input type="text" name="member_name"><br><br>
+					전화번호 <input type="tel" name="member_tel"><br><br>
+					생년월일 <input type="date" name="birthdate"><br><br>
+					성별 	  <input type='radio' name='gender' value='F' />여성
+ 						  <input type='radio' name='gender' value='M' />남성<br><br>
   					
 				<h4>선호하는 까페 취향을 골라주세요</h4>
 					<input type='checkbox' name='cafe' value='franchise' />프랜차이즈
@@ -52,12 +52,12 @@
  					<input type="checkbox" name="" value="">체험,테마 위주 까페 
  					
 				
-				</form>
 			
 			</article>
 			<nav>
-					<button id="regbt" type="submit" form="" >회원가입</button>
+					<input id="regbt" type="submit" value="등록">
 			</nav>
+				</form>
 		</section>
 	</main>
 </body>

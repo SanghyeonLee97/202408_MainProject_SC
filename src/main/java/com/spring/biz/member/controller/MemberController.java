@@ -7,15 +7,19 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.spring.biz.member.dto.MemberDTO;
 import com.spring.biz.member.mapper.MemberMapper;
+import com.spring.biz.member.service.MemberService;
 
 @Controller
 public class MemberController{
 	
 	@Autowired
 	MemberMapper mapper;
+	@Autowired
+	MemberService memberService;
 	
 	@RequestMapping("/membertest.do")
 	public String login() {
@@ -28,14 +32,14 @@ public class MemberController{
 		return "home";
 	}
 	
-	@RequestMapping("/insert.do")
-	public String insert() {
-		HashMap<String, Object> Map = new HashMap<String, Object>();
-		int member_id = 103;
-		String member_name = "요요요";
-		Map.put("id", member_id);
-		Map.put("name", member_name);
-		return "home";
+	@RequestMapping(value="/프론트_개발용_폴더/addMember.do",method = RequestMethod.POST)
+	public String addMember(MemberDTO memberDTO) {
+		System.out.println("========등록처리");
+		if(memberDTO == null) {
+			return "redirect:register.jsp";
+		}
+		memberService.addMember(memberDTO);
+		return "redirect:login.jsp";
 	}
 }
 

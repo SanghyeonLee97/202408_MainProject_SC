@@ -1,5 +1,29 @@
 package com.spring.biz.member.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.spring.biz.member.dto.MemberDTO;
+import com.spring.biz.member.mapper.MemberMapper;
+
+@Service
 public class MemberService {
 
+	@Autowired
+	MemberMapper memberMapper;
+	
+	public void addMember(MemberDTO memberDTO) {
+		String birth = memberDTO.getBirthdate().replace("-", "").substring(2);
+		System.out.println("[insertBoard] 등록");
+		System.out.println("==================================="+memberDTO.getBirthdate()); 
+		System.out.println("==================================="+memberDTO.getEmail()); 
+		System.out.println("==================================="+memberDTO.getGender()); 
+		System.out.println("==================================="+memberDTO.getMember_id()); 
+		System.out.println("==================================="+memberDTO.getMember_name()); 
+		System.out.println("==================================="+memberDTO.getMember_tel()); 
+		System.out.println("==================================="+memberDTO.getPw()); 
+		System.out.println(memberDTO.getBirthdate().replace("-", "").substring(2));
+		memberDTO.setBirthdate(birth);
+		memberMapper.addMember(memberDTO);
+	}
 }

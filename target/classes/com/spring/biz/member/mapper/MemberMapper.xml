@@ -12,7 +12,7 @@
 	<insert id="addMember">
 		insert into member(email,pw,member_name,member_tel,birthdate,gender)
 			values
-			(#{email},#{memberPw},#{memberName},#{memberTel},#{birth},#{gender})
+			(#{email},#{pw},#{member_name},#{member_tel},#{birthdate},#{gender})
 	</insert>
 
 </mapper>

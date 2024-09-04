@@ -46,16 +46,16 @@
 				<div><h2>로그인</h2></div>
 			</header>
 			<article>
-				<form id="" action="">
+				<form id="" action="login.do">
 					<input id="loginput" type="text" name="" placeholder="아이디" ><br><br>
-					<input id="loginput" type="text" name="" placeholder="비밀번호" >
+					<input id="loginput" type="text" name="" placeholder="비밀번호" ><br><br>
+				<button id="loginbt"  type="submit" >로그인</button><br><br>
 				</form>
 			
 			</article>
 			<nav>
 
-				<button id="loginbt"  type="submit" form="" >로그인</button><br><br>
-				<button id="logbt"><a href="" style="color: black;">회원가입</a></button>
+				<button id="logbt"><a href="register.jsp" style="color: black;">회원가입</a></button>
 				<button id="logbt"><a href="" style="color: black;">아이디 찾기</a></button>
 				<button id="logbt"><a href="" style="color: black;">비밀번호 찾기</a></button>
 				
