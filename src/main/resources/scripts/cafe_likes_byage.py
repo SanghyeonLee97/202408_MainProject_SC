@@ -22,12 +22,12 @@ except Exception as e:
     exit(1)
 
 
-age_group = sys.argv[1] # 자바에서 인자로 넘겨받아야 함 (주의: '10대', '20대' 등의 형식으로 보내야함)
+age_group = sys.argv[1]+'대' # 자바에서 인자로 넘겨받아야 함 (주의: '10대', '20대' 등의 형식으로 보내야함)
 
 query = {
   "query": {
     "term": {
-      "age_group.keyword": age_group+'대'
+      "age_group.keyword": age_group
     }
   },
   "sort": [
