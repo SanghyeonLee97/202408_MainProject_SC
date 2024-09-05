@@ -8,4 +8,5 @@ public interface MemberMapper {
 
 	List<MemberDTO> membertest();
 	public void addMember(MemberDTO memberDTO);
+	public MemberDTO login(MemberDTO memberDTO);
 }
