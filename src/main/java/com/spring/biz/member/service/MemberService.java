@@ -33,4 +33,10 @@ public class MemberService {
 		System.out.println("====================="+memberDTO.getPw());
 		return memberMapper.login(memberDTO);
 	}
+	
+	public int emailCheck(String email) {
+		int cnt = memberMapper.emailCheck(email);
+		System.out.println("cnt==================="+cnt);
+		return cnt;
+	}
 }

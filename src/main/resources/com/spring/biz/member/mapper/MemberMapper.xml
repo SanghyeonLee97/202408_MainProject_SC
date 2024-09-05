@@ -9,12 +9,22 @@
 		select * from member;
 	</select>
 	
+	<!-- 회원가입 -->
 	<insert id="addMember">
 		insert into member(email,pw,member_name,member_tel,birthdate,gender)
 			values
 			(#{email},#{pw},#{member_name},#{member_tel},#{birthdate},#{gender})
 	</insert>
-	<select id="login">
+	
+	<!-- 가입여부 -->
+	<select id="emailCheck" resultType="int">
+		select count(email) from member where email=#{email}
+	</select>
+	
+	<!-- 로그인처리 -->
+	<select id="login" resultType="com.spring.biz.member.dto.MemberDTO" parameterType="String">
 		select email,pw from member where email=#{email} and pw=#{pw}
 	</select>
+	
+	
 </mapper>

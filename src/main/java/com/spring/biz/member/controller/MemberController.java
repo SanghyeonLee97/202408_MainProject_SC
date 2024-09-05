@@ -2,14 +2,19 @@ package com.spring.biz.member.controller;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.spring.biz.member.dto.MemberDTO;
 import com.spring.biz.member.mapper.MemberMapper;
@@ -56,16 +61,31 @@ public class MemberController{
 	@RequestMapping(value="/프론트_개발용_폴더/login.do",method = RequestMethod.POST)
 	public String login(MemberDTO memberDTO, HttpSession session) {
 		System.out.println("============로그인처리 post");
+		System.out.println("memberDTO==========="+memberDTO.getEmail());
 		
 		if(memberDTO.getEmail()==null || memberDTO.getEmail().equals("")) {
 			throw new IllegalArgumentException("login() - id not found");
 		}
 		MemberDTO dto = memberService.login(memberDTO);
-		if(dto==null) {
-			return "login.jsp";
+		if(dto==null || !memberDTO.getEmail().equals(dto.getEmail())|| !memberDTO.getPw().equals(dto.getPw())) {
+			return "redirect:loginpost.jsp";
 		}
 		session.setAttribute("user", dto);
+		System.out.println("dto======================="+dto.getEmail());
+		System.out.println("dto======================="+dto.getPw());
+		
 		return "redirect:Main.jsp";
+	}
+	
+	//이메일 중복체크
+	@ResponseBody
+	@RequestMapping(value="/프론트_개발용_폴더/emailCheck",method = RequestMethod.POST,produces = "application/json")
+	public Map<Object, Object> emailCheck(@RequestBody String email) throws Exception{
+		Map<Object, Object> map = new HashMap<Object, Object>();
+		int result=0;
+		result = memberService.emailCheck(email);
+		map.put("check", result);
+		return map;
 	}
 }
 

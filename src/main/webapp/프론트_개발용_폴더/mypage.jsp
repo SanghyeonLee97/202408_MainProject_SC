@@ -84,6 +84,7 @@
 					<li><a href="unregister.jsp">회원탈퇴</a></li>
 				</ul>
 			</aside>
+<<<<<<< HEAD
 			<div id="mypagediv">
 				<header>
 					<h2>내 정보 수정</h2>
@@ -117,6 +118,39 @@
 						<button id="mypagebt" type="submit" form="" >수정하기</button>
 				</nav>
 			</div>
+=======
+			<header>
+				<h2>내 정보 수정</h2>
+			</header>
+			<article>
+				<form id="" action="">
+				  	이메일&nbsp;&nbsp;&nbsp;&nbsp;
+				        <input id="regform" type="text" placeholder="aaa@aaa.com" name="Email"><br><br>
+					비밀번호&nbsp;&nbsp;<input id="regform" type="text" name="memberPw"><br><br>
+					이름&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					 	<input id="regform" type="text" name="memberName"><br><br>
+					전화번호&nbsp; <input id="regform" type="tel" name="memberTel"><br><br>
+					생년월일 &nbsp;<input id="regform" type="date" name="birth"><br><br>
+					성별&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 	 
+						  <input type='radio' name='gender' value='female' />여성 &nbsp;&nbsp;
+ 						  <input type='radio' name='gender' value='male' />남성<br><br>
+  					
+				<h4>선호하는 까페 취향을 골라주세요 (중복가능)</h4>
+					<input type='checkbox' name='cafe' value='F' />프랜차이즈&nbsp;&nbsp;
+ 					<input type='checkbox' name='cafe' value='P' />개인<br>
+ 				<h4>분위기  (중복가능)</h4>
+ 					<input type="checkbox" name="mood" value="M01">까페에서 공부하는 분위기<br><br>
+ 					<input type="checkbox" name="mood" value="M02">까페에서 수다떠는 분위기<br><br>
+ 					<input type="checkbox" name="mood" value="M03">까페에서 연인과 데이트하는 분위기<br><br>
+ 					<input type="checkbox" name="mood" value="M04">인스타 감성으로 사진찍기 좋은 까페<br><br>
+ 					<input type="checkbox" name="mood" value="M05">체험,테마 위주 까페 
+				
+				</form>
+			</article>
+			<nav>
+					<button id="mypagebt" type="submit" form="" >수정</button>
+			</nav>
+>>>>>>> e346e39 (백엔드 member)
 		</section>
 	</main>
 </body>
