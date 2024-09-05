@@ -13,18 +13,10 @@ public class EsTest1 {
 	
 	public static void main(String[] args) {
         try {
-        	ProcessBuilder pb = new ProcessBuilder("python","src/main/resources/scripts/cafe_likes_byage.py","10");
-            Process p = pb.start();
-
-            BufferedReader in = new BufferedReader(new InputStreamReader(p.getInputStream(), StandardCharsets.UTF_8));
-            StringBuilder output = new StringBuilder();
-            String line;
-            while ((line = in.readLine()) != null) {
-                output.append(line);
-            }
-
-            // 전체 출력 문자열을 JSON 배열로 변환
-            JSONArray jsonArray = new JSONArray(output.toString());
+        	PythonRead pr = new PythonRead();
+        	
+        	
+            JSONArray jsonArray = pr.pythonRead("general_search.py", "null");
 
             // 결과를 파싱하여 출력
             for (int i = 0; i < jsonArray.length(); i++) {
