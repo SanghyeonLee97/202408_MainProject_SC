@@ -21,7 +21,8 @@ except Exception as e:
     exit(1)
 
 # Step 1: `vw_member_like_index`에서 특정 회원의 선호 카페 유형과 분위기 검색
-member_id = "2"  # 특정 사용자 ID로 교체
+# member_id = "2"  # 파이썬에서 테스트 시 사용
+member_id = sys.argv[1]
 
 user_preference_query = {
     "query": {
