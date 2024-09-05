@@ -14,8 +14,8 @@ except Exception as e:
     exit(1)
 
 
-#searchTxt = sys.argv[1] # 자바에서 인자로 넘겨받아야 함
-searchTxt = '서교동'
+searchTxt = sys.argv[1] # 자바에서 인자로 넘겨받아야 함
+#searchTxt = '서교동'
 
 query = {
   "query": {
