@@ -15,34 +15,28 @@ except Exception as e:
 
 
 searchTxt = sys.argv[1] # 자바에서 인자로 넘겨받아야 함
-#searchTxt = '서교동'
+keywordTxt = sys.argv[2] 
 
-query = {
-  "query": {
-    "bool": {
-      "should": [
-        {
-          "match": {
-            "cafe_name.nori": searchTxt
+if keywordTxt == 'wifi' :
+  query = {
+    "query": {
+      "bool": {
+        "must": [
+          {
+            "match": {
+              "cafe_name.nori": searchTxt
+            }
+          },
+          {
+            "match": {
+              "wifi": keywordTxt
+            }
           }
-        },
-        {
-          "match": {
-            "add_old.nori": searchTxt
-          }
-        },
-        {
-          "match": {
-            "asub_info.nori": searchTxt
-          }
-        }
-      ]
-    }
-  },
-  "size": 500 # 최대 500개의 문서 반환
-}
-
-
+        ]
+      }
+    },
+    "size": 500 # 최대 500개의 문서 반환
+  }
 
 
 # 검색 쿼리 실행
@@ -57,26 +51,28 @@ results = [
         "site": hit['_source'].get('site', 'N/A'),
         "cafe_type": hit['_source'].get('cafe_type', 'N/A'),
         "add_road": hit['_source'].get('add_road', 'N/A'),
-        "add_old": hit['_source'].get('add_old', 'N/A'),
-        "latitude": hit['_source'].get('latitude', 'N/A'),
-        "longitude": hit['_source'].get('longitude', 'N/A'),
-        "open_close": hit['_source'].get('open_close', 'N/A'),
-        "cafe_tel": hit['_source'].get('cafe_tel', 'N/A'),
-        "sub_info": hit['_source'].get('sub_info', 'N/A'),
+        "add_old": hit['_source'].get('add_old', 'N/A'),        
         "wifi": hit['_source'].get('wifi', 'N/A'),
         "anientry": hit['_source'].get('anientry', 'N/A'),
         "parking": hit['_source'].get('parking', 'N/A'),
         "wheelchair": hit['_source'].get('wheelchair', 'N/A'),
         "playroom": hit['_source'].get('playroom', 'N/A'),
         "smokingroom": hit['_source'].get('smokingroom', 'N/A'),
-        "total_pointt": hit['_source'].get('total_pointt', 'N/A'),
-        "point1": hit['_source'].get('point1', 'N/A'),
-        "point2": hit['_source'].get('point2', 'N/A'),
-        "point3": hit['_source'].get('point3', 'N/A'),
-        "point4": hit['_source'].get('point4', 'N/A'),
-        "point5": hit['_source'].get('point5', 'N/A'),
+        "image_url": hit['_source'].get('image_url', 'N/A'),        
+        "like_cnt": hit['_source'].get('like_cnt', 'N/A'),
+        "review_cnt": hit['_source'].get('review_cnt', 'N/A'),
         "mood": hit['_source'].get('mood', 'N/A'),
-        "image_url": hit['_source'].get('image_url', 'N/A')
+        "mood_count": hit['_source'].get('mood_count', 'N/A'),
+        "m_like_cnt": hit['_source'].get('m_like_cnt', 'N/A'),
+        "f_like_cnt": hit['_source'].get('f_like_cnt', 'N/A'),
+        "age10_like_cnt": hit['_source'].get('age10_like_cnt', 'N/A'),
+        "age20_like_cnt": hit['_source'].get('age20_like_cnt', 'N/A'),
+        "age30_like_cnt": hit['_source'].get('age30_like_cnt', 'N/A'),
+        "age40_like_cnt": hit['_source'].get('age40_like_cnt', 'N/A'),
+        "age50_like_cnt": hit['_source'].get('age50_like_cnt', 'N/A'),
+        "age60_like_cnt": hit['_source'].get('age60_like_cnt', 'N/A'),
+        "last_mod_date": hit['_source'].get('last_mod_date', 'N/A')
+        
     }
     for hit in response['hits']['hits']
 ]
