@@ -7,7 +7,7 @@ Created on Tue Sep  3 19:38:30 2024
 
 
 
-#%% 좋아요 상위 20개 카페 데이터 반환
+#%% 좋아요 상위 50개 카페 데이터 반환 (새로운 버전)
 
 
 from opensearchpy import OpenSearch
@@ -25,30 +25,60 @@ except Exception as e:
     print(f"Error connecting to OpenSearch: {e}")
     exit(1)
 
-# 쿼리 설정
+
+# Step 1: 좋아요 (good = "Y") 집계 쿼리 설정 (keyword 서브필드 사용)
 query = {
-    "_source": ["image_url", "cafe_name", "cafe_id"],  # 필요한 필드만 선택
-    "size": 20,
+    "size": 0,
     "query": {
-        "match_all": {}  # 모든 문서를 검색
+        "term": {"good.keyword": "Y"}
     },
-    "sort": [
-        {"like_count": {"order": "desc"}}  # 좋아요 수에 따라 내림차순 정렬
-    ]
+    "aggs": {
+        "top_cafes": {
+            "terms": {
+                "field": "cafe_id",
+                "size": 20,
+                "order": {"_count": "desc"}
+            }
+        }
+    }
 }
 
-# 검색 쿼리 실행
-response = es.search(index="cafe_likes_index", body=query)
+# Step 2: 검색 쿼리 실행
+like_response = es.search(index="vw_member_act_index", body=query)
 
-# 검색 결과에서 필요한 필드만 추출
-results = [
-    {
-        "cafe_id": hit['_source'].get('cafe_id', 'N/A'),
+
+# Step 3: 추출된 cafe_id와 like_count 저장
+cafe_likes = {bucket['key']: bucket['doc_count'] for bucket in like_response['aggregations']['top_cafes']['buckets']}
+cafe_ids = list(cafe_likes.keys())
+
+
+# Step 4: vw_cafe_index에서 cafe_id, cafe_name, image_url 조회 쿼리 설정
+cafe_query = {
+    "query": {
+        "terms": {
+            "cafe_id": cafe_ids
+        }
+    },
+    "_source": ["cafe_id", "cafe_name", "image_url"],
+    "size": 50
+}
+
+# Step 5: cafe 정보 검색 쿼리 실행
+cafe_response = es.search(index="vw_cafe_index", body=cafe_query)
+
+# Step 6: cafe 정보와 like_count 결합
+final_results = []
+for hit in cafe_response['hits']['hits']:
+    cafe_id = hit['_source'].get('cafe_id', 'N/A')
+    final_results.append({
+        "cafe_id": cafe_id,
         "cafe_name": hit['_source'].get('cafe_name', 'N/A'),
-        "image_url": hit['_source'].get('image_url', 'N/A')
-    }
-    for hit in response['hits']['hits']
-]
+        "image_url": hit['_source'].get('image_url', 'N/A'),
+        "like_count": cafe_likes.get(cafe_id, 0)  # like_count 추가
+    })
 
-# JSON 배열 형식으로 결과를 문자열로 변환하여 출력
-print(json.dumps(results, ensure_ascii=False, indent=2))
+# Step 7: like_count (좋아요 수) 기준으로 재정렬
+final_results.sort(key=lambda x: x['like_count'], reverse=True)
+
+# Step 8: 최종 결과 JSON으로 출력
+print(json.dumps(final_results, ensure_ascii=False, indent=2))
