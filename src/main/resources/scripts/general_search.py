@@ -66,7 +66,7 @@ results = [
         "image_url": hit['_source'].get('image_url', 'N/A'),
         "like_count": hit['_source'].get('like_count', 0)
     }
-    for hit in response['hits']['hits']
+    for hit in response['hits']['hits']    
 ]
 
 
