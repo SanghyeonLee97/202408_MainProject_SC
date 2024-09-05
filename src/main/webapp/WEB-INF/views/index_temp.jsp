@@ -11,6 +11,7 @@
 <body>
 	<a href="gender.do?gender=M">성별 추천</a>
 	<a href="age.do?age=10">연령별 추천</a>
+	<a href="search.do">검색</a>
 	<h1>#좋아요가 많은 카페</h1>
 	<c:forEach var="likeCafe" items="${LRArrCDTO}" varStatus="status">
         <c:if test="${status.index lt 3}">

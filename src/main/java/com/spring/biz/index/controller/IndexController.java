@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.spring.biz.recommendation.service.LikeRecommendation;
 import com.spring.biz.recommendation.service.ReviewsRecommendation;
+import com.spring.biz.search.service.SearchService;
 
 //index 접근시 반드시 실행
 @Controller
@@ -17,6 +18,8 @@ public class IndexController {
 	LikeRecommendation likeRecommendation;
 	@Autowired
 	ReviewsRecommendation reviewsRecommendation;
+	@Autowired
+	SearchService ss;
 	
     @RequestMapping("/index_temp")
     public String connectIndex(Model model) {
@@ -35,5 +38,11 @@ public class IndexController {
     public String reviewsCafeMore(Model model) {
     	model.addAttribute("RRArrCDTO", reviewsRecommendation.reviewsRecommendation());
     	return "reviewsCafeMore_temp";
+    }
+    
+    @RequestMapping("search.do")
+    public String searchCafe(Model model) {
+    	model.addAttribute("SRArrCDTO", ss.searchService());
+    	return "search_temp";
     }
 }

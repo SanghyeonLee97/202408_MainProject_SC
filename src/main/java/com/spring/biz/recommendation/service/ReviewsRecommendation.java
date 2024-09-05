@@ -21,7 +21,7 @@ public class ReviewsRecommendation {
 		ArrayList<CafeDTO> arrcdto = new ArrayList<CafeDTO>();
 		
 		try {
-			JSONArray jsonArray = pythonRead.pythonRead("cafe_reviews_top20.py",null);
+			JSONArray jsonArray = pythonRead.pythonRead("cafe_reviews_top20.py","");
 
             for (int i = 0; i < jsonArray.length(); i++) {
             	CafeDTO cdto = new CafeDTO();
