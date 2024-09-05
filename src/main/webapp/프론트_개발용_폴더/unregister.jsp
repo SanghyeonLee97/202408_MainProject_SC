@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>회원탈퇴</title>
 <style type="text/css">
 	section>aside{
 	
@@ -17,12 +17,7 @@
 		margin-right: 200px;
 			 
 	}
-	section>article{
-	
-	}
-	section>header{
 
-	}
 	#unregister{
 		width: 350px;
 		height: 40px;
@@ -69,15 +64,15 @@
 		<section>
 			<aside>
 				<ul>
-					<li><a href="">내 정보 수정</a></li>
+					<li><a href="mypage.jsp">내 정보 수정</a></li>
 				</ul>
 				<h4>&nbsp;&nbsp;&nbsp;나의 활동</h4>
 				<ul>
-					<li><a href="">좋아요 누른 까페</a></li>
-					<li><a href="">리뷰를 작성한 까페</a></li>
+					<li><a href="mypage_like.jsp">좋아요 누른 까페</a></li>
+					<li><a href="mypage_review.jsp">리뷰를 작성한 까페</a></li>
 				</ul>
 				<ul>
-					<li><a href="">회원탈퇴</a></li>
+					<li><a href="unregister.jsp">회원탈퇴</a></li>
 				</ul>
 			</aside>
 			<div id="unregdiv">
