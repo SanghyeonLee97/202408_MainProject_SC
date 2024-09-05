@@ -16,7 +16,7 @@ public class EsTest1 {
         	PythonRead pr = new PythonRead();
         	
         	
-            JSONArray jsonArray = pr.pythonRead("general_search.py", "null");
+            JSONArray jsonArray = pr.pythonRead("general_search.py", "3");
 
             // 결과를 파싱하여 출력
             for (int i = 0; i < jsonArray.length(); i++) {
