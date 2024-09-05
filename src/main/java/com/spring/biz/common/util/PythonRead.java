@@ -33,15 +33,8 @@ public class PythonRead {
             try (BufferedWriter writer = new BufferedWriter(new FileWriter(tempScript))) {
                 writer.write(scriptContent.toString());
             }
-            ProcessBuilder pb;
-            System.out.println(argument);
-            if(argument==null || argument.equals("")) {
-            	pb = new ProcessBuilder("python",tempScript.getAbsolutePath());
-            	System.out.println("트루다");
-            }else {
-            	System.out.println("펄스다");
-            	pb = new ProcessBuilder("python",tempScript.getAbsolutePath(),argument);
-            }
+            
+        	ProcessBuilder pb = new ProcessBuilder("python",tempScript.getAbsolutePath(),argument);
             Process p = pb.start();
 
             BufferedReader in = new BufferedReader(new InputStreamReader(p.getInputStream(), StandardCharsets.UTF_8));
