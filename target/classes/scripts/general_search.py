@@ -17,7 +17,22 @@ except Exception as e:
 searchTxt = sys.argv[1] # 자바에서 인자로 넘겨받아야 함
 keywordTxt = sys.argv[2] 
 
-if keywordTxt == 'wifi' :
+if keywordTxt == '' :
+  query = {
+    "query": {
+      "bool": {
+        "must": [
+          {
+            "match": {
+              "cafe_name.nori": searchTxt
+            }
+          }
+        ]
+      }
+    },
+    "size": 500 # 최대 500개의 문서 반환
+  }
+else :
   query = {
     "query": {
       "bool": {
@@ -52,6 +67,8 @@ elif keywordTxt == '' :
     },
     "size": 500 # 최대 500개의 문서 반환
   }
+
+  
 
 
 # 검색 쿼리 실행

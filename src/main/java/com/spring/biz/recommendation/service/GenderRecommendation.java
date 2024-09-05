@@ -20,7 +20,7 @@ public class GenderRecommendation {
 		ArrayList<CafeDTO> arrcdto = new ArrayList<CafeDTO>();
 		
 		try {
-			JSONArray jsonArray = pythonRead.pythonRead(pyName,gender);
+			JSONArray jsonArray = pythonRead.pythonRead(pyName,gender,"");
 
             for (int i = 0; i < jsonArray.length(); i++) {
             	CafeDTO cdto = new CafeDTO();

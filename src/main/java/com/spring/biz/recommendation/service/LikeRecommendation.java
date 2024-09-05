@@ -21,7 +21,7 @@ public class LikeRecommendation {
 		ArrayList<CafeDTO> arrcdto = new ArrayList<CafeDTO>();
 		ArrayList<CafeDTO> arrcdto2 = new ArrayList<CafeDTO>();
 		try {
-			JSONArray jsonArray = pythonRead.pythonRead("cafe_likes_top20.py","");
+			JSONArray jsonArray = pythonRead.pythonRead("cafe_likes_top20.py","","");
 
             for (int i = 0; i < jsonArray.length(); i++) {
             	CafeDTO cdto = new CafeDTO();

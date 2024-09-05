@@ -16,11 +16,11 @@ public class SearchService {
 	@Autowired
 	PythonRead pythonRead;
 	
-	public ArrayList<CafeDTO> searchService(String keyWord){
+	public ArrayList<CafeDTO> searchService(String keyWord,String Category){
 		ArrayList<CafeDTO> arrcdto = new ArrayList<CafeDTO>();
 		
 		try {
-			JSONArray jsonArray = pythonRead.pythonRead("general_search.py",keyWord);
+			JSONArray jsonArray = pythonRead.pythonRead("general_search.py",keyWord,Category);
 
             for (int i = 0; i < jsonArray.length(); i++) {
             	CafeDTO cdto = new CafeDTO();
