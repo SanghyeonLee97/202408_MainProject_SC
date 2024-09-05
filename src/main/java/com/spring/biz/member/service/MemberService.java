@@ -14,7 +14,7 @@ public class MemberService {
 	
 	public void addMember(MemberDTO memberDTO) {
 		String birth = memberDTO.getBirthdate().replace("-", "").substring(2);
-		System.out.println("[insertBoard] 등록");
+		System.out.println("[insertmember] 등록");
 		System.out.println("==================================="+memberDTO.getBirthdate()); 
 		System.out.println("==================================="+memberDTO.getEmail()); 
 		System.out.println("==================================="+memberDTO.getGender()); 
@@ -25,5 +25,12 @@ public class MemberService {
 		System.out.println(memberDTO.getBirthdate().replace("-", "").substring(2));
 		memberDTO.setBirthdate(birth);
 		memberMapper.addMember(memberDTO);
+	}
+	
+	public MemberDTO login(MemberDTO memberDTO) {
+		System.out.println("[loginmember] 등록");
+		System.out.println("====================="+memberDTO.getEmail());
+		System.out.println("====================="+memberDTO.getPw());
+		return memberMapper.login(memberDTO);
 	}
 }

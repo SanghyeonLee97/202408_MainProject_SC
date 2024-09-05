@@ -50,19 +50,7 @@
 			</header>
 				<form action="addMember.do" method="post">
 			<article>
-<<<<<<< HEAD
-				<form id="" action="">
-				        이메일&nbsp;&nbsp;&nbsp;&nbsp;
-				        <input id="regform" type="text" placeholder="aaa@aaa.com" name="Email"><br><br>
-					비밀번호&nbsp;&nbsp;<input id="regform" type="text" name="memberPw"><br><br>
-					이름&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					 	<input id="regform" type="text" name="memberName"><br><br>
-					전화번호&nbsp; <input id="regform" type="tel" name="memberTel"><br><br>
-					생년월일 &nbsp;<input id="regform" type="date" name="birth"><br><br>
-					성별&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 	 
-						  <input type='radio' name='gender' value='female' />여성&nbsp;
- 						  <input type='radio' name='gender' value='male' />남성<br><br>
-=======
+
 				        이메일<input type="text" placeholder="aaa@aaa.com" name="email"><br><br>
 					비밀번호<input type="password" name="pw"><br><br>
 					이름 <input type="text" name="member_name"><br><br>
@@ -70,7 +58,7 @@
 					생년월일 <input type="date" name="birthdate"><br><br>
 					성별 	  <input type='radio' name='gender' value='F' />여성
  						  <input type='radio' name='gender' value='M' />남성<br><br>
->>>>>>> aa76aad3a023571234ac994edcb72862951f9455
+
   					
 				<h4>선호하는 까페 취향을 골라주세요 (중복가능)</h4>
 					<input type='checkbox' name='cafe' value='franchise' />프랜차이즈&nbsp;

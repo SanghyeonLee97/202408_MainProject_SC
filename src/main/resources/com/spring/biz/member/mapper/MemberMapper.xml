@@ -14,5 +14,7 @@
 			values
 			(#{email},#{pw},#{member_name},#{member_tel},#{birthdate},#{gender})
 	</insert>
-
+	<select id="login">
+		select email,pw from member where email=#{email} and pw=#{pw}
+	</select>
 </mapper>

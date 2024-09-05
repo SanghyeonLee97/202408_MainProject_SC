@@ -3,6 +3,8 @@ package com.spring.biz.member.controller;
 import java.util.HashMap;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -39,14 +41,31 @@ public class MemberController{
 			return "redirect:register.jsp";
 		}
 		memberService.addMember(memberDTO);
-		return "redirect:login.jsp";
+		return "redirect:login.do";
 	}
 	
 	//로그인
+	
+	@RequestMapping(value="/login.do", method=RequestMethod.GET)
+	public String loginView() {
+		System.out.println("=============로그인처리 get");
+
+		return "redirect:login.jsp";
+	}
+	
 	@RequestMapping(value="/프론트_개발용_폴더/login.do",method = RequestMethod.POST)
-	public String login(MemberDTO memberDTO) {
-		System.out.println("============로그인처리");
-		return "redirect:Main";
+	public String login(MemberDTO memberDTO, HttpSession session) {
+		System.out.println("============로그인처리 post");
+		
+		if(memberDTO.getEmail()==null || memberDTO.getEmail().equals("")) {
+			throw new IllegalArgumentException("login() - id not found");
+		}
+		MemberDTO dto = memberService.login(memberDTO);
+		if(dto==null) {
+			return "login.jsp";
+		}
+		session.setAttribute("user", dto);
+		return "redirect:Main.jsp";
 	}
 }
 
