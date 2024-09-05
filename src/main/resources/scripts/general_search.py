@@ -63,31 +63,8 @@ results = [
     {
         "cafe_id": hit['_source'].get('cafe_id', 'N/A'),
         "cafe_name": hit['_source'].get('cafe_name', 'N/A'),
-        "site": hit['_source'].get('site', 'N/A'),
-        "cafe_type": hit['_source'].get('cafe_type', 'N/A'),
-        "add_road": hit['_source'].get('add_road', 'N/A'),
-        "add_old": hit['_source'].get('add_old', 'N/A'),        
-        "wifi": hit['_source'].get('wifi', 'N/A'),
-        "anientry": hit['_source'].get('anientry', 'N/A'),
-        "parking": hit['_source'].get('parking', 'N/A'),
-        "wheelchair": hit['_source'].get('wheelchair', 'N/A'),
-        "playroom": hit['_source'].get('playroom', 'N/A'),
-        "smokingroom": hit['_source'].get('smokingroom', 'N/A'),
-        "image_url": hit['_source'].get('image_url', 'N/A'),        
-        "like_cnt": hit['_source'].get('like_cnt', 'N/A'),
-        "review_cnt": hit['_source'].get('review_cnt', 'N/A'),
-        "mood": hit['_source'].get('mood', 'N/A'),
-        "mood_count": hit['_source'].get('mood_count', 'N/A'),
-        "m_like_cnt": hit['_source'].get('m_like_cnt', 'N/A'),
-        "f_like_cnt": hit['_source'].get('f_like_cnt', 'N/A'),
-        "age10_like_cnt": hit['_source'].get('age10_like_cnt', 'N/A'),
-        "age20_like_cnt": hit['_source'].get('age20_like_cnt', 'N/A'),
-        "age30_like_cnt": hit['_source'].get('age30_like_cnt', 'N/A'),
-        "age40_like_cnt": hit['_source'].get('age40_like_cnt', 'N/A'),
-        "age50_like_cnt": hit['_source'].get('age50_like_cnt', 'N/A'),
-        "age60_like_cnt": hit['_source'].get('age60_like_cnt', 'N/A'),
-        "last_mod_date": hit['_source'].get('last_mod_date', 'N/A')
-        
+        "image_url": hit['_source'].get('image_url', 'N/A'),
+        "like_count": hit['_source'].get('like_count', 0)
     }
     for hit in response['hits']['hits']
 ]
