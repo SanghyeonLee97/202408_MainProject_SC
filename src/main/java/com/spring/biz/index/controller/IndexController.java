@@ -1,6 +1,8 @@
 package com.spring.biz.index.controller;
 
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -41,8 +43,8 @@ public class IndexController {
     }
     
     @RequestMapping("search.do")
-    public String searchCafe(Model model) {
-    	model.addAttribute("SRArrCDTO", ss.searchService());
+    public String searchCafe(HttpServletRequest request,Model model) {
+    	model.addAttribute("SRArrCDTO", ss.searchService(request.getParameter("keyWord")));
     	return "search_temp";
     }
 }
