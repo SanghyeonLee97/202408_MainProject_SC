@@ -29,7 +29,7 @@ if keywordTxt == 'wifi' :
           },
           {
             "match": {
-              "wifi": keywordTxt
+              "wifi": "Y"
             }
           }
         ]

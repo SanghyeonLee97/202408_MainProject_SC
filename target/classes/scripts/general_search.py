@@ -37,6 +37,21 @@ if keywordTxt == 'wifi' :
     },
     "size": 500 # 최대 500개의 문서 반환
   }
+elif keywordTxt == '' :
+  query = {
+    "query": {
+      "bool": {
+        "must": [
+          {
+            "match": {
+              "cafe_name.nori": searchTxt
+            }
+          }
+        ]
+      }
+    },
+    "size": 500 # 최대 500개의 문서 반환
+  }
 
 
 # 검색 쿼리 실행
