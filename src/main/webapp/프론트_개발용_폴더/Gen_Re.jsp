@@ -7,6 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="../css/bootstrap.min.css">
 <style type="text/css">
 	a{color: black}
 .kind_wrap {
@@ -80,20 +81,19 @@ width: 300px; height: 200px;
   #container h4 {
     margin: 0;
   }
-#button2 {
+  #container button {
     padding: 5px 10px;
     border-radius: 15%;
     border: none;
     font-size: 20px;
-    margin-bottom: 10px;
- 	}
+  }
 </style>
 </head>
 <body>
-	<div class="container-fluid">
+	<div class="container">
 		<div style="display: flex">
-			<button id="button2" type="button">남성</button>
-			<button id="button2" type="button" style="margin-left: 10px;">여성</button>
+			<button type="button">남성</button>
+			<button type="button">여성</button>
 		</div>
 		<div class="kind_wrap">
 		  <div class="kind_slider">
@@ -163,30 +163,6 @@ width: 300px; height: 200px;
 					</div>
 				</li>
 				 <li>
-					<div class="card" style="width: 18rem;" onclick= "move()">
-						<img src="../img/KakaoTalk_Photo_2021-04-19-09-02-31.jpeg" class="card-img-top" alt="...">
-						<div class="card-body" style="height: 70px;">
-							<h5 class="card-title" style="margin-bottom: 10px;">홍대 OO카페</h5>
-						</div>
-					</div>
-				</li>
-				<li>
-					<div class="card" style="width: 18rem;" onclick= "move()">
-						<img src="../img/KakaoTalk_Photo_2021-04-19-09-02-31.jpeg" class="card-img-top" alt="...">
-						<div class="card-body" style="height: 70px;">
-							<h5 class="card-title" style="margin-bottom: 10px;">홍대 OO카페</h5>
-						</div>
-					</div>
-				</li>
-				<li>
-					<div class="card" style="width: 18rem;" onclick= "move()">
-						<img src="../img/KakaoTalk_Photo_2021-04-19-09-02-31.jpeg" class="card-img-top" alt="...">
-						<div class="card-body" style="height: 70px;">
-							<h5 class="card-title" style="margin-bottom: 10px;">홍대 OO카페</h5>
-						</div>
-					</div>
-				</li>
-				<li>
 					<div class="card" style="width: 18rem;" onclick= "move()">
 						<img src="../img/KakaoTalk_Photo_2021-04-19-09-02-31.jpeg" class="card-img-top" alt="...">
 						<div class="card-body" style="height: 70px;">
