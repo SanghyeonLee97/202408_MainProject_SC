@@ -6,15 +6,15 @@
 <meta charset="UTF-8">
 <style type="text/css">
 #wrap {
-    min-height: 25vh;
+    height: auto;
+ 	min-height: 100%;
     position: relative;
     width: 100%;
 }
 #footer {
 	width: 100%;
 	height: 135px;
-	bottom: 0px;
-	position: absolute;
+	position : absolute;
     color: #adb1ba;
     background: black;
 }
