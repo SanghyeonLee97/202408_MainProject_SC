@@ -50,8 +50,11 @@
 function move1(){		
 	window.open('login.jsp', '_self');
 }
-function move2(){		
-	window.open('mypage.jsp', '_self');
+function move2(email) {        
+    // 이메일 주소를 안전하게 URL 쿼리 매개변수로 변환
+    const safeEmail = encodeURIComponent(email);
+    // 현재 창에서 지정한 URL로 이동
+    window.location.href = '/biz/프론트_개발용_폴더/info.do?email='+safeEmail;
 }
 function move3(){		
 	window.open('login.jsp', '_self');
@@ -73,8 +76,13 @@ function move3(){
 			</c:if>
 				 
 			<c:if test="${sessionScope.user != null }">
+<<<<<<< HEAD
 				<button id="button1" type="button" onclick="move2()">마이페이지</button>
 				<button id="button1" type="button" onclick="move3()" style="margin-left: 20px">로그아웃</button>
+=======
+				<button id="button1" type="button" onclick="move2('${sessionScope.user.email}')">마이페이지</button>
+				<button id="button1" type="button" onclick="move3()">로그아웃</button>
+>>>>>>> 37866c4 (front-header수정, 회원가입수정)
 			</c:if>
 		</div>
 		<div class="container-fluid" style=" padding: 10px; margin-top: 50px">

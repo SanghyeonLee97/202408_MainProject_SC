@@ -11,5 +11,5 @@ public interface MemberMapper {
 	public void addLike(MemberDTO memberDTO);
 	public int emailCheck(String email);
 	public MemberDTO login(MemberDTO memberDTO);
-	List<MemberDTO> myInfo();
+	public MemberDTO myInfo(String email);
 }
