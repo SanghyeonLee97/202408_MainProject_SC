@@ -109,8 +109,8 @@
  						  <input type='radio' name='gender' value='male' />남성</td></tr>
   				</table>	
 				<h4>선호하는 까페 취향을 골라주세요 (중복가능)</h4>
-					<input type="radio" name='cafe' value='F' />프랜차이즈&nbsp;&nbsp;
- 					<input type="radio" name='cafe' value='P' />개인<br>
+					<input type="radio" name='cafe_type' value='F' />프랜차이즈&nbsp;&nbsp;
+ 					<input type="radio" name='cafe_type' value='P' />개인<br>
  				<h4>분위기  (중복가능)</h4>
  					<input type="radio" name="mood" value="M01">까페에서 공부하는 분위기<br><br>
  					<input type="radio" name="mood" value="M02">까페에서 수다떠는 분위기<br><br>

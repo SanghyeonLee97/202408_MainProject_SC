@@ -76,7 +76,7 @@ public class MemberController{
 			throw new IllegalArgumentException("login() - id not found");
 		}
 		MemberDTO dto = memberService.login(memberDTO);
-		if(dto==null || !memberDTO.getEmail().equals(dto.getEmail())|| !memberDTO.getPw().equals(dto.getPw())) {
+		if(!memberDTO.getEmail().equals(dto.getEmail())|| !memberDTO.getPw().equals(dto.getPw())) {
 			return "redirect:loginpost.jsp";
 		}
 		session.setAttribute("user", dto);
@@ -95,6 +95,24 @@ public class MemberController{
 		result = memberService.emailCheck(email);
 		map.put("check", result);
 		return map;
+	}
+	
+	//개인정보불러오기
+	@RequestMapping(value="/info.do", method=RequestMethod.GET)
+	public String info() {
+		List<MemberDTO> myInfo = mapper.myInfo();
+		for(MemberDTO ss:myInfo) {
+			System.out.println(ss.getMember_id());
+			System.out.println(ss.getEmail());
+			System.out.println(ss.getBirthdate());
+			System.out.println(ss.getCafe_type());
+			System.out.println(ss.getGender());
+			System.out.println(ss.getMember_name());
+			System.out.println(ss.getMood());
+			
+		}
+		
+		return "redirect:mypage.jsp";
 	}
 }
 
