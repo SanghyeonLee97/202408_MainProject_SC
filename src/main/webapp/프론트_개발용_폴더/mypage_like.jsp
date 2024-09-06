@@ -86,7 +86,7 @@
 			</aside>
 			<header>
 			
-				<h2>좋아요 누른 까페</h2>
+				<h4>좋아요 누른 까페</h4>
 			</header>
 			<article>
 				<div>
