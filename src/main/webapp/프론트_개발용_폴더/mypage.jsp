@@ -79,7 +79,7 @@
 				<ul>
 					<li><a href="mypage.jsp">내 정보 수정</a></li>
 				</ul>
-				<h4>&nbsp;&nbsp;&nbsp;나의 활동</h4>
+				<h5>&nbsp;&nbsp;&nbsp;나의 활동</h5>
 				<ul>
 					<li><a href="mypage_like.jsp">좋아요 누른 까페</a></li>
 					<li><a href="mypage_review.jsp">리뷰를 작성한 까페</a></li>
@@ -92,13 +92,13 @@
 			<div id="mypagediv">
 				
 			<header>
-				<h2>내 정보 수정</h2>
+				<h4>내 정보 수정</h4>
 			</header>
 			<article>
 				<form id="" action="">
 				<table>
 				  	<tr><td>이메일</td>
-				        <td><input id="regform" type="text" placeholder="aaa@aaa.com" name="Email"></td></tr>
+				        <td><input id="regform" type="text" readonly="readonly" name="Email"></td></tr>
 					<tr><td>비밀번호</td><td><input id="regform" type="text" name="memberPw"></td></tr>
 					<tr><td>이름</td>
 					 	<td><input id="regform" type="text" name="memberName"></td></tr>
@@ -107,11 +107,19 @@
 					<tr><td>성별</td> 	 
 						 <td> <input type='radio' name='gender' value='female' />여성 &nbsp;
  						  <input type='radio' name='gender' value='male' />남성</td></tr>
+<<<<<<< HEAD
+  				</table><br><br>	
+				<h5>선호하는 까페 취향을 골라주세요</h5>
+					<input type="radio" name='cafe' value='F' />프랜차이즈&nbsp;&nbsp;
+ 					<input type="radio" name='cafe' value='P' />개인<br><br>
+ 				<h5>분위기</h5>
+=======
   				</table>	
 				<h4>선호하는 까페 취향을 골라주세요 (중복가능)</h4>
-					<input type="radio" name='cafe' value='F' />프랜차이즈&nbsp;&nbsp;
- 					<input type="radio" name='cafe' value='P' />개인<br>
+					<input type="radio" name='cafe_type' value='F' />프랜차이즈&nbsp;&nbsp;
+ 					<input type="radio" name='cafe_type' value='P' />개인<br>
  				<h4>분위기  (중복가능)</h4>
+>>>>>>> 98a9dd1f0832063c8dfb22d3826f3d0a0d095903
  					<input type="radio" name="mood" value="M01">까페에서 공부하는 분위기<br><br>
  					<input type="radio" name="mood" value="M02">까페에서 수다떠는 분위기<br><br>
  					<input type="radio" name="mood" value="M03">까페에서 연인과 데이트하는 분위기<br><br>

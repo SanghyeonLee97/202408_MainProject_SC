@@ -19,7 +19,7 @@
     flex-direction: column;
     align-items: center;
     margin-top: 100px;
-    width: 400px;
+    width: 550px;
 	} 
 	main>section>header>div{
 	
@@ -38,7 +38,7 @@
 	}
 	#idbt{
 		height: 50px;
-		width: 100px;
+		width: 140px;
 		background:#F0CB85;
 		border: none;
 	}
@@ -77,8 +77,8 @@
 			<nav>
 
 				<button id="idbt">아이디 찾기</button>
-				<button id="idbt"><a href="" style="color: black;">비밀번호 찾기</a></button>
-				<button id="idbt"><a href="" style="color: black;">로그인</a></button>
+				<button id="idbt"><a href="fine_pw.jsp" style="color: black;">비밀번호 찾기</a></button>
+				<button id="idbt"><a href="login.jsp" style="color: black;">로그인</a></button>
 				
 			</nav>
 		</section>
