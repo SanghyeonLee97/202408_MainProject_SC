@@ -55,7 +55,7 @@ if preferences:
             "by_cafe_id": {
                 "terms": {
                     "field": "cafe_id",
-                    "size": 10000  # 필요한 만큼의 카페 수를 설정
+                    "size": 10000
                 }
             }
         }
@@ -100,7 +100,7 @@ if cafe_ids_final:
                 "terms": {
                     "field": "cafe_id",
                     "order": {"_count": "desc"},
-                    "size": 20  # 상위 20개 카페 반환
+                    "size": 20
                 }
             }
         }
@@ -117,7 +117,7 @@ if cafe_ids_final:
             "cafe_id": cafe_info_map.get(bucket['key'], {}).get('cafe_id'),
             "cafe_name": cafe_info_map.get(bucket['key'], {}).get('cafe_name'),
             "image_url": cafe_info_map.get(bucket['key'], {}).get('image_url'),
-            "like_count": bucket['doc_count']  # 좋아요 수 추가
+            "like_count": bucket['doc_count']
         }
         for bucket in likes_count
     ]
