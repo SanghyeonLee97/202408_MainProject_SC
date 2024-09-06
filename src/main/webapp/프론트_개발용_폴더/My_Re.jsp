@@ -80,21 +80,16 @@ width: 300px; height: 200px;
   #container h4 {
     margin: 0;
   }
-#button2 {
+  #container button {
     padding: 5px 10px;
     border-radius: 15%;
     border: none;
     font-size: 20px;
-    margin-bottom: 10px;
- 	}
+  }
 </style>
 </head>
 <body>
 	<div class="container-fluid">
-		<div style="display: flex">
-			<button id="button2" type="button">남성</button>
-			<button id="button2" type="button" style="margin-left: 10px;">여성</button>
-		</div>
 		<div class="kind_wrap">
 		  <div class="kind_slider">
 		    <ul class="slider" >
