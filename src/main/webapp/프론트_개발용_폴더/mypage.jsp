@@ -69,6 +69,9 @@
  		padding-top: 15px;
  		padding-right: 10px;
  	}
+ 	a {
+ 		color: black;
+ 	}
 </style>
 </head>
 
@@ -107,19 +110,11 @@
 					<tr><td>성별</td> 	 
 						 <td> <input type='radio' name='gender' value='female' />여성 &nbsp;
  						  <input type='radio' name='gender' value='male' />남성</td></tr>
-<<<<<<< HEAD
-  				</table><br><br>	
+  				</table><br><br>		
 				<h5>선호하는 까페 취향을 골라주세요</h5>
-					<input type="radio" name='cafe' value='F' />프랜차이즈&nbsp;&nbsp;
- 					<input type="radio" name='cafe' value='P' />개인<br><br>
- 				<h5>분위기</h5>
-=======
-  				</table>	
-				<h4>선호하는 까페 취향을 골라주세요 (중복가능)</h4>
 					<input type="radio" name='cafe_type' value='F' />프랜차이즈&nbsp;&nbsp;
- 					<input type="radio" name='cafe_type' value='P' />개인<br>
- 				<h4>분위기  (중복가능)</h4>
->>>>>>> 98a9dd1f0832063c8dfb22d3826f3d0a0d095903
+ 					<input type="radio" name='cafe_type' value='P' />개인<br><br>
+ 				<h5>분위기</h5>
  					<input type="radio" name="mood" value="M01">까페에서 공부하는 분위기<br><br>
  					<input type="radio" name="mood" value="M02">까페에서 수다떠는 분위기<br><br>
  					<input type="radio" name="mood" value="M03">까페에서 연인과 데이트하는 분위기<br><br>
@@ -138,3 +133,4 @@
 	</main>
 </body>
 </html>
+<%@ include file="../WEB-INF/views/common/footer.jsp" %>
