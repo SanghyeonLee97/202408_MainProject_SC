@@ -109,14 +109,14 @@
  						  <input type='radio' name='gender' value='male' />남성</td></tr>
   				</table>	
 				<h4>선호하는 까페 취향을 골라주세요 (중복가능)</h4>
-					<input type='checkbox' name='cafe' value='F' />프랜차이즈&nbsp;&nbsp;
- 					<input type='checkbox' name='cafe' value='P' />개인<br>
+					<input type="radio" name='cafe' value='F' />프랜차이즈&nbsp;&nbsp;
+ 					<input type="radio" name='cafe' value='P' />개인<br>
  				<h4>분위기  (중복가능)</h4>
- 					<input type="checkbox" name="mood" value="M01">까페에서 공부하는 분위기<br><br>
- 					<input type="checkbox" name="mood" value="M02">까페에서 수다떠는 분위기<br><br>
- 					<input type="checkbox" name="mood" value="M03">까페에서 연인과 데이트하는 분위기<br><br>
- 					<input type="checkbox" name="mood" value="M04">인스타 감성으로 사진찍기 좋은 까페<br><br>
- 					<input type="checkbox" name="mood" value="M05">체험,테마 위주 까페 
+ 					<input type="radio" name="mood" value="M01">까페에서 공부하는 분위기<br><br>
+ 					<input type="radio" name="mood" value="M02">까페에서 수다떠는 분위기<br><br>
+ 					<input type="radio" name="mood" value="M03">까페에서 연인과 데이트하는 분위기<br><br>
+ 					<input type="radio" name="mood" value="M04">인스타 감성으로 사진찍기 좋은 까페<br><br>
+ 					<input type="radio" name="mood" value="M05">체험,테마 위주 까페 
 				
 				</form>
 			</article>
