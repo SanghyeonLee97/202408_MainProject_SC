@@ -5,13 +5,15 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Main Page</title>
 <style type="text/css">
 .kind_wrap {
-  border:2px solid black; 
-  background-color: lightgray;
+  border:3px solid #464646; 
+  border-radius: 50px;
+  background-color:#F0F8FF;
   width:100%; 
   max-width:1500px; 
+  height: 350px;
   margin:0 auto; 
   position: relative;
   justify-content: space-between;
@@ -54,10 +56,11 @@
   color: black;
 }
 .card{
-margin-top: 30px;
+margin-top: 12%;
 border: none;
 transition: transform .5s;
 transform: scale(1.0);
+margin-right: 25px
 }
 #main_img{width: 100px; height: 100px;}
 img{
@@ -77,11 +80,15 @@ width: 300px; height: 200px;
     border-radius: 15%;
     border: none;
     font-size: 20px;
+    margin-bottom: 20px;
+    background-color:#F4E1D2;
+    color: #333333;
   }
   	#a{
 		text-decoration: none;
 		color: black;
 	}
+	
 </style>
 <script type="text/javascript">
 function moveLike(){		
@@ -90,14 +97,17 @@ function moveLike(){
 function moveReview(){		
 	window.open('Review.jsp', '_self');
 }
+function move(){		
+	window.open('', '_self');
+}
 </script>
 </head>
-<body>
+<body style="background-color:  #F0F0F0">
 	<section data-bs-version="5.1" class="slider4 mbr-embla cid-ubxwyl8tSX" id="gallery-5-ubxwyl8tSX">
 	  <div class="container-fluid">
-	  	<div style="margin-top: 50px;">
+	  	<div >
 		  	<div id="container">
-		  		<h4 style="margin-bottom: 20px;">#좋아요가 많은 카페</h4>
+		  		<h4 style="margin-bottom: 20px; background-color: #FFF0F0">#좋아요가 많은 카페</h4>
 		  		<button type="button" onclick="moveLike()">더보기</button>
 		  	</div>
 			<div class="kind_wrap">
@@ -145,7 +155,7 @@ function moveReview(){
 		</div>
 		<div style="margin-top: 50px;">
 			<div id="container">
-				<h4 style="margin-bottom: 20px;">#리뷰가 많은 카페</h4>
+				<h4 style="margin-bottom: 20px; background-color: #FFF0F0">#리뷰가 많은 카페</h4>
 				<button type="button" onclick="moveReview()">더보기</button>
 			</div>
 			<div class="kind_wrap">

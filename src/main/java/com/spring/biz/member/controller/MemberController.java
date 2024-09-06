@@ -6,10 +6,9 @@ import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
-import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -98,19 +97,15 @@ public class MemberController{
 	}
 	
 	//개인정보불러오기
-	@RequestMapping(value="/info.do", method=RequestMethod.GET)
-	public String info() {
-		List<MemberDTO> myInfo = mapper.myInfo();
-		for(MemberDTO ss:myInfo) {
-			System.out.println(ss.getMember_id());
-			System.out.println(ss.getEmail());
-			System.out.println(ss.getBirthdate());
-			System.out.println(ss.getCafe_type());
-			System.out.println(ss.getGender());
-			System.out.println(ss.getMember_name());
-			System.out.println(ss.getMood());
-			
-		}
+	@RequestMapping(value="/프론트_개발용_폴더/info.do", method=RequestMethod.GET)
+	public String info(@RequestParam String email, Model model) {
+		System.out.println("개인정보=============================="+email);
+		
+		// 서비스 클래스를 통해 사용자 정보를 조회합니다
+        MemberDTO memberInfo = memberService.myInfo(email);
+        
+        // 모델에 사용자 정보를 추가합니다
+        model.addAttribute("info", memberInfo);
 		
 		return "redirect:mypage.jsp";
 	}
