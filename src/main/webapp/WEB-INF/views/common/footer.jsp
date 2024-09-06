@@ -6,13 +6,13 @@
 <meta charset="UTF-8">
 <style type="text/css">
 #wrap {
-    min-height: 100vh;
+    min-height: 25vh;
     position: relative;
     width: 100%;
 }
 footer {
 	width: 100%;
-	height: 110px;
+	height: 135px;
 	bottom: 0px;
 	position: absolute;
     color: #adb1ba;
@@ -22,11 +22,11 @@ html, body {
   margin: 0;
   padding: 0;
 }
-a:link { 
+footer_A:link { 
   text-decoration: none; 
   color:white; 
 } 
-a:visited { 
+footer_A:visited { 
 	color:white; 
 }
 
@@ -37,8 +37,8 @@ a:visited {
 	<div id='wrap'>
         <footer>
         	<nav>
-        		<a href='' id='footer_A'>개인정보처리방침</a>
-        		<a href='' id='footer_A'>이용약관</a>
+        		<a href='' id='footer_A'>개인정보처리방침 </a>|
+        		<a href='' id='footer_A'>이용약관 </a>|
         		<a href='' id='footer_A'>고객센터</a>
         	</nav>
        		<hr>
