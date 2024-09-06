@@ -65,6 +65,10 @@
 		background-color: #FAC87D;
 		transition: font-size 0.3s ease, background-color 0.3s ease; 
 	}
+	td,tr{
+ 		padding-top: 15px;
+ 		padding-right: 10px;
+ 	}
 </style>
 </head>
 
@@ -92,17 +96,18 @@
 			</header>
 			<article>
 				<form id="" action="">
-				  	이메일&nbsp;&nbsp;&nbsp;&nbsp;
-				        <input id="regform" type="text" placeholder="aaa@aaa.com" name="Email"><br><br>
-					비밀번호&nbsp;&nbsp;<input id="regform" type="text" name="memberPw"><br><br>
-					이름&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					 	<input id="regform" type="text" name="memberName"><br><br>
-					전화번호&nbsp; <input id="regform" type="tel" name="memberTel"><br><br>
-					생년월일 &nbsp;<input id="regform" type="date" name="birth"><br><br>
-					성별&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 	 
-						  <input type='radio' name='gender' value='female' />여성 &nbsp;&nbsp;
- 						  <input type='radio' name='gender' value='male' />남성<br><br>
-  					
+				<table>
+				  	<tr><td>이메일</td>
+				        <td><input id="regform" type="text" placeholder="aaa@aaa.com" name="Email"></td></tr>
+					<tr><td>비밀번호</td><td><input id="regform" type="text" name="memberPw"></td></tr>
+					<tr><td>이름</td>
+					 	<td><input id="regform" type="text" name="memberName"></td></tr>
+					<tr><td>전화번호</td> <td><input id="regform" type="tel" name="memberTel"></td></tr>
+					<tr><td>생년월일</td> <td><input id="regform" type="date" name="birth"></td></tr>
+					<tr><td>성별</td> 	 
+						 <td> <input type='radio' name='gender' value='female' />여성 &nbsp;
+ 						  <input type='radio' name='gender' value='male' />남성</td></tr>
+  				</table>	
 				<h4>선호하는 까페 취향을 골라주세요 (중복가능)</h4>
 					<input type='checkbox' name='cafe' value='F' />프랜차이즈&nbsp;&nbsp;
  					<input type='checkbox' name='cafe' value='P' />개인<br>

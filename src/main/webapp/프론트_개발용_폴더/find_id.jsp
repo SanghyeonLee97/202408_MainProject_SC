@@ -42,7 +42,17 @@
 		background:#F0CB85;
 		border: none;
 	}
+	tr,td{
 	
+		padding-top: 20px;
+		padding-left: 10px;
+		
+	}
+	table{
+		position: relative;
+		bottom: 50px;
+		width: 430px;
+	}
 	
 
 </style>
@@ -55,8 +65,12 @@
 			</header>
 			<article>
 				<form id="" action="">
-					<input id="idfindform" type="text" name="" placeholder="user-name" ><br><br>
-					<input id="idfindform" type="text" name=""  placeholder="휴대폰번호를 '-' 없이 입력" required>
+					<table>
+						<tr><td>이름</td> 
+						<td><input id="idfindform" type="text" name="" placeholder="user-name" ></td></tr><br><br>
+						<tr><td>휴대폰번호</td>
+						<td><input id="idfindform" type="text" name=""  placeholder="휴대폰번호를 '-' 없이 입력" required></td></tr>
+					</table>
 				</form>
 			
 			</article>

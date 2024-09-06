@@ -40,6 +40,10 @@
  		width: 250px;
  		height: 30px;
  	}
+ 	td,tr{
+ 		padding-top: 15px;
+ 		padding-right: 10px;
+ 	}
 </style>
 </head>
 <body>
@@ -50,18 +54,19 @@
 			</header>
 				<form action="addMember.do" method="post">
 			<article>
-				        이메일&nbsp;&nbsp;&nbsp;&nbsp;
-				        <input type="text" class="regform" id="id" placeholder="aaa@aaa.com" name="email" oninput="checkEmail()">
-				     <span class="id-text"></span><br><br>
-					비밀번호&nbsp;&nbsp;<input class="regform" type="password" name="pw"><br><br>
-					이름 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						<input class="regform" type="text" name="member_name"><br><br>
-					전화번호&nbsp; <input class="regform" type="tel" name="member_tel"><br><br>
-					생년월일 &nbsp;<input class="regform" type="date" name="birthdate"><br><br>
-					성별&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					 	  <input type='radio' name='gender' value='F' />여성&nbsp;
- 						  <input type='radio' name='gender' value='M' />남성<br><br>
-
+				<table>
+				      <tr><td>이메일</td>
+				       <td><input type="text" class="regform" id="id" placeholder="aaa@aaa.com" name="email" oninput="checkEmail()">
+				     <span class="id-text"></span></td></tr>
+					<tr><td>비밀번호</td><td><input class="regform" type="password" name="pw"></td></tr>
+					<tr><td>이름</td>
+						<td><input class="regform" type="text" name="member_name"></td></tr>
+					<tr><td>전화번호</td> <td><input class="regform" type="tel" name="member_tel"></td></tr>
+					<tr><td>생년월일</td> <td><input class="regform" type="date" name="birthdate"></td></tr>
+					<tr><td>성별</td>
+					 	 <td> <input type='radio' name='gender' value='F' />여성&nbsp;
+ 						  <input type='radio' name='gender' value='M' />남성</td></tr>
+				</table>
 				<h4>선호하는 까페 취향을 골라주세요 (중복가능)</h4>
 					<input type='checkbox' name='cafe' value='F' />프랜차이즈&nbsp;
  					<input type='checkbox' name='cafe' value='P' />개인<br>
