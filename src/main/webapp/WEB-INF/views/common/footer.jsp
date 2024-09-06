@@ -10,7 +10,7 @@
     position: relative;
     width: 100%;
 }
-footer {
+#footer {
 	width: 100%;
 	height: 135px;
 	bottom: 0px;
@@ -22,11 +22,11 @@ html, body {
   margin: 0;
   padding: 0;
 }
-footer_A:link { 
+#footer_A:link { 
   text-decoration: none; 
   color:white; 
 } 
-footer_A:visited { 
+#footer_A:visited { 
 	color:white; 
 }
 
@@ -35,7 +35,7 @@ footer_A:visited {
 </head>
 <body>
 	<div id='wrap'>
-        <footer>
+        <footer id='footer'>
         	<nav>
         		<a href='' id='footer_A'>개인정보처리방침 </a>|
         		<a href='' id='footer_A'>이용약관 </a>|
