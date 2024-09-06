@@ -1,5 +1,7 @@
 package com.spring.biz.member.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,6 +28,9 @@ public class MemberService {
 		memberDTO.setBirthdate(birth);
 		memberMapper.addMember(memberDTO);
 	}
+	public void addLike(MemberDTO memberDTO) {
+		memberMapper.addLike(memberDTO);
+	}
 	
 	public MemberDTO login(MemberDTO memberDTO) {
 		System.out.println("[loginmember] 등록");
@@ -38,5 +43,10 @@ public class MemberService {
 		int cnt = memberMapper.emailCheck(email);
 		System.out.println("cnt==================="+cnt);
 		return cnt;
+	}
+	
+	public List<MemberDTO> myInfo() {
+		
+		return memberMapper.myInfo();
 	}
 }

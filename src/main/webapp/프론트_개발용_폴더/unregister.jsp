@@ -25,7 +25,7 @@
 	#unregisterbt{
 		
 		position: relative;
-		top: 100px;
+		top: 60px;
 		left : 130px;
 		border: none;
 		width: 100px;
@@ -40,8 +40,8 @@
 	    flex-direction: column;
 	    align-items: center;
 	    margin-top: 100px;
-	    width: 400px;
-	    height: 300px;
+	    width: 500px;
+	    height: 350px;
 	   
 	}
 	section>aside ul li {
@@ -57,6 +57,9 @@
 		background-color: #FAC87D;
 		transition: font-size 0.3s ease, background-color 0.3s ease; 
 	}
+	a {
+ 		color: black;
+ 	}
 </style>
 </head>
 <body>
@@ -77,10 +80,11 @@
 			</aside>
 			<div id="unregdiv">
 				<header>
-					<h3>회원탈퇴</h3>
+					<h4>회원탈퇴</h4>
 				</header><br><br>
 				<article>	
 					<form action="">
+						비밀번호 입력시 회원탈퇴가 완료됩니다.<br><br>
 						<input id="unregister" type="text" placeholder="비밀번호를 입력하세요" >
 					</form>
 				</article>
@@ -92,3 +96,4 @@
 	</main>
 </body>
 </html>
+<%@ include file="../WEB-INF/views/common/footer.jsp" %>

@@ -6,10 +6,10 @@
 <head>
 <meta charset="UTF-8">
 <title>login</title>
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 	alert("아이디와 비밀번호를 확인해주세요")
 
-</script>
+</script> -->
 <style type="text/css">
 	main {
     display: flex;
@@ -22,7 +22,8 @@
     flex-direction: column;
     align-items: center;
     margin-top: 100px;
-    width: 400px;
+    width:550px;
+    height: 450px;
 	} 
 	
 	main>section>header>div{
@@ -43,16 +44,29 @@
 	}
 	#logbt{
 		height: 50px;
-		width: 100px;
+		width: 140px;
 		background:#F0CB85;
 		border: none;
+		margin-top: 50px;
 	}
 	#loginbt{
 		height: 50px;
-		width: 310px;
+		width: 430px;
 		background:#F0CB85;
 		border: none;
+		margin-top: 50px;
 	}
+	tr,td{
+	
+		padding-top: 30px;
+		padding-left: 20px;
+		
+	}
+	table{
+		position: relative;
+		width: 430px;
+	}
+	
 	
 	
 </style>
@@ -65,17 +79,21 @@
 			</header>
 			<article>
 				<form id="" action="login.do" method="post">
-					<input id="loginput" type="text" name="email" placeholder="아이디" ><br><br>
-					<input id="loginput" type="text" name="pw" placeholder="비밀번호" ><br><br>
+					<table>
+						<tr><td>아이디</td>
+							<td><input id="loginput" type="text" name="email" placeholder="아이디" ></td></tr>
+						<tr><td>비밀번호</td>
+						 <td><input id="loginput" type="text" name="pw" placeholder="비밀번호" ></td></tr>
+					</table>
 				<button id="loginbt"  type="submit" >로그인</button><br><br>
 				</form>
 			
 			</article>
 			<nav>
 
-				<button id="logbt"><a href="register.jsp" style="color: black;">회원가입</a></button>
-				<button id="logbt"><a href="" style="color: black;">아이디 찾기</a></button>
-				<button id="logbt"><a href="" style="color: black;">비밀번호 찾기</a></button>
+				<button id="logbt"><a href="addMember.do" style="color: black;">회원가입</a></button>
+				<button id="logbt"><a href="find_id.jsp" style="color: black;">아이디 찾기</a></button>
+				<button id="logbt"><a href="fine_pw.jsp" style="color: black;">비밀번호 찾기</a></button>
 				
 			</nav>
 		</section>
@@ -83,3 +101,4 @@
 	
 </body>
 </html>
+<%@ include file="../WEB-INF/views/common/footer.jsp" %>

@@ -65,6 +65,13 @@
 		background-color: #FAC87D;
 		transition: font-size 0.3s ease, background-color 0.3s ease; 
 	}
+	td,tr{
+ 		padding-top: 15px;
+ 		padding-right: 10px;
+ 	}
+ 	a {
+ 		color: black;
+ 	}
 </style>
 </head>
 
@@ -75,7 +82,7 @@
 				<ul>
 					<li><a href="mypage.jsp">내 정보 수정</a></li>
 				</ul>
-				<h4>&nbsp;&nbsp;&nbsp;나의 활동</h4>
+				<h5>&nbsp;&nbsp;&nbsp;나의 활동</h5>
 				<ul>
 					<li><a href="mypage_like.jsp">좋아요 누른 까페</a></li>
 					<li><a href="mypage_review.jsp">리뷰를 작성한 까페</a></li>
@@ -88,30 +95,31 @@
 			<div id="mypagediv">
 				
 			<header>
-				<h2>내 정보 수정</h2>
+				<h4>내 정보 수정</h4>
 			</header>
 			<article>
 				<form id="" action="">
-				  	이메일&nbsp;&nbsp;&nbsp;&nbsp;
-				        <input id="regform" type="text" placeholder="aaa@aaa.com" name="Email"><br><br>
-					비밀번호&nbsp;&nbsp;<input id="regform" type="text" name="memberPw"><br><br>
-					이름&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					 	<input id="regform" type="text" name="memberName"><br><br>
-					전화번호&nbsp; <input id="regform" type="tel" name="memberTel"><br><br>
-					생년월일 &nbsp;<input id="regform" type="date" name="birth"><br><br>
-					성별&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 	 
-						  <input type='radio' name='gender' value='female' />여성 &nbsp;&nbsp;
- 						  <input type='radio' name='gender' value='male' />남성<br><br>
-  					
-				<h4>선호하는 까페 취향을 골라주세요 (중복가능)</h4>
-					<input type='checkbox' name='cafe' value='F' />프랜차이즈&nbsp;&nbsp;
- 					<input type='checkbox' name='cafe' value='P' />개인<br>
- 				<h4>분위기  (중복가능)</h4>
- 					<input type="checkbox" name="mood" value="M01">까페에서 공부하는 분위기<br><br>
- 					<input type="checkbox" name="mood" value="M02">까페에서 수다떠는 분위기<br><br>
- 					<input type="checkbox" name="mood" value="M03">까페에서 연인과 데이트하는 분위기<br><br>
- 					<input type="checkbox" name="mood" value="M04">인스타 감성으로 사진찍기 좋은 까페<br><br>
- 					<input type="checkbox" name="mood" value="M05">체험,테마 위주 까페 
+				<table>
+				  	<tr><td>이메일</td>
+				        <td><input id="regform" type="text" readonly="readonly" name="Email"></td></tr>
+					<tr><td>비밀번호</td><td><input id="regform" type="text" name="memberPw"></td></tr>
+					<tr><td>이름</td>
+					 	<td><input id="regform" type="text" name="memberName"></td></tr>
+					<tr><td>전화번호</td> <td><input id="regform" type="tel" name="memberTel"></td></tr>
+					<tr><td>생년월일</td> <td><input id="regform" type="date" name="birth"></td></tr>
+					<tr><td>성별</td> 	 
+						 <td> <input type='radio' name='gender' value='female' />여성 &nbsp;
+ 						  <input type='radio' name='gender' value='male' />남성</td></tr>
+  				</table><br><br>		
+				<h5>선호하는 까페 취향을 골라주세요</h5>
+					<input type="radio" name='cafe_type' value='F' />프랜차이즈&nbsp;&nbsp;
+ 					<input type="radio" name='cafe_type' value='P' />개인<br><br>
+ 				<h5>분위기</h5>
+ 					<input type="radio" name="mood" value="M01">까페에서 공부하는 분위기<br><br>
+ 					<input type="radio" name="mood" value="M02">까페에서 수다떠는 분위기<br><br>
+ 					<input type="radio" name="mood" value="M03">까페에서 연인과 데이트하는 분위기<br><br>
+ 					<input type="radio" name="mood" value="M04">인스타 감성으로 사진찍기 좋은 까페<br><br>
+ 					<input type="radio" name="mood" value="M05">체험,테마 위주 까페 
 				
 				</form>
 			</article>
@@ -125,3 +133,4 @@
 	</main>
 </body>
 </html>
+<%@ include file="../WEB-INF/views/common/footer.jsp" %>

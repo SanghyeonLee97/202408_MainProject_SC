@@ -58,6 +58,9 @@
 		background-color: #FAC87D;
 		transition: font-size 0.3s ease, background-color 0.3s ease; 
 	}
+	a {
+ 		color: black;
+ 	}
 </style>
 </head>
 <body>
@@ -77,7 +80,7 @@
 				</ul>
 			</aside>
 			<header>
-				<h2>리뷰를 작성한 까페</h2>
+				<h4>리뷰를 작성한 까페</h4>
 			</header>
 			<article>
 				<div>
@@ -101,3 +104,4 @@
 	</main>
 </body>
 </html>
+<%@ include file="../WEB-INF/views/common/footer.jsp" %>

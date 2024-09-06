@@ -14,6 +14,10 @@ public class MemberDTO {
 	Date reg_date;
 	Date mod_date;
 	
+	//취향
+	String cafe_type;
+	String mood;
+	
 	
 	public int getMember_id() {
 		return member_id;
@@ -68,6 +72,18 @@ public class MemberDTO {
 	}
 	public void setMod_date(Date mod_date) {
 		this.mod_date = mod_date;
+	}
+	public String getCafe_type() {
+		return cafe_type;
+	}
+	public void setCafe_type(String cafe_type) {
+		this.cafe_type = cafe_type;
+	}
+	public String getMood() {
+		return mood;
+	}
+	public void setMood(String mood) {
+		this.mood = mood;
 	}
 	
 	

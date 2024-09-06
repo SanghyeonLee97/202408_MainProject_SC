@@ -16,6 +16,13 @@
 			(#{email},#{pw},#{member_name},#{member_tel},#{birthdate},#{gender})
 	</insert>
 	
+	<!-- member_like -->
+	<insert id="addLike">
+		insert into member_like(member_id,cafe_type,mood) 
+			values
+			((select last_insert_id()),#{cafe_type},#{mood});
+	</insert>
+	
 	<!-- 가입여부 -->
 	<select id="emailCheck" resultType="int">
 		select count(email) from member where email=#{email}
@@ -26,5 +33,12 @@
 		select email,pw from member where email=#{email} and pw=#{pw}
 	</select>
 	
+	<!-- 개인정보 -->
+	<select id="myInfo" resultType="com.spring.biz.member.dto.MemberDTO" parameterType="String">
+		select a.member_id, a.email, a.pw, a.member_name, a.member_tel, a.birthdate, a.gender, b.cafe_type, b.mood 
+		from member a
+		inner join member_like b on a.member_id=b.member_id 
+		where a.email=#{email}
+	</select>
 	
 </mapper>
