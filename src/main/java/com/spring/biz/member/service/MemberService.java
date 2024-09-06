@@ -26,6 +26,9 @@ public class MemberService {
 		memberDTO.setBirthdate(birth);
 		memberMapper.addMember(memberDTO);
 	}
+	public void addLike(MemberDTO memberDTO) {
+		memberMapper.addLike(memberDTO);
+	}
 	
 	public MemberDTO login(MemberDTO memberDTO) {
 		System.out.println("[loginmember] 등록");

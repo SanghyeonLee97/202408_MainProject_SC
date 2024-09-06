@@ -73,7 +73,7 @@
 			</article>
 			<nav>
 
-				<button id="logbt"><a href="register.jsp" style="color: black;">회원가입</a></button>
+				<button id="logbt"><a href="addMember.do" style="color: black;">회원가입</a></button>
 				<button id="logbt"><a href="" style="color: black;">아이디 찾기</a></button>
 				<button id="logbt"><a href="" style="color: black;">비밀번호 찾기</a></button>
 				

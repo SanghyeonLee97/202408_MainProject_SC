@@ -39,14 +39,23 @@ public class MemberController{
 		return "home";
 	}
 	//회원가입
+	
+	@RequestMapping(value="/프론트_개발용_폴더/addMember.do",method = RequestMethod.GET)
+	public String showAddMemberForm() {
+		return "redirect:register.jsp";
+	}
+	
+	
 	@RequestMapping(value="/프론트_개발용_폴더/addMember.do",method = RequestMethod.POST)
-	public String addMember(MemberDTO memberDTO) {
+	public String processAddMember(MemberDTO memberDTO) {
 		System.out.println("========등록처리");
 		if(memberDTO == null) {
 			return "redirect:register.jsp";
 		}
 		memberService.addMember(memberDTO);
-		return "redirect:login.do";
+		memberService.addLike(memberDTO);
+		System.out.println("등록처리 완료==========================");
+		return "redirect:login.jsp";
 	}
 	
 	//로그인

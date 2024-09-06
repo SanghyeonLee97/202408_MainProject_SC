@@ -16,6 +16,13 @@
 			(#{email},#{pw},#{member_name},#{member_tel},#{birthdate},#{gender})
 	</insert>
 	
+	<!-- member_like -->
+	<insert id="addLike">
+		insert into member_like(member_id,cafe_type,mood) 
+			values
+			((select last_insert_id()),#{cafe_type},#{mood});
+	</insert>
+	
 	<!-- 가입여부 -->
 	<select id="emailCheck" resultType="int">
 		select count(email) from member where email=#{email}
