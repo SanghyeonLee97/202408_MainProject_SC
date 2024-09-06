@@ -11,8 +11,9 @@
 <style type="text/css">
 	a{color: black}
 .kind_wrap {
-  border:2px solid black; 
-  background-color: lightgray;
+  border:3px solid #464646; 
+  border-radius: 50px;
+  background-color:#f0f0f0;
   width:100%; 
   max-width:1500px; 
   margin:0 auto; 
@@ -88,9 +89,14 @@ width: 300px; height: 200px;
     font-size: 20px;
   }
 </style>
+<script type="text/javascript">
+function move(){		
+	window.open('', '_self');
+}
+</script>
 </head>
 <body>
-	<div class="container">
+	<div class="container-fluid">
 		<h4 style="margin-top: 20px;">#리뷰가 많은 카페</h4>
 		<div class="kind_wrap">
 		  <div class="kind_slider">
@@ -167,6 +173,30 @@ width: 300px; height: 200px;
 						</div>
 					</div>
 				</li>
+				<li>
+					<div class="card" style="width: 18rem;" onclick= "move()">
+						<img src="../img/KakaoTalk_Photo_2021-04-19-09-02-31.jpeg" class="card-img-top" alt="...">
+						<div class="card-body" style="height: 70px;">
+							<h5 class="card-title" style="margin-bottom: 10px;">홍대 OO카페</h5>
+						</div>
+					</div>
+				</li>
+				 <li>
+					<div class="card" style="width: 18rem;" onclick= "move()">
+						<img src="../img/KakaoTalk_Photo_2021-04-19-09-02-31.jpeg" class="card-img-top" alt="...">
+						<div class="card-body" style="height: 70px;">
+							<h5 class="card-title" style="margin-bottom: 10px;">홍대 OO카페</h5>
+						</div>
+					</div>
+				</li>
+				 <li>
+					<div class="card" style="width: 18rem;" onclick= "move()">
+						<img src="../img/KakaoTalk_Photo_2021-04-19-09-02-31.jpeg" class="card-img-top" alt="...">
+						<div class="card-body" style="height: 70px;">
+							<h5 class="card-title" style="margin-bottom: 10px;">홍대 OO카페</h5>
+						</div>
+					</div>
+				</li>
 		    </ul>
 		  </div>
 		</div>
@@ -190,3 +220,4 @@ width: 300px; height: 200px;
 	</div>
 </body>
 </html>
+<%@ include file="../WEB-INF/views/common/footer.jsp" %>
