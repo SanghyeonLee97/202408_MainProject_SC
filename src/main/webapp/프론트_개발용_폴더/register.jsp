@@ -34,12 +34,12 @@
  		background:#F0CB85;
  		margin-top: 70px;
  		border: none;
+ 		margin-left: 80px;
  	}
- 	#regform{
+	.regform{
  		width: 250px;
  		height: 30px;
  	}
-
 </style>
 </head>
 <body>
@@ -50,13 +50,16 @@
 			</header>
 				<form action="addMember.do" method="post">
 			<article>
-				        이메일<input type="text" id="id" placeholder="aaa@aaa.com" name="email" oninput="checkEmail()"><br>
+				        이메일&nbsp;&nbsp;&nbsp;&nbsp;
+				        <input type="text" class="regform" id="id" placeholder="aaa@aaa.com" name="email" oninput="checkEmail()">
 				     <span class="id-text"></span><br><br>
-					비밀번호<input type="password" name="pw"><br><br>
-					이름 <input type="text" name="member_name"><br><br>
-					전화번호 <input type="tel" name="member_tel"><br><br>
-					생년월일 <input type="date" name="birthdate"><br><br>
-					성별 	  <input type='radio' name='gender' value='F' />여성
+					비밀번호&nbsp;&nbsp;<input class="regform" type="password" name="pw"><br><br>
+					이름 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<input class="regform" type="text" name="member_name"><br><br>
+					전화번호&nbsp; <input class="regform" type="tel" name="member_tel"><br><br>
+					생년월일 &nbsp;<input class="regform" type="date" name="birthdate"><br><br>
+					성별&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					 	  <input type='radio' name='gender' value='F' />여성&nbsp;
  						  <input type='radio' name='gender' value='M' />남성<br><br>
 
 				<h4>선호하는 까페 취향을 골라주세요 (중복가능)</h4>
@@ -71,7 +74,7 @@
  					
 			</article>
 			<nav>
-					<button id="regbt" type="submit" disabled>등록</button>
+					<button id="regbt" type="submit" disabled>가입하기</button>
 			</nav>
 				</form>
 		</section>
