@@ -58,6 +58,9 @@
 		background-color: #FAC87D;
 		transition: font-size 0.3s ease, background-color 0.3s ease; 
 	}
+	a {
+ 		color: black;
+ 	}
 </style>
 </head>
 <body>
