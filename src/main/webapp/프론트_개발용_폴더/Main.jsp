@@ -6,12 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href= "../css/bootstrap.min.css">
 <style type="text/css">
-	a{
-		text-decoration: none;
-		color: black;
-	}
 .kind_wrap {
   border:2px solid black; 
   background-color: lightgray;
@@ -47,6 +42,7 @@
   transform: translateY(-50%);
   text-decoration: none;
   font-size: 24px;
+  color: black;
 }
 .kind_wrap .arrow > a.next {
   position: absolute; 
@@ -55,6 +51,7 @@
   transform: translateY(-50%);
   text-decoration: none;
   font-size: 24px;
+  color: black;
 }
 .card{
 margin-top: 30px;
@@ -75,100 +72,124 @@ width: 300px; height: 200px;
     align-items: center;
     justify-content: space-between; 
   }
-  #container h4 {
-    margin: 0;
-  }
   #container button {
     padding: 5px 10px;
     border-radius: 15%;
     border: none;
     font-size: 20px;
   }
+  	#a{
+		text-decoration: none;
+		color: black;
+	}
 </style>
 <script type="text/javascript">
-function move(){		
-	window.open('login.jsp', '_self');
+function moveLike(){		
+	window.open('Like.jsp', '_self');
+}
+function moveReview(){		
+	window.open('Review.jsp', '_self');
 }
 </script>
 </head>
 <body>
 	<section data-bs-version="5.1" class="slider4 mbr-embla cid-ubxwyl8tSX" id="gallery-5-ubxwyl8tSX">
-	  <div class="container">
-	  	<div id="container">
-	  		<h4 style="margin-bottom: 20px;">#좋아요가 많은 카페</h4>
-	  		<button type="button" onclick="window.open('Like.jsp')">더보기</button>
-	  	</div>
-		<div class="kind_wrap">
-		  <div class="kind_slider">
-		    <ul class="slider" >
-		        <li>
-					<div class="card" style="width: 18rem;" onclick= "move()">
-						<img src="../img/20170807_225433.jpg" class="card-img-top" alt="...">
-						<div class="card-body" style="height: 70px;">
-							<h5 class="card-title" style="margin-bottom: 10px;">홍대 OO카페</h5>
+	  <div class="container-fluid">
+	  	<div style="margin-top: 50px;">
+		  	<div id="container">
+		  		<h4 style="margin-bottom: 20px;">#좋아요가 많은 카페</h4>
+		  		<button type="button" onclick="moveLike()">더보기</button>
+		  	</div>
+			<div class="kind_wrap">
+			  <div class="kind_slider">
+			    <ul class="slider" >
+			        <li>
+						<div class="card" style="width: 18rem;" onclick= "move()">
+							<img src="../img/20170807_225433.jpg" class="card-img-top" alt="...">
+							<div class="card-body" style="height: 70px;">
+								<h5 class="card-title" style="margin-bottom: 10px;">홍대 OO카페</h5>
+							</div>
 						</div>
-					</div>
-				</li>
-		         <li>
-					<div class="card" style="width: 18rem;" onclick= "move()">
-						<img src="../img/2018-10-09.jpg" class="card-img-top" alt="...">
-						<div class="card-body" style="height: 70px;">
-							<h5 class="card-title" style="margin-bottom: 10px;">홍대 OO카페</h5>
+					</li>
+			         <li>
+						<div class="card" style="width: 18rem;" onclick= "move()">
+							<img src="../img/2018-10-09.jpg" class="card-img-top" alt="...">
+							<div class="card-body" style="height: 70px;">
+								<h5 class="card-title" style="margin-bottom: 10px;">홍대 OO카페</h5>
+							</div>
 						</div>
-					</div>
-				</li>
-		         <li>
-					<div class="card" style="width: 18rem;" onclick= "move()">
-						<img src="../img/KakaoTalk_Photo_2021-04-19-09-02-31.jpeg" class="card-img-top" alt="...">
-						<div class="card-body" style="height: 70px;">
-							<h5 class="card-title" style="margin-bottom: 10px;">홍대 OO카페</h5>
+					</li>
+			         <li>
+						<div class="card" style="width: 18rem;" onclick= "move()">
+							<img src="../img/KakaoTalk_Photo_2021-04-19-09-02-31.jpeg" class="card-img-top" alt="...">
+							<div class="card-body" style="height: 70px;">
+								<h5 class="card-title" style="margin-bottom: 10px;">홍대 OO카페</h5>
+							</div>
 						</div>
-					</div>
-				</li>
-		    </ul>
-		  </div>
-		  <div class="arrow">
-		      <a href="" class="prev">&lt;</a>
-		      <a href="" class="next">&gt;</a>
-		  </div>
+					</li>
+					<li>
+						<div class="card" style="width: 18rem;" onclick= "move()">
+							<img src="../img/KakaoTalk_Photo_2021-04-19-09-02-31.jpeg" class="card-img-top" alt="...">
+							<div class="card-body" style="height: 70px;">
+								<h5 class="card-title" style="margin-bottom: 10px;">홍대 OO카페</h5>
+							</div>
+						</div>
+					</li>
+			    </ul>
+			  </div>
+			  <div class="arrow">
+			      <a href="" class="prev">&lt;</a>
+			      <a href="" class="next">&gt;</a>
+			  </div>
+			</div>
 		</div>
-		<div id="container">
-			<h4 style="margin-bottom: 20px;">#리뷰가 많은 카페</h4>
-			<button type="button" onclick="window.open('Review.jsp')">더보기</button>
-		</div>
-		<div class="kind_wrap">
-		  <div class="kind_slider">
-		    <ul class="slider">
-		         <li>
-					<div class="card" style="width: 18rem;" onclick= "move()">
-						<img src="../img/20170807_225433.jpg" class="card-img-top" alt="...">
-						<div class="card-body" style="height: 70px;">
-							<h5 class="card-title" style="margin-bottom: 10px;">홍대 OO카페</h5>
+		<div style="margin-top: 50px;">
+			<div id="container">
+				<h4 style="margin-bottom: 20px;">#리뷰가 많은 카페</h4>
+				<button type="button" onclick="moveReview()">더보기</button>
+			</div>
+			<div class="kind_wrap">
+			  <div class="kind_slider">
+			    <ul class="slider">
+			         <li>
+						<div class="card" style="width: 18rem;" onclick= "move()">
+							<img src="../img/20170807_225433.jpg" class="card-img-top" alt="...">
+							<div class="card-body" style="height: 70px;">
+								<h5 class="card-title" style="margin-bottom: 10px;">홍대 OO카페</h5>
+							</div>
 						</div>
-					</div>
-				</li>
-		         <li>
-					<div class="card" style="width: 18rem;" onclick= "move()">
-						<img src="../img/2018-10-09.jpg" class="card-img-top" alt="...">
-						<div class="card-body" style="height: 70px;">
-							<h5 class="card-title" style="margin-bottom: 10px;">홍대 OO카페</h5>
+					</li>
+			         <li>
+						<div class="card" style="width: 18rem;" onclick= "move()">
+							<img src="../img/2018-10-09.jpg" class="card-img-top" alt="...">
+							<div class="card-body" style="height: 70px;">
+								<h5 class="card-title" style="margin-bottom: 10px;">홍대 OO카페</h5>
+							</div>
 						</div>
-					</div>
-				</li>
-		         <li>
-					<div class="card" style="width: 18rem;" onclick= "move()">
-						<img src="../img/KakaoTalk_Photo_2021-04-19-09-02-31.jpeg" class="card-img-top" alt="...">
-						<div class="card-body" style="height: 70px;">
-							<h5 class="card-title" style="margin-bottom: 10px;">홍대 OO카페</h5>
+					</li>
+			         <li>
+						<div class="card" style="width: 18rem;" onclick= "move()">
+							<img src="../img/KakaoTalk_Photo_2021-04-19-09-02-31.jpeg" class="card-img-top" alt="...">
+							<div class="card-body" style="height: 70px;">
+								<h5 class="card-title" style="margin-bottom: 10px;">홍대 OO카페</h5>
+							</div>
 						</div>
-					</div>
-				</li>
-		    </ul>
-		  </div>
-		  <div class="arrow">
-		      <a href="" class="prev">&lt;</a>
-		      <a href="" class="next">&gt;</a>
-		  </div>
+					</li>
+					<li>
+						<div class="card" style="width: 18rem;" onclick= "move()">
+							<img src="../img/KakaoTalk_Photo_2021-04-19-09-02-31.jpeg" class="card-img-top" alt="...">
+							<div class="card-body" style="height: 70px;">
+								<h5 class="card-title" style="margin-bottom: 10px;">홍대 OO카페</h5>
+							</div>
+						</div>
+					</li>
+			    </ul>
+			  </div>
+			  <div class="arrow">
+			      <a href="" class="prev">&lt;</a>
+			      <a href="" class="next">&gt;</a>
+			  </div>
+			</div>
 		</div>
 	  </div>
 	</section>
