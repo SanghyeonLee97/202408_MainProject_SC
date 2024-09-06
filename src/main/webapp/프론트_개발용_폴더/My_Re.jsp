@@ -8,6 +8,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
+	a{color: black}
 .kind_wrap {
   border:2px solid black; 
   background-color: lightgray;
@@ -18,6 +19,7 @@
   justify-content: space-between;
   overflow: hidden;
   margin-bottom:30px; 
+  margin-top: 95px; 
 }
 .kind_wrap > .kind_slider {
   overflow: hidden;
@@ -71,24 +73,10 @@ width: 300px; height: 200px;
   				transform: scale(1.1);  
     			transition: transform .5s; 
   	}
-  #button2{
-  	padding: 5px 10px;
-    border-radius: 15%;
-    border: none;
-    font-size: 20px;
-    margin-bottom: 10px;
-  }
-  .container-fluid{
-  	max-width: 1500px;
-  }
 </style>
 </head>
 <body>
 	<div class="container-fluid">
-		<div style="display: flex">
-			<button id="button2" type="button">남성</button>
-			<button id="button2" type="button" style="margin-left: 10px;">여성</button>
-		</div>
 		<div class="kind_wrap">
 		  <div class="kind_slider">
 		    <ul class="slider" >
