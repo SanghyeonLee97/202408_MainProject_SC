@@ -72,8 +72,8 @@
 					<tr><td>전화번호</td> <td><input class="regform" type="tel" name="member_tel"></td></tr>
 					<tr><td>생년월일</td> <td><input class="regform" type="date" name="birthdate"></td></tr>
 					<tr><td>성별</td>
-					 	 <td> <input type='radio' name='gender' value='F' />여성&nbsp;
- 						  <input type='radio' name='gender' value='M' />남성</td></tr>
+					 	 <td><label for="gender01"><input type='radio' id="gender01" name='gender' value='F' />여성</label>&nbsp;
+ 						 <label for="gender02"><input type='radio' id="gender02" name='gender' value='M' />남성</label></td></tr>
 				</table><br><br>
 				<h5>선호하는 까페 취향을 골라주세요 </h5>
 					<label for="franchise">	
