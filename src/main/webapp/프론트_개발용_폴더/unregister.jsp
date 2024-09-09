@@ -87,18 +87,19 @@
 				</ul>
 			</aside>
 			<div id="unregdiv">
+					<form action="deleteAccount.do" method="post">
+					<input type="hidden" name="member_id" value="'${sessionScope.user.member_id }'">
 				<header>
 					<h4>회원탈퇴</h4>
 				</header><br><br>
 				<article>	
-					<form action="">
 						비밀번호 입력시 회원탈퇴가 완료됩니다.<br><br>
 						<input id="unregister" type="text" placeholder="비밀번호를 입력하세요" >
-					</form>
 				</article>
 				<nav>
 					<button id="unregisterbt">탈퇴</button>
 				</nav>
+					</form>
 			</div>
 		</section>
 	</main>
