@@ -27,7 +27,7 @@ public class IndexController {
     public String connectIndex(Model model) {
         model.addAttribute("LRArrCDTO", likeRecommendation.likeRecommendation());
         model.addAttribute("RRArrCDTO", reviewsRecommendation.reviewsRecommendation());
-        return "Main_temp";
+        return "Main";
     }
     
     @RequestMapping("/index_temp")
