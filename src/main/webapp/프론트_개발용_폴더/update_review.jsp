@@ -77,18 +77,26 @@ button[type=submit] {
 	
 }
 
-
-button:nth-child(2) {
-	right: 130px; /* 두 번째 버튼을 오른쪽에서 10px 떨어뜨립니다 */
-	bottom: 10px; /* 아래쪽에서 10px 떨어뜨립니다 */
+#update_bt{
+    width: 150px;
+    height: 50px;
+    background: #F4E1D2;
+    position: relative;
+    top: 150px;
+    margin-left: 10px;
+    float: right;
+}
+#delete_bt{
+	width: 150px;
+    height: 50px;
+    background: #F4E1D2;
+    position: relative;
+    top: 150px;
+    margin-left: 10px;
+    float: right;
 }
 
-button:nth-child(1) {
-	right: 10px; /* 두 번째 버튼을 오른쪽에서 10px 떨어뜨립니다 */
-	bottom: 10px; /* 아래쪽에서 10px 떨어뜨립니다 */
-}
-
-.update_map{
+#update_map{
 	padding-left : 30px;
 	justify-content : space-around;
     display: flex;
@@ -142,7 +150,7 @@ button:nth-child(1) {
 				</ul>
 			</aside>
 			<div id='update_box'>홍대000카페
-				<div class='update_map'>
+				<div id='update_map'>
 					<img src="../img/2018-10-09.jpg" height="150px" width="150px">
 					<img src="../img/2018-10-09.jpg" height="150px" width="150px">
 				</div>
@@ -162,8 +170,8 @@ button:nth-child(1) {
 					</fieldset>
 					</div>
 					<div id='update_example'>리뷰 작성한 보이는 부분
-						<button type='submit'>수정</button>
-						<button type='submit'>삭제</button>
+						<button type='submit' id='update_bt'>수정</button>
+						<button type='submit' id='delete_bt'>삭제</button>
 					</div>
 				</section>
 			</div>

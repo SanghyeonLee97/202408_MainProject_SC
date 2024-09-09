@@ -75,6 +75,7 @@ button[type=submit] {
 	width: 115px;
 	height: 50px;
 	margin: 0; /* 기존 margin을 제거하여 위치를 정확히 설정합니다 */
+	background: #F4E1D2;
 }
 
 .write_map{
