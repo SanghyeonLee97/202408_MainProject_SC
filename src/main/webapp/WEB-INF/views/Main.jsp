@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="../WEB-INF/views/common/header.jsp" %>
+<%@ include file="common/header.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -81,7 +81,7 @@ width: 300px; height: 200px;
     border: none;
     font-size: 20px;
     margin-bottom: 20px;
-    background-color:#F4E1D2;
+    background-color:#FADADD;
     color: #333333;
   }
   	#a{
@@ -102,10 +102,10 @@ function move(){
 }
 </script>
 </head>
-<body style="background-color:  #F0F0F0">
+<body style="background-color:  #F5F5F5">
 	<section data-bs-version="5.1" class="slider4 mbr-embla cid-ubxwyl8tSX" id="gallery-5-ubxwyl8tSX">
 	  <div class="container-fluid">
-	  	<div >
+	  	<div>
 		  	<div id="container">
 		  		<h4 style="margin-bottom: 20px; background-color: #FFF0F0">#좋아요가 많은 카페</h4>
 		  		<button type="button" onclick="moveLike()">더보기</button>
@@ -205,4 +205,4 @@ function move(){
 	</section>
 </body>
 </html>
-<%@ include file="../WEB-INF/views/common/footer.jsp" %>
+<%@ include file="common/footer.jsp" %>

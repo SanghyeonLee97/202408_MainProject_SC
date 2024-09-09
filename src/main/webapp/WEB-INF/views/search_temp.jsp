@@ -22,6 +22,7 @@
 	<input id="nowKeyWord" type="hidden" value="${keyWord}">
 	<a id="wifi" href="search.do?Category=wifi" onclick="updateHref(event)">와이파이</a><br>
 	<a id="wheelchair" href="search.do?Category=wheelchair" onclick="updateHref(event)">휠체어</a>
+	<a id="parking" href="search.do?Category=parking" onclick="updateHref(event)">주차</a>
 	
 	
 	<c:forEach var="likeCafe" items="${SRArrCDTO}">

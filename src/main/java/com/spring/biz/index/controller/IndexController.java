@@ -23,11 +23,11 @@ public class IndexController {
 	@Autowired
 	SearchService ss;
 	
-    @RequestMapping("/index_temp")
+    @RequestMapping("/index")
     public String connectIndex(Model model) {
         model.addAttribute("LRArrCDTO", likeRecommendation.likeRecommendation());
         model.addAttribute("RRArrCDTO", reviewsRecommendation.reviewsRecommendation());
-        return "index_temp";
+        return "Main";
     }
     
     @RequestMapping("likeCafeMore.do")
