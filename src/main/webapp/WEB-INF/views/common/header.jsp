@@ -93,9 +93,9 @@ var userId = '${sessionScope.user.member_id}';
 <section data-bs-version="5.1" class="slider4 mbr-embla cid-ubxwyl8tSX" id="gallery-5-ubxwyl8tSX">
   <div class="container-fluid">
     <div class="row mb-5 " >
-	    <div class="col-12 content-head">
+	    <div class="col-12 content-head"> 
 		    <div style="display: flex; align-items: center; justify-content: center; flex: 1;">
-		        <a id="a" href="Main.jsp"><img src="../img/KakaoTalk_20240830_173505125.png" id="main_img" width="100px" height="100px" style="margin-right: 20px;"></a>
+		        <a id="a" href="Main.jsp"><img src="resources/images/main_img.png" id="main_img" width="100px" height="100px" style="margin-right: 20px;"></a>
 		       <p id='main'><a id="a" href="Main.jsp" style="color:black"> 카페 IN 홍대</a></p>
 		    </div>
 		    <c:if test="${sessionScope.user ==null }">
@@ -114,7 +114,7 @@ var userId = '${sessionScope.user.member_id}';
 				<li><a id="a" href="Gen_Re.jsp">성별 추천</a></li>
 				<li><a id="a" href="Age_Re.jsp">연령별 추천</a></li>
 				<li><a id="a" href="My_Re.jsp">선호카페 추천</a></li>
-				<li><a id="a" href="cafeCluster.html">카페 지도보기</a></li>
+				<li><a id="a" href="WEB-INF/views/cafeCluster.html">카페 지도보기</a></li>
 			</ul>
 		</div>
 		<form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search" >
