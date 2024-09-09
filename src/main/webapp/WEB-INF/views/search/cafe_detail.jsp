@@ -96,27 +96,32 @@ button.favorite:hover {
 	<div class="container">
 		<div>
 			<div class='cafe_map'>
-				<img src="../img/2018-10-09.jpg" height="150px" width="150px">
+				<img src="https://${CafeDetail.IMAGE_URL}" height="150px" width="150px">
 				<img src="../img/2018-10-09.jpg" height="150px" width="150px">
 			</div>
 			<div id='cafe_box'>
 				<div class='cafe_header'>
-					<span>홍대000카페</span>
+					<span>${CafeDetail.CAFE_NAME}</span>
 					<button class='favorite'>
 						<i class="fas fa-heart"></i>
 					</button>
 				</div>
 				<section id='detail_section'>
-					평점 공간 4/5(점수 평점)
+					평점 공간 ${CafeDetail.TOTAL_POINT}/5(점수 평점)
 					<div class='cafe_info'>
 						<ul>
 							<li>
-								여기에 데이터 받아서 카페 상세정보 나오게 하기
+								<p>주소 : ${CafeDetail.ADD_ROAD}</p><hr>
+								<p>영업시간: ${CafeDetail.OPEN_CLOSE}</p><hr>
+								<p>전화번호: ${CafeDetail.CAFE_TEL}</p><hr>
 							</li>
 						</ul>
 					</div>
 					<div id='review_example'>
-						리뷰 작성한 보이는 부분
+						<c:forEach var="cafeReviews" items="${CafeReview}">
+							<p>이름: ${cafeReviews.MEMBER_NAME}</p>
+							<p>리뷰: ${cafeReviews.REVIEW}</p>
+						</c:forEach>
 						<button type='submit'>리뷰작성</button>
 					</div>
 				</section>
