@@ -162,11 +162,11 @@ public class MemberController{
     }
 	
 	/* 아이디 찾기 */
-	@RequestMapping(value = "/find_id")
-	public String getIdPOST(HttpServletResponse response, @RequestParam(value="member_name") String name, Model model)  throws Exception{
-		model.addAttribute("id", memberService.getEmail(response, name));
-		
-	    return "";	
-	}
+//	@RequestMapping(value = "/find_id")
+//	public String getIdPOST(HttpServletResponse response, @RequestParam(value="member_name") String name, Model model)  throws Exception{
+//		model.addAttribute("id", memberService.getEmail(response, name));
+//		
+//	    return "";	
+//	}
 }
 

@@ -16,5 +16,5 @@ public interface MemberMapper {
 	public void updateLike(MemberDTO memberDTO);
 	public void deleteAccount(int member_id);
 	public void deleteType(int member_id);
-	public String getEmail(String name);
+//	public String getEmail(String name);
 }
