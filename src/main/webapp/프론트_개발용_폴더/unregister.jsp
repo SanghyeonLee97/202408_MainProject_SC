@@ -8,6 +8,9 @@
 <meta charset="UTF-8">
 <title>회원탈퇴</title>
 <style type="text/css">
+	body{
+		 background: #F8F8FF;
+	}
 	section>aside{
 	
 		width: 220px; height: 400px;
@@ -31,6 +34,7 @@
 		width: 100px;
 		height: 40px;
 		background:#F0CB85;
+		cursor: pointer;
 		
 	} 
 	#unregdiv{
@@ -54,10 +58,14 @@
 	section>aside ul li:hover {
 	   
 		font-size: 18px;
-		background-color: #FAC87D;
+		background-color:#F5ECCE;
 		transition: font-size 0.3s ease, background-color 0.3s ease; 
+		
 	}
 	a {
+ 		color: black;
+ 	}
+ 	a:hover {
  		color: black;
  	}
 </style>

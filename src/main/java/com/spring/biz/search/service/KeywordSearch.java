@@ -11,12 +11,12 @@ import com.spring.biz.common.dto.CafeDTO;
 import com.spring.biz.common.util.PythonRead;
 
 @Service
-public class SearchService {
+public class KeywordSearch {
 	
 	@Autowired
 	PythonRead pythonRead;
 	
-	public ArrayList<CafeDTO> searchService(String keyWord,String Category){
+	public ArrayList<CafeDTO> keywordSearch(String keyWord,String Category){
 		ArrayList<CafeDTO> arrcdto = new ArrayList<CafeDTO>();
 		
 		try {

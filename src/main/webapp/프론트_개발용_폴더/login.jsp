@@ -11,6 +11,9 @@
 
 </script> -->
 <style type="text/css">
+	body{
+		 background: #F8F8FF;
+	}
 	main {
     display: flex;
     justify-content: center;
@@ -48,6 +51,7 @@
 		background:#F0CB85;
 		border: none;
 		margin-top: 50px;
+		cursor: pointer;
 	}
 	#loginbt{
 		height: 50px;
@@ -55,6 +59,7 @@
 		background:#F0CB85;
 		border: none;
 		margin-top: 50px;
+		cursor: pointer;
 	}
 	tr,td{
 	

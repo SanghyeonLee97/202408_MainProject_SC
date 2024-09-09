@@ -8,6 +8,10 @@
 <title>내 정보 수정</title>
 <style type="text/css">
 
+	body{
+		 background: #F8F8FF;
+	}
+
 	section>aside{
 	
 		width: 220px; height: 400px;
@@ -35,6 +39,7 @@
 		width: 150px;
 		height: 40px;
 		background: #F0CB85;
+		cursor: pointer;
 	} 
 	#regform{
  		width: 250px;
@@ -52,6 +57,10 @@
 	   
 	    
 	}
+	td,tr{
+ 		padding-top: 15px;
+ 		padding-right: 10px;
+ 	}
 	section>aside ul li {
   
 		font-size: 14px;
@@ -62,14 +71,14 @@
 	section>aside ul li:hover {
 	   
 		font-size: 18px;
-		background-color: #FAC87D;
+		background-color:#F5ECCE;
 		transition: font-size 0.3s ease, background-color 0.3s ease; 
+		
 	}
-	td,tr{
- 		padding-top: 15px;
- 		padding-right: 10px;
+	a {
+ 		color: black;
  	}
- 	a {
+ 	a:hover {
  		color: black;
  	}
 </style>
@@ -98,23 +107,23 @@
 				<h4>내 정보 수정</h4>
 			</header>
 			<article>
-				<form id="" action="">
+				<form id="" action="update.do">
 				<table>
 				  	<tr><td>이메일</td>
-				        <td><input id="regform" type="text" readonly="readonly" name="Email"></td></tr>
-					<tr><td>비밀번호</td><td><input id="regform" type="text" name="memberPw"></td></tr>
+				        <td><input id="regform" type="text" readonly="readonly" name="Email" value="${sessionScope.user.email}"></td></tr>
+					<tr><td>비밀번호</td><td><input id="regform" type="password" name="pw"></td></tr>
 					<tr><td>이름</td>
-					 	<td><input id="regform" type="text" name="memberName"></td></tr>
-					<tr><td>전화번호</td> <td><input id="regform" type="tel" name="memberTel"></td></tr>
-					<tr><td>생년월일</td> <td><input id="regform" type="date" name="birth"></td></tr>
+					 	<td><input id="regform" type="text" name="member_name"></td></tr>
+					<tr><td>전화번호</td> <td><input id="regform" type="tel" name="member_tel"></td></tr>
+					<tr><td>생년월일</td> <td><input id="regform" type="date" name="birthdate"></td></tr>
 					<tr><td>성별</td> 	 
 						 <td> <input type='radio' name='gender' value='female' />여성 &nbsp;
  						  <input type='radio' name='gender' value='male' />남성</td></tr>
   				</table><br><br>		
-				<h5>선호하는 까페 취향을 골라주세요</h5>
+				<h5>선호하는 까페 취향을 골라주세요 </h5>
 					<input type="radio" name='cafe_type' value='F' />프랜차이즈&nbsp;&nbsp;
  					<input type="radio" name='cafe_type' value='P' />개인<br><br>
- 				<h5>분위기</h5>
+ 				<h5>분위기 </h5>
  					<input type="radio" name="mood" value="M01">까페에서 공부하는 분위기<br><br>
  					<input type="radio" name="mood" value="M02">까페에서 수다떠는 분위기<br><br>
  					<input type="radio" name="mood" value="M03">까페에서 연인과 데이트하는 분위기<br><br>

@@ -9,13 +9,14 @@ html, body {
   height: 100%; /* 전체 높이를 100%로 설정 */
   display: flex;
   flex-direction: column; /* 세로 방향으로 요소 배치 */
+  
 }
-
 .footer {
 	width: 100%;
 	height: auto;
 	color: #adb1ba;
 	background: black;
+	margin-top: 150px;
 }
 
 .footer_A {
@@ -26,6 +27,7 @@ html, body {
 .footer_A:hover {
   color: #adb1ba;
 }
+
 </style>
 <title>footer</title>
 </head>

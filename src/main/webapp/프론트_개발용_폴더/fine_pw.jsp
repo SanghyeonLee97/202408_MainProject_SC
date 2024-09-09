@@ -7,6 +7,9 @@
 <meta charset="UTF-8">
 <title>find_pw</title>
 <style type="text/css">
+	body{
+		 background: #F8F8FF;
+	}
 	main{
 	display: flex;
     justify-content: center;
@@ -35,6 +38,7 @@
 		width: 140px;
 		background:#F0CB85;
 		border: none;
+		cursor: pointer;
  	}
  	tr,td{
 	

@@ -10,10 +10,12 @@
 <style type="text/css">
 	a{color: black}
 .kind_wrap {
-  border:2px solid black; 
-  background-color: lightgray;
+  border:3px solid #464646; 
+  border-radius : 50px;
+  background-color:#f0f0f0;
   width:100%; 
   max-width:2000px; 
+  height : 1000px;
   margin:0 auto; 
   position: relative;
   justify-content: space-between;
@@ -59,10 +61,11 @@
   font-size: 24px;
 }
 .card{
-margin-top: 30px;
+margin-top: 40px;
 border: none;
 transition: transform .5s;
 transform: scale(1.0);
+margin-right: 25px
 }
 #main_img{width: 100px; height: 100px;}
 img{
@@ -79,7 +82,15 @@ width: 300px; height: 200px;
     font-size: 20px;
     margin-bottom: 10px;
   }
+   #button3:hover{
+  	background-color: skyblue;
+  }
 </style>
+<script type="text/javascript">
+function move(){		
+	window.open('', '_self');
+}
+</script>
 </head>
 <body>
 	<div class="container-fluid">
@@ -213,3 +224,4 @@ width: 300px; height: 200px;
 	</div>
 </body>
 </html>
+<%@ include file="../WEB-INF/views/common/footer.jsp" %>

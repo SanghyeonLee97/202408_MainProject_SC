@@ -1,6 +1,5 @@
 package com.spring.biz.member.service;
 
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -45,8 +44,9 @@ public class MemberService {
 		return cnt;
 	}
 	
-	public List<MemberDTO> myInfo() {
-		
-		return memberMapper.myInfo();
+	public MemberDTO myInfo(String email) {
+		System.out.println(email);
+		System.out.println();
+		return memberMapper.myInfo(email);
 	}
 }

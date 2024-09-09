@@ -26,7 +26,7 @@
 	justify-content: space-around;
 	font-weight: bolder;
 	font-size: 20px; 
-	background: beige;
+	background: #FDF5E6;
 	}
 	#button1{
 	padding: 5px 10px;
@@ -34,6 +34,9 @@
     border: none;
     font-size: 20px;
     height: 50px;
+    margin-top: 30px;
+    background-color:#F4E1D2;
+    color: #333333;
 	}
 	.container-fluid{
 		max-width: 1500px;
@@ -47,8 +50,11 @@
 function move1(){		
 	window.open('login.jsp', '_self');
 }
-function move2(){		
-	window.open('mypage.jsp', '_self');
+function move2(email) {        
+    // 이메일 주소를 안전하게 URL 쿼리 매개변수로 변환
+    const safeEmail = encodeURIComponent(email);
+    // 현재 창에서 지정한 URL로 이동
+    window.location.href = '/biz/프론트_개발용_폴더/info.do?email='+safeEmail;
 }
 function move3(){		
 	window.open('login.jsp', '_self');
@@ -70,8 +76,8 @@ function move3(){
 			</c:if>
 				 
 			<c:if test="${sessionScope.user != null }">
-				<button id="button1" type="button" onclick="move2()">마이페이지</button>
-				<button id="button1" type="button" onclick="move3()">로그아웃</button>
+				<button id="button1" type="button" onclick="move2('${sessionScope.user.email}')">마이페이지</button>
+				<button id="button1" type="button" onclick="move3()" style="margin-left: 20px">로그아웃</button>
 			</c:if>
 		</div>
 		<div class="container-fluid" style=" padding: 10px; margin-top: 50px">
@@ -82,9 +88,9 @@ function move3(){
 			</ul>
 		</div>
 		<form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search" >
-			<div class="input-group" style="margin-left: 500px; margin-top: 50px;">
+			<div class="input-group" style="margin-left: 500px; margin-top: 35px;">
 		        <input type="text" class="form-control bg-light border-0 small" placeholder="키워드를 입력해주세요"
-		            aria-label="Search" aria-describedby="basic-addon2" style="width: 400px; height: 50px;">
+		            aria-label="Search" aria-describedby="basic-addon2" style="width: 400px; height: 50px; background: #F0F0F0">
 		        <div class="input-group-append">
 		            <button class="btn btn-primary" type="button" style="height: 50px; width: 50px">
 		                <i class="fas fa-search fa-sm"></i>

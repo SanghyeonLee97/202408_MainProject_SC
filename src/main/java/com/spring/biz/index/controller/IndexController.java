@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.spring.biz.recommendation.service.LikeRecommendation;
 import com.spring.biz.recommendation.service.ReviewsRecommendation;
-import com.spring.biz.search.service.SearchService;
+import com.spring.biz.search.service.KeywordSearch;
 
 //index 접근시 반드시 실행
 @Controller
@@ -21,10 +21,17 @@ public class IndexController {
 	@Autowired
 	ReviewsRecommendation reviewsRecommendation;
 	@Autowired
-	SearchService ss;
+	KeywordSearch ss;
 	
-    @RequestMapping("/index_temp")
+    @RequestMapping("/index")
     public String connectIndex(Model model) {
+        model.addAttribute("LRArrCDTO", likeRecommendation.likeRecommendation());
+        model.addAttribute("RRArrCDTO", reviewsRecommendation.reviewsRecommendation());
+        return "Main";
+    }
+    
+    @RequestMapping("/index_temp")
+    public String connectIndex2(Model model) {
         model.addAttribute("LRArrCDTO", likeRecommendation.likeRecommendation());
         model.addAttribute("RRArrCDTO", reviewsRecommendation.reviewsRecommendation());
         return "index_temp";
@@ -48,7 +55,7 @@ public class IndexController {
     	if(request.getParameter("Category")!=null) {
     		Category = request.getParameter("Category");
     	}
-    	model.addAttribute("SRArrCDTO", ss.searchService(request.getParameter("keyWord"),Category));
+    	model.addAttribute("SRArrCDTO", ss.keywordSearch(request.getParameter("keyWord"),Category));
     	model.addAttribute("keyWord",request.getParameter("keyWord"));
     	return "search_temp";
     }
