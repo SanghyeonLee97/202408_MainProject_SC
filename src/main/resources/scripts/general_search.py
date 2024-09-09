@@ -337,7 +337,7 @@ elif searchTxt.strip() != '' and keywordTxt.strip() in ['100', '200', '300', '40
         ] 
     }
     
-    flag = "11"    
+    flag = "11" 
     
 # 검색어 없고 & 거리 단위 선택 했을 경우    
 elif searchTxt.strip() == '' and keywordTxt.strip() in ['100', '200', '300', '400', '500', '600', '700', '800', '900', '1000', '1100', '1200']:    
