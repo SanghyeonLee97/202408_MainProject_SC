@@ -34,6 +34,7 @@
 		width: 100px;
 		height: 40px;
 		background:#F0CB85;
+		cursor: pointer;
 		
 	} 
 	#unregdiv{

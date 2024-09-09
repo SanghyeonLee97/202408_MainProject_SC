@@ -38,6 +38,7 @@
 		width: 140px;
 		background:#F0CB85;
 		border: none;
+		cursor: pointer;
  	}
  	tr,td{
 	

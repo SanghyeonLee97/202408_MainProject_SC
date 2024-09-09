@@ -39,6 +39,7 @@
 		width: 150px;
 		height: 40px;
 		background: #F0CB85;
+		cursor: pointer;
 	} 
 	#regform{
  		width: 250px;
@@ -121,7 +122,7 @@
   				</table><br><br>		
 				<h5>선호하는 까페 취향을 골라주세요 </h5>
 					<input type="radio" name='cafe_type' value='F' />프랜차이즈&nbsp;&nbsp;
- 					<input type="radio" name='cafe_type' value='P' />개인<br>
+ 					<input type="radio" name='cafe_type' value='P' />개인<br><br>
  				<h5>분위기 </h5>
  					<input type="radio" name="mood" value="M01">까페에서 공부하는 분위기<br><br>
  					<input type="radio" name="mood" value="M02">까페에서 수다떠는 분위기<br><br>

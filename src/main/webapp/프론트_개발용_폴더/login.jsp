@@ -51,6 +51,7 @@
 		background:#F0CB85;
 		border: none;
 		margin-top: 50px;
+		cursor: pointer;
 	}
 	#loginbt{
 		height: 50px;
@@ -58,6 +59,7 @@
 		background:#F0CB85;
 		border: none;
 		margin-top: 50px;
+		cursor: pointer;
 	}
 	tr,td{
 	
