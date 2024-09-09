@@ -40,13 +40,13 @@ public class IndexController {
     @RequestMapping("likeCafeMore.do")
     public String likeCafeMore(Model model) {
     	model.addAttribute("LRArrCDTO", likeRecommendation.likeRecommendation());
-    	return "likeCafeMore_temp";
+    	return "recommand/Like";
     }
     
     @RequestMapping("reviewsCafeMore.do")
     public String reviewsCafeMore(Model model) {
     	model.addAttribute("RRArrCDTO", reviewsRecommendation.reviewsRecommendation());
-    	return "reviewsCafeMore_temp";
+    	return "recommand/Review";
     }
     
     @RequestMapping("search.do")
