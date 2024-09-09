@@ -110,10 +110,10 @@ width: 300px; height: 200px;
 </style>
 <script type="text/javascript">
 function moveLike(){		
-	window.open('Like.jsp', '_self');
+	window.open('likeCafeMore.do', '_self');
 }
 function moveReview(){		
-	window.open('Review.jsp', '_self');
+	window.open('reviewsCafeMore.do', '_self');
 }
 function move(cafeId){		
 	window.open('detail.do?cafeId='+cafeId, '_self');
