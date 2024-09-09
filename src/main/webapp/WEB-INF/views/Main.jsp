@@ -29,7 +29,6 @@
 .kind_wrap > .kind_slider .slider { 
 transition: transform 0.3s ease-in-out;
   position: relative; 
-  transition: 0.5s;
   justify-content: space-around;
   display: flex;
   list-style: none;
