@@ -1,9 +1,5 @@
 Manifest-Version: 1.0
 Built-By: ORC
-<<<<<<< HEAD
 Build-Jdk: 1.8.0_421
-=======
-Build-Jdk: 11.0.22
->>>>>>> f93eb9d0e7fd3615680b9129d9844302cdcee364
 Created-By: Maven Integration for Eclipse
 

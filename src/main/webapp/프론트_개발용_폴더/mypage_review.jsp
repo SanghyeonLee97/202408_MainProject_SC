@@ -8,6 +8,9 @@
 <meta charset="UTF-8">
 <title>리뷰 쓴 페이지</title>
 <style type="text/css">
+	body{
+		 background: #F8F8FF;
+	}
 		section>aside{
 	
 		width: 220px; height: 400px;
@@ -55,10 +58,14 @@
 	section>aside ul li:hover {
 	   
 		font-size: 18px;
-		background-color: #FAC87D;
+		background-color:#F5ECCE;
 		transition: font-size 0.3s ease, background-color 0.3s ease; 
+		
 	}
 	a {
+ 		color: black;
+ 	}
+ 	a:hover {
  		color: black;
  	}
 </style>

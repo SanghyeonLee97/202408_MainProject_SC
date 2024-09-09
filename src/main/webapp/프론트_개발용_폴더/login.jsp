@@ -11,6 +11,9 @@
 
 </script> -->
 <style type="text/css">
+	body{
+		 background: #F8F8FF;
+	}
 	main {
     display: flex;
     justify-content: center;

@@ -7,6 +7,9 @@
 <meta charset="UTF-8">
 <title>find_id</title>
 <style type="text/css">
+	body{
+		 background: #F8F8FF;
+	}
 	main{
 	display: flex;
     justify-content: center;
