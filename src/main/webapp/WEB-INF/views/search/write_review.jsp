@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="../WEB-INF/views/common/header.jsp"%>
+<%@ include file="../common/header.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -87,7 +87,7 @@ button[type=submit] {
 }
 #write_example{
 	width: 800px;
-	height: 200px;
+	height: auto;
 	background: beige;
 	position: relative;
 }
