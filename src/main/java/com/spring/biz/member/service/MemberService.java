@@ -1,8 +1,11 @@
 package com.spring.biz.member.service;
 
 
+import java.io.PrintWriter;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -96,4 +99,6 @@ public class MemberService {
 	 public void deleteMember(int i) {
 	     memberMapper.deleteAccount(i);
 	    }
+	 
+	 
 }
