@@ -81,6 +81,9 @@
  	a:hover {
  		color: black;
  	}
+ 	label[for="gender01"], label[for="gender02"] {
+   	 margin-bottom: 0; 
+	}
  	label {
  		margin-bottom: 20px;
  		cursor: pointer;
@@ -120,7 +123,7 @@
 					 	<td><input id="regform" type="text" name="member_name"></td></tr>
 					<tr><td>전화번호</td> <td><input id="regform" type="tel" name="member_tel"></td></tr>
 					<tr><td>생년월일</td> <td><input id="regform" type="date" name="birthdate"></td></tr>
-					<tr><td>성별</td> 	 
+					<tr><td >성별</td> 	 
 						 <td><label for="gender01"><input type='radio' id="gender01" name='gender' value='female' />여성</label> &nbsp;
 							 <label for="gender02"><input type='radio' id="gender02" name='gender' value='male' />남성</label></td></tr>
   				</table><br><br>		

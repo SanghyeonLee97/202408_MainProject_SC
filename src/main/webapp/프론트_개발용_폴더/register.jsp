@@ -48,6 +48,9 @@
  		padding-top: 15px;
  		padding-right: 10px;
  	}
+ 	label[for="gender01"], label[for="gender02"] {
+   	 margin-bottom: 0; 
+	}
  	label {
  		margin-bottom: 20px;
  		cursor: pointer;
