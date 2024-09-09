@@ -29,13 +29,15 @@
 		margin-left: 300px;
 		margin-top: 40px;
 	}
-	section>header{
-		margin-left: 900px;
-		margin-top: 20px;
+	h4{
+		text-align : center;
+		
+		
 	}
 	 #mypagebt {
 		position: relative;
-		top : 30px;
+		top : 20px;
+		left : 100px;
 		border: none;
 		width: 150px;
 		height: 40px;
@@ -95,7 +97,7 @@
 <body>
 	<main>
 		<section>
-		<aside>
+			<aside>
 				<ul>
 					<li><a href="mypage.jsp">내 정보 수정</a></li>
 				</ul>
@@ -121,7 +123,7 @@
 				  	<tr><td>이메일 </td>
 
 				        <td>
-				        	<input id="regform" type="text" placeholder="aaa@aaa.com" name="Email" value="${info.email}">
+				        	<input id="regform" type="text" readonly="readonly" name="Email" value="${info.email}">
 				        </td>
 				    </tr>
 					<tr><td>비밀번호</td><td><input id="regform" type="password" name="pw" value="${info.pw }"></td></tr>
@@ -132,20 +134,22 @@
 					<tr><td>생년월일</td> <td><input id="regform" type="date" name="birthdate" value="${info.birthdate }" readonly="readonly"></td></tr>
 					<tr><td>성별</td> 	 
 
-						 <td> <input type='radio' name='gender' value='F' <c:if test="${info.gender eq 'F' }"> checked </c:if>/>여성 &nbsp;
- 						  <input type='radio' name='gender' value='M' <c:if test="${info.gender eq 'M' }"> checked </c:if>/>남성</td></tr>
+						 <td> <label for="gender01"><input type='radio' id="gender01" name='gender' value='F' <c:if test="${info.gender eq 'F' }"> checked </c:if>/>여성</label> &nbsp;
+ 						  <label for="gender02"><input type='radio' id="gender02" name='gender' value='M' <c:if test="${info.gender eq 'M' }"> checked </c:if>/>남성</label></td></tr>
   				</table><br><br>		
 			
 	
-				<h4>선호하는 까페 취향을 골라주세요 </h4>
-					<input type="radio" name='cafe_type' value='F' <c:if test="${info.cafe_type eq 'F' }"> checked </c:if> />프랜차이즈&nbsp;&nbsp;
- 					<input type="radio" name='cafe_type' value='P' <c:if test="${info.cafe_type eq 'P' }"> checked </c:if>/>개인<br>
- 				<h4>분위기 </h4>
- 					<input type="radio" name="mood" value="M01" <c:if test="${info.mood eq 'M01' }"> checked </c:if>>까페에서 공부하는 분위기<br><br>
- 					<input type="radio" name="mood" value="M02" <c:if test="${info.mood eq 'M02' }"> checked </c:if>>까페에서 수다떠는 분위기<br><br>
- 					<input type="radio" name="mood" value="M03" <c:if test="${info.mood eq 'M03' }"> checked </c:if>>까페에서 연인과 데이트하는 분위기<br><br>
- 					<input type="radio" name="mood" value="M04" <c:if test="${info.mood eq 'M04' }"> checked </c:if>>인스타 감성으로 사진찍기 좋은 까페<br><br>
- 					<input type="radio" name="mood" value="M05" <c:if test="${info.mood eq 'M05' }"> checked </c:if>>체험,테마 위주 까페 
+				<h5>선호하는 까페 취향을 골라주세요 </h5>
+					<label for="franchise">
+						<input type="radio" id="franchise" name='cafe_type' value='F' <c:if test="${info.cafe_type eq 'F' }"> checked </c:if> />프랜차이즈</label>&nbsp;&nbsp;
+					<label for="personal">
+ 						<input type="radio" id="personal" name='cafe_type' value='P' <c:if test="${info.cafe_type eq 'P' }"> checked </c:if>/>개인</label><br>
+ 				<h5>분위기 </h5>
+ 					<label for="mood01"><input type="radio" id="mood01" name="mood" value="M01" <c:if test="${info.mood eq 'M01' }"> checked </c:if>>까페에서 공부하는 분위기</label><br>
+ 					<label for="mood02"><input type="radio" id="mood02" name="mood" value="M02" <c:if test="${info.mood eq 'M02' }"> checked </c:if>>까페에서 수다떠는 분위기</label><br>
+ 					<label for="mood03"><input type="radio" id="mood03" name="mood" value="M03" <c:if test="${info.mood eq 'M03' }"> checked </c:if>>까페에서 연인과 데이트하는 분위기</label><br>
+ 					<label for="mood04"><input type="radio" id="mood04" name="mood" value="M04" <c:if test="${info.mood eq 'M04' }"> checked </c:if>>인스타 감성으로 사진찍기 좋은 까페</label><br>
+ 					<label for="mood05"><input type="radio" id="mood05" name="mood" value="M05" <c:if test="${info.mood eq 'M05' }"> checked </c:if>>체험,테마 위주 까페</label> 
 				
 			</article>
 			<nav>
