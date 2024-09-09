@@ -4,7 +4,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.spring.biz.search.mapper.CafeMapper">
-    <select id="getCafeList" resultType="com.spring.biz.common.dto.CafeDTO">
-        select * from cafe where CAFE_id=1;
+    <select id="getCafe" resultType="com.spring.biz.common.dto.CafeDTO" parameterType="String">
+        select * from cafe where CAFE_id = #{cafeId};
     </select>
 </mapper>
