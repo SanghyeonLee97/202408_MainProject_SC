@@ -19,8 +19,6 @@ import org.springframework.stereotype.Component;
 public class PythonRead {
 	public JSONArray pythonRead(String pyName,String argument,String argument2) {
 		try {
-			System.out.println("argument:"+argument);
-			System.out.println("argument2:"+argument2);
             Resource resource = new ClassPathResource("scripts/"+pyName);
             InputStream inputStream = resource.getInputStream();
 
