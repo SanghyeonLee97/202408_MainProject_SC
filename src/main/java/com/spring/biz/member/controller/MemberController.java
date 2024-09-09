@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -159,5 +160,13 @@ public class MemberController{
         // 탈퇴 후 메인 페이지 또는 다른 페이지로 리디렉션
         return "redirect:Main.jsp";
     }
+	
+	/* 아이디 찾기 */
+	@RequestMapping(value = "/find_id")
+	public String getIdPOST(HttpServletResponse response, @RequestParam(value="member_name") String name, Model model)  throws Exception{
+		model.addAttribute("id", memberService.getEmail(response, name));
+		
+	    return "";	
+	}
 }
 

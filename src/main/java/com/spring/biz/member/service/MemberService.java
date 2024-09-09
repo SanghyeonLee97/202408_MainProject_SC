@@ -1,8 +1,11 @@
 package com.spring.biz.member.service;
 
 
+import java.io.PrintWriter;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -96,4 +99,20 @@ public class MemberService {
 	 public void deleteMember(int i) {
 	     memberMapper.deleteAccount(i);
 	    }
+	 
+	 //이메일 찾기
+	 public String getEmail(HttpServletResponse response,String name) throws Exception {
+		 response.setContentType("text/html;charset=utf-8");
+		PrintWriter out = response.getWriter();
+		String email = memberMapper.getEmail(name);
+		if (email == null) {
+			out.println("<script>");
+			out.println("alert('가입된 아이디가 없습니다.');");
+			out.println("history.go(-1);");
+			out.println("</script>");
+			out.close();
+			return null;
+		} else {
+			return email;
+		}
 }
