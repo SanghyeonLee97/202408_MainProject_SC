@@ -95,7 +95,7 @@ function move(){
 }
 </script>
 </head>
-<body>
+<body style="background-color: #F8F8FF">
 	<div class="container-fluid">
 		<h4 style="margin-top: 20px;">#좋아요가 많은 카페</h4>
 		<div class="kind_wrap">

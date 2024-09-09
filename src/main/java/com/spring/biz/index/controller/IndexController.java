@@ -30,6 +30,13 @@ public class IndexController {
         return "Main";
     }
     
+    @RequestMapping("/index_temp")
+    public String connectIndex2(Model model) {
+        model.addAttribute("LRArrCDTO", likeRecommendation.likeRecommendation());
+        model.addAttribute("RRArrCDTO", reviewsRecommendation.reviewsRecommendation());
+        return "index_temp";
+    }
+    
     @RequestMapping("likeCafeMore.do")
     public String likeCafeMore(Model model) {
     	model.addAttribute("LRArrCDTO", likeRecommendation.likeRecommendation());
