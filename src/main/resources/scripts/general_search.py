@@ -14,7 +14,6 @@ except Exception as e:
     print(f"Error connecting to OpenSearch: {e}")
     exit(1)
 
-
 searchTxt = sys.argv[1] # 자바에서 인자로 넘겨받아야 함
 keywordTxt = sys.argv[2] 
 
