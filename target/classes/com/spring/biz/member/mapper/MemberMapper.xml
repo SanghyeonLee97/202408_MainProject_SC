@@ -30,15 +30,34 @@
 	
 	<!-- 로그인처리 -->
 	<select id="login" resultType="com.spring.biz.member.dto.MemberDTO" parameterType="String">
-		select email,pw from member where email=#{email} and pw=#{pw}
+		select member_id,email,pw from member where email=#{email} and pw=#{pw}
 	</select>
 	
-	<!-- 개인정보 -->
-	<select id="myInfo" resultType="com.spring.biz.member.dto.MemberDTO" parameterType="String">
-		select a.member_id, a.email, a.pw, a.member_name, a.member_tel, a.birthdate, a.gender, b.cafe_type, b.mood 
-		from member a
-		inner join member_like b on a.member_id=b.member_id 
-		where a.email=#{email}
-	</select>
+	<!-- 개인정보불러오기 -->
+	<select id="getMemberInfo" resultType="com.spring.biz.member.dto.MemberDTO" parameterType="String">
+	    SELECT a.member_id, a.email, a.pw, a.member_name, a.member_tel, a.birthdate, a.gender, 
+	           b.cafe_type, b.mood 
+	    FROM member a
+	    INNER JOIN member_like b ON a.member_id = b.member_id 
+	    WHERE a.member_id = #{member_id}
+</select>
 	
+	<!-- 개인정보 수정 -->
+	<update id="updateInfo">
+		update member set email=#{email},pw=#{pw},member_tel=#{member_tel},gender=#{gender} where member_id=#{member_id}
+	</update>
+	
+	<!-- member_like 수정 -->
+	<update id="updateLike">
+		update member_like set cafe_type=#{cafe_type},mood=#{mood} where member_id=#{member_id}
+	</update>
+	
+	<!-- 회원탈퇴 -->
+	<delete id="deleteAccount">
+		delete from member where member_id=${member_id};
+	</delete>
+	<delete id="deleteType">
+		delete from member_like where member_id=${member_id};
+	
+	</delete>
 </mapper>

@@ -50,15 +50,42 @@
 function move1(){		
 	window.open('login.jsp', '_self');
 }
-function move2(email) {        
-    // 이메일 주소를 안전하게 URL 쿼리 매개변수로 변환
-    const safeEmail = encodeURIComponent(email);
-    // 현재 창에서 지정한 URL로 이동
-    window.location.href = '/biz/프론트_개발용_폴더/info.do?email='+safeEmail;
-}
+
+function move2() {
+    // JSP 표현식을 통해 서버에서 전달된 userId를 JavaScript 변수에 저장
+    var userId = '${sessionScope.user.member_id}';
+    
+    var form = document.createElement('form');
+    form.method = 'get';
+    form.action = 'info.do';
+    
+    var input = document.createElement('input');
+    input.type = 'hidden';
+    input.name = 'member_id';
+    input.value = userId;
+    form.appendChild(input);
+    
+    document.body.appendChild(form);
+    form.submit();
+  }
+  
 function move3(){		
-	window.open('login.jsp', '_self');
-}
+var userId = '${sessionScope.user.member_id}';
+    
+    var form = document.createElement('form');
+    form.method = 'get';
+    form.action = 'logout.do';
+    
+    var input = document.createElement('input');
+    input.type = 'hidden';
+    input.name = 'member_id';
+    input.value = userId;
+    form.appendChild(input);
+    
+    document.body.appendChild(form);
+    form.submit();
+  }
+
 </script>
 <meta charset="UTF-8">
 <title>Insert title here</title>
@@ -76,8 +103,15 @@ function move3(){
 			</c:if>
 				 
 			<c:if test="${sessionScope.user != null }">
+<<<<<<< HEAD
 				<button id="button1" type="button" onclick="move2('${sessionScope.user.email}')">마이페이지</button>
 				<button id="button1" type="button" onclick="move3()" style="margin-left: 20px">로그아웃</button>
+=======
+
+				<button id="button1" type="button" onclick="move2()">마이페이지</button>
+				<button id="button1" type="button" onclick="move3()">로그아웃</button>
+
+>>>>>>> a381f0c (백엔드)
 			</c:if>
 		</div>
 		<div class="container-fluid" style=" padding: 10px; margin-top: 50px">
