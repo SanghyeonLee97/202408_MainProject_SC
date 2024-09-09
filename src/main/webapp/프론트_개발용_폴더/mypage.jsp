@@ -118,11 +118,6 @@
 			</header>
 			<article>
 				<table>
-<<<<<<< HEAD
-				  	<tr><td>이메일</td>
-				        <td><input id="regform" type="text" readonly="readonly" name="Email" value="${sessionScope.user.email}"></td></tr>
-					<tr><td>비밀번호</td><td><input id="regform" type="password" name="pw"></td></tr>
-=======
 				  	<tr><td>이메일 </td>
 
 				        <td>
@@ -131,36 +126,11 @@
 				    </tr>
 					<tr><td>비밀번호</td><td><input id="regform" type="password" name="pw" value="${info.pw }"></td></tr>
 
->>>>>>> a381f0c (백엔드)
 					<tr><td>이름</td>
-<<<<<<< HEAD
-					 	<td><input id="regform" type="text" name="member_name"></td></tr>
-					<tr><td>전화번호</td> <td><input id="regform" type="tel" name="member_tel"></td></tr>
-					<tr><td>생년월일</td> <td><input id="regform" type="date" name="birthdate"></td></tr>
-					<tr><td >성별</td> 	 
-=======
 					 	<td><input id="regform" type="text" name="member_name" value="${info.member_name }" readonly="readonly"></td></tr>
 					<tr><td>전화번호</td> <td><input id="regform" type="tel" name="member_tel" value="${info.member_tel }"></td></tr>
 					<tr><td>생년월일</td> <td><input id="regform" type="date" name="birthdate" value="${info.birthdate }" readonly="readonly"></td></tr>
 					<tr><td>성별</td> 	 
-<<<<<<< HEAD
->>>>>>> 916f2841d3e2714a8fda9011f4fcbf90c2fff3cb
-						 <td><label for="gender01"><input type='radio' id="gender01" name='gender' value='female' />여성</label> &nbsp;
-							 <label for="gender02"><input type='radio' id="gender02" name='gender' value='male' />남성</label></td></tr>
-  				</table><br><br>		
-				<h5>선호하는 까페 취향을 골라주세요 </h5>
-				<label for="franchise">	
-					<input type="radio" id="franchise" name='cafe_type' value='F' />프랜차이즈</label>&nbsp;&nbsp;
-				<label for="personal">
- 					<input type="radio" id="personal" name='cafe_type' value='P' />개인</label><br><br>
- 				<h5>분위기</h5>
- 					<label for="mood01"><input type="radio" id="mood01" name="mood" value="M01">까페에서 공부하는 분위기</label><br>
- 					<label for="mood02"><input type="radio" id="mood02" name="mood" value="M02">까페에서 수다떠는 분위기</label><br>
- 					<label for="mood03"><input type="radio" id="mood03" name="mood" value="M03">까페에서 연인과 데이트하는 분위기</label><br>
- 					<label for="mood04"><input type="radio" id="mood04" name="mood" value="M04">인스타 감성으로 사진찍기 좋은 까페</label><br>
- 					<label for="mood05"><input type="radio" id="mood05" name="mood" value="M05">체험,테마 위주 까페 </label>
-				</form>
-=======
 
 						 <td> <input type='radio' name='gender' value='F' <c:if test="${info.gender eq 'F' }"> checked </c:if>/>여성 &nbsp;
  						  <input type='radio' name='gender' value='M' <c:if test="${info.gender eq 'M' }"> checked </c:if>/>남성</td></tr>
@@ -177,7 +147,6 @@
  					<input type="radio" name="mood" value="M04" <c:if test="${info.mood eq 'M04' }"> checked </c:if>>인스타 감성으로 사진찍기 좋은 까페<br><br>
  					<input type="radio" name="mood" value="M05" <c:if test="${info.mood eq 'M05' }"> checked </c:if>>체험,테마 위주 까페 
 				
->>>>>>> a381f0c (백엔드)
 			</article>
 			<nav>
 					<button id="mypagebt" type="submit">수정</button>
