@@ -95,8 +95,8 @@ var userId = '${sessionScope.user.member_id}';
     <div class="row mb-5 " >
 	    <div class="col-12 content-head"> 
 		    <div style="display: flex; align-items: center; justify-content: center; flex: 1;">
-		        <a id="a" href="Main.jsp"><img src="resources/images/main_img.png" id="main_img" width="100px" height="100px" style="margin-right: 20px;"></a>
-		       <p id='main'><a id="a" href="Main.jsp" style="color:black"> 카페 IN 홍대</a></p>
+		        <a id="a" href="index"><img src="resources/images/main_img.png" id="main_img" width="100px" height="100px" style="margin-right: 20px;"></a>
+		       <p id='main'><a id="a" href="index" style="color:black"> 카페 IN 홍대</a></p>
 		    </div>
 		    <c:if test="${sessionScope.user ==null }">
 				<button id="button1" type="button" onclick="move1()">로그인</button>
