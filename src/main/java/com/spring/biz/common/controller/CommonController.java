@@ -22,8 +22,6 @@ public class CommonController {
     public String detailCafe(HttpServletRequest request,Model model) {
         model.addAttribute("CafeDetail", cafeDetail.cafeDetail(request.getParameter("cafeId")));
         model.addAttribute("CafeReview", getReview.getReview(request.getParameter("cafeId")));
-        System.out.println(getReview.getReview(request.getParameter("cafeId")).get(0).getMEMBER_NAME());
-        System.out.println(getReview.getReview(request.getParameter("cafeId")).get(0).getREVIEW());
         return "dt_temp";
     }
 }
