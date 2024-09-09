@@ -22,6 +22,6 @@ public class CommonController {
     public String detailCafe(HttpServletRequest request,Model model) {
         model.addAttribute("CafeDetail", cafeDetail.cafeDetail(request.getParameter("cafeId")));
         model.addAttribute("CafeReview", getReview.getReview(request.getParameter("cafeId")));
-        return "search/cafe_detail";
+        return "search/cafe_detail_temp";
     }
 }
