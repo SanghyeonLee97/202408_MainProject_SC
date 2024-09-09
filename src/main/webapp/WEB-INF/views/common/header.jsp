@@ -76,13 +76,8 @@ function move3(){
 			</c:if>
 				 
 			<c:if test="${sessionScope.user != null }">
-<<<<<<< HEAD
-				<button id="button1" type="button" onclick="move2()">마이페이지</button>
-				<button id="button1" type="button" onclick="move3()" style="margin-left: 20px">로그아웃</button>
-=======
 				<button id="button1" type="button" onclick="move2('${sessionScope.user.email}')">마이페이지</button>
-				<button id="button1" type="button" onclick="move3()">로그아웃</button>
->>>>>>> 37866c4 (front-header수정, 회원가입수정)
+				<button id="button1" type="button" onclick="move3()" style="margin-left: 20px">로그아웃</button>
 			</c:if>
 		</div>
 		<div class="container-fluid" style=" padding: 10px; margin-top: 50px">
