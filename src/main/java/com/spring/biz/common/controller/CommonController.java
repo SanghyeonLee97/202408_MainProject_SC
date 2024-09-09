@@ -17,10 +17,7 @@ public class CommonController {
 
 	@RequestMapping("/detail.do")
     public String detailCafe(HttpServletRequest request,Model model) {
-        String cafeId = request.getParameter("cafeId");
-        System.out.println(cafeId);
-        cafeDetail.cafeDetail();
-        
+        model.addAttribute("CafeDetail", cafeDetail.cafeDetail(request.getParameter("cafeId")));
         return "dt_temp";
     }
 }
