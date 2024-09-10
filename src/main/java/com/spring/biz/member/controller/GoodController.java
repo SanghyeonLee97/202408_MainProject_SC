@@ -26,7 +26,13 @@ public class GoodController {
 		if(findGoodResult != null && findGoodResult.equals("Y")) {
 			return "already";
 		}
-		goodService.addGood(memberId, cafeId);
+		String addUpdate = goodService.add_OR_updateGood(memberId, cafeId);
+		if(addUpdate != null) {
+			goodService.updateGood(memberId, cafeId);
+		}else {
+			goodService.addGood(memberId, cafeId);
+		}
 		return "done";
+		
 	}
 }

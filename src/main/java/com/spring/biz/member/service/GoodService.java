@@ -21,10 +21,24 @@ public class GoodService {
 		return memberMapper.findGood(params);
 	}
 	
+	public String add_OR_updateGood(String userid, String cafeid) {
+		Map<String, Object> params = new HashMap<>();
+		params.put("userid", Integer.parseInt(userid));
+		params.put("cafeid", Integer.parseInt(cafeid));
+		return memberMapper.addUpdateGood(params);
+	}
+	
 	public void addGood(String userid, String cafeid) {
 		Map<String, Object> params = new HashMap<>();
 		params.put("userid", Integer.parseInt(userid));
 		params.put("cafeid", Integer.parseInt(cafeid));
 		memberMapper.addGood(params);
+	}
+	
+	public void updateGood(String userid, String cafeid) {
+		Map<String, Object> params = new HashMap<>();
+		params.put("userid", Integer.parseInt(userid));
+		params.put("cafeid", Integer.parseInt(cafeid));
+		memberMapper.updateGood(params);
 	}
 }

@@ -30,6 +30,24 @@ function clickheart(memberId,cafeId) {
         }
     });
 }
+
+function clickreview(memberId,cafeId) {
+    $.ajax({
+        url: 'addReview.do',
+        type: 'POST',
+        data: {memberId:memberId,cafeId:cafeId},
+        success: function(response) {
+        	if (response === "needlogin") {
+        		alert("로그인이 필요합니다.");
+                window.location.href = 'login.do';
+            }
+        	if (response === "done") {
+        		alert("좋아요에 추가되었습니다.");
+            }
+        }
+    });
+}
+
 </script>
 <style type="text/css">
 html, body {
@@ -146,7 +164,7 @@ button.favorite:hover {
 								<p>리뷰: ${cafeReviews.REVIEW}</p>
 							</c:if>
 						</c:forEach>
-						<button type='submit'>리뷰작성</button>
+						<button type="button" onclick="clickreview('${sessionScope.user.member_id}','${CafeDetail.CAFE_ID}')">리뷰작성</button>
 					</div>
 				</section>
 			</div>

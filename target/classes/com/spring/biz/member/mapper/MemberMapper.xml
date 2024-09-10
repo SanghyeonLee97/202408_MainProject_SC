@@ -72,8 +72,18 @@
 		select GOOD from member_act where MEMBER_ID=${userid} and CAFE_ID=${cafeid} and GOOD="Y";
 	</select>
 	
+	<!-- 좋아요 추가or수정 판단 -->
+	<select id="addUpdateGood" parameterType="map" resultType="String">
+		select REVIEW from member_act where MEMBER_ID=${userid} and CAFE_ID=${cafeid};
+	</select>
+	
 	<!-- 좋아요 추가 -->
 	<select id="addGood" parameterType="map">
 		insert into member_act(MEMBER_ID,CAFE_ID,GOOD) values(${userid},${cafeid},'Y');
+	</select>
+	
+	<!-- 좋아요 추가 -->
+	<select id="updateGood" parameterType="map">
+		update member_act set GOOD='Y' where MEMBER_id=${userid} and CAFE_ID=${cafeid};
 	</select>
 </mapper>
