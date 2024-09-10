@@ -34,6 +34,7 @@ public class MemberController{
 	@Autowired
 	MemberService memberService;
 	
+	
 	@RequestMapping("/membertest.do")
 	public String login() {
 		List<MemberDTO> mem = mapper.membertest();
@@ -172,18 +173,6 @@ public class MemberController{
 	        return result != null ? result : "0"; // 아이디가 없으면 "0" 반환
 	    }
 		
-	@RequestMapping(value="test.do", method=RequestMethod.POST, produces = "text/plain; charset=UTF-8")
-	@ResponseBody
-	public String test(@RequestParam("memberId") String memberId,@RequestParam("cafeId") String cafeId) {
-		if(memberId.equals("")) {
-			return "needlogin";
-		}
-		String findGoodResult = memberService.findGood(memberId, cafeId);
-		if(findGoodResult != null && findGoodResult.equals("Y")) {
-			return "already";
-		}
-		memberService.addGood(memberId, cafeId);
-		return "test";
-	}
+	
 }
 

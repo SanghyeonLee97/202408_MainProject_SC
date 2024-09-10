@@ -13,7 +13,7 @@
 <script>
 function clickheart(memberId,cafeId) {
     $.ajax({
-        url: 'test.do',
+        url: 'addGood.do',
         type: 'POST',
         data: {memberId:memberId,cafeId:cafeId},
         success: function(response) {
