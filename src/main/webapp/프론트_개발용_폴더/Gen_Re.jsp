@@ -11,7 +11,7 @@
 .kind_wrap {
   border:3px solid #464646; 
   border-radius : 50px;
-  background-color:#f0f0f0;
+  background-color:#F0F8FF;
   width:100%; 
   max-width:2000px; 
   height : 1000px;
@@ -80,6 +80,8 @@ width: 300px; height: 200px;
     border: none;
     font-size: 20px;
     margin-bottom: 10px;
+    background-color: #F4E1D2;
+  	color: #333333;
   }
   #button2:hover{
   	background-color: skyblue;
@@ -94,7 +96,7 @@ function move(){
 }
 </script>
 </head>
-<body>
+<body style="background-color: #F8F8FF">
 	<div class="container-fluid">
 		<div style="display: flex">
 			<button id="button2" type="button">남성</button>

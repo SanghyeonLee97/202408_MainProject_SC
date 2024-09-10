@@ -12,7 +12,7 @@
 .kind_wrap {
   border:3px solid #464646; 
   border-radius : 50px;
-  background-color:#f0f0f0;
+  background-color:#F0F8FF;
   width:100%; 
   max-width:2000px; 
   height : 1000px;
@@ -82,9 +82,9 @@ function move(){
 }
 </script>
 </head>
-<body>
+<body style="background-color: #F8F8FF">
 	<div class="container-fluid">
-		<span style="margin-top: 20px; padding: 0px; font-size: 25px; ">선호하는 카페</span>
+		<p style="margin-bottom: 13px; padding: 0px; font-size: 25px;">선호하는 카페</p>
 		<div class="kind_wrap">
 		  <div class="kind_slider">
 		    <ul class="slider" >
