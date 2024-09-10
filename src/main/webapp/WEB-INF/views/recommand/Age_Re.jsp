@@ -89,8 +89,8 @@ width: 300px; height: 200px;
   }
 </style>
 <script type="text/javascript">
-function move(){		
-	window.open('', '_self');
+function move(cafeId) {		
+	  window.open('detail.do?cafeId=' + cafeId, '_self');
 }
 function goToAge(age) {
     window.location.href = 'goAge.do?age='+age;
@@ -112,7 +112,7 @@ function goToAge(age) {
 		    <ul class="slider" >
 		    	<c:forEach var="likeCafe" items="${ARArrCDTO}">
 			        <li>
-						<div class="card" style="width: 18rem;" onclick= "move()">
+						<div class="card" style="width: 18rem;" onclick= "move('${likeCafe.CAFE_ID}')">
 							<img src="https://${likeCafe.IMAGE_URL}" class="card-img-top" alt="...">
 							<div class="card-body" style="height: 70px;">
 								<h5 class="card-title" style="margin-bottom: 10px;">${likeCafe.CAFE_NAME}</h5>
