@@ -73,7 +73,7 @@ public class MemberController{
 		return "member/login";
 	}
 	
-	@RequestMapping(value="/프론트_개발용_폴더/login.do",method = RequestMethod.POST)
+	@RequestMapping(value="/login.do",method = RequestMethod.POST)
 	public String login(MemberDTO memberDTO, HttpSession session) {
 		System.out.println("============로그인처리 post");
 		System.out.println("memberDTO==========="+memberDTO.getEmail());
