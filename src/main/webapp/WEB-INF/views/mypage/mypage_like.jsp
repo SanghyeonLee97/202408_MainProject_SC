@@ -17,38 +17,59 @@
 		width: 220px; height: 400px;
 		float: left;
 		background-color: beige;
-		margin-left: 300px;
-		margin-top: 60px;
+		margin-left: 250px;
+		margin-top: 100px;
 			 
 	}
 	section>article {
 		width: 1000px;
 		float: left;
 	}
-	section>article>div{
-		width: 300px; 
-		height: 300px;
-		float: left;
-		background: beige; 
-		margin-left: 130px;
-		margin-top: 70px;
-		overflow: hidden;
-	}
-	section>header{
-		margin-left: 870px;
-		margin-top: 40px;
+	section>article>div {
+	    position: relative;
+	    width: 350px; 
+	    height: 400px;
+	    float: left;
+	    background: beige; 
+	    margin-left: 130px;
+	    margin-top: 60px;
+	    overflow: hidden;
 	}
 	
-	section>article>div i {
-            color: red;
-            margin-top: 5px; 
-            cursor: pointer;
-            font-size: 36px;
-        
-        }
-    #imgdiv{
-		width: 300px; 
-		height: 250px;
+	.cafe-container {
+	    position: relative; 
+	    width: 350px; 
+	    height: 300px;
+	    background: beige; 
+	    margin-left: 130px;
+	    margin-top: 70px;
+	}
+	
+	#imgdiv {
+	    width: 350px; 
+	    height: 250px;
+	}
+	
+	.cafe-container a {
+	    display: flex;
+	    flex-direction: column;
+	    text-decoration: none;
+	    color: black;
+	    align-items: center;
+	}
+	
+	.cafe-container span {
+	    font-size: 16px;
+	    margin-top: 10px;
+	}
+	
+	.cafe-container i {
+	    position: absolute;
+	    bottom: 10px;
+	    right: 10px;
+	    color: red;
+	    cursor: pointer;
+	    font-size: 36px;
 	}
 	/* aside ul li:hover {
 	
@@ -63,6 +84,11 @@
 		
 	}
 	
+	header>h4{
+		position: relative;
+		left: 400px;
+		top: 30px;
+	}
 	section>aside ul li:hover {
 	   
 		font-size: 18px;
@@ -85,13 +111,13 @@
 				<ul>
 					<li><a href="mypage.jsp">내 정보 수정</a></li>
 				</ul>
-				<h4>&nbsp;&nbsp;&nbsp;나의 활동</h4>
+				<h5>&nbsp;&nbsp;&nbsp;나의 활동</h5>
 				<ul>
 					<li><a href="mypage_like.jsp">좋아요 누른 까페</a></li>
 					<li><a href="mypage_review.jsp">리뷰를 작성한 까페</a></li>
 				</ul>
 				<ul>
-					<li><a href="unregister.jsp">회원탈퇴</a></li>
+					<li><a href="mypage_unregister.jsp">회원탈퇴</a></li>
 				</ul>
 			</aside>
 			<header>
@@ -99,23 +125,34 @@
 				<h4>좋아요 누른 까페</h4>
 			</header>
 			<article>
-				<div>
-					<a href=""><img id="imgdiv" alt="" src="">ㅇㅇ까페</a>
-					<i class="fas fa-heart"></i>
-				</div>
-				<div>
-					<a href=""><img id="imgdiv" alt="" src="">ㅇㅇ까페</a>
-					<i class="fas fa-heart"></i>
-				</div>
-				<div>
-					<a href=""><img id="imgdiv" alt="" src="">ㅇㅇ까페</a>
-					<i class="fas fa-heart"></i>
-				</div>
-				<div>
-					<a href=""><img id="imgdiv" alt="" src="">ㅇㅇ까페</a>
-					<i class="fas fa-heart"></i>
-				</div>
-				
+			    <div class="cafe-container">
+			        <a href="">
+			            <img id="imgdiv" alt="" src="">
+			            <span>ㅇㅇ까페</span>
+			        </a>
+			        <i class="fas fa-heart"></i>
+			    </div>
+			    <div class="cafe-container">
+			        <a href="">
+			            <img id="imgdiv" alt="" src="">
+			            <span>ㅇㅇ까페</span>
+			        </a>
+			        <i class="fas fa-heart"></i>
+			    </div>
+			    <div class="cafe-container">
+			        <a href="">
+			            <img id="imgdiv" alt="" src="">
+			            <span>ㅇㅇ까페</span>
+			        </a>
+			        <i class="fas fa-heart"></i>
+			    </div>
+			    <div class="cafe-container">
+			        <a href="">
+			            <img id="imgdiv" alt="" src="">
+			            <span>ㅇㅇ까페</span>
+			        </a>
+			        <i class="fas fa-heart"></i>
+			    </div>
 			</article>
 		</section>
 	</main>

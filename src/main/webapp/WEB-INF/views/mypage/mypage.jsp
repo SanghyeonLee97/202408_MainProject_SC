@@ -18,7 +18,7 @@
 		width: 220px; height: 400px;
 		float: left;
 		background-color: beige; 
-		margin-left: 300px;
+		margin-left: 250px;
 		margin-right: 200px;
 
 		
@@ -26,7 +26,7 @@
 	section>article{
 		width: 500px;
 		float: left;
-		margin-left: 300px;
+		margin-left: 400px;
 		margin-top: 40px;
 	}
 	h4{
@@ -56,7 +56,7 @@
 	    flex-direction: column;
 	    align-items: center;
 	    margin-top: 100px;
-	    width: 500px;
+	    width: 600px;
 	   
 	    
 	}
@@ -107,7 +107,7 @@
 					<li><a href="mypage_review.jsp">리뷰를 작성한 까페</a></li>
 				</ul>
 				<ul>
-					<li><a href="unregister.jsp">회원탈퇴</a></li>
+					<li><a href="mypage_unregister.jsp">회원탈퇴</a></li>
 				</ul>
 			</aside>
 
