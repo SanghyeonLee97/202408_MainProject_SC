@@ -81,7 +81,7 @@
 		margin-top: 50px;
 		cursor: pointer;
 	} */
-	#loginbt{
+	.loginbt{
 		height: 50px;
 		width: 430px;
 		background:#F0CB85;
@@ -99,10 +99,8 @@
 		position: relative;
 		width: 430px;
 	}
-	
-	
-	
 </style>
+
 </head>
 <body>
 	<main>
@@ -114,11 +112,12 @@
 				<form id="" action="login.do" method="post">
 					<table>
 						<tr><td>이메일</td>
-							<td><input id="loginput" type="text" name="email" placeholder="이메일" ></td></tr>
+							<td><input id="email" type="text" name="email" placeholder="이메일" ></td></tr>
 						<tr><td>비밀번호</td>
-						 <td><input id="loginput" type="text" name="pw" placeholder="비밀번호" ></td></tr>
+						 <td><input id="pw" type="text" name="pw" placeholder="비밀번호" ></td></tr>
 					</table>
-				<button id="loginbt"  type="submit" >로그인</button><br><br>
+						 <div class="error-message"></div>
+				<button class="loginbt"  type="submit" >로그인</button><br><br>
 				</form>
 			
 			</article>
