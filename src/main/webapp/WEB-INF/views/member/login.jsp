@@ -85,8 +85,8 @@
 			<article>
 				<form id="" action="login.do" method="post">
 					<table>
-						<tr><td>아이디</td>
-							<td><input id="loginput" type="text" name="email" placeholder="아이디" ></td></tr>
+						<tr><td>이메일</td>
+							<td><input id="loginput" type="text" name="email" placeholder="이메일" ></td></tr>
 						<tr><td>비밀번호</td>
 						 <td><input id="loginput" type="text" name="pw" placeholder="비밀번호" ></td></tr>
 					</table>
