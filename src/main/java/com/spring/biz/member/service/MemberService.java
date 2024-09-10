@@ -108,13 +108,10 @@ public class MemberService {
 	       return memberMapper.findEmail(memberDTO);
 	    }
 	 
-<<<<<<< HEAD
-	
-	 
-=======
+
 	 //비번찾기
 	 public MemberDTO findpw(MemberDTO memberDTO) {
 		 return memberMapper.findpw(memberDTO);
 	 }
->>>>>>> 664ba58 (..)
+
 }
