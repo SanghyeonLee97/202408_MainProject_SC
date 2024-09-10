@@ -114,7 +114,7 @@ var userId = '${sessionScope.user.member_id}';
 				<li><a id="a" href="Gen_Re.jsp">성별 추천</a></li>
 				<li><a id="a" href="Age_Re.jsp">연령별 추천</a></li>
 				<li><a id="a" href="My_Re.jsp">선호카페 추천</a></li>
-				<li><a id="a" href="WEB-INF/views/map.jsp">카페 지도보기</a></li>
+				<li><a id="a" href="goMap.do">카페 지도보기</a></li>
 			</ul>
 		</div>
 		<form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search" action="search.do">

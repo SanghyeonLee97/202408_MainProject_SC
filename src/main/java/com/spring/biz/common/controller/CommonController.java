@@ -25,4 +25,9 @@ public class CommonController {
         model.addAttribute("CafeReview", getReview.getReview(request.getParameter("cafeId")));
         return "search/cafe_detail";
     }
+	
+	@RequestMapping("goMap.do")
+    public String goMap() {
+        return "common/Map";
+    }
 }
