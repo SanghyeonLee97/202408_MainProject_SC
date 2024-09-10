@@ -36,19 +36,11 @@
         input[type="text"] {
             height: 35px;
             width: 300px;
-          
         }
         .error-message {
             color: red;
             margin-top: 20px;
         }
-       tr,td{
-	
-		padding-top: 20px;
-		padding-left: 10px;
-		
-		
-	}
     </style>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script type="text/javascript">
@@ -101,7 +93,7 @@
                     </table>
                 </form>
             </article>
-            <nav style="margin-top: 40px;">
+            <nav style="margin-top: 20px;">
                 <button id="idbt">아이디 찾기</button>
                 <button id="idbt"><a href="findpw.do" style="color: black;">비밀번호 찾기</a></button>
                 <button id="idbt"><a href="login.do" style="color: black;">로그인</a></button>
