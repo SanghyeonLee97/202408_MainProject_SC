@@ -41,6 +41,10 @@
             color: red;
             margin-top: 20px;
         }
+          tr,td{
+        	padding-top: 20px;
+        	padding-left: 10px;
+        }
     </style>
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script type="text/javascript">
@@ -89,7 +93,7 @@
 					</table>
 				</form>
 			</article>
-			<nav style="margin-top: 20px;">
+			<nav style="margin-top: 40px;">
 
 				<button id="pwbt">비밀번호 찾기</button>
 				<button id="pwbt"><a href="findEmail.do" style="color: black;">아이디 찾기</a></button>
