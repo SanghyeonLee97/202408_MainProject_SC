@@ -21,6 +21,12 @@ function clickheart(memberId,cafeId) {
         		alert("로그인이 필요합니다.");
                 window.location.href = 'login.do';
             }
+        	if (response === "already") {
+        		alert("이미 좋아요 상태입니다.");
+            }
+        	if (response === "done") {
+        		alert("좋아요에 추가되었습니다.");
+            }
         }
     });
 }

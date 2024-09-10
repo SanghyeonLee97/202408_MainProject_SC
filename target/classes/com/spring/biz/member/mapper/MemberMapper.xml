@@ -71,4 +71,9 @@
 	<select id="findGood" parameterType="map" resultType="String">
 		select GOOD from member_act where MEMBER_ID=${userid} and CAFE_ID=${cafeid} and GOOD="Y";
 	</select>
+	
+	<!-- 좋아요 추가 -->
+	<select id="addGood" parameterType="map">
+		insert into member_act(MEMBER_ID,CAFE_ID,GOOD) values(${userid},${cafeid},'Y');
+	</select>
 </mapper>

@@ -175,13 +175,14 @@ public class MemberController{
 	@RequestMapping(value="test.do", method=RequestMethod.POST, produces = "text/plain; charset=UTF-8")
 	@ResponseBody
 	public String test(@RequestParam("memberId") String memberId,@RequestParam("cafeId") String cafeId) {
-		System.out.println(memberId);
-		System.out.println(cafeId);
-		
 		if(memberId.equals("")) {
 			return "needlogin";
 		}
-		System.out.println(memberService.findGood(memberId, cafeId));
+		String findGoodResult = memberService.findGood(memberId, cafeId);
+		if(findGoodResult != null && findGoodResult.equals("Y")) {
+			return "already";
+		}
+		memberService.addGood(memberId, cafeId);
 		return "test";
 	}
 }
