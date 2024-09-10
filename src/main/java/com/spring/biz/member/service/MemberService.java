@@ -109,4 +109,12 @@ public class MemberService {
 	        params.put("phone", phone);
 	        return memberMapper.findEmail(params);
 	    }
+	 
+	public String findGood(String userid, String cafeid) {
+		Map<String, Object> params = new HashMap<>();
+		params.put("userid", Integer.parseInt(userid));
+		params.put("cafeid", Integer.parseInt(cafeid));
+		return memberMapper.findGood(params);
+	}
+	 
 }

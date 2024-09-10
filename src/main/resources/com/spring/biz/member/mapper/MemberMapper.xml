@@ -66,4 +66,9 @@
 		select email from member
 		where member_name = #{member_name} and member_tel=#{member_tel}
 	</select>
+	
+	<!-- 좋아요 여부 검색 -->
+	<select id="findGood" parameterType="map" resultType="String">
+		select GOOD from member_act where MEMBER_ID=${userid} and CAFE_ID=${cafeid} and GOOD="Y";
+	</select>
 </mapper>

@@ -9,6 +9,22 @@
 <title>Insert title here</title>
 <!-- FontAwesome CDN 링크 추가 -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+function clickheart(memberId,cafeId) {
+    $.ajax({
+        url: 'test.do',
+        type: 'POST',
+        data: {memberId:memberId,cafeId:cafeId},
+        success: function(response) {
+        	if (response === "needlogin") {
+        		alert("로그인이 필요합니다.");
+                window.location.href = 'login.do';
+            }
+        }
+    });
+}
+</script>
 <style type="text/css">
 html, body {
 	margin: 0;
@@ -102,7 +118,7 @@ button.favorite:hover {
 			<div id='cafe_box'>
 				<div class='cafe_header'>
 					<span>${CafeDetail.CAFE_NAME}</span>
-					<button class='favorite'>
+					<button class='favorite' onclick="clickheart('${sessionScope.user.member_id}','${CafeDetail.CAFE_ID}')">
 						<i class="fas fa-heart"></i>
 					</button>
 				</div>

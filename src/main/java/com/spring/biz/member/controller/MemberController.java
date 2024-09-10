@@ -90,7 +90,7 @@ public class MemberController{
 		System.out.println("dto======================="+dto.getPw());
 		System.out.println(dto.getMember_id());
 		
-		return "Main";
+		return "redirect:/index";
 	}
 	
 	//이메일 중복체크
@@ -131,12 +131,12 @@ public class MemberController{
 	}
 	
 	//로그아웃
-	@RequestMapping(value="/프론트_개발용_폴더/logout.do", method=RequestMethod.GET)
+	@RequestMapping(value="logout.do", method=RequestMethod.GET)
 	public String logout(HttpSession session) {
 	    if (session != null) {
 	        session.invalidate();
 	    }
-	    return "redirect:Main.jsp";
+	    return "redirect:index";
 	}
 	
 	//회원탈퇴
@@ -171,5 +171,18 @@ public class MemberController{
 			String result = memberService.findEmail(name, phone);
 	        return result != null ? result : "0"; // 아이디가 없으면 "0" 반환
 	    }
+		
+	@RequestMapping(value="test.do", method=RequestMethod.POST, produces = "text/plain; charset=UTF-8")
+	@ResponseBody
+	public String test(@RequestParam("memberId") String memberId,@RequestParam("cafeId") String cafeId) {
+		System.out.println(memberId);
+		System.out.println(cafeId);
+		
+		if(memberId.equals("")) {
+			return "needlogin";
+		}
+		System.out.println(memberService.findGood(memberId, cafeId));
+		return "test";
+	}
 }
 

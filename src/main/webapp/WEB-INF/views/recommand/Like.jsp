@@ -44,22 +44,6 @@
 .kind_wrap > .kind_slider img {
  display: block; 
 }
-.kind_wrap .arrow > a.prev {
-  position: absolute; 
-  left:-50px; 
-  top:50%;
-  transform: translateY(-50%);
-  text-decoration: none;
-  font-size: 24px;
-}
-.kind_wrap .arrow > a.next {
-  position: absolute; 
-  right:-50px; 
-  top:50%;
-  transform: translateY(-50%);
-  text-decoration: none;
-  font-size: 24px;
-}
 .card{
 margin-top: 30px;
 border: none;
