@@ -11,8 +11,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script>
-function clickheart() {
-	var test = "Hello, server!";
+function clickheart(test) {
     $.ajax({
         url: 'test.do',
         type: 'POST',
@@ -116,7 +115,7 @@ button.favorite:hover {
 			<div id='cafe_box'>
 				<div class='cafe_header'>
 					<span>${CafeDetail.CAFE_NAME}</span>
-					<button class='favorite' onclick="clickheart()">
+					<button class='favorite' onclick="clickheart('${sessionScope.user.member_id}')">
 						<i class="fas fa-heart"></i>
 					</button>
 				</div>
