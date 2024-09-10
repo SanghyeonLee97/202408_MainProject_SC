@@ -16,7 +16,7 @@ html, body {
 	height: auto;
 	color: #adb1ba;
 	background: black;
-	margin-top: 150px;
+	margin-top: 100px;
 }
 
 .footer_A {

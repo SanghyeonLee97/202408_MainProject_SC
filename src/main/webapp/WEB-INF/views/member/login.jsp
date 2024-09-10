@@ -39,22 +39,48 @@
 		height:200px;
 		
 	}
-	main>section>nav{
-	/* 	margin-left: 800px; */
+	main>section>nav {
+	    margin-top: 20px; 
+	    display: flex;
+	    justify-content: center; 
+	    gap: 5px; 
 	}
+	
+	#logbt {
+	    height: 50px;
+	    width: 140px;
+	    background: #F0CB85;
+	    border: none;
+	    cursor: pointer;
+	    display: flex;
+	    justify-content: center;
+	    align-items: center;
+	    margin-top: 30px;
+	}
+	
+	#logbt a {
+	    text-decoration: none;
+	    color: black;
+	    width: 100%;
+	    height: 100%;
+	    display: flex;
+	    justify-content: center;
+	    align-items: center;
+	}
+
 	#loginput{
 		height:35px;
 		width: 300px;
 	
 	}
-	#logbt{
+	/* #logbt{
 		height: 50px;
 		width: 140px;
 		background:#F0CB85;
 		border: none;
 		margin-top: 50px;
 		cursor: pointer;
-	}
+	} */
 	#loginbt{
 		height: 50px;
 		width: 430px;
