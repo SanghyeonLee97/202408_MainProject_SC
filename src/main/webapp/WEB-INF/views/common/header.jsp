@@ -17,6 +17,7 @@
 		justify-content: space-between; 
 		padding: 0 20px;
 		margin-top: 20px;
+		
 	}
 	#list{
 	display: flex; 
@@ -27,6 +28,7 @@
 	font-weight: bolder;
 	font-size: 20px; 
 	background: #FDF5E6;
+	width: 1500px;
 	}
 	#button1{
 	padding: 5px 10px;
@@ -52,7 +54,6 @@ function move1(){
 }
 
 function move2() {
-    // JSP 표현식을 통해 서버에서 전달된 userId를 JavaScript 변수에 저장
     var userId = '${sessionScope.user.member_id}';
     
     var form = document.createElement('form');
@@ -94,19 +95,17 @@ var userId = '${sessionScope.user.member_id}';
   <div class="container-fluid">
     <div class="row mb-5 " >
 	    <div class="col-12 content-head"> 
-		    <div style="display: flex; align-items: center; justify-content: center; flex: 1;">
-		        <a id="a" href="index"><img src="resources/images/main_img-removebg-preview.png" id="main_img" width="100px" height="100px" style="margin-right: 20px;"></a>
+		    <div style="display: flex; align-items: center; justify-content: center; flex: 1;max-width: 1225px">
+		        <a id="a" href="index"><img src="resources/images/main_img-removebg-preview.png" id="main_img" width="100px" height="100px" style="margin-right: 20px;margin-left: 120px;"></a>
 		       <p id='main'><a id="a" href="index" style="color:black"> 카페 IN 홍대</a></p>
 		    </div>
 		    <c:if test="${sessionScope.user ==null }">
-				<button id="button1" type="button" onclick="move1()">로그인</button>
+				<button id="button1" type="button" onclick="move1()" >로그인</button>
 			</c:if>
 				 
 			<c:if test="${sessionScope.user != null }">
-
 				<button id="button1" type="button" onclick="move2()">마이페이지</button>
 				<button id="button1" type="button" onclick="move3()">로그아웃</button>
-
 			</c:if>
 		</div>
 		<div class="container-fluid" style=" padding: 10px; margin-top: 50px">
