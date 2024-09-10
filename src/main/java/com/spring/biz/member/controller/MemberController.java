@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.spring.biz.member.dto.MemberDTO;
 import com.spring.biz.member.mapper.MemberMapper;
@@ -68,25 +69,25 @@ public class MemberController{
 	}
 	
 	@RequestMapping(value="/login.do",method = RequestMethod.POST)
-	public String login(MemberDTO memberDTO, HttpSession session) {
-		System.out.println("============로그인처리 post");
-		System.out.println("memberDTO==========="+memberDTO.getEmail());
-		
-		if(memberDTO.getEmail()==null || memberDTO.getEmail().equals("")) {
-			throw new IllegalArgumentException("login() - id not found");
-		}
-		MemberDTO dto = memberService.login(memberDTO);
-		if(!memberDTO.getEmail().equals(dto.getEmail())|| !memberDTO.getPw().equals(dto.getPw())) {
-			return "redirect:loginpost.jsp";
-		}
-		session.setAttribute("user", dto);
-		System.out.println("dto======================="+dto.getEmail());
-		System.out.println("dto======================="+dto.getPw());
-		System.out.println(dto.getMember_id());
-		
-		return "Main";
-	}
-	
+	public ModelAndView login(@RequestParam("email") String email, @RequestParam("pw") String pw, HttpSession session) {
+        ModelAndView mav = new ModelAndView();
+        MemberDTO memberDTO = new MemberDTO();
+        memberDTO.setEmail(email);
+        memberDTO.setPw(pw);
+        System.out.println(memberDTO.getEmail());
+        
+        MemberDTO dto = memberService.login(memberDTO);
+
+        if (dto == null || !dto.getEmail().equals(email) || !dto.getPw().equals(pw)) {
+            mav.addObject("loginError", "이메일 또는 비밀번호가 잘못되었습니다.");
+            mav.setViewName("member/login"); // 실패 시 로그인 페이지로 다시 리턴
+        } else {
+            session.setAttribute("user", dto);
+            mav.setViewName("Main"); // 성공 시 메인 페이지로 리다이렉트
+        }
+
+        return mav;
+    }
 	//이메일 중복체크
 	@ResponseBody
 	@RequestMapping(value="/emailCheck",method = RequestMethod.POST,produces = "application/json")

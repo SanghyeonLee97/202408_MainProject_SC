@@ -38,7 +38,7 @@ public class MemberService {
 	public void addLike(MemberDTO memberDTO) {
 		memberMapper.addLike(memberDTO);
 	}
-	
+	//로그인
 	public MemberDTO login(MemberDTO memberDTO) {
 		System.out.println("[loginmember] 등록");
 		System.out.println("====================="+memberDTO.getEmail());
