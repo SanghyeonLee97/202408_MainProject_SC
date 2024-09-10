@@ -70,7 +70,7 @@ public class MemberController{
 	public String loginView() {
 		System.out.println("=============로그인처리 get");
 
-		return "redirect:login.jsp";
+		return "login";
 	}
 	
 	@RequestMapping(value="/프론트_개발용_폴더/login.do",method = RequestMethod.POST)
@@ -161,12 +161,15 @@ public class MemberController{
         return "redirect:Main.jsp";
     }
 	
-	/* 아이디 찾기 */
-//	@RequestMapping(value = "/find_id")
-//	public String getIdPOST(HttpServletResponse response, @RequestParam(value="member_name") String name, Model model)  throws Exception{
-//		model.addAttribute("id", memberService.getEmail(response, name));
-//		
-//	    return "";	
-//	}
+
+	//아이디 찾기 
+		@ResponseBody
+		@RequestMapping(value = "/프론트_개발용_폴더/findEmail", method = RequestMethod.POST,produces = "application/json")
+		public String findId(@RequestParam("name") String name, @RequestParam("phone") String phone) throws Exception {
+	        
+			System.out.println("아이디찾기======================"+name+phone);
+			String result = memberService.findEmail(name, phone);
+	        return result != null ? result : "0"; // 아이디가 없으면 "0" 반환
+	    }
 }
 

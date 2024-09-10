@@ -62,8 +62,8 @@
 	</delete>
 	
 	<!-- 아이디 찾기 -->
-<!-- 	<select id="getEmail" parameterType="String" resultType="com.spring.biz.member.dto.MemberDTO">
-		select id from member
-		where member_name = #{member_name}
-	</select> -->
+	<select id="findEmail" parameterType="map" resultType="com.spring.biz.member.dto.MemberDTO">
+		select email from member
+		where member_name = #{member_name} and member_tel=#{member_tel}
+	</select>
 </mapper>

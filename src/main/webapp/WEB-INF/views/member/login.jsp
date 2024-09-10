@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<<<<<<<< HEAD:src/main/webapp/WEB-INF/views/member/login.jsp
 <%@ include file="../common/header.jsp" %>
+========
+<%@ include file="common/header.jsp" %>
+>>>>>>>> f9fd051 (로그인):src/main/webapp/WEB-INF/views/login.jsp
 <!DOCTYPE html>
 <html>
 <head>
@@ -97,8 +101,8 @@
 			<nav>
 
 				<button id="logbt"><a href="addMember.do" style="color: black;">회원가입</a></button>
-				<button id="logbt"><a href="#" onclick="searchId()" style="color: black;">아이디 찾기</a></button>
-				<button id="logbt"><a href="#" onclick="searchPw()" style="color: black;">비밀번호 찾기</a></button>
+				<button id="logbt"><a href="find_id.jsp" style="color: black;">아이디 찾기</a></button>
+				<button id="logbt"><a href="fine_pw.jsp" style="color: black;">비밀번호 찾기</a></button>
 				
 			</nav>
 		</section>
@@ -106,4 +110,8 @@
 	
 </body>
 </html>
+<<<<<<<< HEAD:src/main/webapp/WEB-INF/views/member/login.jsp
 <%@ include file="../common/footer.jsp" %>
+========
+<%@ include file="common/footer.jsp" %>
+>>>>>>>> f9fd051 (로그인):src/main/webapp/WEB-INF/views/login.jsp
