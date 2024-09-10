@@ -125,8 +125,8 @@
 			<nav>
 
 				<button id="logbt"><a href="addMember.do" style="color: black;">회원가입</a></button>
-				<button id="logbt"><a href="find_id.jsp" style="color: black;">아이디 찾기</a></button>
-				<button id="logbt"><a href="fine_pw.jsp" style="color: black;">비밀번호 찾기</a></button>
+				<button id="logbt"><a href="findEmail.do" style="color: black;">아이디 찾기</a></button>
+				<button id="logbt"><a href="findpw.do" style="color: black;">비밀번호 찾기</a></button>
 				
 			</nav>
 		</section>

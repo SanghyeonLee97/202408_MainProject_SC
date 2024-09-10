@@ -34,13 +34,13 @@
 	</select>
 	
 	<!-- 개인정보불러오기 -->
-	<select id="getMemberInfo" resultType="com.spring.biz.member.dto.MemberDTO" parameterType="String">
+	<select id="getMemberInfo" resultType="com.spring.biz.member.dto.MemberDTO" parameterType="com.spring.biz.member.dto.MemberDTO">
 	    SELECT a.member_id, a.email, a.pw, a.member_name, a.member_tel, a.birthdate, a.gender, 
 	           b.cafe_type, b.mood 
 	    FROM member a
 	    INNER JOIN member_like b ON a.member_id = b.member_id 
 	    WHERE a.member_id = #{member_id}
-</select>
+	</select>
 	
 	<!-- 개인정보 수정 -->
 	<update id="updateInfo">
@@ -61,9 +61,15 @@
 	
 	</delete>
 	
-	<!-- 아이디 찾기 -->
-	<select id="findEmail" parameterType="map" resultType="com.spring.biz.member.dto.MemberDTO">
+	<!-- 이메일 찾기 -->
+	<select id="findEmail" parameterType="com.spring.biz.member.dto.MemberDTO" resultType="com.spring.biz.member.dto.MemberDTO">
 		select email from member
 		where member_name = #{member_name} and member_tel=#{member_tel}
+	</select>
+	
+	<!-- 비번찾기 -->
+	<select id="findpw" parameterType="com.spring.biz.member.dto.MemberDTO" resultType="com.spring.biz.member.dto.MemberDTO">
+		select pw from member
+		where email=#{email} and member_name=#{member_name}
 	</select>
 </mapper>
