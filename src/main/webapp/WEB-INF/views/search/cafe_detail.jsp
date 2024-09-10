@@ -119,8 +119,10 @@ button.favorite:hover {
 					</div>
 					<div id='review_example'>
 						<c:forEach var="cafeReviews" items="${CafeReview}">
-							<p>이름: ${cafeReviews.MEMBER_NAME}</p>
-							<p>리뷰: ${cafeReviews.REVIEW}</p>
+							<c:if test="${not empty cafeReviews.REVIEW}">
+								<p>이름: ${cafeReviews.MEMBER_NAME}</p>
+								<p>리뷰: ${cafeReviews.REVIEW}</p>
+							</c:if>
 						</c:forEach>
 						<button type='submit'>리뷰작성</button>
 					</div>
