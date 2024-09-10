@@ -2,6 +2,7 @@ package com.spring.biz.member.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -33,6 +34,14 @@ public class GoodController {
 			goodService.addGood(memberId, cafeId);
 		}
 		return "done";
-		
+	}
+	
+	//상세페이지 좋아요
+	@RequestMapping("goReview.do")
+	public String goReview(@RequestParam("memberId") String memberId,@RequestParam("cafeId") String cafeId,Model model) {
+		System.out.println(memberId+" "+cafeId);
+		model.addAttribute("memberId", memberId);
+		model.addAttribute("cafeId", cafeId);
+		return "search/write_review";
 	}
 }
