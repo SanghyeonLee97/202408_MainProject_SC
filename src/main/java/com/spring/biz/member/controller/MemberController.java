@@ -177,9 +177,11 @@ public class MemberController{
 	public String test(@RequestParam("memberId") String memberId,@RequestParam("cafeId") String cafeId) {
 		System.out.println(memberId);
 		System.out.println(cafeId);
+		
 		if(memberId.equals("")) {
 			return "needlogin";
 		}
+		System.out.println(memberService.findGood(memberId, cafeId));
 		return "test";
 	}
 }
