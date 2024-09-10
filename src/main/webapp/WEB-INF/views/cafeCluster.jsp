@@ -1,8 +1,10 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-    
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<meta charset="UTF-8">
+<title>Insert title here</title>
     
         <script>
             L_NO_TOUCH = false;
@@ -5303,4 +5305,8 @@
             marker_cluster_fdbdc058a418af9489abffae85c762e9.addTo(map_bcfa4d7aadd9617f0dbcce97fa00006d);
         
 </script>
+</head>
+<body>
+
+</body>
 </html>

@@ -17,7 +17,6 @@
 		justify-content: space-between; 
 		padding: 0 20px;
 		margin-top: 20px;
-		
 	}
 	#list{
 	display: flex; 
