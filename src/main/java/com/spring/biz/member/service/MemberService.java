@@ -4,6 +4,8 @@ package com.spring.biz.member.service;
 import java.io.PrintWriter;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletResponse;
 
@@ -100,5 +102,11 @@ public class MemberService {
 	     memberMapper.deleteAccount(i);
 	    }
 	 
-	 
+	//이메일 찾기
+	 public String findEmail(String name, String phone) {
+	        Map<String, Object> params = new HashMap<>();
+	        params.put("name", name);
+	        params.put("phone", phone);
+	        return memberMapper.findEmail(params);
+	    }
 }

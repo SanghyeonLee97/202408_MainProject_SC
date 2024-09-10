@@ -48,7 +48,7 @@
 </style>
 <script type="text/javascript">
 function move1(){		
-	window.open('login.jsp', '_self');
+	window.open('login.do', '_self');
 }
 
 function move2() {

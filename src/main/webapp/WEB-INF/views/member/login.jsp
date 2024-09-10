@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
 <%@ include file="../common/header.jsp" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -97,8 +99,8 @@
 			<nav>
 
 				<button id="logbt"><a href="addMember.do" style="color: black;">회원가입</a></button>
-				<button id="logbt"><a href="#" onclick="searchId()" style="color: black;">아이디 찾기</a></button>
-				<button id="logbt"><a href="#" onclick="searchPw()" style="color: black;">비밀번호 찾기</a></button>
+				<button id="logbt"><a href="find_id.jsp" style="color: black;">아이디 찾기</a></button>
+				<button id="logbt"><a href="fine_pw.jsp" style="color: black;">비밀번호 찾기</a></button>
 				
 			</nav>
 		</section>
@@ -106,4 +108,6 @@
 	
 </body>
 </html>
+
 <%@ include file="../common/footer.jsp" %>
+
