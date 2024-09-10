@@ -94,13 +94,16 @@ width: 300px; height: 200px;
 function move(){		
 	window.open('', '_self');
 }
+function goToGen(gender) {
+    window.location.href = 'goGen.do?gender='+gender;
+}
 </script>
 </head>
 <body style="background-color: #F8F8FF">
 	<div class="container-fluid">
 		<div style="display: flex">
-			<button id="button2" type="button">남성</button>
-			<button id="button2" type="button" style="margin-left: 10px;">여성</button>
+			<button id="button2" type="button" onclick="goToGen('M')">남성</button>
+			<button id="button2" type="button" onclick="goToGen('F')" style="margin-left: 10px;">여성</button>
 		</div>
 		<div class="kind_wrap">
 		  <div class="kind_slider">
