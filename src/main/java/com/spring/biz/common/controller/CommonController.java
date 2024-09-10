@@ -7,7 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.spring.biz.recommendation.service.GenderRecommendation;
+import com.spring.biz.recommendation.service.CategoryRecommendation;
 import com.spring.biz.search.service.CafeDetail;
 import com.spring.biz.search.service.GetReview;
 
@@ -19,7 +19,7 @@ public class CommonController {
 	@Autowired
 	GetReview getReview;
 	@Autowired
-	GenderRecommendation genderRecommendation;
+	CategoryRecommendation genderRecommendation;
 
 	//카페 상세정보
 	@RequestMapping("/detail.do")

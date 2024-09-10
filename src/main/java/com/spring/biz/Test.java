@@ -9,7 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.spring.biz.recommendation.service.GenderRecommendation;
+import com.spring.biz.recommendation.service.CategoryRecommendation;
 
 
 
@@ -18,7 +18,7 @@ import com.spring.biz.recommendation.service.GenderRecommendation;
 @Controller
 public class Test {
 	@Autowired
-	GenderRecommendation genderRecommendation;
+	CategoryRecommendation genderRecommendation;
 	
 	@RequestMapping("/gender.do")
 	public String genderRecommendation(HttpServletRequest request,Model model) {

@@ -11,7 +11,7 @@ import com.spring.biz.common.dto.CafeDTO;
 import com.spring.biz.common.util.PythonRead;
 
 @Service
-public class GenderRecommendation {
+public class CategoryRecommendation {
 	
 	@Autowired
 	PythonRead pythonRead;
