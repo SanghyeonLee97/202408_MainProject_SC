@@ -70,7 +70,7 @@ public class MemberController{
 	public String loginView() {
 		System.out.println("=============로그인처리 get");
 
-		return "login";
+		return "member/login";
 	}
 	
 	@RequestMapping(value="/프론트_개발용_폴더/login.do",method = RequestMethod.POST)

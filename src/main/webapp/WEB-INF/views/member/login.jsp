@@ -1,10 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<<<<<<<< HEAD:src/main/webapp/WEB-INF/views/member/login.jsp
 <%@ include file="../common/header.jsp" %>
-========
-<%@ include file="common/header.jsp" %>
->>>>>>>> f9fd051 (로그인):src/main/webapp/WEB-INF/views/login.jsp
 <!DOCTYPE html>
 <html>
 <head>
@@ -110,8 +106,4 @@
 	
 </body>
 </html>
-<<<<<<<< HEAD:src/main/webapp/WEB-INF/views/member/login.jsp
 <%@ include file="../common/footer.jsp" %>
-========
-<%@ include file="common/footer.jsp" %>
->>>>>>>> f9fd051 (로그인):src/main/webapp/WEB-INF/views/login.jsp

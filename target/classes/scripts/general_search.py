@@ -337,7 +337,7 @@ elif searchTxt.strip() != '' and keywordTxt.strip() in ['100', '200', '300', '40
         ] 
     }
     
-    flag = "11"    
+    flag = "11" 
     
 # 검색어 없고 & 거리 단위 선택 했을 경우    
 elif searchTxt.strip() == '' and keywordTxt.strip() in ['100', '200', '300', '400', '500', '600', '700', '800', '900', '1000', '1100', '1200']:    
@@ -381,7 +381,7 @@ results = [
         "image_url": hit['_source'].get('image_url', 'N/A'),
         "like_cnt": hit['_source'].get('like_cnt', 0)     
     }
-    for hit in response['hits']['hits']    
+    for hit in response['hits']['hits']
 ]
 
 # JSON 배열 형태로 출력
