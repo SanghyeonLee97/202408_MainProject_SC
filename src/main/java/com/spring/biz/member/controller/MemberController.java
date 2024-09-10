@@ -172,10 +172,14 @@ public class MemberController{
 	        return result != null ? result : "0"; // 아이디가 없으면 "0" 반환
 	    }
 		
-	@RequestMapping(value="test.do", method=RequestMethod.POST)
+	@RequestMapping(value="test.do", method=RequestMethod.POST, produces = "text/plain; charset=UTF-8")
 	@ResponseBody
-	public String test(@RequestParam("test") String test) {
-		System.out.println(test);
+	public String test(@RequestParam("memberId") String memberId,@RequestParam("cafeId") String cafeId) {
+		System.out.println(memberId);
+		System.out.println(cafeId);
+		if(memberId.equals("")) {
+			return "needlogin";
+		}
 		return "test";
 	}
 }
