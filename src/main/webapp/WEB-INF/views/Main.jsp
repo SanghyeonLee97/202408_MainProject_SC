@@ -81,6 +81,9 @@ img {
   font-size: 24px; /* 화살표 크기 */
   color: black; /* 화살표 색상 */
 }
+.container-fluid{
+width: 1500px;
+}
 </style>
 
 <script type="text/javascript">

@@ -87,7 +87,7 @@ width: 300px; height: 200px;
   	background-color: skyblue;
   }
   .container-fluid{
-  	max-width: 1500px;
+  	width: 1500px;
   }
 </style>
 <script type="text/javascript">

@@ -75,6 +75,9 @@ width: 300px; height: 200px;
   				transform: scale(1.1);  
     			transition: transform .5s; 
   	}
+  	.container-fluid{
+  width: 1500px;
+  }
 </style>
 <script type="text/javascript">
 function move(){		
