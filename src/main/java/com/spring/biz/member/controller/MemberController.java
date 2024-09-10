@@ -90,7 +90,7 @@ public class MemberController{
 		System.out.println("dto======================="+dto.getPw());
 		System.out.println(dto.getMember_id());
 		
-		return "Main";
+		return "redirect:/index";
 	}
 	
 	//이메일 중복체크
