@@ -16,7 +16,7 @@ public class CategoryRecommendation {
 	@Autowired
 	PythonRead pythonRead;
 	
-	public ArrayList<CafeDTO> genderRecommendation(String pyName,String gender){
+	public ArrayList<CafeDTO> categoryRecommendation(String pyName,String gender){
 		ArrayList<CafeDTO> arrcdto = new ArrayList<CafeDTO>();
 		
 		try {

@@ -31,7 +31,7 @@ public class CommonController {
 	
 	@RequestMapping("goGen.do")
     public String goGen(HttpServletRequest request,Model model) {
-		model.addAttribute("GRArrCDTO",genderRecommendation.genderRecommendation("cafe_likes_bygender.py",request.getParameter("gender")));
+		model.addAttribute("GRArrCDTO",genderRecommendation.categoryRecommendation("cafe_likes_bygender.py",request.getParameter("gender")));
         return "recommand/Gen_Re";
     }
 	
