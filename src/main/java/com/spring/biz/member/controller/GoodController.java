@@ -15,7 +15,7 @@ public class GoodController {
 	@Autowired
 	GoodService goodService;
 	
-	//상세페이지 좋아요 컨트롤
+	//상세페이지 좋아요
 	@RequestMapping(value="addGood.do", method=RequestMethod.POST)
 	@ResponseBody
 	public String addGood(@RequestParam("memberId") String memberId,@RequestParam("cafeId") String cafeId) {

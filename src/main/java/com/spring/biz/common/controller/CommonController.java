@@ -18,6 +18,7 @@ public class CommonController {
 	@Autowired
 	GetReview getReview;
 
+	//카페 상세정보
 	@RequestMapping("/detail.do")
     public String detailCafe(HttpServletRequest request,Model model) {
         model.addAttribute("CafeDetail", cafeDetail.cafeDetail(request.getParameter("cafeId")));
