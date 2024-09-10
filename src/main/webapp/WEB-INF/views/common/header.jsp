@@ -117,12 +117,12 @@ var userId = '${sessionScope.user.member_id}';
 				<li><a id="a" href="WEB-INF/views/cafeCluster.html">카페 지도보기</a></li>
 			</ul>
 		</div>
-		<form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search" >
+		<form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search" action="search.do">
 			<div class="input-group" style="margin-left: 500px; margin-top: 35px;">
-		        <input type="text" class="form-control bg-light border-0 small" placeholder="키워드를 입력해주세요"
+		        <input type="text" name="keyWord" class="form-control bg-light border-0 small" placeholder="키워드를 입력해주세요"
 		            aria-label="Search" aria-describedby="basic-addon2" style="width: 400px; height: 50px; background: #F0F0F0">
 		        <div class="input-group-append">
-		            <button class="btn btn-primary" type="button" style="height: 50px; width: 50px">
+		            <button class="btn btn-primary" type="submit" style="height: 50px; width: 50px">
 		                <i class="fas fa-search fa-sm"></i>
 		            </button>
 		        </div>

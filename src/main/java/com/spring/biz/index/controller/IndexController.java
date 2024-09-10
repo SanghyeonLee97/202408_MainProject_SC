@@ -52,11 +52,15 @@ public class IndexController {
     @RequestMapping("search.do")
     public String searchCafe(HttpServletRequest request,Model model) {
     	String Category = "";
+    	String Keyword = "";
     	if(request.getParameter("Category")!=null) {
     		Category = request.getParameter("Category");
     	}
+    	if(request.getParameter("keyWord")!=null) {
+    		Keyword = request.getParameter("keyWord");
+    	}
     	model.addAttribute("SRArrCDTO", ss.keywordSearch(request.getParameter("keyWord"),Category));
-    	model.addAttribute("keyWord",request.getParameter("keyWord"));
+    	model.addAttribute("keyWord",Keyword);
     	return "search_temp";
     }
 
