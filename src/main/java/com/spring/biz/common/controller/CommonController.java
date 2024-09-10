@@ -36,7 +36,8 @@ public class CommonController {
     }
 	
 	@RequestMapping("goAge.do")
-    public String goAge() {
+    public String goAge(HttpServletRequest request,Model model) {
+		model.addAttribute("ARArrCDTO",genderRecommendation.categoryRecommendation("cafe_likes_byage.py",request.getParameter("age")));
         return "recommand/Age_Re";
     }
 	

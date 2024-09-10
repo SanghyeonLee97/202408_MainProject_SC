@@ -110,7 +110,7 @@ var userId = '${sessionScope.user.member_id}';
 		<div class="container-fluid" style=" padding: 10px; margin-top: 50px">
 			<ul id="list">
 				<li><a id="a" href="goGen.do?gender=M">성별 추천</a></li>
-				<li><a id="a" href="goAge.do">연령별 추천</a></li>
+				<li><a id="a" href="goAge.do?age=10">연령별 추천</a></li>
 				<li><a id="a" href="goMy.do">선호카페 추천</a></li>
 				<li><a id="a" href="goMap.do">카페 지도보기</a></li>
 			</ul>
