@@ -20,8 +20,6 @@ public class IndexController {
 	LikeRecommendation likeRecommendation;
 	@Autowired
 	ReviewsRecommendation reviewsRecommendation;
-	@Autowired
-	KeywordSearch ss;
 	
     @RequestMapping("/index")
     public String connectIndex(Model model) {
@@ -47,21 +45,6 @@ public class IndexController {
     public String reviewsCafeMore(Model model) {
     	model.addAttribute("RRArrCDTO", reviewsRecommendation.reviewsRecommendation());
     	return "recommand/Review";
-    }
-    
-    @RequestMapping("search.do")
-    public String searchCafe(HttpServletRequest request,Model model) {
-    	String Category = "";
-    	String Keyword = "";
-    	if(request.getParameter("Category")!=null) {
-    		Category = request.getParameter("Category");
-    	}
-    	if(request.getParameter("keyWord")!=null) {
-    		Keyword = request.getParameter("keyWord");
-    	}
-    	model.addAttribute("SRArrCDTO", ss.keywordSearch(request.getParameter("keyWord"),Category));
-    	model.addAttribute("keyWord",Keyword);
-    	return "search_temp";
     }
 
 }

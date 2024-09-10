@@ -132,15 +132,18 @@ div>div>aside ul li a{
     <div class='theme_img one' style="width: 300px; height: 300px;">
         <img src="../img/2018-10-09.jpg" alt="Theme Image 1">
     </div>
-    <div class='theme_img three' style="width: 900px; height: 300px;">
-        <div class="image-container">
-            <img src="../img/2018-10-09.jpg" alt="Theme Image 2">
+    	<div class='theme_img three' style="width: 900px; height: 300px;">
+        	<div class="image-container">
+				<img src="../img/2018-10-09.jpg" alt="Theme Image 2">
             <div class="rating-text">평점공간</div>
+            
+            <c:forEach var="likeCafe" items="${SRArrCDTO}">
+				<p>${likeCafe.CAFE_NAME}</p>
+				<img src="https://${likeCafe.IMAGE_URL}" width="300px" height="300px">
+    		</c:forEach>
+            
         </div>
-        <div class="image-container">
-            <img src="../img/2018-10-09.jpg" alt="Theme Image 3">
-            <div class="rating-text">평점공간</div>
-        </div>
+        
         <div class="image-container">
             <div class="button-group">
                 <button type="button" class="filter-button">평점순</button>
