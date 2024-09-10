@@ -18,7 +18,9 @@
 		background-color: beige;
 		margin-left: 250px;
 		margin-right: 200px;
-			 
+	/* 	position: relative;
+		bottom : 70px;
+			  */
 	}
 
 	#unregister{
@@ -43,7 +45,7 @@
 	    display: flex;
 	    flex-direction: column;
 	    align-items: center;
-	    margin-top: 100px;
+	    margin-top: 30px;
 	    width: 500px;
 	    height: 350px;
 	   

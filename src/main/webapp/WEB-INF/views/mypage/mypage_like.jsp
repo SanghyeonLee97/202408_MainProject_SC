@@ -3,6 +3,7 @@
     
 <%@ include file="../common/header.jsp" %>
 <!DOCTYPE html>
+
 <html>
 <head>
 <meta charset="UTF-8">
@@ -18,7 +19,7 @@
 		float: left;
 		background-color: beige;
 		margin-left: 250px;
-		margin-top: 100px;
+		margin-top: 30px;
 			 
 	}
 	section>article {

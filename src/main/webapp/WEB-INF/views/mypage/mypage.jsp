@@ -55,7 +55,7 @@
 	    display: flex;
 	    flex-direction: column;
 	    align-items: center;
-	    margin-top: 100px;
+	    margin-top: 30px;
 	    width: 600px;
 	   
 	    

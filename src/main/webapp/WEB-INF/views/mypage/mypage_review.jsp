@@ -17,7 +17,7 @@
 		float: left;
 		background-color:  beige;
 		margin-left: 250px;
-		margin-top: 60px;
+		/* margin-top: 30px; */
 		
 			 
 	}
@@ -32,12 +32,13 @@
 		float: left;
 		background: beige; 
 		margin-left: 130px;
-		margin-top: 30px;
+		margin-top: 20px;
 		overflow: hidden;
 	}
 	section>header{
 		margin-left: 870px;
 		margin-top: 30px;
+		margin-bottom: 28px;
 	} 
 	#reviewp{
 		width: 350px;
