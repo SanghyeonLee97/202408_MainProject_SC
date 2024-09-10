@@ -1,14 +1,9 @@
 package com.spring.biz.member.controller;
 
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
-import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.util.UriComponentsBuilder;
 
 import com.spring.biz.member.dto.MemberDTO;
 import com.spring.biz.member.mapper.MemberMapper;
@@ -34,7 +28,6 @@ public class MemberController{
 	@Autowired
 	MemberService memberService;
 	
-	
 	@RequestMapping("/membertest.do")
 	public String login() {
 		List<MemberDTO> mem = mapper.membertest();
@@ -47,13 +40,13 @@ public class MemberController{
 	}
 	//회원가입
 	
-	@RequestMapping(value="/프론트_개발용_폴더/addMember.do",method = RequestMethod.GET)
+	@RequestMapping(value="/addMember.do",method = RequestMethod.GET)
 	public String showAddMemberForm() {
-		return "redirect:register.jsp";
+		return "member/register";
 	}
 	
 	
-	@RequestMapping(value="/프론트_개발용_폴더/addMember.do",method = RequestMethod.POST)
+	@RequestMapping(value="/addMember.do",method = RequestMethod.POST)
 	public String processAddMember(MemberDTO memberDTO) {
 		System.out.println("========등록처리");
 		if(memberDTO == null) {
@@ -91,12 +84,12 @@ public class MemberController{
 		System.out.println("dto======================="+dto.getPw());
 		System.out.println(dto.getMember_id());
 		
-		return "redirect:/index";
+		return "Main";
 	}
 	
 	//이메일 중복체크
 	@ResponseBody
-	@RequestMapping(value="/프론트_개발용_폴더/emailCheck",method = RequestMethod.POST,produces = "application/json")
+	@RequestMapping(value="/emailCheck",method = RequestMethod.POST,produces = "application/json")
 	public Map<Object, Object> emailCheck(@RequestBody String email) throws Exception{
 		Map<Object, Object> map = new HashMap<Object, Object>();
 		int result=0;
@@ -106,8 +99,8 @@ public class MemberController{
 	}
 	
 	//개인정보불러오기
-	@RequestMapping(value="/프론트_개발용_폴더/info.do", method=RequestMethod.GET)
-	public String info(@RequestParam String member_id, Model model) {
+	@RequestMapping(value="/info.do", method=RequestMethod.GET)
+	public String info(@RequestParam int member_id, Model model) {
 	    System.out.println("개인정보=============================="+member_id);
 	    
 	    // 서비스 클래스를 통해 사용자 정보를 조회합니다
@@ -117,7 +110,7 @@ public class MemberController{
 	    model.addAttribute("info", memberInfo);
 	    System.out.println(memberInfo.getMember_id());
 		
-	    return "forward:/프론트_개발용_폴더/mypage.jsp";
+	    return "mypage/mypage";
 	}
 	
 	//개인정보 수정
@@ -132,12 +125,12 @@ public class MemberController{
 	}
 	
 	//로그아웃
-	@RequestMapping(value="logout.do", method=RequestMethod.GET)
+	@RequestMapping(value="/logout.do", method=RequestMethod.GET)
 	public String logout(HttpSession session) {
 	    if (session != null) {
 	        session.invalidate();
 	    }
-	    return "redirect:index";
+	    return "Main";
 	}
 	
 	//회원탈퇴
@@ -163,16 +156,53 @@ public class MemberController{
     }
 	
 
-	//아이디 찾기 
-		@ResponseBody
-		@RequestMapping(value = "/프론트_개발용_폴더/findEmail", method = RequestMethod.POST,produces = "application/json")
-		public String findId(@RequestParam("name") String name, @RequestParam("phone") String phone) throws Exception {
-	        
-			System.out.println("아이디찾기======================"+name+phone);
-			String result = memberService.findEmail(name, phone);
-	        return result != null ? result : "0"; // 아이디가 없으면 "0" 반환
-	    }
-		
+	//이메일 찾기 
+	@RequestMapping(value="findEmail.do", method=RequestMethod.GET)
+	public String findEmailView() {
+		return "member/find_id";
+	}
 	
+	@RequestMapping(value = "/findEmail", method = RequestMethod.POST)
+	@ResponseBody
+    public String findEmail(@RequestParam("member_name") String memberName,
+                            @RequestParam("member_tel") String memberTel) {
+        MemberDTO memberDTO = new MemberDTO();
+        memberDTO.setMember_name(memberName);
+        memberDTO.setMember_tel(memberTel);
+        
+        MemberDTO result = memberService.findEmail(memberDTO);
+
+        if (result == null) {
+            return "0"; // 회원 정보를 찾을 수 없을 때
+        } else {
+            return result.getEmail(); // 찾은 아이디 반환
+        }
+	}
+	
+	//비번찾기
+	@RequestMapping(value="/findpw.do",method=RequestMethod.GET)
+	public String findpwView() {
+		return "member/fine_pw";
+	}
+	
+	@RequestMapping(value = "/findpw", method = RequestMethod.POST)
+	@ResponseBody
+    public String findpw(@RequestParam("member_name") String memberName,
+                            @RequestParam("email") String email) {
+		System.out.println("Contro============================"+memberName+email);
+        MemberDTO memberDTO = new MemberDTO();
+        memberDTO.setMember_name(memberName);
+        memberDTO.setEmail(email);
+        System.out.println(memberDTO.getMember_name()+"======="+memberDTO.getEmail()+"=========="+memberDTO.getPw());
+        MemberDTO result = memberService.findpw(memberDTO);
+        
+
+        if (result == null) {
+            return "0"; // 회원 정보를 찾을 수 없을 때
+        } else {
+            return result.getPw(); // 찾은 비번 반환
+        }
+	}
+
 }
 

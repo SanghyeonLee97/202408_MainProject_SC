@@ -131,9 +131,9 @@ button[type=submit] {
 					</li>
 				</ul>
 			</aside>
-			<div id='write_box'>홍대000카페
+			<div id='write_box'>${cafeInfo.CAFE_NAME}
 				<div class='write_map'>
-					<img src="../img/2018-10-09.jpg" height="150px" width="150px">
+					<img src="https://${cafeInfo.IMAGE_URL}" height="150px" width="150px">
 					<img src="../img/2018-10-09.jpg" height="150px" width="150px">
 				</div>
 				<section style="height: 1000px;">평점 공간 4/5(점수 평점)

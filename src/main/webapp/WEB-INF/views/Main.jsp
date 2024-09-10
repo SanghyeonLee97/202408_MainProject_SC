@@ -54,7 +54,8 @@ img {
 #container {
   display: flex;
   align-items: center;
-  justify-content: space-between; 
+  justify-content: space-between;
+  width: 1500px; 
 }
 #container button {
   padding: 5px 10px;
@@ -129,7 +130,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <body style="background-color: #F8F8FF">
   <section data-bs-version="5.1" class="slider4 mbr-embla cid-ubxwyl8tSX" id="gallery-5-ubxwyl8tSX">
   <div class="container-fluid">
-    <div>
+    <div style="width: 1500px;">
       <div id="container">
         <h4 style="margin-bottom: 20px; background-color: #FFF0F0">#좋아요가 많은 카페</h4>
         <button type="button" onclick="moveLike()">더보기</button>
@@ -156,7 +157,7 @@ document.addEventListener('DOMContentLoaded', function() {
         <div class="swiper-button-prev"></div>
       </div>
     </div>
-    <div style="margin-top: 50px;">
+    <div style="margin-top: 50px; width: 1500px;">
       <div id="container">
         <h4 style="margin-bottom: 20px; background-color: #FFF0F0">#리뷰가 많은 카페</h4>
         <button type="button" onclick="moveReview()">더보기</button>

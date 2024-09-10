@@ -52,15 +52,16 @@ public class MemberService {
 		return cnt;
 	}
 	
-	public MemberDTO myInfo(String id) {
-        // DAO 또는 매퍼를 통해 이메일로 사용자 정보를 조회합니다
+	public MemberDTO myInfo(int id) {
+        //  매퍼를 통해 이메일로 사용자 정보를 조회합니다
         MemberDTO memberDTO = memberMapper.getMemberInfo(id);
 
         // 변환된 생년월일을 설정합니다 (YYMMDD -> YYYY-MM-DD)
-        if (memberDTO.getBirthdate() != null && !memberDTO.getBirthdate().isEmpty()) {
-            // 변환된 생년월일을 모델에 추가
-            memberDTO.setBirthdate(formatBirthdate(memberDTO.getBirthdate()));
-        }
+//        if (memberDTO.getBirthdate() != null && !memberDTO.getBirthdate().isEmpty()) {
+//            // 변환된 생년월일을 모델에 추가
+//            memberDTO.setBirthdate(formatBirthdate(memberDTO.getBirthdate()));
+//        }
+        memberDTO.setBirthdate(formatBirthdate(memberDTO.getBirthdate()));
 
         return memberDTO;
     }
@@ -103,13 +104,14 @@ public class MemberService {
 	    }
 	 
 	//이메일 찾기
-	 public String findEmail(String name, String phone) {
-	        Map<String, Object> params = new HashMap<>();
-	        params.put("name", name);
-	        params.put("phone", phone);
-	        return memberMapper.findEmail(params);
+	 public MemberDTO findEmail(MemberDTO memberDTO) {
+	       return memberMapper.findEmail(memberDTO);
 	    }
 	 
-	
-	 
+
+	 //비번찾기
+	 public MemberDTO findpw(MemberDTO memberDTO) {
+		 return memberMapper.findpw(memberDTO);
+	 }
+
 }

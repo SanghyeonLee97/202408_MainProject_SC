@@ -9,12 +9,15 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.spring.biz.member.service.GoodService;
+import com.spring.biz.search.service.CafeDetail;
 
 @Controller
 public class GoodController {
 	
 	@Autowired
 	GoodService goodService;
+	@Autowired
+	CafeDetail cafeDetail;
 	
 	//상세페이지 좋아요
 	@RequestMapping(value="addGood.do", method=RequestMethod.POST)
@@ -36,12 +39,11 @@ public class GoodController {
 		return "done";
 	}
 	
-	//상세페이지 좋아요
+	//리뷰작성 이동
 	@RequestMapping("goReview.do")
 	public String goReview(@RequestParam("memberId") String memberId,@RequestParam("cafeId") String cafeId,Model model) {
-		System.out.println(memberId+" "+cafeId);
 		model.addAttribute("memberId", memberId);
-		model.addAttribute("cafeId", cafeId);
+		model.addAttribute("cafeInfo", cafeDetail.cafeDetail(cafeId));
 		return "search/write_review";
 	}
 }
