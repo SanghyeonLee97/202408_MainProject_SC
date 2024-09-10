@@ -131,12 +131,12 @@ public class MemberController{
 	}
 	
 	//로그아웃
-	@RequestMapping(value="/프론트_개발용_폴더/logout.do", method=RequestMethod.GET)
+	@RequestMapping(value="logout.do", method=RequestMethod.GET)
 	public String logout(HttpSession session) {
 	    if (session != null) {
 	        session.invalidate();
 	    }
-	    return "redirect:Main.jsp";
+	    return "redirect:index";
 	}
 	
 	//회원탈퇴
