@@ -50,13 +50,13 @@
         justify-content: center;
         align-items: center;
     }
-    #loginput {
+    input {
         height: 35px;
         width: 300px;
     }
     .loginbt {
         height: 50px;
-        width: 430px;
+        width: 435px;
         background: #F0CB85;
         border: none;
         margin-top: 50px;
