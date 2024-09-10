@@ -174,8 +174,8 @@ public class MemberController{
 		
 	@RequestMapping(value="test.do", method=RequestMethod.POST)
 	@ResponseBody
-	public String test() {
-		System.out.println("test");
+	public String test(@RequestParam("test") String test) {
+		System.out.println(test);
 		return "test";
 	}
 }

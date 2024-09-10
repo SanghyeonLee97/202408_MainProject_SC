@@ -12,9 +12,11 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script>
 function clickheart() {
+	var test = "Hello, server!";
     $.ajax({
         url: 'test.do',
         type: 'POST',
+        data: {test:test},
         success: function(response) {
             alert(response);
         }
