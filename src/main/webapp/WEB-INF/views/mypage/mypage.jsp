@@ -103,7 +103,7 @@
 				</ul>
 				<h5>&nbsp;&nbsp;&nbsp;나의 활동</h5>
 				<ul>
-					<li><a href="mypage_like.jsp">좋아요 누른 까페</a></li>
+					<li><a href="myPage/mypage_like.jsp">좋아요 누른 까페</a></li>
 					<li><a href="mypage_review.jsp">리뷰를 작성한 까페</a></li>
 				</ul>
 				<ul>

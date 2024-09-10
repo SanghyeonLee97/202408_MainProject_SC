@@ -83,7 +83,7 @@ public class MemberController{
             mav.setViewName("member/login"); // 실패 시 로그인 페이지로 다시 리턴
         } else {
             session.setAttribute("user", dto);
-            mav.setViewName("Main"); // 성공 시 메인 페이지로 리다이렉트
+            mav.setViewName("redirect:/index"); // 성공 시 메인 페이지로 리다이렉트
         }
 
         return mav;
@@ -131,7 +131,7 @@ public class MemberController{
 	    if (session != null) {
 	        session.invalidate();
 	    }
-	    return "Main";
+	    return "redirect:/index";
 	}
 	
 	//회원탈퇴
@@ -153,7 +153,7 @@ public class MemberController{
         session.invalidate();
 
         // 탈퇴 후 메인 페이지 또는 다른 페이지로 리디렉션
-        return "redirect:Main.jsp";
+        return "redirect:/index";
     }
 	
 
