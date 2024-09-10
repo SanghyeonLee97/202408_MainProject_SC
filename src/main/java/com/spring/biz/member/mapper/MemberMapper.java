@@ -18,9 +18,5 @@ public interface MemberMapper {
 	public void deleteAccount(int member_id);
 	public void deleteType(int member_id);
 	public String findEmail(Map<String, Object> params);
-	public String findGood(Map<String, Object> params);
-	public void addGood(Map<String, Object> params);
-	public String addUpdateGood(Map<String, Object> params);
-	public void updateGood(Map<String, Object> params);
 	
 }

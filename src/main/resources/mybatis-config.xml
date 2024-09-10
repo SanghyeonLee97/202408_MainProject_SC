@@ -20,6 +20,7 @@
     <!-- 매퍼 설정 -->
     <mappers>
        <mapper resource="com/spring/biz/member/mapper/MemberMapper.xml"/>
+       <mapper resource="com/spring/biz/member/mapper/GoodMapper.xml"/>
        <mapper resource="com/spring/biz/search/mapper/SearchMapper.xml"/>
     </mappers>
 </configuration>
