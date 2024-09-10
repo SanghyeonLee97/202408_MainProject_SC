@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.spring.biz.member.mapper.GoodMapper;
-import com.spring.biz.member.mapper.MemberMapper;
 
 @Service
 public class GoodService {
@@ -41,5 +40,37 @@ public class GoodService {
 		params.put("userid", Integer.parseInt(userid));
 		params.put("cafeid", Integer.parseInt(cafeid));
 		goodMapper.updateGood(params);
+	}
+	
+	public String findReview(String userid, String cafeid) {
+		Map<String, Object> params = new HashMap<>();
+		params.put("userid", Integer.parseInt(userid));
+		params.put("cafeid", Integer.parseInt(cafeid));
+		return goodMapper.findReview(params);
+	}
+	
+	public String add_OR_updateReview(String userid, String cafeid) {
+		Map<String, Object> params = new HashMap<>();
+		params.put("userid", Integer.parseInt(userid));
+		params.put("cafeid", Integer.parseInt(cafeid));
+		return goodMapper.addUpdateReview(params);
+	}
+	
+	public void addReview(String userid, String cafeid, float rating, String review) {
+		Map<String, Object> params = new HashMap<>();
+		params.put("userid", Integer.parseInt(userid));
+		params.put("cafeid", Integer.parseInt(cafeid));
+		params.put("rating", rating);
+		params.put("review", review);
+		goodMapper.addReview(params);
+	}
+	
+	public void updateReview(String userid, String cafeid, float rating, String review) {
+		Map<String, Object> params = new HashMap<>();
+		params.put("userid", Integer.parseInt(userid));
+		params.put("cafeid", Integer.parseInt(cafeid));
+		params.put("rating", rating);
+		params.put("review", review);
+		goodMapper.updateReview(params);
 	}
 }

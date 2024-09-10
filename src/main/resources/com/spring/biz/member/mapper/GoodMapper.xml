@@ -23,4 +23,24 @@
 	<select id="updateGood" parameterType="map">
 		update member_act set GOOD='Y' where MEMBER_id=${userid} and CAFE_ID=${cafeid};
 	</select>
+	
+	<!-- 리뷰 여부 검색 -->
+	<select id="findReview" parameterType="map" resultType="String">
+		select REVIEW from member_act where MEMBER_ID=${userid} and CAFE_ID=${cafeid};
+	</select>
+	
+	<!-- 리뷰 추가or수정 판단 -->
+	<select id="addUpdateReview" parameterType="map" resultType="String">
+		select GOOD from member_act where MEMBER_ID=${userid} and CAFE_ID=${cafeid};
+	</select>
+	
+	<!-- 리뷰 추가식 -->
+	<select id="addReview" parameterType="map">
+		insert into member_act(MEMBER_ID,CAFE_ID,POINT,REVIEW) values(${userid},${cafeid},${rating},'${review}');
+	</select>
+	
+	<!-- 리뷰 수정식 -->
+	<select id="updateReview" parameterType="map">
+		update member_act set POINT=${rating},REVIEW='${review}' where MEMBER_id=${userid} and CAFE_ID=${cafeid};
+	</select>
 </mapper>

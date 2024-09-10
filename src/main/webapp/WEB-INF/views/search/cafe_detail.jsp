@@ -32,12 +32,23 @@ function clickheart(memberId,cafeId) {
 }
 
 function clickreview(memberId,cafeId) {
-	if (!memberId) {
-        alert("로그인이 필요합니다.");
-        window.location.href = 'login.do';
-    }else{
-    	window.location.href = 'goReview.do?memberId='+memberId+'&cafeId='+cafeId;
-    }
+	$.ajax({
+        url: 'goReview.do',
+        type: 'POST',
+        data: {memberId:memberId,cafeId:cafeId},
+        success: function(response) {
+        	if (response === "needlogin") {
+        		alert("로그인이 필요합니다.");
+                window.location.href = 'login.do';
+            }
+        	if (response === "already") {
+        		alert("이미 리뷰가 등록됐습니다.");
+            }
+        	if (response === "done") {
+                window.location.href = 'goReview.do?memberId='+memberId+'&cafeId='+cafeId;
+            }
+        }
+    });
 }
 
 </script>

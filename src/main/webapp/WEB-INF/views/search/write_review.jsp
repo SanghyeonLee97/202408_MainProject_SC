@@ -96,65 +96,35 @@ button[type=submit] {
 <body>
 	<div>
 		<div>
-			<aside>
-				<ul>
-    				<li>
-     					테마
-						<ul>
-							<li><a href="#">동물카페</a></li>
-					        <li><a href="#">이색카페</a></li>
-					        <li><a href="#">보드게임카페</a></li>
-					        <li><a href="#">스터디카페</a></li>
-					        <li><a href="#">브런치,디저트카페</a></li>
-						</ul>
-					</li>
-					<li>
-						연령별
-						 <ul>
-							<li><a href="#">10대</a></li>
-					        <li><a href="#">20대</a></li>
-					        <li><a href="#">30대</a></li>
-					        <li><a href="#">40대</a></li>
-					        <li><a href="#">50대</a></li>
-					        <li><a href="#">60대</a></li>
-						</ul>
-					</li>
-					<li>
-						편의기능
-						<ul>
-							<li><a href="#">흡연실</a></li>
-					        <li><a href="#">노키즈존</a></li>
-					        <li><a href="#">주차가능 여부</a></li>
-					        <li><a href="#">반려동물 출입 여부</a></li>
-					        <li><a href="#">24시영업 여부</a></li>
-						</ul>	
-					</li>
-				</ul>
-			</aside>
 			<div id='write_box'>${cafeInfo.CAFE_NAME}
 				<div class='write_map'>
 					<img src="https://${cafeInfo.IMAGE_URL}" height="150px" width="150px">
 					<img src="../img/2018-10-09.jpg" height="150px" width="150px">
 				</div>
-				<section style="height: 1000px;">평점 공간 4/5(점수 평점)
-					<div class='cafe_info'>
-					<fieldset class="rate">
-						<input type="radio" id="rating10" name="rating" value="10"><label for="rating10" title="5점"></label>
-						<input type="radio" id="rating9" name="rating" value="9"><label class="half" for="rating9" title="4.5점"></label>
-						<input type="radio" id="rating8" name="rating" value="8"><label for="rating8" title="4점"></label>
-						<input type="radio" id="rating7" name="rating" value="7"><label class="half" for="rating7" title="3.5점"></label>
-						<input type="radio" id="rating6" name="rating" value="6"><label for="rating6" title="3점"></label>
-						<input type="radio" id="rating5" name="rating" value="5"><label class="half" for="rating5" title="2.5점"></label>
-						<input type="radio" id="rating4" name="rating" value="4"><label for="rating4" title="2점"></label>
-						<input type="radio" id="rating3" name="rating" value="3"><label class="half" for="rating3" title="1.5점"></label>
-						<input type="radio" id="rating2" name="rating" value="2"><label for="rating2" title="1점"></label>
-						<input type="radio" id="rating1" name="rating" value="1"><label class="half" for="rating1" title="0.5점"></label>
-					</fieldset>
-					</div>
-					<div id='write_example'>리뷰 작성한 보이는 부분
-						<button type='submit'>작성</button>
-					</div>
-				</section>
+				<form action="writeReview.do">
+					<input type="text" name="memberId" value="${memberId}">
+					<input type="text" name="cafeId" value="${cafeInfo.CAFE_ID}">
+					<section style="height: 1000px;">평점 공간 4/5(점수 평점)
+						<div class='cafe_info'>
+						<fieldset class="rate">
+							<input type="radio" id="rating10" name="rating" value="10"><label for="rating10" title="5점"></label>
+							<input type="radio" id="rating9" name="rating" value="9"><label class="half" for="rating9" title="4.5점"></label>
+							<input type="radio" id="rating8" name="rating" value="8"><label for="rating8" title="4점"></label>
+							<input type="radio" id="rating7" name="rating" value="7"><label class="half" for="rating7" title="3.5점"></label>
+							<input type="radio" id="rating6" name="rating" value="6"><label for="rating6" title="3점"></label>
+							<input type="radio" id="rating5" name="rating" value="5"><label class="half" for="rating5" title="2.5점"></label>
+							<input type="radio" id="rating4" name="rating" value="4"><label for="rating4" title="2점"></label>
+							<input type="radio" id="rating3" name="rating" value="3"><label class="half" for="rating3" title="1.5점"></label>
+							<input type="radio" id="rating2" name="rating" value="2"><label for="rating2" title="1점"></label>
+							<input type="radio" id="rating1" name="rating" value="1" checked="checked"><label class="half" for="rating1" title="0.5점"></label>
+						</fieldset>
+						</div>
+						<div id='write_example'>리뷰 작성한 보이는 부분
+							<textarea name="review"></textarea>
+							<button type='submit'>작성</button>
+						</div>
+					</section>
+				</form>
 			</div>
 		</div>	
 	</div>		
