@@ -87,6 +87,9 @@ width: 300px; height: 200px;
    #button3:hover{
   	background-color: skyblue;
   }
+  .container-fluid{
+  width: 1500px;
+  }
 </style>
 <script type="text/javascript">
 function move(cafeId) {		
