@@ -171,5 +171,12 @@ public class MemberController{
 			String result = memberService.findEmail(name, phone);
 	        return result != null ? result : "0"; // 아이디가 없으면 "0" 반환
 	    }
+		
+	@RequestMapping(value="test.do", method=RequestMethod.POST)
+	@ResponseBody
+	public String test() {
+		System.out.println("test");
+		return "test";
+	}
 }
 
