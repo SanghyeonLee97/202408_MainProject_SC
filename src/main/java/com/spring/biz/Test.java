@@ -9,7 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.spring.biz.recommendation.service.GenderRecommendation;
+import com.spring.biz.recommendation.service.CategoryRecommendation;
 
 
 
@@ -18,17 +18,17 @@ import com.spring.biz.recommendation.service.GenderRecommendation;
 @Controller
 public class Test {
 	@Autowired
-	GenderRecommendation genderRecommendation;
+	CategoryRecommendation genderRecommendation;
 	
 	@RequestMapping("/gender.do")
 	public String genderRecommendation(HttpServletRequest request,Model model) {
-		model.addAttribute("GRArrCDTO",genderRecommendation.genderRecommendation("cafe_likes_bygender.py",request.getParameter("gender")));
+		model.addAttribute("GRArrCDTO",genderRecommendation.categoryRecommendation("cafe_likes_bygender.py",request.getParameter("gender")));
 		return "gender_temp";
 	}
 	
 	@RequestMapping("/age.do")
 	public String ageRecommendation(HttpServletRequest request,Model model) {
-		model.addAttribute("ARArrCDTO",genderRecommendation.genderRecommendation("cafe_likes_byage.py",request.getParameter("age")));
+		model.addAttribute("ARArrCDTO",genderRecommendation.categoryRecommendation("cafe_likes_byage.py",request.getParameter("age")));
 		return "age_temp";
 	}
 }
