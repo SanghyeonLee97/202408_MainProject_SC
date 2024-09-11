@@ -120,7 +120,7 @@ button[type=submit] {
 						</fieldset>
 						</div>
 						<div id='write_example'>리뷰 작성한 보이는 부분
-							<textarea name="review"></textarea>
+							<textarea name="review" required="required"></textarea>
 							<button type='submit'>작성</button>
 						</div>
 					</section>
