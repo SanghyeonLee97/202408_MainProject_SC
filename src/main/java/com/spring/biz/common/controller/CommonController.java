@@ -40,11 +40,10 @@ public class CommonController {
     }
 	
 	@RequestMapping("goAge.do")
-<<<<<<< HEAD
     public String goAge(@RequestParam("age") String age,Model model) {
 		model.addAttribute("ARArrCDTO",pyToCafeArr.PyToCafeArr("cafe_likes_byage.py",age,""));
         return "recommand/Age_Re";
-=======
+	}
     public String goAge(HttpServletRequest request,Model model) {
 		  int page = Integer.parseInt(request.getParameter("page") != null ? request.getParameter("page") : "1");
 		    int pageSize = 12; // 페이지당 항목 수를 12로 설정
@@ -85,7 +84,6 @@ public class CommonController {
 		    model.addAttribute("pageSize", pageSize);
 
 		    return "recommand/Age_Re";
->>>>>>> 150b51f (충돌난 부분 제거 페이징)
     }
 	
 	@RequestMapping("goMy.do")

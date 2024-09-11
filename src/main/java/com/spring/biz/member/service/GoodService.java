@@ -27,18 +27,10 @@ public class GoodService {
             List<CafeDTO> dbCafes = goodMapper.getLikedCafes(member_id);
             return dbCafes;
     }
-<<<<<<< HEAD
-
-=======
->>>>>>> 150b51f (충돌난 부분 제거 페이징)
     
     public List<MyReviewDTO> getMyReview(int userid) {
 		return goodMapper.getMyReview(userid);
 	}
-<<<<<<< HEAD
-
-=======
->>>>>>> 150b51f (충돌난 부분 제거 페이징)
     
     public void removeLike(String member_id, String cafe_id) {
     	Map<String, Object> params = new HashMap<>();
