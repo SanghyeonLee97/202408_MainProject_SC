@@ -6,7 +6,7 @@ Created on Tue Sep  3 20:36:56 2024
 """
 
 
-#%% 성별 좋아요 Top20 반환
+#%% 성별 좋아요 Top120 반환
 
 from opensearchpy import OpenSearch
 import json
@@ -45,7 +45,7 @@ query = {
             }
         }
     ],
-    "size": 20
+    "size": 120
 }
 
 # 검색 쿼리 실행

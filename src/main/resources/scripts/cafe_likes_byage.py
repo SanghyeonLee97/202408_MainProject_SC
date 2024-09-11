@@ -5,7 +5,7 @@ Created on Wed Sep  4 11:39:26 2024
 @author: ledle
 """
 
-#%% 연령대별 좋아요 Top20 반환
+#%% 연령대별 좋아요 Top120 반환
 
 from opensearchpy import OpenSearch
 import json
@@ -37,7 +37,7 @@ query = {
       }
     }
   ],
-  "size": 20
+  "size": 120
 }
 
 # 검색 쿼리 실행
