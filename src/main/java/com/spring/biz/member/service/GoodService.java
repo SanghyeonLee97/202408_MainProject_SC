@@ -1,17 +1,13 @@
 package com.spring.biz.member.service;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.spring.biz.common.dto.CafeDTO;
-import com.spring.biz.common.util.PythonRead;
 import com.spring.biz.member.dto.MyReviewDTO;
 import com.spring.biz.member.mapper.GoodMapper;
 
@@ -20,18 +16,30 @@ public class GoodService {
 	
 	@Autowired
 	GoodMapper goodMapper;
+	
+	private Map<String, Object> makeMap(String userid, String cafeid, Float rating, String review){
+		Map<String, Object> params = new HashMap<>();
+		params.put("userid", Integer.parseInt(userid));
+		params.put("cafeid", Integer.parseInt(cafeid));
+		if(rating!=null) {
+			params.put("rating", rating);
+		}
+		if(review!=null) {
+			params.put("review", review);
+		}
+		return params;
+	}
 
-
+	// 데이터베이스에서 카페 정보를 조회
     public List<CafeDTO> getLikedCafes(int member_id) {
-            // 데이터베이스에서 카페 정보를 조회
-            List<CafeDTO> dbCafes = goodMapper.getLikedCafes(member_id);
-            return dbCafes;
+    	List<CafeDTO> dbCafes = goodMapper.getLikedCafes(member_id);
+    	return dbCafes;
     }
-    
+
     public List<MyReviewDTO> getMyReview(int userid) {
 		return goodMapper.getMyReview(userid);
 	}
-    
+
     public void removeLike(String member_id, String cafe_id) {
     	Map<String, Object> params = new HashMap<>();
     	params.put("member_id", Integer.parseInt(member_id));
@@ -47,76 +55,42 @@ public class GoodService {
     }
     
 	public String findGood(String userid, String cafeid) {
-		Map<String, Object> params = new HashMap<>();
-		params.put("userid", Integer.parseInt(userid));
-		params.put("cafeid", Integer.parseInt(cafeid));
-		return goodMapper.findGood(params);
+		return goodMapper.findGood(makeMap(userid, cafeid, null, null));
 	}
 	
 	public String add_OR_updateGood(String userid, String cafeid) {
-		Map<String, Object> params = new HashMap<>();
-		params.put("userid", Integer.parseInt(userid));
-		params.put("cafeid", Integer.parseInt(cafeid));
-		return goodMapper.addUpdateGood(params);
+		return goodMapper.addUpdateGood(makeMap(userid, cafeid, null, null));
 	}
 	
 	public void addGood(String userid, String cafeid) {
-		Map<String, Object> params = new HashMap<>();
-		params.put("userid", Integer.parseInt(userid));
-		params.put("cafeid", Integer.parseInt(cafeid));
-		goodMapper.addGood(params);
+		goodMapper.addGood(makeMap(userid, cafeid, null, null));
 	}
 	
 	public void updateGood(String userid, String cafeid) {
-		Map<String, Object> params = new HashMap<>();
-		params.put("userid", Integer.parseInt(userid));
-		params.put("cafeid", Integer.parseInt(cafeid));
-		goodMapper.updateGood(params);
+		goodMapper.updateGood(makeMap(userid, cafeid, null, null));
 	}
 	
 	public String findReview(String userid, String cafeid) {
-		Map<String, Object> params = new HashMap<>();
-		params.put("userid", Integer.parseInt(userid));
-		params.put("cafeid", Integer.parseInt(cafeid));
-		return goodMapper.findReview(params);
+		return goodMapper.findReview(makeMap(userid, cafeid, null, null));
 	}
 	
 	public String add_OR_updateReview(String userid, String cafeid) {
-		Map<String, Object> params = new HashMap<>();
-		params.put("userid", Integer.parseInt(userid));
-		params.put("cafeid", Integer.parseInt(cafeid));
-		return goodMapper.addUpdateReview(params);
+		return goodMapper.addUpdateReview(makeMap(userid, cafeid, null, null));
 	}
 	
 	public void addReview(String userid, String cafeid, float rating, String review) {
-		Map<String, Object> params = new HashMap<>();
-		params.put("userid", Integer.parseInt(userid));
-		params.put("cafeid", Integer.parseInt(cafeid));
-		params.put("rating", rating);
-		params.put("review", review);
-		goodMapper.addReview(params);
+		goodMapper.addReview(makeMap(userid, cafeid, rating, review));
 	}
 	
 	public void updateReview(String userid, String cafeid, float rating, String review) {
-		Map<String, Object> params = new HashMap<>();
-		params.put("userid", Integer.parseInt(userid));
-		params.put("cafeid", Integer.parseInt(cafeid));
-		params.put("rating", rating);
-		params.put("review", review);
-		goodMapper.updateReview(params);
+		goodMapper.updateReview(makeMap(userid, cafeid, rating, review));
 	}
 	
 	public void updateReviewDelete(String userid, String cafeid) {
-		Map<String, Object> params = new HashMap<>();
-		params.put("userid", Integer.parseInt(userid));
-		params.put("cafeid", Integer.parseInt(cafeid));
-		goodMapper.updateReviewDelete(params);
+		goodMapper.updateReviewDelete(makeMap(userid, cafeid, null, null));
 	}
 	
 	public void deleteReviewDelete(String userid, String cafeid) {
-		Map<String, Object> params = new HashMap<>();
-		params.put("userid", Integer.parseInt(userid));
-		params.put("cafeid", Integer.parseInt(cafeid));
-		goodMapper.deleteReviewDelete(params);
+		goodMapper.deleteReviewDelete(makeMap(userid, cafeid, null, null));
 	}
 }
