@@ -92,22 +92,15 @@
 				<h4>리뷰를 작성한 까페</h4>
 			</header>
 			<article>
-				<div>
-					<a href=""><img id="imgdiv" alt="" src="">ㅇㅇ까페
-					<p id="reviewp">리뷰공간</p> </a>
-				</div>
-				<div>
-					<a href=""><img id="imgdiv" alt="" src="">ㅇㅇ까페
-					<p id="reviewp">리뷰공간</p> </a>
-				</div>
-				<div>
-					<a href=""><img id="imgdiv" alt="" src="">ㅇㅇ까페
-					<p id="reviewp">리뷰공간</p> </a>
-				</div>
-				<div>
-					<a href=""><img id="imgdiv" alt="" src="">ㅇㅇ까페
-					<p id="reviewp">리뷰공간</p> </a>
-				</div>
+				
+				
+				<c:forEach var="myReview" items="${MRArrCDTO}">
+					
+					<div>
+						<a href=""><img id="imgdiv" alt="" src="https://${myReview.IMAGE_URL}">${myReview.CAFE_NAME} ${myReview.POINT}점
+						<p id="reviewp">${myReview.REVIEW}</p> </a>
+					</div>
+			    </c:forEach>
 			</article>
 		</section>
 	</main>

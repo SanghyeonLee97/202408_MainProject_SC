@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.spring.biz.common.dto.CafeDTO;
+import com.spring.biz.member.dto.MyReviewDTO;
 
 public interface GoodMapper {
 	public String findGood(Map<String, Object> params);
@@ -15,4 +16,5 @@ public interface GoodMapper {
 	public String addUpdateReview(Map<String, Object> params);
 	public void updateReview(Map<String, Object> params);
 	public List<CafeDTO> getLikedCafes(int member_id);
+	public List<MyReviewDTO> getMyReview(int userid);
 }

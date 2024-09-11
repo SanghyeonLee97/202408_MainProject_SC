@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import com.spring.biz.common.dto.CafeDTO;
 import com.spring.biz.common.util.PythonRead;
+import com.spring.biz.member.dto.MyReviewDTO;
 import com.spring.biz.member.mapper.GoodMapper;
 
 @Service
@@ -29,6 +30,10 @@ public class GoodService {
             
        
     }
+    
+    public List<MyReviewDTO> getMyReview(int userid) {
+		return goodMapper.getMyReview(userid);
+	}
 
     
 	public String findGood(String userid, String cafeid) {

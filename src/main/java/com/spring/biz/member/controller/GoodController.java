@@ -44,7 +44,7 @@ public class GoodController {
 	
 	@RequestMapping("goMyReview.do")
 	public String goMyReview(@RequestParam("member_id") String memberId,Model model) {
-		model.addAttribute("memberId", memberId);
+		model.addAttribute("MRArrCDTO", goodService.getMyReview(Integer.parseInt(memberId)));
 		return "mypage/mypage_review";
 	}
 	
