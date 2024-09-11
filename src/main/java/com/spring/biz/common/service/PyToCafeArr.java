@@ -1,4 +1,4 @@
-package com.spring.biz.recommendation.service;
+package com.spring.biz.common.service;
 
 import java.util.ArrayList;
 
@@ -11,12 +11,12 @@ import com.spring.biz.common.dto.CafeDTO;
 import com.spring.biz.common.util.PythonRead;
 
 @Service
-public class CategoryRecommendation {
+public class PyToCafeArr {
 	
 	@Autowired
 	PythonRead pythonRead;
 	
-	public ArrayList<CafeDTO> categoryRecommendation(String pyName,String arg1,String arg2){
+	public ArrayList<CafeDTO> pyToCafeArr(String pyName,String arg1,String arg2){
 		ArrayList<CafeDTO> arrcdto = new ArrayList<CafeDTO>();
 		
 		try {
