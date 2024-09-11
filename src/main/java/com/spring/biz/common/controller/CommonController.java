@@ -24,21 +24,21 @@ public class CommonController {
 
 	//카페 상세정보
 	@RequestMapping("/detail.do")
-    public String detailCafe(HttpServletRequest request,Model model) {
-        model.addAttribute("CafeDetail", cafeDetail.cafeDetail(request.getParameter("cafeId")));
-        model.addAttribute("CafeReview", getReview.getReview(request.getParameter("cafeId")));
+    public String detailCafe(@RequestParam("cafeId") String cafeId,Model model) {
+        model.addAttribute("CafeDetail", cafeDetail.cafeDetail(cafeId));
+        model.addAttribute("CafeReview", getReview.getReview(cafeId));
         return "search/cafe_detail";
     }
 	
 	@RequestMapping("goGen.do")
-    public String goGen(HttpServletRequest request,Model model) {
-		model.addAttribute("GRArrCDTO",pyToCafeArr.PyToCafeArr("cafe_likes_bygender.py",request.getParameter("gender"),""));
+    public String goGen(@RequestParam("gender") String gender,Model model) {
+		model.addAttribute("GRArrCDTO",pyToCafeArr.PyToCafeArr("cafe_likes_bygender.py",gender,""));
         return "recommand/Gen_Re";
     }
 	
 	@RequestMapping("goAge.do")
-    public String goAge(HttpServletRequest request,Model model) {
-		model.addAttribute("ARArrCDTO",pyToCafeArr.PyToCafeArr("cafe_likes_byage.py",request.getParameter("age"),""));
+    public String goAge(@RequestParam("age") String age,Model model) {
+		model.addAttribute("ARArrCDTO",pyToCafeArr.PyToCafeArr("cafe_likes_byage.py",age,""));
         return "recommand/Age_Re";
     }
 	
