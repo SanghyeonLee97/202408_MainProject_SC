@@ -23,13 +23,13 @@
 
     <!-- 마이페이지 좋아요 취소 -->
     <update id="removeLike" parameterType="Map">
-    	update member_act set good=null where member_id=#{member_id} and cafe_id=#{cafe_id};
+    	update member_act set good=null where member_id=#{userid} and cafe_id=#{cafeid};
     </update>
     
     <!-- 마이페이지 좋아요, 리뷰 null인경우 삭제 -->
     <delete id="deleteNull" parameterType="Map">
 	    DELETE FROM member_act
-		WHERE member_id = #{member_id} and cafe_id=#{cafe_id}  AND good IS NULL AND review IS NULL;
+		WHERE member_id = #{userid} and cafe_id=#{cafeid}  AND good IS NULL AND review IS NULL;
 	</delete>
 	
 

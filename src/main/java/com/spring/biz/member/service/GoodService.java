@@ -41,17 +41,11 @@ public class GoodService {
 	}
 
     public void removeLike(String member_id, String cafe_id) {
-    	Map<String, Object> params = new HashMap<>();
-    	params.put("member_id", Integer.parseInt(member_id));
-    	params.put("cafe_id", Integer.parseInt(cafe_id));
-    	goodMapper.removeLike(params);
+    	goodMapper.removeLike(makeMap(member_id, cafe_id, null, null));
     }
     
     public void deleteNull(String member_id, String cafe_id) {
-    	Map<String, Object> params = new HashMap<>();
-    	params.put("member_id", Integer.parseInt(member_id));
-    	params.put("cafe_id", Integer.parseInt(cafe_id));
-    	goodMapper.deleteNull(params);
+    	goodMapper.deleteNull(makeMap(member_id, cafe_id, null, null));
     }
     
 	public String findGood(String userid, String cafeid) {
