@@ -114,7 +114,7 @@
 				</ul>
 				<h5>&nbsp;&nbsp;&nbsp;나의 활동</h5>
 				<ul>
-					<li><a href="mypage_like.jsp">좋아요 누른 까페</a></li>
+					<li><a href="myGood.do">좋아요 누른 까페</a></li>
 					<li><a href="mypage_review.jsp">리뷰를 작성한 까페</a></li>
 				</ul>
 				<ul>
@@ -126,7 +126,16 @@
 				<h4>좋아요 누른 까페</h4>
 			</header>
 			<article>
+			<c:forEach var="cafe" items="${cafes}">
 			    <div class="cafe-container">
+			        <a href="">
+			            <img id="imgdiv" alt="" src="${cafe.IMAGE_URL}">
+			            <span>${cafe.CAFE_NAME}</span>
+			        </a>
+			        <i class="fas fa-heart"></i>
+			    </div>
+			    </c:forEach>
+			    <!-- <div class="cafe-container">
 			        <a href="">
 			            <img id="imgdiv" alt="" src="">
 			            <span>ㅇㅇ까페</span>
@@ -144,16 +153,9 @@
 			        <a href="">
 			            <img id="imgdiv" alt="" src="">
 			            <span>ㅇㅇ까페</span>
-			        </a>
+			        </a> 
 			        <i class="fas fa-heart"></i>
-			    </div>
-			    <div class="cafe-container">
-			        <a href="">
-			            <img id="imgdiv" alt="" src="">
-			            <span>ㅇㅇ까페</span>
-			        </a>
-			        <i class="fas fa-heart"></i>
-			    </div>
+			    </div>-->
 			</article>
 		</section>
 	</main>

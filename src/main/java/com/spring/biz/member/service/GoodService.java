@@ -1,11 +1,17 @@
 package com.spring.biz.member.service;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.spring.biz.common.dto.CafeDTO;
+import com.spring.biz.common.util.PythonRead;
 import com.spring.biz.member.mapper.GoodMapper;
 
 @Service
@@ -13,7 +19,18 @@ public class GoodService {
 	
 	@Autowired
 	GoodMapper goodMapper;
-	
+
+
+    public List<CafeDTO> getLikedCafes(int member_id) {
+        
+            // 데이터베이스에서 카페 정보를 조회
+            List<CafeDTO> dbCafes = goodMapper.getLikedCafes(member_id);
+            return dbCafes;
+            
+       
+    }
+
+    
 	public String findGood(String userid, String cafeid) {
 		Map<String, Object> params = new HashMap<>();
 		params.put("userid", Integer.parseInt(userid));

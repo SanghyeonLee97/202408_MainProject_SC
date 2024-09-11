@@ -1,5 +1,7 @@
 package com.spring.biz.member.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -7,7 +9,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
+import com.spring.biz.common.dto.CafeDTO;
 import com.spring.biz.member.service.GoodService;
 import com.spring.biz.search.service.CafeDetail;
 
@@ -18,6 +22,25 @@ public class GoodController {
 	GoodService goodService;
 	@Autowired
 	CafeDetail cafeDetail;
+	
+	//마이페이지 좋아요
+//	@RequestMapping(value="myGood.do")
+//	public String addGood() {
+//		return "mypage/mypage_like";
+//	}
+
+	@RequestMapping(value = "myGood.do", method = RequestMethod.GET)
+	public ModelAndView getLikedCafes(@RequestParam int member_id) {
+		System.out.println("cccccc======================="+member_id);
+	    List<CafeDTO> cafes = goodService.getLikedCafes(member_id);
+	    for(CafeDTO cc:cafes) {
+	    	System.out.println("cc============"+cc.getCAFE_NAME());
+	    }
+	    ModelAndView mav = new ModelAndView("mypage/mypage_like");
+	    mav.addObject("cafes", cafes); // "cafes"가 JSP에서 사용되는 변수 이름입니다]
+	    
+	    return mav;
+	}
 	
 	//상세페이지 좋아요
 	@RequestMapping(value="addGood.do", method=RequestMethod.POST)

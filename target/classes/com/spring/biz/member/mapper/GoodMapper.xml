@@ -4,6 +4,17 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.spring.biz.member.mapper.GoodMapper">
+
+	<select id="getLikedCafes" parameterType="int" resultType="com.spring.biz.common.dto.CafeDTO">
+        SELECT cafe_id, cafe_name, image_url
+        FROM cafe
+        WHERE cafe_id IN (
+            SELECT cafe_id
+            FROM member_act
+            WHERE member_id = #{member_id}
+              AND good = 'Y'
+        )
+    </select>
 	<!-- 좋아요 여부 검색 -->
 	<select id="findGood" parameterType="map" resultType="String">
 		select GOOD from member_act where MEMBER_ID=${userid} and CAFE_ID=${cafeid} and GOOD="Y";
