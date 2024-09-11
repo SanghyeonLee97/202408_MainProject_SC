@@ -27,14 +27,12 @@ public class GoodService {
             List<CafeDTO> dbCafes = goodMapper.getLikedCafes(member_id);
             return dbCafes;
     }
-<<<<<<< HEAD
+
     
     public List<MyReviewDTO> getMyReview(int userid) {
 		return goodMapper.getMyReview(userid);
 	}
 
-=======
->>>>>>> 9ef1c02 (마이페이지 좋아요 수정)
     
     public void removeLike(String member_id, String cafe_id) {
     	Map<String, Object> params = new HashMap<>();

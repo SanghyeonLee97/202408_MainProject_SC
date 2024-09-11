@@ -17,19 +17,18 @@
         )
     </select>
     
-<<<<<<< HEAD
     <!-- 마이 리뷰 검색 -->
 	<select id="getMyReview" parameterType="int" resultType="com.spring.biz.member.dto.MyReviewDTO">
 		select cafe.CAFE_ID,cafe.CAFE_NAME,cafe.IMAGE_URL,member_act.POINT,member_act.REVIEW from member_act inner join cafe on member_act.CAFE_ID=cafe.CAFE_ID where MEMBER_ID=${userid} and REVIEW is not null and REVIEW &lt;&gt; '';
 	</select>
 	
-=======
+
     <!-- 마이페이지 좋아요 취소 -->
     <update id="removeLike" parameterType="Map">
     	update member_act set good=null where member_id=#{member_id} and cafe_id=#{cafe_id};
     </update>
     
->>>>>>> 9ef1c02 (마이페이지 좋아요 수정)
+
 	<!-- 좋아요 여부 검색 -->
 	<select id="findGood" parameterType="map" resultType="String">
 		select GOOD from member_act where MEMBER_ID=${userid} and CAFE_ID=${cafeid} and GOOD="Y";

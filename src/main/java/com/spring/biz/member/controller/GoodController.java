@@ -40,12 +40,13 @@ public class GoodController {
 	    return mav;
 	}
 	
-<<<<<<< HEAD
+
 	@RequestMapping("goMyReview.do")
 	public String goMyReview(@RequestParam("member_id") String memberId,Model model) {
 		model.addAttribute("MRArrCDTO", goodService.getMyReview(Integer.parseInt(memberId)));
 		return "mypage/mypage_review";
-=======
+	}
+
 	//마이페이지 좋아요 취소
 	@RequestMapping(value="removeCafeLike.do",method=RequestMethod.POST,produces="application/json;charset=UTF-8")
 	@ResponseBody
@@ -61,7 +62,7 @@ public class GoodController {
 		}else {
 			return"{\"success\":false}";
 		}
->>>>>>> 9ef1c02 (마이페이지 좋아요 수정)
+
 	}
 	
 	//상세페이지 좋아요
