@@ -15,7 +15,7 @@ sys.stdout.reconfigure(encoding='utf-8')
 
 # Elasticsearch 클러스터에 연결
 try:
-    es = OpenSearch('http://localhost:9200')
+    es = OpenSearch('http://192.168.0.26:9200')
 except Exception as e:
     print(f"Error connecting to OpenSearch: {e}")
     exit(1)
