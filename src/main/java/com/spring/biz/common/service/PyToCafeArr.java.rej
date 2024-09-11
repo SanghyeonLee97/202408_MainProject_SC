@@ -1,0 +1,12 @@
+diff a/src/main/java/com/spring/biz/common/service/PyToCafeArr.java b/src/main/java/com/spring/biz/common/service/PyToCafeArr.java	(rejected hunks)
+@@ -1,6 +0,9 @@
+-package com.spring.biz.common.service;
++package com.spring.biz.recommendation.service;
+ 
+ import java.util.ArrayList;
++import java.util.HashMap;
++import java.util.List;
++import java.util.Map;
+ 
+ import org.json.JSONArray;
+ import org.json.JSONObject;

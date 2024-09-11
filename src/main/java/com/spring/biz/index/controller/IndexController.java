@@ -12,34 +12,34 @@ import com.spring.biz.common.service.PyToCafeArr;
 public class IndexController {
 	
 	@Autowired
-	PyToCafeArr categoryRecommendation;
+	PyToCafeArr pyToCafeArr;
 	
 	//index 접근용
     @RequestMapping("/index")
     public String connectIndex(Model model) {
-        model.addAttribute("LRArrCDTO", categoryRecommendation.pyToCafeArr("cafe_likes_top20.py","",""));
-        model.addAttribute("RRArrCDTO", categoryRecommendation.pyToCafeArr("cafe_reviews_top20.py","",""));
+        model.addAttribute("LRArrCDTO", pyToCafeArr.PyToCafeArr("cafe_likes_top20.py","",""));
+        model.addAttribute("RRArrCDTO", pyToCafeArr.PyToCafeArr("cafe_reviews_top20.py","",""));
         return "Main";
     }
     
     @RequestMapping("/index_temp")
     public String connectIndex2(Model model) {
-        model.addAttribute("LRArrCDTO", categoryRecommendation.pyToCafeArr("cafe_likes_top20.py","",""));
-        model.addAttribute("RRArrCDTO", categoryRecommendation.pyToCafeArr("cafe_reviews_top20.py","",""));
+        model.addAttribute("LRArrCDTO", pyToCafeArr.PyToCafeArr("cafe_likes_top20.py","",""));
+        model.addAttribute("RRArrCDTO", pyToCafeArr.PyToCafeArr("cafe_reviews_top20.py","",""));
         return "index_temp";
     }
     
     //좋아요많은순 더보기
     @RequestMapping("likeCafeMore.do")
     public String likeCafeMore(Model model) {
-    	model.addAttribute("LRArrCDTO", categoryRecommendation.pyToCafeArr("cafe_likes_top20.py","",""));
+    	model.addAttribute("LRArrCDTO", pyToCafeArr.PyToCafeArr("cafe_likes_top20.py","",""));
     	return "recommand/Like";
     }
     
     //리뷰많은순 더보기
     @RequestMapping("reviewsCafeMore.do")
     public String reviewsCafeMore(Model model) {
-    	model.addAttribute("RRArrCDTO", categoryRecommendation.pyToCafeArr("cafe_reviews_top20.py","",""));
+    	model.addAttribute("RRArrCDTO", pyToCafeArr.PyToCafeArr("cafe_reviews_top20.py","",""));
     	return "recommand/Review";
     }
 

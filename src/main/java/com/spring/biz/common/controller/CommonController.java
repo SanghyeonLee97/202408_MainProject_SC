@@ -20,7 +20,7 @@ public class CommonController {
 	@Autowired
 	GetReview getReview;
 	@Autowired
-	PyToCafeArr categoryRecommendation;
+	PyToCafeArr pyToCafeArr;
 
 	//카페 상세정보
 	@RequestMapping("/detail.do")
@@ -32,19 +32,19 @@ public class CommonController {
 	
 	@RequestMapping("goGen.do")
     public String goGen(HttpServletRequest request,Model model) {
-		model.addAttribute("GRArrCDTO",categoryRecommendation.pyToCafeArr("cafe_likes_bygender.py",request.getParameter("gender"),""));
+		model.addAttribute("GRArrCDTO",pyToCafeArr.PyToCafeArr("cafe_likes_bygender.py",request.getParameter("gender"),""));
         return "recommand/Gen_Re";
     }
 	
 	@RequestMapping("goAge.do")
     public String goAge(HttpServletRequest request,Model model) {
-		model.addAttribute("ARArrCDTO",categoryRecommendation.pyToCafeArr("cafe_likes_byage.py",request.getParameter("age"),""));
+		model.addAttribute("ARArrCDTO",pyToCafeArr.PyToCafeArr("cafe_likes_byage.py",request.getParameter("age"),""));
         return "recommand/Age_Re";
     }
 	
 	@RequestMapping("goMy.do")
     public String goMy(@RequestParam("memberId") String memberId,Model model) {
-        model.addAttribute("URArrCDTO", categoryRecommendation.pyToCafeArr("cafe_likes_byuser.py", memberId,""));
+        model.addAttribute("URArrCDTO", pyToCafeArr.PyToCafeArr("cafe_likes_byuser.py", memberId,""));
 		return "recommand/My_Re";
     }
 	

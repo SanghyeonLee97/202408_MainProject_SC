@@ -25,7 +25,7 @@ public class SearchController {
     	if(request.getParameter("keyWord")!=null) {
     		Keyword = request.getParameter("keyWord");
     	}
-    	model.addAttribute("SRArrCDTO", pytoCafeArr.pyToCafeArr("general_search.py", Keyword, Category));
+    	model.addAttribute("SRArrCDTO", pytoCafeArr.PyToCafeArr("general_search.py", Keyword, Category));
     	model.addAttribute("keyWord",Keyword);
     	return "search/cafe_theme";
     }
