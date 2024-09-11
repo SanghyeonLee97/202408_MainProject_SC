@@ -1,0 +1,7 @@
+diff a/src/main/java/com/spring/biz/member/mapper/GoodMapper.java b/src/main/java/com/spring/biz/member/mapper/GoodMapper.java	(rejected hunks)
+@@ -34,4 +34,5 @@
+  	public void updateReviewDelete(Map<String, Object> params);
+  	public void deleteReviewDelete(Map<String, Object> params);
+  	public void removeLike(Map<String, Object> params);
+++>>>>>>> 150b51f (충돌난 부분 제거 페이징)
+  }

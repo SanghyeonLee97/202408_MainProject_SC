@@ -22,5 +22,7 @@ public interface GoodMapper {
 	public void deleteReviewDelete(Map<String, Object> params);
 
 	public void removeLike(Map<String, Object> params);
+	public void deleteNull(Map<String, Object> params);
+
 
 }
