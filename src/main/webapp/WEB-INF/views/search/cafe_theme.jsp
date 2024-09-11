@@ -12,6 +12,11 @@
         var eventId = event.target;
         eventId.href = eventId.href+"&keyWord="+encodeURIComponent(keyWord.value);
 	}
+	function clickButton(event) {
+		var keyWord = document.getElementById("nowKeyWord");
+        var eventId = event.target;
+        window.location.href = eventId.name+"&keyword="+encodeURIComponent(keyWord.value);
+	}
 </script>
 <style type="text/css">
 .container {
@@ -104,13 +109,20 @@ div>div>aside ul li a{
 			<aside>
 				<ul>
     				<li>
-     					테마
+     					거리별
 						<ul>
-							<li><a href="#">동물카페</a></li>
-					        <li><a href="#">이색카페</a></li>
-					        <li><a href="#">보드게임카페</a></li>
-					        <li><a href="#">스터디카페</a></li>
-					        <li><a href="#">브런치,디저트카페</a></li>
+							<li><a id="100" href="search.do?Category=100" onclick="updateHref(event)">100 미터 거리</a></li>
+					        <li><a id="200" href="search.do?Category=200" onclick="updateHref(event)">200 미터 거리</a></li>
+					        <li><a id="300" href="search.do?Category=300" onclick="updateHref(event)">300 미터 거리</a></li>
+					        <li><a id="400" href="search.do?Category=400" onclick="updateHref(event)">400 미터 거리</a></li>
+					        <li><a id="500" href="search.do?Category=500" onclick="updateHref(event)">500 미터 거리</a></li>
+					        <li><a id="600" href="search.do?Category=600" onclick="updateHref(event)">600 미터 거리</a></li>
+					        <li><a id="700" href="search.do?Category=700" onclick="updateHref(event)">700 미터 거리</a></li>
+					        <li><a id="800" href="search.do?Category=800" onclick="updateHref(event)">800 미터 거리</a></li>
+					        <li><a id="900" href="search.do?Category=900" onclick="updateHref(event)">900 미터 거리</a></li>
+					        <li><a id="1000" href="search.do?Category=1000" onclick="updateHref(event)">1000 미터 거리</a></li>
+					        <li><a id="1100" href="search.do?Category=1100" onclick="updateHref(event)">1100 미터 거리</a></li>
+					        <li><a id="1200" href="search.do?Category=1200" onclick="updateHref(event)">1200 미터 거리</a></li>
 						</ul>
 					</li>
 					<li>
@@ -127,12 +139,23 @@ div>div>aside ul li a{
 					<li>
 						편의기능
 						<ul>
+							<li><a id="wifi" href="search.do?Category=wifi" onclick="updateHref(event)">와이파이</a></li>
 							<li><a id="smokingroom" href="search.do?Category=smokingroom" onclick="updateHref(event)">흡연실</a></li>
-					        <li><a href="#">노키즈존</a></li>
-					        <li><a id="parking" href="search.do?Category=parking" onclick="updateHref(event)">주차가능 여부</a></li>
-					        <li><a id="anientry" href="search.do?Category=anientry" onclick="updateHref(event)">반려동물 출입 여부</a></li>
-					        <li><a href="#">24시영업 여부</a></li>
+					        <li><a id="wheelchair" href="search.do?Category=wheelchair" onclick="updateHref(event)">휠체어</a></li>
+					        <li><a id="parking" href="search.do?Category=parking" onclick="updateHref(event)">주차</a></li>
+					        <li><a id="anientry" href="search.do?Category=anientry" onclick="updateHref(event)">반려동물 출입</a></li>
+					        <li><a id="playroom" href="search.do?Category=playroom" onclick="updateHref(event)">놀이방</a></li>
 						</ul>	
+					</li>
+					<li>
+						테마별
+						<ul>
+							<li><a id="M01" href="search.do?Category=M01" onclick="updateHref(event)">가성비좋은</a></li>
+							<li><a id="M02" href="search.do?Category=M02" onclick="updateHref(event)">고급스러운</a></li>
+							<li><a id="M03" href="search.do?Category=M03" onclick="updateHref(event)">예쁜</a></li>
+							<li><a id="M04" href="search.do?Category=M04" onclick="updateHref(event)">격식있는</a></li>
+							<li><a id="M05" href="search.do?Category=M05" onclick="updateHref(event)">이색적인</a></li>
+						</ul>
 					</li>
 				</ul>
 			</aside>
@@ -154,9 +177,10 @@ div>div>aside ul li a{
         
         <div class="image-container">
             <div class="button-group">
-                <button type="button" class="filter-button">평점순</button>
-                <button type="button" class="filter-button">리뷰 많은순</button>
-                <button type="button" class="filter-button">거리순</button>
+                <button id="like_cnt" name="search.do?Category=like_cnt" type="button" class="filter-button" onclick="clickButton(event)">좋아요 많은순</button>
+                <button id="review_cnt" name="search.do?Category=review_cnt" type="button" class="filter-button" onclick="clickButton(event)">리뷰 많은순</button>
+                <button id="m_like_cnt" name="search.do?Category=m_like_cnt" type="button" class="filter-button" onclick="clickButton(event)">남자 좋아요</button>
+                <button id="f_like_cnt" name="search.do?Category=f_like_cnt" type="button" class="filter-button" onclick="clickButton(event)">여자 좋아요</button>
             </div>
             <img src="../img/2018-10-09.jpg" alt="Theme Image 4">
             <div class="rating-text">평점공간</div>
