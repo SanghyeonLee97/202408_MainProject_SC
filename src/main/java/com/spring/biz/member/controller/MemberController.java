@@ -51,12 +51,12 @@ public class MemberController{
 	public String processAddMember(MemberDTO memberDTO) {
 		System.out.println("========등록처리");
 		if(memberDTO == null) {
-			return "redirect:register.jsp";
+			return "member/register";
 		}
 		memberService.addMember(memberDTO);
 		memberService.addLike(memberDTO);
 		System.out.println("등록처리 완료==========================");
-		return "redirect:login.jsp";
+		return "member/login";
 	}
 	
 	//로그인
@@ -115,7 +115,7 @@ public class MemberController{
 	}
 	
 	//개인정보 수정
-	@RequestMapping(value="/프론트_개발용_폴더/update.do", method=RequestMethod.POST)
+	@RequestMapping(value="/update.do", method=RequestMethod.POST)
 	public String updateInfo(@ModelAttribute MemberDTO memberDTO) throws Exception {
 	    System.out.println("수정처리 완료==========================");
 	    memberService.updateInfo(memberDTO);

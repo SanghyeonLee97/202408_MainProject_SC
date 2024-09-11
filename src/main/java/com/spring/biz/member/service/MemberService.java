@@ -62,7 +62,7 @@ public class MemberService {
 //            memberDTO.setBirthdate(formatBirthdate(memberDTO.getBirthdate()));
 //        }
         memberDTO.setBirthdate(formatBirthdate(memberDTO.getBirthdate()));
-
+        System.out.println("생일============"+memberDTO.getBirthdate());
         return memberDTO;
     }
 	 
