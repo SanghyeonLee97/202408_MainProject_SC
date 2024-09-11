@@ -7,13 +7,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.spring.biz.search.service.KeywordSearch;
+import com.spring.biz.common.service.PyToCafeArr;
 
 @Controller
 public class SearchController {
 	
 	@Autowired
-	KeywordSearch keywordSearch;
+	PyToCafeArr pytoCafeArr;
 	
 	@RequestMapping("search.do")
     public String searchCafe(HttpServletRequest request,Model model) {
@@ -25,7 +25,7 @@ public class SearchController {
     	if(request.getParameter("keyWord")!=null) {
     		Keyword = request.getParameter("keyWord");
     	}
-    	model.addAttribute("SRArrCDTO", keywordSearch.keywordSearch(request.getParameter("keyWord"),Category));
+    	model.addAttribute("SRArrCDTO", pytoCafeArr.pyToCafeArr("general_search.py", Keyword, Category));
     	model.addAttribute("keyWord",Keyword);
     	return "search/cafe_theme";
     }

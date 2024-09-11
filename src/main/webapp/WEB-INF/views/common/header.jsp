@@ -86,6 +86,15 @@ var userId = '${sessionScope.user.member_id}';
     form.submit();
   }
 
+function test(member_id){
+	if(!member_id){
+		alert("로그인이 필요합니다.");
+		window.location.href = 'login.do';
+	}else{
+		window.location.href = 'goMy.do?memberId='+member_id;
+		
+	}
+}
 </script>
 <meta charset="UTF-8">
 <title>Insert title here</title>
@@ -111,7 +120,7 @@ var userId = '${sessionScope.user.member_id}';
 			<ul id="list">
 				<li><a id="a" href="goGen.do?gender=M">성별 추천</a></li>
 				<li><a id="a" href="goAge.do?age=10">연령별 추천</a></li>
-				<li><a id="a" href="goMy.do">선호카페 추천</a></li>
+				<li><a id="a" href="#" onclick="test('${sessionScope.user.member_id}')">선호카페 추천</a></li>
 				<li><a id="a" href="goMap.do">카페 지도보기</a></li>
 			</ul>
 		</div>

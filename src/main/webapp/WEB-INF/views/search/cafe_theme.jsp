@@ -6,6 +6,13 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript">
+	function updateHref(event) {
+		var keyWord = document.getElementById("nowKeyWord");
+        var eventId = event.target;
+        eventId.href = eventId.href+"&keyWord="+encodeURIComponent(keyWord.value);
+	}
+</script>
 <style type="text/css">
 .container {
 	max-height: 100%;
@@ -91,6 +98,7 @@ div>div>aside ul li a{
 </style>
 </head>
 <body>
+	<input id="nowKeyWord" type="hidden" value="${keyWord}">
 	<div class="container">
 		<div>
 			<aside>
@@ -108,21 +116,21 @@ div>div>aside ul li a{
 					<li>
 						연령별
 						 <ul>
-							<li><a href="#">10대</a></li>
-					        <li><a href="#">20대</a></li>
-					        <li><a href="#">30대</a></li>
-					        <li><a href="#">40대</a></li>
-					        <li><a href="#">50대</a></li>
-					        <li><a href="#">60대</a></li>
+							<li><a id="age10_like_cnt" href="search.do?Category=age10_like_cnt" onclick="updateHref(event)">10대</a></li>
+					        <li><a id="age20_like_cnt" href="search.do?Category=age20_like_cnt" onclick="updateHref(event)">20대</a></li>
+					        <li><a id="age30_like_cnt" href="search.do?Category=age30_like_cnt" onclick="updateHref(event)">30대</a></li>
+					        <li><a id="age40_like_cnt" href="search.do?Category=age40_like_cnt" onclick="updateHref(event)">40대</a></li>
+					        <li><a id="age50_like_cnt" href="search.do?Category=age50_like_cnt" onclick="updateHref(event)">50대</a></li>
+					        <li><a id="age60_like_cnt" href="search.do?Category=age60_like_cnt" onclick="updateHref(event)">60대</a></li>
 						</ul>
 					</li>
 					<li>
 						편의기능
 						<ul>
-							<li><a href="#">흡연실</a></li>
+							<li><a id="smokingroom" href="search.do?Category=smokingroom" onclick="updateHref(event)">흡연실</a></li>
 					        <li><a href="#">노키즈존</a></li>
-					        <li><a href="#">주차가능 여부</a></li>
-					        <li><a href="#">반려동물 출입 여부</a></li>
+					        <li><a id="parking" href="search.do?Category=parking" onclick="updateHref(event)">주차가능 여부</a></li>
+					        <li><a id="anientry" href="search.do?Category=anientry" onclick="updateHref(event)">반려동물 출입 여부</a></li>
 					        <li><a href="#">24시영업 여부</a></li>
 						</ul>	
 					</li>

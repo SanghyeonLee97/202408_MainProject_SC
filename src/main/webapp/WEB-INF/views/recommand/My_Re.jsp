@@ -80,8 +80,8 @@ width: 300px; height: 200px;
   }
 </style>
 <script type="text/javascript">
-function move(){		
-	window.open('', '_self');
+function move(cafeId) {		
+	  window.open('detail.do?cafeId=' + cafeId, '_self');
 }
 </script>
 </head>
@@ -91,102 +91,16 @@ function move(){
 		<div class="kind_wrap">
 		  <div class="kind_slider">
 		    <ul class="slider" >
-		        <li>
-					<div class="card" style="width: 18rem;" onclick= "move()">
-						<img src="../img/20170807_225433.jpg" class="card-img-top" alt="...">
-						<div class="card-body" style="height: 70px;">
-							<h5 class="card-title" style="margin-bottom: 10px;">홍대 OO카페</h5>
+				<c:forEach var="userCafe" items="${URArrCDTO}">
+			        <li>
+						<div class="card" style="width: 18rem;" onclick= "move('${userCafe.CAFE_ID}')">
+							<img src="https://${userCafe.IMAGE_URL}" class="card-img-top" alt="...">
+							<div class="card-body" style="height: 70px;">
+								<h5 class="card-title" style="margin-bottom: 10px;">${userCafe.CAFE_NAME}</h5>
+							</div>
 						</div>
-					</div>
-				</li>
-		         <li>
-					<div class="card" style="width: 18rem;" onclick= "move()">
-						<img src="../img/2018-10-09.jpg" class="card-img-top" alt="...">
-						<div class="card-body" style="height: 70px;">
-							<h5 class="card-title" style="margin-bottom: 10px;">홍대 OO카페</h5>
-						</div>
-					</div>
-				</li>
-		         <li>
-					<div class="card" style="width: 18rem;" onclick= "move()">
-						<img src="../img/KakaoTalk_Photo_2021-04-19-09-02-31.jpeg" class="card-img-top" alt="...">
-						<div class="card-body" style="height: 70px;">
-							<h5 class="card-title" style="margin-bottom: 10px;">홍대 OO카페</h5>
-						</div>
-					</div>
-				</li>
-				 <li>
-					<div class="card" style="width: 18rem;" onclick= "move()">
-						<img src="../img/KakaoTalk_Photo_2021-04-19-09-02-31.jpeg" class="card-img-top" alt="...">
-						<div class="card-body" style="height: 70px;">
-							<h5 class="card-title" style="margin-bottom: 10px;">홍대 OO카페</h5>
-						</div>
-					</div>
-				</li>
-				 <li>
-					<div class="card" style="width: 18rem;" onclick= "move()">
-						<img src="../img/KakaoTalk_Photo_2021-04-19-09-02-31.jpeg" class="card-img-top" alt="...">
-						<div class="card-body" style="height: 70px;">
-							<h5 class="card-title" style="margin-bottom: 10px;">홍대 OO카페</h5>
-						</div>
-					</div>
-				</li>
-				 <li>
-					<div class="card" style="width: 18rem;" onclick= "move()">
-						<img src="../img/KakaoTalk_Photo_2021-04-19-09-02-31.jpeg" class="card-img-top" alt="...">
-						<div class="card-body" style="height: 70px;">
-							<h5 class="card-title" style="margin-bottom: 10px;">홍대 OO카페</h5>
-						</div>
-					</div>
-				</li>
-				 <li>
-					<div class="card" style="width: 18rem;" onclick= "move()">
-						<img src="../img/KakaoTalk_Photo_2021-04-19-09-02-31.jpeg" class="card-img-top" alt="...">
-						<div class="card-body" style="height: 70px;">
-							<h5 class="card-title" style="margin-bottom: 10px;">홍대 OO카페</h5>
-						</div>
-					</div>
-				</li>
-				 <li>
-					<div class="card" style="width: 18rem;" onclick= "move()">
-						<img src="../img/KakaoTalk_Photo_2021-04-19-09-02-31.jpeg" class="card-img-top" alt="...">
-						<div class="card-body" style="height: 70px;">
-							<h5 class="card-title" style="margin-bottom: 10px;">홍대 OO카페</h5>
-						</div>
-					</div>
-				</li>
-				 <li>
-					<div class="card" style="width: 18rem;" onclick= "move()">
-						<img src="../img/KakaoTalk_Photo_2021-04-19-09-02-31.jpeg" class="card-img-top" alt="...">
-						<div class="card-body" style="height: 70px;">
-							<h5 class="card-title" style="margin-bottom: 10px;">홍대 OO카페</h5>
-						</div>
-					</div>
-				</li>
-				<li>
-					<div class="card" style="width: 18rem;" onclick= "move()">
-						<img src="../img/KakaoTalk_Photo_2021-04-19-09-02-31.jpeg" class="card-img-top" alt="...">
-						<div class="card-body" style="height: 70px;">
-							<h5 class="card-title" style="margin-bottom: 10px;">홍대 OO카페</h5>
-						</div>
-					</div>
-				</li>
-				 <li>
-					<div class="card" style="width: 18rem;" onclick= "move()">
-						<img src="../img/KakaoTalk_Photo_2021-04-19-09-02-31.jpeg" class="card-img-top" alt="...">
-						<div class="card-body" style="height: 70px;">
-							<h5 class="card-title" style="margin-bottom: 10px;">홍대 OO카페</h5>
-						</div>
-					</div>
-				</li>
-				 <li>
-					<div class="card" style="width: 18rem;" onclick= "move()">
-						<img src="../img/KakaoTalk_Photo_2021-04-19-09-02-31.jpeg" class="card-img-top" alt="...">
-						<div class="card-body" style="height: 70px;">
-							<h5 class="card-title" style="margin-bottom: 10px;">홍대 OO카페</h5>
-						</div>
-					</div>
-				</li>
+					</li>
+				</c:forEach>
 		    </ul>
 		  </div>
 		</div>

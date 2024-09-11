@@ -1,4 +1,4 @@
-package com.spring.biz.recommendation.service;
+package com.spring.biz.common.service;
 
 import java.util.ArrayList;
 
@@ -10,18 +10,17 @@ import org.springframework.stereotype.Service;
 import com.spring.biz.common.dto.CafeDTO;
 import com.spring.biz.common.util.PythonRead;
 
-//요청을 받으면 cafe_likes_top20.py를 실행시키고 결과를 ArrayList<CafeDTO>로 변환하여 반환하는 서비스
 @Service
-public class LikeRecommendation {
+public class PyToCafeArr {
 	
 	@Autowired
 	PythonRead pythonRead;
 	
-	public ArrayList<CafeDTO> likeRecommendation(){
+	public ArrayList<CafeDTO> pyToCafeArr(String pyName,String arg1,String arg2){
 		ArrayList<CafeDTO> arrcdto = new ArrayList<CafeDTO>();
-		ArrayList<CafeDTO> arrcdto2 = new ArrayList<CafeDTO>();
+		
 		try {
-			JSONArray jsonArray = pythonRead.pythonRead("cafe_likes_top20.py","","");
+			JSONArray jsonArray = pythonRead.pythonRead(pyName,arg1,arg2);
 
             for (int i = 0; i < jsonArray.length(); i++) {
             	CafeDTO cdto = new CafeDTO();
@@ -34,7 +33,6 @@ public class LikeRecommendation {
                 
                 arrcdto.add(cdto);
                 
-                
             }
             return arrcdto;
             
@@ -43,5 +41,4 @@ public class LikeRecommendation {
             return null;
         }
 	}
-	
 }
