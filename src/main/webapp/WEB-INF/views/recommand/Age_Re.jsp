@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="../common/header.jsp" %>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -44,21 +44,48 @@
 .kind_wrap > .kind_slider img {
  display: block; 
 }
-.kind_wrap .arrow > a.prev {
-  position: absolute; 
-  left:-50px; 
-  top:50%;
-  transform: translateY(-50%);
-  text-decoration: none;
-  font-size: 24px;
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+    padding: 0;
+    list-style: none;
 }
-.kind_wrap .arrow > a.next {
-  position: absolute; 
-  right:-50px; 
-  top:50%;
-  transform: translateY(-50%);
-  text-decoration: none;
-  font-size: 24px;
+
+/* 페이징 네비게이션 항목 스타일 */
+.pagination li {
+    margin: 0 5px;
+}
+
+/* 페이징 네비게이션 링크 스타일 */
+.pagination a {
+    display: block;
+    padding: 8px 16px;
+    text-decoration: none;
+    color: #007bff;
+    border: 1px solid #007bff;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+/* 페이징 네비게이션 링크 호버 스타일 */
+.pagination a:hover {
+    background-color: #007bff;
+    color: #fff;
+}
+
+/* 현재 페이지 스타일 */
+.pagination .active a {
+    background-color: #007bff;
+    color: #fff;
+    border-color: #007bff;
+}
+
+/* 비활성화된 링크 스타일 (이전/다음) */
+.pagination .disabled a {
+    color: #6c757d;
+    border-color: #6c757d;
+    pointer-events: none;
 }
 .card{
 margin-top: 40px;
@@ -101,49 +128,54 @@ function goToAge(age) {
 </script>
 </head>
 <body style="background-color: #F8F8FF">
-	<div class="container-fluid">
-		<div style="display: flex">
-			<button id="button3" type="button" onclick="goToAge('10')">10대</button>
-			<button id="button3" type="button" style="margin-left: 10px;" onclick="goToAge('20')">20대</button>
-			<button id="button3" type="button" style="margin-left: 10px;" onclick="goToAge('30')">30대</button>
-			<button id="button3" type="button" style="margin-left: 10px;" onclick="goToAge('40')">40대</button>
-			<button id="button3" type="button" style="margin-left: 10px;" onclick="goToAge('50')">50대</button>
-			<button id="button3" type="button" style="margin-left: 10px;" onclick="goToAge('60')">60대</button>
-		</div>
-		<div class="kind_wrap">
-		  <div class="kind_slider">
-		    <ul class="slider" >
-		    	<c:forEach var="ageCafe" items="${ARArrCDTO}">
-			        <li>
-						<div class="card" style="width: 18rem;" onclick= "move('${ageCafe.CAFE_ID}')">
-							<img src="https://${ageCafe.IMAGE_URL}" class="card-img-top" alt="...">
-							<div class="card-body" style="height: 70px;">
-								<h5 class="card-title" style="margin-bottom: 10px;">${ageCafe.CAFE_NAME}</h5>
-							</div>
-						</div>
-					</li>
-				</c:forEach>
-		    </ul>
-		  </div>
-		</div>
-		<nav aria-label="Page navigation example">  
-		  <ul class="pagination justify-content-center">
-		    <li class="page-item">
-		      <a class="page-link" href="#" aria-label="Previous">
-		        <span aria-hidden="true">&laquo;</span>
-		      </a>
-		    </li>
-		    <li class="page-item"><a class="page-link" href="#">1</a></li>
-		    <li class="page-item"><a class="page-link" href="#">2</a></li>
-		    <li class="page-item"><a class="page-link" href="#">3</a></li>
-		    <li class="page-item">
-		      <a class="page-link" href="#" aria-label="Next">
-		        <span aria-hidden="true">&raquo;</span>
-		      </a>
-		    </li>
-		  </ul>
-		</nav>
-	</div>
+    <div class="container-fluid">
+        <!-- 나이대 버튼들 -->
+        <div style="display: flex">
+            <button id="button3" type="button" onclick="goToAge('10')">10대</button>
+            <button id="button3" type="button" style="margin-left: 10px;" onclick="goToAge('20')">20대</button>
+            <button id="button3" type="button" style="margin-left: 10px;" onclick="goToAge('30')">30대</button>
+            <button id="button3" type="button" style="margin-left: 10px;" onclick="goToAge('40')">40대</button>
+            <button id="button3" type="button" style="margin-left: 10px;" onclick="goToAge('50')">50대</button>
+            <button id="button3" type="button" style="margin-left: 10px;" onclick="goToAge('60')">60대</button>
+        </div>
+        <!-- 추천 카페 리스트 -->
+        <div class="kind_wrap">
+            <div class="kind_slider">
+                <ul class="slider">
+                    <c:forEach var="likeCafe" items="${ARArrCDTO}">
+                        <li>
+                            <div class="card" style="width: 18rem;" onclick="move('${likeCafe.CAFE_ID}')">
+                                <img src="https://${likeCafe.IMAGE_URL}" class="card-img-top" alt="${likeCafe.CAFE_NAME}">
+                                <div class="card-body" style="height: 70px;">
+                                    <h5 class="card-title" style="margin-bottom: 10px;">${likeCafe.CAFE_NAME}</h5>
+                                </div>
+                            </div>
+                        </li>
+                    </c:forEach>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 페이징 네비게이션 -->
+		<div class="pagination">
+        <c:if test="${currentPage > 1}">
+            <a href="/cafes?page=${currentPage - 1}&size=10">&lt; Previous</a>
+        </c:if>
+        <c:forEach var="i" begin="1" end="${totalPages}">
+            <c:choose>
+                <c:when test="${i == currentPage}">
+                    <span class="active">${i}</span>
+                </c:when>
+                <c:otherwise>
+                    <a href="/cafes?page=${i}&size=10">${i}</a>
+                </c:otherwise>
+            </c:choose>
+        </c:forEach>
+        <c:if test="${currentPage < totalPages}">
+            <a href="/cafes?page=${currentPage + 1}&size=10">Next &gt;</a>
+        </c:if>
+    </div>
+    </div>
 </body>
 </html>
 <%@ include file="../common/footer.jsp" %>

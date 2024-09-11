@@ -1,6 +1,9 @@
-package com.spring.biz.common.service;
+package com.spring.biz.recommendation.service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -9,18 +12,23 @@ import org.springframework.stereotype.Service;
 
 import com.spring.biz.common.dto.CafeDTO;
 import com.spring.biz.common.util.PythonRead;
+import com.spring.biz.recommendation.dto.RecommendationDTO;
+import com.spring.biz.recommendation.mapper.RecommendationMapper;
 
 @Service
-public class PyToCafeArr {
+public class CategoryRecommendation {
 	
 	@Autowired
 	PythonRead pythonRead;
+	@Autowired
+	RecommendationMapper recommendationMapper;
 	
-	public ArrayList<CafeDTO> pyToCafeArr(String pyName,String arg1,String arg2){
+	public ArrayList<CafeDTO> categoryRecommendation(String pyName,String arg){
+
 		ArrayList<CafeDTO> arrcdto = new ArrayList<CafeDTO>();
 		
 		try {
-			JSONArray jsonArray = pythonRead.pythonRead(pyName,arg1,arg2);
+			JSONArray jsonArray = pythonRead.pythonRead(pyName,arg,"");
 
             for (int i = 0; i < jsonArray.length(); i++) {
             	CafeDTO cdto = new CafeDTO();
@@ -41,4 +49,18 @@ public class PyToCafeArr {
             return null;
         }
 	}
+	
+	 public List<RecommendationDTO> getCafes(int page, int size) {
+		 System.out.println("Fetching cafes for page: " + page + " with size: " + size);
+	        Map<String, Object> params = new HashMap<>();
+	        params.put("limit", size);
+	        params.put("offset", (page - 1) * size);
+	        System.out.println("Fetched cafes: " + recommendationMapper.selectCafes(params));
+	        return recommendationMapper.selectCafes(params);
+	    }
+
+	    public int getTotalCafes() {
+	    	System.out.println("Total cafes: " + recommendationMapper.countCafes());
+	        return recommendationMapper.countCafes();
+	    }
 }
