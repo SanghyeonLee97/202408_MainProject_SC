@@ -42,6 +42,12 @@ public class GoodController {
 	    return mav;
 	}
 	
+	@RequestMapping("goMyReview.do")
+	public String goMyReview(@RequestParam("member_id") String memberId,Model model) {
+		model.addAttribute("memberId", memberId);
+		return "mypage/mypage_review";
+	}
+	
 	//상세페이지 좋아요
 	@RequestMapping(value="addGood.do", method=RequestMethod.POST)
 	@ResponseBody
