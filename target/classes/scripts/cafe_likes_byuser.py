@@ -20,7 +20,7 @@ except Exception as e:
     print(f"Error connecting to OpenSearch: {e}")
     exit(1)
 
-# member_id = "3"  # 파이썬에서 테스트 시 사용
+# member_id = "500"  # 파이썬에서 테스트 시 사용
 member_id = sys.argv[1]
 
 
@@ -39,15 +39,16 @@ preferences = [(hit['_source'].get('cafe_type'), hit['_source'].get('mood'))
                for hit in response_ml['hits']['hits']
                if hit['_source'].get('cafe_type') and hit['_source'].get('mood')]
 
-# Step 2와 Step 4 통합: `vw_member_act_index`에서 `mood`가 있는 `cafe_id` 검색 및 집계
+# Step 2: `vw_member_act_index`에서 `mood`가 일치하고 `good`이 "Y"인 `cafe_id` 집계
 cafe_ids = []
 if preferences:
-    query_mood_aggregation = {
+    query_mood_good_aggregation = {
         "query": {
             "bool": {
                 "must": [
                     {"exists": {"field": "mood"}},
-                    {"terms": {"mood.keyword": [p[1] for p in preferences]}}
+                    {"terms": {"mood.keyword": [p[1] for p in preferences]}},
+                    {"term": {"good.keyword": "Y"}}
                 ]
             }
         },
@@ -60,21 +61,20 @@ if preferences:
             }
         }
     }
-    response_ma = es.search(index="vw_member_act_index", body=query_mood_aggregation)
+    response_ma = es.search(index="vw_member_act_index", body=query_mood_good_aggregation)
     mood_aggregations = response_ma['aggregations']['by_cafe_id']['buckets']
     cafe_ids = [bucket['key'] for bucket in mood_aggregations]
 
-# Step 3: `vw_cafe_index`에서 특정 `cafe_id`로 `cafe_type`과 `mood`가 동시에 있는 카페 검색
+# Step 3: `vw_cafe_index`에서 특정 `cafe_id`로 `cafe_type`이 있는 카페 검색
 final_cafe_list = []
 if cafe_ids:
-    for cafe_type, mood in preferences:
+    for cafe_type, _ in preferences:
         query_cafe = {
             "query": {
                 "bool": {
                     "must": [
                         {"terms": {"cafe_id": cafe_ids}},
-                        {"match": {"cafe_type": cafe_type}},
-                        {"match": {"mood": mood}}
+                        {"match": {"cafe_type": cafe_type}}
                     ]
                 }
             }
@@ -100,7 +100,7 @@ if cafe_ids_final:
                 "terms": {
                     "field": "cafe_id",
                     "order": {"_count": "desc"},
-                    "size": 20
+                    "size": 1000
                 }
             }
         }
