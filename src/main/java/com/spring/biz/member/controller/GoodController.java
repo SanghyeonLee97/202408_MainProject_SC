@@ -2,6 +2,8 @@ package com.spring.biz.member.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.spring.biz.common.dto.CafeDTO;
+import com.spring.biz.member.dto.MemberDTO;
 import com.spring.biz.member.service.GoodService;
 import com.spring.biz.search.service.CafeDetail;
 
@@ -24,11 +27,6 @@ public class GoodController {
 	CafeDetail cafeDetail;
 	
 	//마이페이지 좋아요
-//	@RequestMapping(value="myGood.do")
-//	public String addGood() {
-//		return "mypage/mypage_like";
-//	}
-
 	@RequestMapping(value = "myGood.do", method = RequestMethod.GET)
 	public ModelAndView getLikedCafes(@RequestParam int member_id) {
 		System.out.println("cccccc======================="+member_id);
@@ -42,10 +40,28 @@ public class GoodController {
 	    return mav;
 	}
 	
+<<<<<<< HEAD
 	@RequestMapping("goMyReview.do")
 	public String goMyReview(@RequestParam("member_id") String memberId,Model model) {
 		model.addAttribute("MRArrCDTO", goodService.getMyReview(Integer.parseInt(memberId)));
 		return "mypage/mypage_review";
+=======
+	//마이페이지 좋아요 취소
+	@RequestMapping(value="removeCafeLike.do",method=RequestMethod.POST,produces="application/json;charset=UTF-8")
+	@ResponseBody
+	public String removeLike(@RequestParam("cafe_id") String cafe_id,HttpSession session) {
+		System.out.println("취소================="+cafe_id);
+		MemberDTO id = (MemberDTO)session.getAttribute("user");
+		if(id !=null && cafe_id !=null) {
+			int member_id = id.getMember_id();
+			goodService.removeLike(String.valueOf(member_id), cafe_id);
+			System.out.println("멤버아이디============"+member_id);
+			
+			return String.format("{\"success\":true, \"member_id\": \"%d\"}", member_id);
+		}else {
+			return"{\"success\":false}";
+		}
+>>>>>>> 9ef1c02 (마이페이지 좋아요 수정)
 	}
 	
 	//상세페이지 좋아요

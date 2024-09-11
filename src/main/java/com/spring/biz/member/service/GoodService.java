@@ -23,19 +23,25 @@ public class GoodService {
 
 
     public List<CafeDTO> getLikedCafes(int member_id) {
-        
             // 데이터베이스에서 카페 정보를 조회
             List<CafeDTO> dbCafes = goodMapper.getLikedCafes(member_id);
             return dbCafes;
-            
-       
     }
+<<<<<<< HEAD
     
     public List<MyReviewDTO> getMyReview(int userid) {
 		return goodMapper.getMyReview(userid);
 	}
 
+=======
+>>>>>>> 9ef1c02 (마이페이지 좋아요 수정)
     
+    public void removeLike(String member_id, String cafe_id) {
+    	Map<String, Object> params = new HashMap<>();
+    	params.put("member_id", Integer.parseInt(member_id));
+    	params.put("cafe_id", Integer.parseInt(cafe_id));
+    	goodMapper.removeLike(params);
+    }
 	public String findGood(String userid, String cafeid) {
 		Map<String, Object> params = new HashMap<>();
 		params.put("userid", Integer.parseInt(userid));

@@ -103,6 +103,13 @@
  	a:hover {
  		color: black;
  	}
+ 	button.favorite {
+	border: none;
+	background: transparent;
+	cursor: pointer;
+	font-size: 24px; /* 하트 아이콘의 크기 조절 */
+	color: #ff4757; /* 하트 색상 */
+}
 </style>
 </head>
 <body>
@@ -114,7 +121,7 @@
 				</ul>
 				<h5>&nbsp;&nbsp;&nbsp;나의 활동</h5>
 				<ul>
-					<li><a href="myGood.do">좋아요 누른 까페</a></li>
+					<li><a href="myGood.do?member_id=${sessionScope.user.member_id }">좋아요 누른 까페</a></li>
 					<li><a href="mypage_review.jsp">리뷰를 작성한 까페</a></li>
 				</ul>
 				<ul>
@@ -132,7 +139,10 @@
 			            <img id="imgdiv" alt="" src="${cafe.IMAGE_URL}">
 			            <span>${cafe.CAFE_NAME}</span>
 			        </a>
-			        <i class="fas fa-heart"></i>
+			        
+						<!-- 좋아요 상태에 따라 하트 색상 변경 -->
+                        <i class="fas fa-heart" data-cafe-id="${cafe.CAFE_ID}"><a></a></i>
+					
 			    </div>
 			    </c:forEach>
 			    <!-- <div class="cafe-container">
@@ -160,17 +170,46 @@
 		</section>
 	</main>
 	<script> // 이 코드는 누르면 하트 색이 빨강 ->회색으로 바뀌는 코드 chat gpt에 있길래 가져와봄 ,,,
+	document.addEventListener('DOMContentLoaded', function() {
 	    document.querySelectorAll('.fa-heart').forEach(function(heart) {
-	        heart.addEventListener('click', function() {
-	            if (heart.classList.contains('liked')) {
-	                heart.style.color = 'red';
-	                heart.classList.remove('liked');
-	            } else {
-	                heart.style.color = 'gray';
-	                heart.classList.add('liked');
-	            }
-	        });
+	        heart.onclick = function() {
+	            const cafeId = heart.getAttribute('data-cafe-id'); // 카페 식별자
+	            
+	            // 하트 색상 회색으로 변경
+	            heart.style.color = 'gray'; 
+	            heart.classList.add('liked'); 
+
+	            // 서버에 좋아요 제거 요청
+	            removeCafeLike(cafeId);
+	        };
 	    });
+
+	    function removeCafeLike(cafeId) {
+	        fetch('removeCafeLike.do', { // 서버의 엔드포인트 URL
+	            method: 'POST',
+	            headers: {
+	                'Content-Type': 'application/x-www-form-urlencoded'
+	            },
+	            body: new URLSearchParams({
+	                'cafe_id': cafeId
+	            })
+	        })
+	        .then(response => response.json())
+	        .then(data => {
+	            if (data.success) {
+	                console.log('좋아요 제거 성공');
+	                alert("좋아요가 취소되었습니다.");
+	                // 페이지 새로 고침
+	                location.reload();
+	            } else {
+	                console.error('좋아요 제거 실패');
+	            }
+	        })
+	        .catch(error => console.error('오류:', error));
+	    }
+	});
+	    
+	    
 	</script>
 </body>
 </html>
