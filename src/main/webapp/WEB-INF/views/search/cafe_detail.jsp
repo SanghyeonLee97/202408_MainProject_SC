@@ -65,7 +65,7 @@ function clickreview(memberId,cafeId) {
 	    width: 100%;
 	    max-width: 1200px;
 	    margin: 0 auto;
-	    border: 5px double #00aaff;
+	    border: 5px double #F5ECCE;
 	    border-radius: 8px;
 	    padding: 20px;
 	    background: #f0f4f8;
@@ -78,6 +78,7 @@ function clickreview(memberId,cafeId) {
 	    width: 100%;
 	    max-width: 900px;
 	    margin-bottom: 20px;
+	    margin-top: 30px;
 	}
 	
 	.cafe_map img {
@@ -101,7 +102,7 @@ function clickreview(memberId,cafeId) {
 	
 	#review_example {
 	    width: 100%;
-	    background: #FAEBD7;
+	    background:  #F5ECCE;
 	    display: flex;
 	    flex-direction: column;
 	    padding: 20px;
@@ -124,7 +125,7 @@ function clickreview(memberId,cafeId) {
 	}
 	
 	button.submit-review {
-	    background-color: skyblue;
+	    background-color: #F0CB85;
 	    color: white;
 	    font-size: 16px;
 	    border: none;
@@ -136,7 +137,7 @@ function clickreview(memberId,cafeId) {
 	}
 	
 	button.submit-review:hover {
-	    background-color: #0056b3;
+	    background-color: #FFB399;
 	}
 	
 	.cafe_header {
