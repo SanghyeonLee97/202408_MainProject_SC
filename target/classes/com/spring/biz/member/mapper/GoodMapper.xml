@@ -60,4 +60,14 @@
 	<select id="updateReview" parameterType="map">
 		update member_act set POINT=${rating},REVIEW='${review}' where MEMBER_id=${userid} and CAFE_ID=${cafeid};
 	</select>
+	
+	<!-- 수정식 리뷰삭제 -->
+	<select id="updateReviewDelete" parameterType="map">
+		update member_act set POINT=null,REVIEW=null where MEMBER_id=${userid} and CAFE_ID=${cafeid};
+	</select>
+	
+	<!-- 딜리트식 리뷰삭제 -->
+	<select id="deleteReviewDelete" parameterType="map">
+		delete from member_act where MEMBER_ID=${userid} and CAFE_ID=${cafeid};
+	</select>
 </mapper>

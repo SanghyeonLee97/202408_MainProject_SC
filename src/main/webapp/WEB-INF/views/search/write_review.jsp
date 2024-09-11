@@ -102,8 +102,8 @@ button[type=submit] {
 					<img src="../img/2018-10-09.jpg" height="150px" width="150px">
 				</div>
 				<form action="writeReview.do">
-					<input type="text" name="memberId" value="${memberId}">
-					<input type="text" name="cafeId" value="${cafeInfo.CAFE_ID}">
+					<input type="hidden" name="memberId" value="${memberId}">
+					<input type="hidden" name="cafeId" value="${cafeInfo.CAFE_ID}">
 					<section style="height: 1000px;">평점 공간 4/5(점수 평점)
 						<div class='cafe_info'>
 						<fieldset class="rate">

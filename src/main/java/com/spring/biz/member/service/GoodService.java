@@ -95,4 +95,18 @@ public class GoodService {
 		params.put("review", review);
 		goodMapper.updateReview(params);
 	}
+	
+	public void updateReviewDelete(String userid, String cafeid) {
+		Map<String, Object> params = new HashMap<>();
+		params.put("userid", Integer.parseInt(userid));
+		params.put("cafeid", Integer.parseInt(cafeid));
+		goodMapper.updateReviewDelete(params);
+	}
+	
+	public void deleteReviewDelete(String userid, String cafeid) {
+		Map<String, Object> params = new HashMap<>();
+		params.put("userid", Integer.parseInt(userid));
+		params.put("cafeid", Integer.parseInt(cafeid));
+		goodMapper.deleteReviewDelete(params);
+	}
 }

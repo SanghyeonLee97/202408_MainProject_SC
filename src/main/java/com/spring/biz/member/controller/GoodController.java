@@ -89,6 +89,20 @@ public class GoodController {
 		return "search/write_review";
 	}
 	
+	@RequestMapping("deleteReview.do")
+	public String deleteReview(@RequestParam("memberId") String memberId,@RequestParam("cafeId") String cafeId,Model model) {
+		System.out.println(memberId+" "+cafeId);
+		String deleteUpdate = goodService.add_OR_updateReview(memberId, cafeId);
+		if(deleteUpdate != null) {
+			goodService.updateReviewDelete(memberId, cafeId);
+			System.out.println("업뎃삭제임");
+		}else {
+			goodService.deleteReviewDelete(memberId, cafeId);
+			System.out.println("딜리트임");
+		}
+		return "redirect:goMyReview.do?member_id="+memberId;
+	}
+	
 	@RequestMapping("writeReview.do")
 	public String writeReview(@RequestParam("memberId") String memberId,@RequestParam("cafeId") String cafeId,@RequestParam("rating") String rating,@RequestParam("review") String review,Model model) {
 		float floatRating = Float.parseFloat(rating)/2;
