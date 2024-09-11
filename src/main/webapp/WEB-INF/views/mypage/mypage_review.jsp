@@ -7,6 +7,11 @@
 <head>
 <meta charset="UTF-8">
 <title>리뷰 쓴 페이지</title>
+<script type="text/javascript">
+function updateReview(memberId,cafeId) {
+	window.location.href = 'goReview.do?memberId='+memberId+'&cafeId='+cafeId;
+}
+</script>
 <style type="text/css">
 	body{
 		 background: #F8F8FF;
@@ -95,10 +100,11 @@
 				
 				
 				<c:forEach var="myReview" items="${MRArrCDTO}">
-					
 					<div>
 						<a href=""><img id="imgdiv" alt="" src="https://${myReview.IMAGE_URL}">${myReview.CAFE_NAME} ${myReview.POINT}점
 						<p id="reviewp">${myReview.REVIEW}</p> </a>
+						<button type="button" onclick="updateReview(${sessionScope.user.member_id},${myReview.CAFE_ID})">수정</button>
+						<button type="button">삭제</button>
 					</div>
 			    </c:forEach>
 			</article>
