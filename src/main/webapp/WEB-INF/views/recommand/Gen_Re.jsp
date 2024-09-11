@@ -43,21 +43,57 @@
 .kind_wrap > .kind_slider img {
  display: block; 
 }
-.kind_wrap .arrow > a.prev {
-  position: absolute; 
-  left:-50px; 
-  top:50%;
-  transform: translateY(-50%);
-  text-decoration: none;
-  font-size: 24px;
+/* 페이징 네비게이션 전체 스타일 */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+    padding: 0;
+    list-style: none;
 }
-.kind_wrap .arrow > a.next {
-  position: absolute; 
-  right:-50px; 
-  top:50%;
-  transform: translateY(-50%);
-  text-decoration: none;
-  font-size: 24px;
+
+/* 페이징 네비게이션 항목 스타일 */
+.pagination li {
+    margin: 0 5px;
+}
+
+/* 페이징 네비게이션 링크 스타일 */
+.pagination a {
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #007bff;
+    border: 1px solid #007bff;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: normal; /* 기본 글자 굵기 */
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* 페이징 네비게이션 링크 호버 스타일 */
+.pagination a:hover {
+    background-color: #007bff;
+    color: #fff;
+}
+
+/* 현재 페이지 스타일 */
+.pagination .active a {
+    background-color: #007bff;
+    color: #fff;
+    border-color: #007bff;
+    font-weight: bold; /* 현재 페이지의 글자 굵기 강조 */
+}
+
+/* 비활성화된 링크 스타일 (이전/다음) */
+.pagination .disabled a {
+    color: #6c757d;
+    border-color: #6c757d;
+    pointer-events: none;
+}
+
+/* 이전/다음 버튼 스타일 */
+.pagination .prev, .pagination .next {
+    font-weight: bold;
 }
 .card{
 margin-top: 40px;
@@ -121,23 +157,33 @@ function goToGen(gender) {
 		    </ul>
 		  </div>
 		</div>
-		<nav aria-label="Page navigation example">  
-		  <ul class="pagination justify-content-center">
-		    <li class="page-item">
-		      <a class="page-link" href="#" aria-label="Previous">
-		        <span aria-hidden="true">&laquo;</span>
-		      </a>
-		    </li>
-		    <li class="page-item"><a class="page-link" href="#">1</a></li>
-		    <li class="page-item"><a class="page-link" href="#">2</a></li>
-		    <li class="page-item"><a class="page-link" href="#">3</a></li>
-		    <li class="page-item">
-		      <a class="page-link" href="#" aria-label="Next">
-		        <span aria-hidden="true">&raquo;</span>
-		      </a>
-		    </li>
-		  </ul>
-		</nav>
+		<!-- 페이징 네비게이션 -->
+		<div class="pagination">
+		    <c:if test="${currentPage > 1}">
+		        <li class="prev">
+		            <a href="goGen.do.do?gender=${param.gender}&page=${currentPage - 1}">&lt; Previous</a>
+		        </li>
+		    </c:if>
+		    <c:forEach var="i" begin="1" end="${totalPages}">
+		        <c:choose>
+		            <c:when test="${i == currentPage}">
+		                <li class="active">
+		                    <a href="javascript:void(0)">${i}</a>
+		                </li>
+		            </c:when>
+		            <c:otherwise>
+		                <li>
+		                    <a href="goGen.do?gender=${param.gender}&page=${i}">${i}</a>
+		                </li>
+		            </c:otherwise>
+		        </c:choose>
+		    </c:forEach>
+		    <c:if test="${currentPage < totalPages}">
+		        <li class="next">
+		            <a href="goGen.do?gender=${param.gender}&page=${currentPage + 1}">Next &gt;</a>
+		        </li>
+		    </c:if>
+		</div>
 	</div>
 </body>
 </html>

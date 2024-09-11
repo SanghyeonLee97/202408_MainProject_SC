@@ -169,7 +169,7 @@ function goToAge(age) {
 		<div class="pagination">
 		    <c:if test="${currentPage > 1}">
 		        <li class="prev">
-		            <a href="goAge.do?page=${currentPage - 1}&age=${param.age}">&lt; Previous</a>
+		            <a href="goAge.do?age=${param.age}&page=${currentPage - 1}">&lt; Previous</a>
 		        </li>
 		    </c:if>
 		    <c:forEach var="i" begin="1" end="${totalPages}">
@@ -181,14 +181,14 @@ function goToAge(age) {
 		            </c:when>
 		            <c:otherwise>
 		                <li>
-		                    <a href="goAge.do?page=${i}&age=${param.age}">${i}</a>
+		                    <a href="goAge.do?age=${param.age}&page=${i}">${i}</a>
 		                </li>
 		            </c:otherwise>
 		        </c:choose>
 		    </c:forEach>
 		    <c:if test="${currentPage < totalPages}">
 		        <li class="next">
-		            <a href="goAge.do?page=${currentPage + 1}&age=${param.age}">Next &gt;</a>
+		            <a href="goAge.do?age=${param.age}&page=${currentPage + 1}">Next &gt;</a>
 		        </li>
 		    </c:if>
 		</div>

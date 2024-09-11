@@ -34,56 +34,78 @@ public class CommonController {
     }
 	
 	@RequestMapping("goGen.do")
-    public String goGen(@RequestParam("gender") String gender,Model model) {
-		model.addAttribute("GRArrCDTO",pyToCafeArr.PyToCafeArr("cafe_likes_bygender.py",gender,""));
-        return "recommand/Gen_Re";
-    }
-	
-	@RequestMapping("goAge.do")
-    public String goAge(@RequestParam("age") String age,Model model) {
-		model.addAttribute("ARArrCDTO",pyToCafeArr.PyToCafeArr("cafe_likes_byage.py",age,""));
-        return "recommand/Age_Re";
+	public String goGen(HttpServletRequest request, Model model) {
+	    int page = Integer.parseInt(request.getParameter("page") != null ? request.getParameter("page") : "1");
+	    int pageSize = 12; // 페이지당 항목 수를 12로 설정
+	    String gender = request.getParameter("gender");
+
+	    List<CafeDTO> allCafes = pyToCafeArr.PyToCafeArr("cafe_likes_bygender.py", gender, "");
+	    
+	    // 총 항목 수
+	    int totalItems = allCafes.size();
+
+	    // 전체 페이지 수 계산
+	    int totalPages = (int) Math.ceil((double) totalItems / pageSize);
+
+	    // 현재 페이지의 항목 추출
+	    int startIndex = (page - 1) * pageSize;
+	    int endIndex = Math.min(startIndex + pageSize, totalItems);
+
+	    // 페이징 범위 체크
+	    if (startIndex >= totalItems) {
+	        startIndex = Math.max(totalItems - pageSize, 0);
+	        endIndex = totalItems;
+	    }
+
+	    List<CafeDTO> pageItems = allCafes.subList(startIndex, endIndex);
+
+	    // 모델에 데이터 추가
+	    model.addAttribute("GRArrCDTO", pageItems);
+	    model.addAttribute("currentPage", page);
+	    model.addAttribute("totalPages", totalPages);
+	    model.addAttribute("pageSize", pageSize);
+
+	    return "recommand/Gen_Re";
 	}
+
+	
+	
+    @RequestMapping("goAge.do")
     public String goAge(HttpServletRequest request,Model model) {
-		  int page = Integer.parseInt(request.getParameter("page") != null ? request.getParameter("page") : "1");
-		    int pageSize = 12; // 페이지당 항목 수를 12로 설정
+    	int page = Integer.parseInt(request.getParameter("page") != null ? request.getParameter("page") : "1");
+        int pageSize = 12; // 페이지당 항목 수를 12로 설정
 
-		    // 연령대 파라미터 가져오기
-		    String age = request.getParameter("age");
-		    
-		    // 전체 데이터 가져오기
-		    List<CafeDTO> allCafes = pyToCafeArr.PyToCafeArr("cafe_likes_byage.py", age, "");
+        // 연령대 파라미터 가져오기
+        String age = request.getParameter("age");
+        
+        // 전체 데이터 가져오기
+        List<CafeDTO> allCafes = pyToCafeArr.PyToCafeArr("cafe_likes_byage.py", age, "");
 
-		    // 총 항목 수
-		    int totalItems = allCafes.size();
-		    
-		    // 전체 페이지 수 계산
-		    int totalPages = (int) Math.ceil((double) totalItems / pageSize);
-		    
-		    // 현재 페이지의 항목 추출
-		    int startIndex = (page - 1) * pageSize;
-		    int endIndex = Math.min(startIndex + pageSize, totalItems);
-		    
-		    // 페이징 범위 체크
-		    if (startIndex >= totalItems) {
-		        startIndex = Math.max(totalItems - pageSize, 0);
-		        endIndex = totalItems;
-		    }
-		    
-		    List<CafeDTO> pageItems = allCafes.subList(startIndex, endIndex);
-		    System.out.println("Age: " + age);
-		    System.out.println("Total items: " + totalItems);
-		    System.out.println("Page size: " + pageSize);
-		    System.out.println("Start index: " + startIndex);
-		    System.out.println("End index: " + endIndex);
-		    System.out.println("Page items size: " + pageItems.size());
-		    // 모델에 데이터 추가
-		    model.addAttribute("ARArrCDTO", pageItems);
-		    model.addAttribute("currentPage", page);
-		    model.addAttribute("totalPages", totalPages);
-		    model.addAttribute("pageSize", pageSize);
+        // 총 항목 수
+        int totalItems = allCafes.size();
+        
+        // 전체 페이지 수 계산
+        int totalPages = (int) Math.ceil((double) totalItems / pageSize);
+        
+        // 현재 페이지의 항목 추출
+        int startIndex = (page - 1) * pageSize;
+        int endIndex = Math.min(startIndex + pageSize, totalItems);
+        
+        // 페이징 범위 체크
+        if (startIndex >= totalItems) {
+            startIndex = Math.max(totalItems - pageSize, 0);
+            endIndex = totalItems;
+        }
+        
+        List<CafeDTO> pageItems = allCafes.subList(startIndex, endIndex);
 
-		    return "recommand/Age_Re";
+        // 모델에 데이터 추가
+        model.addAttribute("ARArrCDTO", pageItems);
+        model.addAttribute("currentPage", page);
+        model.addAttribute("totalPages", totalPages);
+        model.addAttribute("pageSize", pageSize);
+        
+        return "recommand/Age_Re";
     }
 	
 	@RequestMapping("goMy.do")

@@ -21,21 +21,23 @@ public class PyToCafeArr{
 		ArrayList<CafeDTO> arrcdto = new ArrayList<CafeDTO>();
 		
 		try {
-			JSONArray jsonArray = pythonRead.pythonRead(pyName,arg, "");
+	        JSONArray jsonArray = pythonRead.pythonRead(pyName, arg, "");
+	        System.out.println("JSON Array Length: " + jsonArray.length()); // 데이터 개수 확인
 
-            for (int i = 0; i < jsonArray.length(); i++) {
-            	CafeDTO cdto = new CafeDTO();
-                JSONObject obj = jsonArray.getJSONObject(i);
-                
-                String cafeId = obj.optString("cafe_id", "N/A");
-                cdto.setCAFE_ID(Integer.parseInt(cafeId));
-                cdto.setCAFE_NAME(obj.optString("cafe_name", "N/A"));
-                cdto.setIMAGE_URL(obj.optString("image_url", "N/A"));
-                
-                arrcdto.add(cdto);
-                
-            }
-            return arrcdto;
+	        for (int i = 0; i < jsonArray.length(); i++) {
+	            CafeDTO cdto = new CafeDTO();
+	            JSONObject obj = jsonArray.getJSONObject(i);
+	            
+	            String cafeId = obj.optString("cafe_id", "N/A");
+	            cdto.setCAFE_ID(Integer.parseInt(cafeId));
+	            cdto.setCAFE_NAME(obj.optString("cafe_name", "N/A"));
+	            cdto.setIMAGE_URL(obj.optString("image_url", "N/A"));
+	            
+	            arrcdto.add(cdto);
+	        }
+	        
+	        System.out.println("Data Retrieved: " + arrcdto.size()); // 반환된 데이터 개수 확인
+	        return arrcdto;
             
         } catch (Exception e) {
             e.printStackTrace();
