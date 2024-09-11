@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.spring.biz.recommendation.service.CategoryRecommendation;
 import com.spring.biz.search.service.CafeDetail;
@@ -19,7 +20,7 @@ public class CommonController {
 	@Autowired
 	GetReview getReview;
 	@Autowired
-	CategoryRecommendation genderRecommendation;
+	CategoryRecommendation categoryRecommendation;
 
 	//카페 상세정보
 	@RequestMapping("/detail.do")
@@ -31,19 +32,20 @@ public class CommonController {
 	
 	@RequestMapping("goGen.do")
     public String goGen(HttpServletRequest request,Model model) {
-		model.addAttribute("GRArrCDTO",genderRecommendation.categoryRecommendation("cafe_likes_bygender.py",request.getParameter("gender")));
+		model.addAttribute("GRArrCDTO",categoryRecommendation.categoryRecommendation("cafe_likes_bygender.py",request.getParameter("gender")));
         return "recommand/Gen_Re";
     }
 	
 	@RequestMapping("goAge.do")
     public String goAge(HttpServletRequest request,Model model) {
-		model.addAttribute("ARArrCDTO",genderRecommendation.categoryRecommendation("cafe_likes_byage.py",request.getParameter("age")));
+		model.addAttribute("ARArrCDTO",categoryRecommendation.categoryRecommendation("cafe_likes_byage.py",request.getParameter("age")));
         return "recommand/Age_Re";
     }
 	
 	@RequestMapping("goMy.do")
-    public String goMy() {
-        return "recommand/My_Re";
+    public String goMy(@RequestParam("memberId") String memberId,Model model) {
+        model.addAttribute("URArrCDTO", categoryRecommendation.categoryRecommendation("cafe_likes_byuser.py", memberId));
+		return "recommand/My_Re";
     }
 	
 	@RequestMapping("goMap.do")

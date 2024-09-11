@@ -91,7 +91,7 @@ function test(member_id){
 		alert("로그인이 필요합니다.");
 		window.location.href = 'login.do';
 	}else{
-		window.location.href = 'goMy.do';
+		window.location.href = 'goMy.do?memberId='+member_id;
 		
 	}
 }

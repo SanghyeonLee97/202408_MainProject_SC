@@ -113,12 +113,12 @@ function goToAge(age) {
 		<div class="kind_wrap">
 		  <div class="kind_slider">
 		    <ul class="slider" >
-		    	<c:forEach var="likeCafe" items="${ARArrCDTO}">
+		    	<c:forEach var="ageCafe" items="${ARArrCDTO}">
 			        <li>
-						<div class="card" style="width: 18rem;" onclick= "move('${likeCafe.CAFE_ID}')">
-							<img src="https://${likeCafe.IMAGE_URL}" class="card-img-top" alt="...">
+						<div class="card" style="width: 18rem;" onclick= "move('${ageCafe.CAFE_ID}')">
+							<img src="https://${ageCafe.IMAGE_URL}" class="card-img-top" alt="...">
 							<div class="card-body" style="height: 70px;">
-								<h5 class="card-title" style="margin-bottom: 10px;">${likeCafe.CAFE_NAME}</h5>
+								<h5 class="card-title" style="margin-bottom: 10px;">${ageCafe.CAFE_NAME}</h5>
 							</div>
 						</div>
 					</li>
