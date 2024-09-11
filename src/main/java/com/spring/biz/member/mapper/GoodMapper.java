@@ -16,6 +16,7 @@ public interface GoodMapper {
 	public String addUpdateReview(Map<String, Object> params);
 	public void updateReview(Map<String, Object> params);
 	public List<CafeDTO> getLikedCafes(int member_id);
+<<<<<<< HEAD
 
 	public List<MyReviewDTO> getMyReview(int userid);
 	public void updateReviewDelete(Map<String, Object> params);
@@ -24,4 +25,10 @@ public interface GoodMapper {
 	public void removeLike(Map<String, Object> params);
 	public void deleteNull(Map<String, Object> params);
 
+=======
+	public List<MyReviewDTO> getMyReview(int userid);
+	public void updateReviewDelete(Map<String, Object> params);
+	public void deleteReviewDelete(Map<String, Object> params);
+	public void removeLike(Map<String, Object> params);
+>>>>>>> 150b51f (충돌난 부분 제거 페이징)
 }

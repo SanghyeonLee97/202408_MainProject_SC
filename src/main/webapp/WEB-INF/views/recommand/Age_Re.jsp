@@ -44,6 +44,7 @@
 .kind_wrap > .kind_slider img {
  display: block; 
 }
+/* 페이징 네비게이션 전체 스타일 */
 .pagination {
     display: flex;
     justify-content: center;
@@ -60,12 +61,14 @@
 /* 페이징 네비게이션 링크 스타일 */
 .pagination a {
     display: block;
-    padding: 8px 16px;
+    padding: 10px 15px;
     text-decoration: none;
     color: #007bff;
     border: 1px solid #007bff;
-    border-radius: 4px;
+    border-radius: 5px;
     font-size: 14px;
+    font-weight: normal; /* 기본 글자 굵기 */
+    transition: background-color 0.3s, color 0.3s;
 }
 
 /* 페이징 네비게이션 링크 호버 스타일 */
@@ -79,6 +82,7 @@
     background-color: #007bff;
     color: #fff;
     border-color: #007bff;
+    font-weight: bold; /* 현재 페이지의 글자 굵기 강조 */
 }
 
 /* 비활성화된 링크 스타일 (이전/다음) */
@@ -86,6 +90,11 @@
     color: #6c757d;
     border-color: #6c757d;
     pointer-events: none;
+}
+
+/* 이전/다음 버튼 스타일 */
+.pagination .prev, .pagination .next {
+    font-weight: bold;
 }
 .card{
 margin-top: 40px;
@@ -139,42 +148,50 @@ function goToAge(age) {
             <button id="button3" type="button" style="margin-left: 10px;" onclick="goToAge('60')">60대</button>
         </div>
         <!-- 추천 카페 리스트 -->
-        <div class="kind_wrap">
-            <div class="kind_slider">
-                <ul class="slider">
-                    <c:forEach var="likeCafe" items="${ARArrCDTO}">
-                        <li>
-                            <div class="card" style="width: 18rem;" onclick="move('${likeCafe.CAFE_ID}')">
-                                <img src="https://${likeCafe.IMAGE_URL}" class="card-img-top" alt="${likeCafe.CAFE_NAME}">
-                                <div class="card-body" style="height: 70px;">
-                                    <h5 class="card-title" style="margin-bottom: 10px;">${likeCafe.CAFE_NAME}</h5>
-                                </div>
-                            </div>
-                        </li>
-                    </c:forEach>
-                </ul>
-            </div>
-        </div>
-
-        <!-- 페이징 네비게이션 -->
+	     <div class="kind_wrap">
+		    <div class="kind_slider">
+		        <ul class="slider">
+		            <c:forEach var="likeCafe" items="${ARArrCDTO}">
+		                <li>
+		                    <div class="card" style="width: 18rem;" onclick="move('${likeCafe.CAFE_ID}')">
+		                        <img src="https://${likeCafe.IMAGE_URL}" class="card-img-top" alt="${likeCafe.CAFE_NAME}">
+		                        <div class="card-body" style="height: 70px;">
+		                            <h5 class="card-title" style="margin-bottom: 10px;">${likeCafe.CAFE_NAME}</h5>
+		                        </div>
+		                    </div>
+		                </li>
+		            </c:forEach>
+		        </ul>
+		    </div>
+		</div>
+		
+		<!-- 페이징 네비게이션 -->
 		<div class="pagination">
-        <c:if test="${currentPage > 1}">
-            <a href="/cafes?page=${currentPage - 1}&size=10">&lt; Previous</a>
-        </c:if>
-        <c:forEach var="i" begin="1" end="${totalPages}">
-            <c:choose>
-                <c:when test="${i == currentPage}">
-                    <span class="active">${i}</span>
-                </c:when>
-                <c:otherwise>
-                    <a href="/cafes?page=${i}&size=10">${i}</a>
-                </c:otherwise>
-            </c:choose>
-        </c:forEach>
-        <c:if test="${currentPage < totalPages}">
-            <a href="/cafes?page=${currentPage + 1}&size=10">Next &gt;</a>
-        </c:if>
-    </div>
+		    <c:if test="${currentPage > 1}">
+		        <li class="prev">
+		            <a href="goAge.do?page=${currentPage - 1}&age=${param.age}">&lt; Previous</a>
+		        </li>
+		    </c:if>
+		    <c:forEach var="i" begin="1" end="${totalPages}">
+		        <c:choose>
+		            <c:when test="${i == currentPage}">
+		                <li class="active">
+		                    <a href="javascript:void(0)">${i}</a>
+		                </li>
+		            </c:when>
+		            <c:otherwise>
+		                <li>
+		                    <a href="goAge.do?page=${i}&age=${param.age}">${i}</a>
+		                </li>
+		            </c:otherwise>
+		        </c:choose>
+		    </c:forEach>
+		    <c:if test="${currentPage < totalPages}">
+		        <li class="next">
+		            <a href="goAge.do?page=${currentPage + 1}&age=${param.age}">Next &gt;</a>
+		        </li>
+		    </c:if>
+		</div>
     </div>
 </body>
 </html>

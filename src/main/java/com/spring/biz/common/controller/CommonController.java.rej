@@ -1,0 +1,9 @@
+diff a/src/main/java/com/spring/biz/common/controller/CommonController.java b/src/main/java/com/spring/biz/common/controller/CommonController.java	(rejected hunks)
+@@ -40,6 +40,7 @@
+      }
+  	
+  	@RequestMapping("goAge.do")
+++<<<<<<< HEAD
+ +    public String goAge(@RequestParam("age") String age,Model model) {
+ +		model.addAttribute("ARArrCDTO",pyToCafeArr.PyToCafeArr("cafe_likes_byage.py",age,""));
+ +        return "recommand/Age_Re";

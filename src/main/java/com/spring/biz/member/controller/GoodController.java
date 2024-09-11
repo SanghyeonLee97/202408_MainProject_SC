@@ -40,13 +40,19 @@ public class GoodController {
 	    return mav;
 	}
 	
+<<<<<<< HEAD
 
+=======
+>>>>>>> 150b51f (충돌난 부분 제거 페이징)
 	@RequestMapping("goMyReview.do")
 	public String goMyReview(@RequestParam("member_id") String memberId,Model model) {
 		model.addAttribute("MRArrCDTO", goodService.getMyReview(Integer.parseInt(memberId)));
 		return "mypage/mypage_review";
 	}
+<<<<<<< HEAD
 
+=======
+>>>>>>> 150b51f (충돌난 부분 제거 페이징)
 	//마이페이지 좋아요 취소
 	@RequestMapping(value="removeCafeLike.do",method=RequestMethod.POST,produces="application/json;charset=UTF-8")
 	@ResponseBody
@@ -63,7 +69,10 @@ public class GoodController {
 		}else {
 			return"{\"success\":false}";
 		}
+<<<<<<< HEAD
 
+=======
+>>>>>>> 150b51f (충돌난 부분 제거 페이징)
 	}
 	
 	//상세페이지 좋아요
