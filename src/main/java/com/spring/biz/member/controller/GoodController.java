@@ -56,6 +56,7 @@ public class GoodController {
 		if(id !=null && cafe_id !=null) {
 			int member_id = id.getMember_id();
 			goodService.removeLike(String.valueOf(member_id), cafe_id);
+			goodService.deleteNull(String.valueOf(member_id), cafe_id);
 			System.out.println("멤버아이디============"+member_id);
 			
 			return String.format("{\"success\":true, \"member_id\": \"%d\"}", member_id);
