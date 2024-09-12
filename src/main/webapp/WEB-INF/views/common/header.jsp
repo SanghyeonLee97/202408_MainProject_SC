@@ -122,6 +122,7 @@ function test(member_id){
 				<li><a id="a" href="goAge.do?age=10">연령별 추천</a></li>
 				<li><a id="a" href="#" onclick="test('${sessionScope.user.member_id}')">선호카페 추천</a></li>
 				<li><a id="a" href="goMap.do">카페 지도보기</a></li>
+				<li><a id="a" href="godashboard.do">카페 대시보드</a></li>
 			</ul>
 		</div>
 		<form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search" action="search.do">

@@ -124,4 +124,8 @@ public class CommonController {
     public String goMap() {
         return "common/Map";
     }
+	@RequestMapping("godashboard.do")
+    public String godashboard() {
+        return "common/Dashboard";
+    }
 }
