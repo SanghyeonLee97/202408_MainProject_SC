@@ -380,7 +380,9 @@ results = [
         "cafe_name": hit['_source'].get('cafe_name', 'N/A'),
         "image_url": hit['_source'].get('image_url', 'N/A'),
         "like_cnt": hit['_source'].get('like_cnt', 0),     
-        "review_point": hit['_source'].get('review_point', 0)
+        "review_point": hit['_source'].get('review_point', 0),
+        "latitude": hit['_source'].get('latitude', 0),
+        "longitude": hit['_source'].get('longitude', 0)
     }
     for hit in response['hits']['hits']
 ]
