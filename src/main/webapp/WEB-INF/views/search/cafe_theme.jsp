@@ -117,6 +117,11 @@ max-width: 1500px;
 display: flex;
 }
 </style>
+<script type="text/javascript">
+function move(cafeId) {		
+	  window.open('detail.do?cafeId=' + cafeId, '_self');
+}
+</script>
 </head>
 <body>
 	<input id="nowKeyWord" type="hidden" value="${keyWord}">
