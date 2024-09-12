@@ -19,16 +19,16 @@
   margin:0 auto; 
   position: relative;
   justify-content: space-between;
-  overflow: hidden;
+  /* overflow: hidden; */
   margin-bottom:30px; 
 }
-.kind_wrap > .kind_slider {
+.kind_slider {
   overflow: hidden;
   position: relative;
   flex-wrap: wrap;
   gap: 10px; /* 카드 사이의 간격 */
 }
-.kind_wrap > .kind_slider .slider { 
+.slider { 
   position: relative; 
   transition: 0.5s;
   justify-content: space-around;
@@ -37,28 +37,12 @@
   flex-wrap: wrap;
   gap: 10px;
 }
-.slider li {
+li {
   flex: 0 0 auto; 
    list-style: none;
 }
-.kind_wrap > .kind_slider img {
+img {
  display: block; 
-}
-.kind_wrap .arrow > a.prev {
-  position: absolute; 
-  left:-50px; 
-  top:50%;
-  transform: translateY(-50%);
-  text-decoration: none;
-  font-size: 24px;
-}
-.kind_wrap .arrow > a.next {
-  position: absolute; 
-  right:-50px; 
-  top:50%;
-  transform: translateY(-50%);
-  text-decoration: none;
-  font-size: 24px;
 }
 .card{
 margin-top: 40px;
@@ -71,7 +55,7 @@ margin-right: 25px
 img{
 width: 300px; height: 200px;
 }
-.card:hover{background-color: #ebe7b7;
+.card:hover{
   				transform: scale(1.1);  
     			transition: transform .5s; 
   	}
@@ -104,23 +88,6 @@ function move(cafeId) {
 		    </ul>
 		  </div>
 		</div>
-		<nav aria-label="Page navigation example">  
-		  <ul class="pagination justify-content-center">
-		    <li class="page-item">
-		      <a class="page-link" href="#" aria-label="Previous">
-		        <span aria-hidden="true">&laquo;</span>
-		      </a>
-		    </li>
-		    <li class="page-item"><a class="page-link" href="#">1</a></li>
-		    <li class="page-item"><a class="page-link" href="#">2</a></li>
-		    <li class="page-item"><a class="page-link" href="#">3</a></li>
-		    <li class="page-item">
-		      <a class="page-link" href="#" aria-label="Next">
-		        <span aria-hidden="true">&raquo;</span>
-		      </a>
-		    </li>
-		  </ul>
-		</nav>
 	</div>
 </body>
 </html>
