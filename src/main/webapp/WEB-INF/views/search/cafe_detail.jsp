@@ -197,7 +197,7 @@ function clickreview(memberId,cafeId) {
             </div>
             <section id="detail_section">
                 <div class="flex-container">
-				    <h5>평점: ${PointAvg}/5</h5>
+				    <h5>평점: ${PointAvg}/5.0</h5>
 				</div>
                 <div class="cafe_info">
                     <ul>
