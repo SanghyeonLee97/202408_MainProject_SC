@@ -174,7 +174,7 @@ function move(cafeId) {
 						<li><a id="smokingroom" href="search.do?Category=smokingroom" onclick="updateHref(event)">흡연실</a></li>
 				        <li><a id="wheelchair" href="search.do?Category=wheelchair" onclick="updateHref(event)">휠체어</a></li>
 				        <li><a id="parking" href="search.do?Category=parking" onclick="updateHref(event)">주차</a></li>
-				        <li><a id="anientry" href="search.do?Category=anientry" onclick="updateHref(event)">반려동물 출입</a></li>
+				        <li><a id="anientry" href="search.do?Category=anientry" onclick="updateHref(event)">반려동물</a></li>
 				        <li><a id="playroom" href="search.do?Category=playroom" onclick="updateHref(event)">놀이방</a></li>
 					</ul>	
 				</li>

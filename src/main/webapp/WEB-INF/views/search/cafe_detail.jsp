@@ -236,6 +236,33 @@ function clickreview(memberId,cafeId) {
                         <c:if test="${not empty CafeDetail.CAFE_TEL}">
 							<li><strong>전화번호 :</strong> ${CafeDetail.CAFE_TEL}</li>
 						</c:if>
+						<c:if test="${CafeDetail.WIFI.toString() eq 'Y' || 
+            CafeDetail.ANIENTRY.toString() eq 'Y' || 
+            CafeDetail.PARKING.toString() eq 'Y' || 
+            CafeDetail.WHEELCHAIR.toString() eq 'Y' || 
+            CafeDetail.PLAYROOM.toString() eq 'Y' || 
+            CafeDetail.SMOKINGROOM.toString() eq 'Y'}">
+						<li><strong>편의시설 :</strong>
+							<c:if test="${CafeDetail.WIFI.toString() eq 'Y'}">
+							    와이파이
+							</c:if>
+							<c:if test="${CafeDetail.ANIENTRY.toString() eq 'Y'}">
+							    반려동물
+							</c:if>
+							<c:if test="${CafeDetail.PARKING.toString() eq 'Y'}">
+							    주차
+							</c:if>
+							<c:if test="${CafeDetail.WHEELCHAIR.toString() eq 'Y'}">
+							    휠체어
+							</c:if>
+							<c:if test="${CafeDetail.PLAYROOM.toString() eq 'Y'}">
+							    놀이방
+							</c:if>
+							<c:if test="${CafeDetail.SMOKINGROOM.toString() eq 'Y'}">
+							    흡연실
+							</c:if>
+						</li>
+						</c:if>
                     </ul>
                 </div>
                 <div id="review-bt">
@@ -267,7 +294,6 @@ function clickreview(memberId,cafeId) {
 				</div>
             </section>
         </div>
-        <input type="text" value="${CafeDetail.WIFI}">
     </div>
     <script>
 	    var mapContainer = document.getElementById('map'),
