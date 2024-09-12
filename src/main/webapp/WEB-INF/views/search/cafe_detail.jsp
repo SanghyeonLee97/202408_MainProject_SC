@@ -10,6 +10,7 @@
 <!-- FontAwesome CDN 링크 -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ded7cbd3a93d2a0aae85d1b226274ba2"></script>
 <script>
 function clickheart(memberId,cafeId) {
     $.ajax({
@@ -89,7 +90,6 @@ function clickreview(memberId,cafeId) {
 	.cafe_map div {
 		width: 500px;
 		height: 400px;
-		border: 1px solid black;
 	}
 	
 	.cafe_info, #cafe_box {
@@ -186,7 +186,7 @@ function clickreview(memberId,cafeId) {
     <div class="container">
         <div class="cafe_map">
             <img src="https://${CafeDetail.IMAGE_URL}" alt="${CafeDetail.CAFE_NAME}">
-            <div>지도공간</div>
+            <div id="map"></div>
         </div>
         <div id="cafe_box">
             <div class="cafe_header">
@@ -225,6 +225,19 @@ function clickreview(memberId,cafeId) {
             </section>
         </div>
     </div>
+    <script>
+	    var mapContainer = document.getElementById('map'),
+	    mapOption = { 
+	        center: new kakao.maps.LatLng(33.450701, 126.570667),
+	        level: 3
+	    };
+		var map = new kakao.maps.Map(mapContainer, mapOption);
+		var markerPosition  = new kakao.maps.LatLng(33.450701, 126.570667); 
+		var marker = new kakao.maps.Marker({
+		    position: markerPosition
+		});
+		marker.setMap(map);
+	</script>
 </body>
 </html>
 <%@ include file="../common/footer.jsp" %>
