@@ -13,7 +13,6 @@ import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;
 
-
 //파이썬 파일이름을 입력받아서 실행시킨후 결과를 jsonArray로 반환하는 코드
 @Service
 public class PythonRead {
@@ -52,8 +51,6 @@ public class PythonRead {
             e.printStackTrace();
             return null;
         }
-		
-		
 		
 	}
 }

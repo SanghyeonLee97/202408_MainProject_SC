@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.spring.biz.common.dto.CafeDTO;
 
+//파이썬이름과 파라미터를 입력받아 실행하고 리턴값을 dtolist로 변환해서 반환
 @Service
 public class PyToCafeArr{
 	

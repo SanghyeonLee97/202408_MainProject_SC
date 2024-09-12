@@ -17,6 +17,7 @@ import com.spring.biz.search.dto.ReviewDTO;
 import com.spring.biz.search.service.CafeDetail;
 import com.spring.biz.search.service.GetReview;
 
+//공용 컨트롤러
 @Controller
 public class CommonController {
 	
