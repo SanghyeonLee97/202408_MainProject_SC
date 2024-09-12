@@ -233,7 +233,9 @@ function clickreview(memberId,cafeId) {
                     	<li><h5><strong>매장정보</strong></h5></li>
                         <li><strong>주소 :</strong> ${CafeDetail.ADD_ROAD}</li>
                         <li><strong>영업시간 :</strong> ${CafeDetail.OPEN_CLOSE}</li>
-                        <li><strong>전화번호 :</strong> ${CafeDetail.CAFE_TEL}</li>
+                        <c:if test="${not empty CafeDetail.CAFE_TEL}">
+							<li><strong>전화번호 :</strong> ${CafeDetail.CAFE_TEL}</li>
+						</c:if>
                     </ul>
                 </div>
                 <div id="review-bt">
@@ -265,6 +267,7 @@ function clickreview(memberId,cafeId) {
 				</div>
             </section>
         </div>
+        <input type="text" value="${CafeDetail.WIFI}">
     </div>
     <script>
 	    var mapContainer = document.getElementById('map'),
