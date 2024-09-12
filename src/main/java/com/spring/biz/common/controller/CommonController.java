@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.spring.biz.common.dto.CafeDTO;
+import com.spring.biz.common.service.AvgReturn;
 import com.spring.biz.common.service.PyToCafeArr;
+import com.spring.biz.search.dto.ReviewDTO;
 import com.spring.biz.search.service.CafeDetail;
 import com.spring.biz.search.service.GetReview;
 
@@ -24,12 +26,16 @@ public class CommonController {
 	GetReview getReview;
 	@Autowired
 	PyToCafeArr pyToCafeArr;
+	@Autowired
+	AvgReturn avgReturn;
 
 	//카페 상세정보
 	@RequestMapping("/detail.do")
     public String detailCafe(@RequestParam("cafeId") String cafeId,Model model) {
+		List<ReviewDTO> RDTOArr=getReview.getReview(cafeId);
         model.addAttribute("CafeDetail", cafeDetail.cafeDetail(cafeId));
-        model.addAttribute("CafeReview", getReview.getReview(cafeId));
+        model.addAttribute("CafeReview", RDTOArr);
+        model.addAttribute("PointAvg", avgReturn.avgReturn(RDTOArr));
         return "search/cafe_detail";
     }
 	
