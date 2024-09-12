@@ -103,7 +103,7 @@ function deleteReview(memberId,cafeId) {
 		<section>
 			<aside>
 				<ul>
-					<li><a href="mypage.jsp">내 정보 수정</a></li>
+					<li><a href="info.do?member_id=${sessionScope.user.member_id }">내 정보 수정</a></li>
 				</ul>
 				<h5>&nbsp;&nbsp;&nbsp;나의 활동</h5>
 				<ul>		
@@ -111,7 +111,7 @@ function deleteReview(memberId,cafeId) {
 					<li><a href="goMyReview.do?member_id=${sessionScope.user.member_id }">리뷰를 작성한 까페</a></li>
 				</ul>
 				<ul>
-					<li><a href="mypage_unregister.jsp">회원탈퇴</a></li>
+					<li><a href="deleteView.do">회원탈퇴</a></li>
 				</ul>
 			</aside>
 			<header>
@@ -122,10 +122,19 @@ function deleteReview(memberId,cafeId) {
 				
 				<c:forEach var="myReview" items="${MRArrCDTO}">
 					<div>
+<<<<<<< HEAD
 						<a href=""><img id="imgdiv" alt="" src="https://${myReview.IMAGE_URL}"><strong>${myReview.CAFE_NAME} ${myReview.POINT}점</strong></a><hr>
+=======
+						<a href="detail.do?cafeId=${myReview.CAFE_ID }">
+						<img id="imgdiv" alt="" src="https://${myReview.IMAGE_URL}">${myReview.CAFE_NAME} ${myReview.POINT}점</a><hr>
+>>>>>>> 249d6e38225fe24672f19833331c27172ffbbca6
 						<p id="reviewp">${myReview.REVIEW}</p> 
 						<button id="mypagerebt" type="button" onclick="updateReview(${sessionScope.user.member_id},${myReview.CAFE_ID})">수정</button>
 						<button id="mypagerebt" type="button" onclick="deleteReview(${sessionScope.user.member_id},${myReview.CAFE_ID})">삭제</button>
+						<a href="detail.do?cafeId=${myReview.CAFE_ID }"><img id="imgdiv" alt="" src="https://${myReview.IMAGE_URL}">${myReview.CAFE_NAME} ${myReview.POINT}점
+						<p id="reviewp">${myReview.REVIEW}</p> </a>
+						<button type="button" onclick="updateReview(${sessionScope.user.member_id},${myReview.CAFE_ID})">수정</button>
+						<button type="button" onclick="deleteReview(${sessionScope.user.member_id},${myReview.CAFE_ID})">삭제</button>
 					</div>
 			    </c:forEach>
 			</article>

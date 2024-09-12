@@ -10,17 +10,17 @@
 	</select>
 	
 	<!-- 회원가입 -->
-	<insert id="addMember">
+	<insert id="addMember" parameterType="com.spring.biz.member.dto.MemberDTO" useGeneratedKeys="true" keyProperty="member_id">
 		insert into member(email,pw,member_name,member_tel,birthdate,gender)
 			values
 			(#{email},#{pw},#{member_name},#{member_tel},#{birthdate},#{gender})
 	</insert>
 	
 	<!-- member_like -->
-	<insert id="addLike">
+	<insert id="addLike" parameterType="com.spring.biz.member.dto.MemberDTO">
 		insert into member_like(member_id,cafe_type,mood) 
 			values
-			((select last_insert_id()),#{cafe_type},#{mood});
+			(#{member_id},#{cafe_type},#{mood});
 	</insert>
 	
 	<!-- 가입여부 -->

@@ -63,26 +63,26 @@
 			<header>
 				<div><h2>회원가입</h2></div>
 			</header>
-				<form action="addMember.do" method="post">
+				<form action="addMember.do" method="post" id="registrationForm">
 			<article>
 				<table>
 				      <tr><td>이메일</td>
 				       <td><input type="text" class="regform" id="id" placeholder="aaa@aaa.com" name="email" oninput="checkEmail()">
 				     <span class="id-text"></span></td></tr>
-					<tr><td>비밀번호</td><td><input class="regform" type="password" name="pw"></td></tr>
+					<tr><td>비밀번호</td><td><input class="regform" type="password" id="pw" name="pw"></td></tr>
 					<tr><td>이름</td>
-						<td><input class="regform" type="text" name="member_name"></td></tr>
-					<tr><td>전화번호</td> <td><input class="regform" type="tel" name="member_tel"></td></tr>
-					<tr><td>생년월일</td> <td><input class="regform" type="date" name="birthdate"></td></tr>
+						<td><input class="regform" type="text" id="member_name" name="member_name"></td></tr>
+					<tr><td>전화번호</td> <td><input class="regform" type="tel" id="member_tel" name="member_tel"></td></tr>
+					<tr><td>생년월일</td> <td><input class="regform" type="date" id="birthdate" name="birthdate"></td></tr>
 					<tr><td>성별</td>
 					 	 <td><label for="gender01"><input type='radio' id="gender01" name='gender' value='F' />여성</label>&nbsp;
  						 <label for="gender02"><input type='radio' id="gender02" name='gender' value='M' />남성</label></td></tr>
 				</table><br><br>
 				<h5>선호하는 까페 취향을 골라주세요 </h5>
 					<label for="franchise">	
-						<input type="radio" id="franchise" name='cafe' value='F' />프랜차이즈</label>&nbsp;&nbsp;
+						<input type="radio" id="franchise" name='cafe_type' value='F' />프랜차이즈</label>&nbsp;&nbsp;
  					<label for="personal">
- 						<input type="radio" id="personal" name='cafe' value='P' />개인</label><br><br>
+ 						<input type="radio" id="personal" name='cafe_type' value='P' />개인</label><br><br>
  				<h5>분위기</h5>
  					<label for="mood01"><input type="radio" id="mood01" name="mood" value="M01">까페에서 공부하는 분위기</label><br>
  					<label for="mood02"><input type="radio" id="mood02" name="mood" value="M02">까페에서 수다떠는 분위기</label><br>
@@ -122,12 +122,49 @@
 						$("#id").css("background-color","#B0F6AC");
 						$(".id-text").css("color","gray");
 						$(".id-text").text("사용 가능한 이메일입니다.");
-						$("button#regbt").removeAttr("disabled");
+						/* $("button#regbt").removeAttr("disabled"); */
 					}
 					
 				}
 			});
 		};
+		function validateForm() {
+			var isValid = true;
+
+			// Check if all text fields are filled
+			$("#registrationForm input[type='text'], #registrationForm input[type='password'], #registrationForm input[type='tel'], #registrationForm input[type='date']").each(function() {
+				if ($(this).val() === "") {
+					isValid = false;
+				}
+			});
+
+			// Check if gender is selected
+			if (!$("input[name='gender']").is(":checked")) {
+				isValid = false;
+			}
+
+			// Check if cafe_type is selected
+			if (!$("input[name='cafe_type']").is(":checked")) {
+				isValid = false;
+			}
+
+			// Check if mood is selected
+			if (!$("input[name='mood']").is(":checked")) {
+				isValid = false;
+			}
+
+			// Enable or disable the button based on validation
+			if (isValid) {
+				$("button#regbt").removeAttr("disabled");
+			} else {
+				$("button#regbt").attr("disabled", "true");
+			}
+		}
+
+		// Attach change event listeners to check all form fields
+		$("#registrationForm input").on("input change", function() {
+			validateForm();
+		});
 	</script>
 </body>
 </html>
