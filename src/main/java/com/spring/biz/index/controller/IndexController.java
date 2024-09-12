@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.spring.biz.common.service.PyToCafeArr;
 
-
 @Controller
 public class IndexController {
 	
@@ -20,13 +19,6 @@ public class IndexController {
         model.addAttribute("LRArrCDTO", pyToCafeArr.pyToCafeArr("cafe_likes_top20.py","",""));
         model.addAttribute("RRArrCDTO", pyToCafeArr.pyToCafeArr("cafe_reviews_top20.py","",""));
         return "Main";
-    }
-    
-    @RequestMapping("/index_temp")
-    public String connectIndex2(Model model) {
-        model.addAttribute("LRArrCDTO", pyToCafeArr.pyToCafeArr("cafe_likes_top20.py","",""));
-        model.addAttribute("RRArrCDTO", pyToCafeArr.pyToCafeArr("cafe_reviews_top20.py","",""));
-        return "index_temp";
     }
     
     //좋아요많은순 더보기

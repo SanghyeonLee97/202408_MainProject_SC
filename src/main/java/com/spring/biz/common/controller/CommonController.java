@@ -75,8 +75,6 @@ public class CommonController {
 	    return "recommand/Gen_Re";
 	}
 
-	
-	
     @RequestMapping("goAge.do")
     public String goAge(HttpServletRequest request,Model model) {
     	int page = Integer.parseInt(request.getParameter("page") != null ? request.getParameter("page") : "1");
