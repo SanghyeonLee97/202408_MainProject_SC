@@ -109,6 +109,7 @@ public class GoodController {
 						Model model) {
 		model.addAttribute("memberId", memberId);
 		model.addAttribute("cafeInfo", cafeDetail.cafeDetail(cafeId));
+		model.addAttribute("CafeDetail", cafeDetail.cafeDetail(cafeId));
 		return "search/write_review";
 	}
 	
@@ -141,6 +142,7 @@ public class GoodController {
 		}else {
 			goodService.addReview(memberId,cafeId,Float.parseFloat(rating),review,cafe_mood);
 		}
+		model.addAttribute("CafeDetail", cafeDetail.cafeDetail(cafeId));
 		return "redirect:/detail.do?cafeId="+cafeId;
 	}
 	
@@ -151,6 +153,7 @@ public class GoodController {
 						Model model) {
 		model.addAttribute("memberId", memberId);
 		model.addAttribute("cafeInfo", cafeDetail.cafeDetail(cafeId));
+		model.addAttribute("CafeDetail", cafeDetail.cafeDetail(cafeId));
 		model.addAttribute("getReview", getReview.getReview(cafeId).get(0));
 		return "search/update_review";
 	}
@@ -164,6 +167,7 @@ public class GoodController {
 								@RequestParam("cafe_mood") String cafe_mood,
 								Model model) {
 		goodService.updateReview(memberId,cafeId,Float.parseFloat(rating),review,cafe_mood);
+		model.addAttribute("CafeDetail", cafeDetail.cafeDetail(cafeId));
 		return "redirect:goMyReview.do?member_id="+memberId;
 	}
 }

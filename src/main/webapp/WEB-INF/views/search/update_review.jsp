@@ -9,6 +9,7 @@
 <!-- FontAwesome CDN 링크 -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ded7cbd3a93d2a0aae85d1b226274ba2"></script>
 <script>
 $(document).ready(function() {
     var ratingLabel = $("#rating_label");
@@ -161,6 +162,12 @@ button.submit-review {
 button.submit-review:hover {
     background-color: #FFB399;
 }
+#map{
+	width: 450px;
+	height: 400px;
+	position: relative;
+	border: 1px solid black;
+}
 </style>
 </head>
 <body>
@@ -170,7 +177,7 @@ button.submit-review:hover {
 			<div class="container">
 				<div class='write_map'>
 					<img src="https://${cafeInfo.IMAGE_URL}" height="150px" width="150px">
-					<img src="../img/2018-10-09.jpg" height="150px" width="150px">
+					<div id="map"></div>
 				</div>
 				<div id="cafe_info">
 					<h3>${cafeInfo.CAFE_NAME}</h3>
@@ -229,6 +236,21 @@ button.submit-review:hover {
 				</form>
 			</div>
 		</div>	
-	</div>		
+	</div>	
+	    <script>
+	    var mapContainer = document.getElementById('map'),
+	    mapOption = { 
+	        center: new kakao.maps.LatLng(${CafeDetail.LATITUDE}, ${CafeDetail.LONGITUDE}),
+	        level: 3
+	    };
+	    
+		var map = new kakao.maps.Map(mapContainer, mapOption);
+
+		var markerPosition  = new kakao.maps.LatLng(${CafeDetail.LATITUDE}, ${CafeDetail.LONGITUDE}); 
+		var marker = new kakao.maps.Marker({
+		    position: markerPosition
+		});
+		marker.setMap(map);
+	</script>	
 </body>
 </html>
