@@ -209,7 +209,9 @@ function move(cafeId) {
 			                        <img src="https://${likeCafe.IMAGE_URL}" class="card-img-top" alt="${likeCafe.CAFE_NAME}">
 			                        <div class="card-body" style="height: 80px;">
 			                            <h5 class="card-title" style="margin-bottom: 10px;">${likeCafe.CAFE_NAME}</h5>
-			                            <div class="rating-text">${likeCafe.REVIEW_POINT}</div>
+			                            <c:if test="${not empty likeCafe.REVIEW_POINT}">
+			                            	<div class="rating-text">리뷰점수:${likeCafe.REVIEW_POINT}점</div>
+			                            </c:if>
 			                        </div>
 			                    </div>
 			                </li>
