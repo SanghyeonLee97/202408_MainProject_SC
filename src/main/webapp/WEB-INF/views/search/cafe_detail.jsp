@@ -83,13 +83,14 @@ function clickreview(memberId,cafeId) {
 	}
 	
 	.cafe_map img {
-	    width: 500px;   /* 100% */
+	    width: 450px;   /* 100% */
 	    height: 400px;
 	    border-radius: 8px;
 	}
-	.cafe_map div {
-		width: 500px;
+	#map{
+		width: 450px;
 		height: 400px;
+		position: relative;
 	}
 	
 	.cafe_info, #cafe_box {
