@@ -146,11 +146,11 @@
 					<label for="personal">
  						<input type="radio" id="personal" name='cafe_type' value='P' <c:if test="${info.cafe_type eq 'P' }"> checked </c:if>/>개인</label><br>
  				<h5>분위기 </h5>
- 					<label for="mood01"><input type="radio" id="mood01" name="mood" value="M01" <c:if test="${info.mood eq 'M01' }"> checked </c:if>>까페에서 공부하는 분위기</label><br>
- 					<label for="mood02"><input type="radio" id="mood02" name="mood" value="M02" <c:if test="${info.mood eq 'M02' }"> checked </c:if>>까페에서 수다떠는 분위기</label><br>
- 					<label for="mood03"><input type="radio" id="mood03" name="mood" value="M03" <c:if test="${info.mood eq 'M03' }"> checked </c:if>>까페에서 연인과 데이트하는 분위기</label><br>
- 					<label for="mood04"><input type="radio" id="mood04" name="mood" value="M04" <c:if test="${info.mood eq 'M04' }"> checked </c:if>>인스타 감성으로 사진찍기 좋은 까페</label><br>
- 					<label for="mood05"><input type="radio" id="mood05" name="mood" value="M05" <c:if test="${info.mood eq 'M05' }"> checked </c:if>>체험,테마 위주 까페</label> 
+ 					<label for="mood01"><input type="radio" id="mood01" name="mood" value="M01" <c:if test="${info.mood eq 'M01' }"> checked </c:if>>가성비 좋은 카페</label><br>
+ 					<label for="mood02"><input type="radio" id="mood02" name="mood" value="M02" <c:if test="${info.mood eq 'M02' }"> checked </c:if>>고급스러운 카페</label><br>
+ 					<label for="mood03"><input type="radio" id="mood03" name="mood" value="M03" <c:if test="${info.mood eq 'M03' }"> checked </c:if>>예쁜 카페</label><br>
+ 					<label for="mood04"><input type="radio" id="mood04" name="mood" value="M04" <c:if test="${info.mood eq 'M04' }"> checked </c:if>>격식있는 카페</label><br>
+ 					<label for="mood05"><input type="radio" id="mood05" name="mood" value="M05" <c:if test="${info.mood eq 'M05' }"> checked </c:if>>이색적인 카페</label> 
 				
 			</article>
 			<nav>
