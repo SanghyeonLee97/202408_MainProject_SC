@@ -121,7 +121,7 @@ div>div>aside ul li a{
 	    margin-top: 30px;
 }
 .write_map img {
-    width: 500px;   /* 100% */
+    width: 600px;   /* 100% */
     height: 400px;
     border-radius: 8px;
 }
@@ -164,8 +164,7 @@ button.submit-review:hover {
 		<div>
 			<div class="container">
 				<div class='write_map'>
-					<img src="https://${cafeInfo.IMAGE_URL}" height="150px" width="150px">
-					<img src="../img/2018-10-09.jpg" height="150px" width="150px">
+					<img src="https://${cafeInfo.IMAGE_URL}">
 				</div>
 				<div id="cafe_info">
 					<h3>${cafeInfo.CAFE_NAME}</h3>
@@ -183,6 +182,21 @@ button.submit-review:hover {
 					            <input type="radio" id="rating1" name="rating" value="1" checked="checked"><label for="rating1" title="1점"></label>
 							</fieldset>
 						</div>
+						<section id="cafe_mood_section">
+						    <h4>이 카페의 분위기는 어떤가요?</h4>
+						    <fieldset>
+						        <input type="radio" id="mood1" name="cafe_mood" value="가성비 좋은 카페" required>
+						        <label for="mood1">가성비 좋은 카페</label><br>
+						        <input type="radio" id="mood2" name="cafe_mood" value="고급스러운 카페">
+						        <label for="mood2">고급스러운 카페</label><br>
+						        <input type="radio" id="mood3" name="cafe_mood" value="예쁜 카페">
+						        <label for="mood3">예쁜 카페</label><br>
+						        <input type="radio" id="mood4" name="cafe_mood" value="격식 있는 카페">
+						        <label for="mood4">격식 있는 카페</label><br>
+						        <input type="radio" id="mood5" name="cafe_mood" value="이색적인 카페">
+						        <label for="mood5">이색적인 카페</label><br>
+						    </fieldset>
+						</section>
 						<div id='write_example'>
 							<div id="rating_message"></div>
 						    <textarea name="review" required="required"></textarea>
