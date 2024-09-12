@@ -9,6 +9,7 @@
 <style type="text/css">
 input{
 max-width: 400px;
+font-size: 1rem;
 }
  html, body {
     height: 100%;
