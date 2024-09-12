@@ -35,6 +35,12 @@ public class PyToCafeArr{
 	            if(obj.optString("review_point", "N/A")!="N/A") {
 	            	cdto.setREVIEW_POINT(Float.parseFloat(obj.optString("review_point")));
 	            }
+	            if(obj.optString("latitude", "N/A")!="N/A") {
+	            	cdto.setLATITUDE(Double.parseDouble(obj.optString("latitude")));
+	            }
+	            if(obj.optString("longitude", "N/A")!="N/A") {
+	            	cdto.setLONGITUDE(Double.parseDouble(obj.optString("longitude")));
+	            }
 	            
 	            arrcdto.add(cdto);
 	        }

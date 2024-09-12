@@ -228,7 +228,7 @@ var map;
 function initializeMap() {
     var mapContainer = document.getElementById('map');
     var mapOption = { 
-        center: new kakao.maps.LatLng(33.450701, 126.570667),
+        center: new kakao.maps.LatLng(${SRArrCDTO[0].LATITUDE}, ${SRArrCDTO[0].LONGITUDE}),
         level: 3
     };
     
@@ -242,22 +242,12 @@ function initializeMap() {
 
     // 마커 위치 설정
     var positions = [
-        {
-            title: '카카오', 
-            latlng: new kakao.maps.LatLng(33.450705, 126.570677)
-        },
-        {
-            title: '생태연못', 
-            latlng: new kakao.maps.LatLng(33.450936, 126.569477)
-        },
-        {
-            title: '텃밭', 
-            latlng: new kakao.maps.LatLng(33.450879, 126.569940)
-        },
-        {
-            title: '근린공원',
-            latlng: new kakao.maps.LatLng(33.451393, 126.570738)
-        }
+    	<c:forEach var="cafe" items="${SRArrCDTO}" varStatus="status">
+	        {
+	            title: '${cafe.CAFE_NAME}', 
+	            latlng: new kakao.maps.LatLng(${cafe.LATITUDE}, ${cafe.LONGITUDE})
+	        }<c:if test="${!status.last}">,</c:if>
+    	</c:forEach>
     ];
     var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
     for (var i = 0; i < positions.length; i++) {
