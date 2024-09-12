@@ -65,17 +65,17 @@
 	
 	<!-- 리뷰 추가식 -->
 	<select id="addReview" parameterType="map">
-		insert into member_act(MEMBER_ID,CAFE_ID,POINT,REVIEW) values(${userid},${cafeid},${rating},'${review}');
+		insert into member_act(MEMBER_ID,CAFE_ID,POINT,REVIEW,MOOD) values(${userid},${cafeid},${rating},'${review}','${cafe_mood}');
 	</select>
 	
 	<!-- 리뷰 수정식 -->
 	<select id="updateReview" parameterType="map">
-		update member_act set POINT=${rating},REVIEW='${review}' where MEMBER_id=${userid} and CAFE_ID=${cafeid};
+		update member_act set POINT=${rating},REVIEW='${review}',MOOD='${cafe_mood}' where MEMBER_id=${userid} and CAFE_ID=${cafeid};
 	</select>
 	
 	<!-- 수정식 리뷰삭제 -->
 	<select id="updateReviewDelete" parameterType="map">
-		update member_act set POINT=null,REVIEW=null where MEMBER_id=${userid} and CAFE_ID=${cafeid};
+		update member_act set POINT=null,REVIEW=null,MOOD=null where MEMBER_id=${userid} and CAFE_ID=${cafeid};
 	</select>
 	
 	<!-- 딜리트식 리뷰삭제 -->

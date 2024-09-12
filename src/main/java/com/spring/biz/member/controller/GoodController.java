@@ -132,12 +132,14 @@ public class GoodController {
 							@RequestParam("cafeId") String cafeId,
 							@RequestParam("rating") String rating,
 							@RequestParam("review") String review,
+							@RequestParam("cafe_mood") String cafe_mood,
 							Model model) {
+		System.out.println(cafe_mood);
 		String addUpdate = goodService.add_OR_updateReview(memberId, cafeId);
 		if(addUpdate != null) {
-			goodService.updateReview(memberId,cafeId,Float.parseFloat(rating),review);
+			goodService.updateReview(memberId,cafeId,Float.parseFloat(rating),review,cafe_mood);
 		}else {
-			goodService.addReview(memberId,cafeId,Float.parseFloat(rating),review);
+			goodService.addReview(memberId,cafeId,Float.parseFloat(rating),review,cafe_mood);
 		}
 		return "redirect:/detail.do?cafeId="+cafeId;
 	}
@@ -159,8 +161,9 @@ public class GoodController {
 								@RequestParam("cafeId") String cafeId,
 								@RequestParam("rating") String rating,
 								@RequestParam("review") String review,
+								@RequestParam("cafe_mood") String cafe_mood,
 								Model model) {
-		goodService.updateReview(memberId,cafeId,Float.parseFloat(rating),review);
+		goodService.updateReview(memberId,cafeId,Float.parseFloat(rating),review,cafe_mood);
 		return "redirect:goMyReview.do?member_id="+memberId;
 	}
 }

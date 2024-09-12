@@ -198,6 +198,21 @@ button.submit-review:hover {
 							    ><label for="rating1" title="1점"></label>
 							</fieldset>
 						</div>
+						<section id="cafe_mood_section">
+						    <h4>이 카페의 분위기는 어떤가요?</h4>
+						    <fieldset>
+						        <input type="radio" id="mood1" name="cafe_mood" value="M01">
+						        <label for="mood1">가성비 좋은 카페</label><br>
+						        <input type="radio" id="mood2" name="cafe_mood" value="M02">
+						        <label for="mood2">고급스러운 카페</label><br>
+						        <input type="radio" id="mood3" name="cafe_mood" value="M03">
+						        <label for="mood3">예쁜 카페</label><br>
+						        <input type="radio" id="mood4" name="cafe_mood" value="M04">
+						        <label for="mood4">격식 있는 카페</label><br>
+						        <input type="radio" id="mood5" name="cafe_mood" value="M05">
+						        <label for="mood5">이색적인 카페</label><br>
+						    </fieldset>
+						</section>
 						<div id='write_example'>
 							<div id="rating_message"></div>
 						    <textarea name="review" required="required">${getReview.REVIEW}</textarea>
