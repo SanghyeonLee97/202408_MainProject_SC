@@ -13,29 +13,21 @@
 $(document).ready(function() {
     var ratingLabel = $("#rating_label");
     var ratingMessage = $("#rating_message");
-    
-    // 페이지 로딩 시 input의 value 값을 가져와서 자동으로 실행
     var initialScore = $("#test").val();
     
-    // 평점 텍스트 업데이트
     ratingLabel.text("평점: " + initialScore + "/5");
     
-    // 문구 업데이트
     if (initialScore <= 2) {
         ratingMessage.html("별점 <span style='font-size: 1.5em; font-weight: bold; color: black;'>" + initialScore + "</span>점을 주셨네요. 어떤 점이 아쉬웠나요?");
     } else {
         ratingMessage.html("별점 <span style='font-size: 1.5em; font-weight: bold; color: black;'>" + initialScore + "</span>점을 주셨네요. 어떤 점이 좋았나요?");
     }
 
-    // 별점 레이블 클릭 시
     $(".rate input").on("change", function() {
-        // 선택된 별점 값을 가져오기
         var score = $(this).val();
         
-        // 평점 텍스트 업데이트
         ratingLabel.text("평점: " + score + "/5");
 
-        // 문구 업데이트
         if (score <= 2) {
             ratingMessage.html("별점 <span style='font-size: 1.5em; font-weight: bold; color: black;'>" + score + "</span>점을 주셨네요. 어떤 점이 아쉬웠나요?");
         } else {
@@ -172,7 +164,7 @@ button.submit-review:hover {
 </style>
 </head>
 <body>
-	<input type="text" id="test" value="${getReview.POINT}">
+	<input type="hidden" id="test" value="${getReview.POINT}">
 	<div>
 		<div>
 			<div class="container">
@@ -183,7 +175,7 @@ button.submit-review:hover {
 				<div id="cafe_info">
 					<h3>${cafeInfo.CAFE_NAME}</h3>
 				</div>
-				<form action="writeReview.do">
+				<form action="updateReview.do">
 					<input type="hidden" name="memberId" value="${memberId}">
 					<input type="hidden" name="cafeId" value="${cafeInfo.CAFE_ID}">
 					<section style="height: 1000px;">

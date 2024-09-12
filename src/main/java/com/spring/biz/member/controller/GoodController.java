@@ -152,4 +152,16 @@ public class GoodController {
 		model.addAttribute("getReview", getReview.getReview(cafeId).get(0));
 		return "search/update_review";
 	}
+	
+	//리뷰업데이트
+	@RequestMapping("updateReview.do")
+	public String updateReview(@RequestParam("memberId") String memberId,
+								@RequestParam("cafeId") String cafeId,
+								@RequestParam("rating") String rating,
+								@RequestParam("review") String review,
+								Model model) {
+		goodService.updateReview(memberId,cafeId,Float.parseFloat(rating),review);
+		return "redirect:goMyReview.do?member_id="+memberId;
+	}
 }
+

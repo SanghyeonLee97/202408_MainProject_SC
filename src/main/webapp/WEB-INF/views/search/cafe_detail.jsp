@@ -40,7 +40,7 @@ function clickreview(memberId,cafeId) {
                 alert("로그인이 필요합니다.");
                 window.location.href = 'login.do';
             } else if (response === "already") {
-                alert("이미 리뷰가 등록됐습니다.");
+            	window.location.href = 'goUpdateReview.do?memberId='+memberId+'&cafeId='+cafeId;
             } else if (response === "done") {
                 window.location.href = 'goReview.do?memberId='+memberId+'&cafeId='+cafeId;
             }
