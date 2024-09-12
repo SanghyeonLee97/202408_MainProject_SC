@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.spring.biz.common.service.PyToCafeArr;
 
@@ -16,15 +17,15 @@ public class SearchController {
 	PyToCafeArr pytoCafeArr;
 	
 	@RequestMapping("search.do")
-    public String searchCafe(HttpServletRequest request,Model model) {
-    	String Category = "";
-    	String Keyword = "";
-    	if(request.getParameter("Category")!=null) {
-    		Category = request.getParameter("Category");
-    	}
-    	if(request.getParameter("keyWord")!=null) {
-    		Keyword = request.getParameter("keyWord");
-    	}
+    public String searchCafe(@RequestParam(value="Category", required=false) String Category,
+    						@RequestParam(value="Keyword", required=false) String Keyword,
+    						Model model) {
+		if(Category==null) {
+    		Category = "";
+		}
+		if(Keyword==null) {
+    		Keyword = "";
+		}
     	model.addAttribute("SRArrCDTO", pytoCafeArr.pyToCafeArr("general_search.py", Keyword, Category));
     	model.addAttribute("keyWord",Keyword);
     	return "search/cafe_theme";
