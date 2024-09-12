@@ -20,13 +20,13 @@
 	}
 </script>
 <style type="text/css">
-    html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        flex-direction: row;
-    }
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+}
 .kind_wrap {
   border:3px solid #464646; 
   border-radius : 50px;
@@ -40,13 +40,13 @@
   /* overflow: hidden; */
   margin-bottom:30px; 
 }
-.kind_wrap > .kind_slider {
+.kind_slider {
   overflow: hidden;
   position: relative;
   flex-wrap: wrap;
   gap: 10px; /* 카드 사이의 간격 */
 }
-.kind_wrap > .kind_slider .slider { 
+.slider { 
   position: relative; 
   transition: 0.5s;
   justify-content: space-around;
@@ -55,11 +55,11 @@
   flex-wrap: wrap;
   gap: 10px;
 }
-.slider li {
+li {
   flex: 0 0 auto; 
    list-style: none;
 }
-.kind_wrap > .kind_slider img {
+img {
  display: block; 
 }
 
@@ -83,7 +83,7 @@ aside {
     }
 
 .filter-button {
-	background-color: #f0f0f0; /* 버튼 배경색 */
+	background-color: #F4E1D2; /* 버튼 배경색 */
 	border: 1px solid #ccc; /* 버튼 테두리 색 */
 	border-radius: 5px; /* 버튼 테두리 둥글게 */
 	padding: 5px 10px; /* 버튼 패딩 */
@@ -92,7 +92,7 @@ aside {
 }
 
 .filter-button:hover {
-	background-color: #e0e0e0; /* 버튼 호버 배경색 */
+	background-color: skyblue; /* 버튼 호버 배경색 */
 }
 #main_img{width: 100px; height: 100px;}
 .card{
@@ -103,7 +103,7 @@ transform: scale(1.0);
 margin-right: 25px
 }
 .card-img-top{
-width: 300px; height: 200px;
+width: 330px; height: 200px;
 }
 .card:hover{
 transform: scale(1.1);  
@@ -117,6 +117,7 @@ li {
 max-width: 1500px;
 display: flex;
 }
+a{text-decoration: none; color : black}
 </style>
 <script type="text/javascript">
 function move(cafeId) {		
@@ -195,9 +196,9 @@ function move(cafeId) {
 		    		<ul class="slider">
 		    		<c:forEach var="likeCafe" items="${SRArrCDTO}">
 		                <li>
-		                    <div class="card" style="width: 18rem;" onclick="move('${likeCafe.CAFE_ID}')">
+		                    <div class="card" style="width: 330px;" onclick="move('${likeCafe.CAFE_ID}')">
 		                        <img src="https://${likeCafe.IMAGE_URL}" class="card-img-top" alt="${likeCafe.CAFE_NAME}">
-		                        <div class="card-body" style="height: 70px;">
+		                        <div class="card-body" style="height: 80px;">
 		                            <h5 class="card-title" style="margin-bottom: 10px;">${likeCafe.CAFE_NAME}</h5>
 		                            <div class="rating-text">평점공간</div>
 		                        </div>
