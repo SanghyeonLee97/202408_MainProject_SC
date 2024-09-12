@@ -32,7 +32,7 @@ html, body {
   border:3px solid #464646; 
   border-radius : 50px;
   background-color:#F0F8FF;
-  width:100%; 
+  width:1200px; 
   max-width:2000px; 
   height : 100%;
   margin:0 auto; 
