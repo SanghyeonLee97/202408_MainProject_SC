@@ -35,13 +35,15 @@ function deleteReview(memberId,cafeId) {
 		
 	}
 	section>article>div{
-		width: 350px; 
-		height: 400px;
+		width: 370px; 
+		height: 410px;
 		float: left;
-		background: beige; 
+		/* background: beige;  */
 		margin-left: 130px;
 		margin-top: 20px;
 		overflow: hidden;
+		border: 5px double #F5ECCE; 
+		
 	}
 	section>header{
 		margin-left: 870px;
@@ -50,12 +52,15 @@ function deleteReview(memberId,cafeId) {
 	} 
 	#reviewp{
 		width: 350px;
-		height: 100px;
-		background: pink;
+		height: 75px;
+		/* background:#F5D08A; */
 		margin: 0 auto;
+		margin-top: 10px;
+		overflow: auto;
+
 	}
 	#imgdiv{
-		width: 350px; 
+		width: 370px; 
 		height: 250px;
 	}
 	section>aside ul li {
@@ -77,6 +82,19 @@ function deleteReview(memberId,cafeId) {
  	}
  	a:hover {
  		color: black;
+ 	}
+ 	#mypagerebt{
+ 		width: 60px;
+ 		height : 30px;
+ 		border: none;
+ 		background: #F5ECCE;
+ 		position: relative;
+ 		left: 200px;
+ 		margin-left: 10px;
+ 		
+ 	}
+ 	hr {
+ 		margin: 4px;
  	}
 </style>
 </head>
@@ -104,10 +122,10 @@ function deleteReview(memberId,cafeId) {
 				
 				<c:forEach var="myReview" items="${MRArrCDTO}">
 					<div>
-						<a href=""><img id="imgdiv" alt="" src="https://${myReview.IMAGE_URL}">${myReview.CAFE_NAME} ${myReview.POINT}점
-						<p id="reviewp">${myReview.REVIEW}</p> </a>
-						<button type="button" onclick="updateReview(${sessionScope.user.member_id},${myReview.CAFE_ID})">수정</button>
-						<button type="button" onclick="deleteReview(${sessionScope.user.member_id},${myReview.CAFE_ID})">삭제</button>
+						<a href=""><img id="imgdiv" alt="" src="https://${myReview.IMAGE_URL}">${myReview.CAFE_NAME} ${myReview.POINT}점</a><hr>
+						<p id="reviewp">${myReview.REVIEW}</p> 
+						<button id="mypagerebt" type="button" onclick="updateReview(${sessionScope.user.member_id},${myReview.CAFE_ID})">수정</button>
+						<button id="mypagerebt" type="button" onclick="deleteReview(${sessionScope.user.member_id},${myReview.CAFE_ID})">삭제</button>
 					</div>
 			    </c:forEach>
 			</article>
