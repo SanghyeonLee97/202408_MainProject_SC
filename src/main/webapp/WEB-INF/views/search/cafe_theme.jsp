@@ -26,6 +26,7 @@ html, body {
     padding: 0;
     display: flex;
     flex-direction: row;
+    background-color: #F8F8FF
 }
 .kind_wrap {
   border:3px solid #464646; 
@@ -235,7 +236,7 @@ function initializeMap() {
     // 지도 표시 후 크기 조정
     setTimeout(function() {
         kakao.maps.event.trigger(map, 'resize'); // 지도 크기 조정
-    }, 500); // 페이지 로드 후 500ms 대기
+    });
 
     // 마커 위치 설정
     var positions = [
