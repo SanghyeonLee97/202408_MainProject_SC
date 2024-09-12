@@ -82,9 +82,14 @@ function clickreview(memberId,cafeId) {
 	}
 	
 	.cafe_map img {
-	    width: 100%;
+	    width: 500px;   /* 100% */
 	    height: 400px;
 	    border-radius: 8px;
+	}
+	.cafe_map div {
+		width: 500px;
+		height: 400px;
+		border: 1px solid black;
 	}
 	
 	.cafe_info, #cafe_box {
@@ -178,6 +183,7 @@ function clickreview(memberId,cafeId) {
     <div class="container">
         <div class="cafe_map">
             <img src="https://${CafeDetail.IMAGE_URL}" alt="${CafeDetail.CAFE_NAME}">
+            <div>지도공간</div>
         </div>
         <div id="cafe_box">
             <div class="cafe_header">
