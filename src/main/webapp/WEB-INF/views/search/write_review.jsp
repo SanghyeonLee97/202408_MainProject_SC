@@ -13,22 +13,22 @@
 $(document).ready(function() {
     // 평점 표시를 위한 요소 선택
     var ratingLabel = $("#rating_label");
+    var ratingMessage = $("#rating_message");
 
-    // 각 별점 레이블에 마우스를 올릴 때
-    $(".rate label").on("mouseenter", function() {
-        // 레이블의 title 속성에서 점수를 가져오기
-        var score = $(this).attr("title").split("점")[0]; // "5점" -> "5"
-        // 평점 텍스트 업데이트
-        ratingLabel.text("평점: " + score + "/5");
-    });
-
-    // 별점 레이블에서 마우스가 떠날 때
-    $(".rate label").on("mouseleave", function() {
+    // 별점 레이블 클릭 시
+    $(".rate input").on("change", function() {
         // 선택된 별점 값을 가져오기
-        var selectedRating = $(".rate input:checked + label").attr("title");
-        var score = selectedRating ? selectedRating.split("점")[0] : "0"; // 기본값 "0"으로 설정
+        var score = $(this).val();
+        
         // 평점 텍스트 업데이트
         ratingLabel.text("평점: " + score + "/5");
+
+        // 문구 업데이트
+        if (score <= 2) {
+            ratingMessage.html("별점 <span style='font-size: 1.5em; font-weight: bold; color: black;'>" + score + "</span>점을 주셨네요. 어떤 점이 아쉬웠나요?");
+        } else {
+            ratingMessage.html("별점 <span style='font-size: 1.5em; font-weight: bold; color: black;'>" + score + "</span>점을 주셨네요. 어떤 점이 좋았나요?");
+        }
     });
 });
 </script>
@@ -112,17 +112,6 @@ div>div>aside ul li a{
 	flex-direction: column;
 	padding-left: 50px;
 }  
-button[type=submit] {
-	position: absolute; /* 절대 위치로 설정합니다 */
-	right: 10px; /* 오른쪽에서 10px 떨어진 위치 */
-	bottom: 10px; /* 아래쪽에서 10px 떨어진 위치 */
-	border: none;
-	width: 115px;
-	height: 50px;
-	margin: 0; /* 기존 margin을 제거하여 위치를 정확히 설정합니다 */
-	background: #F4E1D2;
-}
-
 .write_map{
 	    justify-content: center;
 	    display: flex;
@@ -136,11 +125,37 @@ button[type=submit] {
     height: 400px;
     border-radius: 8px;
 }
-#write_example{
-	width: 800px;
-	height: auto;
-	background: beige;
-	position: relative;
+#write_example {
+    width: 800px;
+    background: beige;
+    padding: 20px;
+    box-sizing: border-box;
+    position: relative;
+}
+#write_example textarea {
+    width: 100%;
+    height: 150px;
+    margin-bottom: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+    display: block;
+}
+#submit_container {
+    text-align: right;
+    margin-top: 10px;
+}
+button.submit-review {
+    background-color: #F0CB85;
+    color: white;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    height: 50px;
+    width: 100px;
+    display: inline-block;
+}
+button.submit-review:hover {
+    background-color: #FFB399;
 }
 </style>
 </head>
@@ -159,7 +174,6 @@ button[type=submit] {
 					<input type="hidden" name="memberId" value="${memberId}">
 					<input type="hidden" name="cafeId" value="${cafeInfo.CAFE_ID}">
 					<section style="height: 1000px;">
-						<h5 id="rating_label">평점: 1/5</h5>
 						<div class='cafe_info'>
 							<fieldset class="rate">
 					            <input type="radio" id="rating5" name="rating" value="5"><label for="rating5" title="5점"></label>
@@ -169,9 +183,12 @@ button[type=submit] {
 					            <input type="radio" id="rating1" name="rating" value="1" checked="checked"><label for="rating1" title="1점"></label>
 							</fieldset>
 						</div>
-						<div id='write_example'>리뷰 작성한 보이는 부분
-							<textarea name="review" required="required"></textarea>
-							<button type='submit'>작성</button>
+						<div id='write_example'>
+							<div id="rating_message"></div>
+						    <textarea name="review" required="required"></textarea>
+						    <div id="submit_container">
+						        <button class="submit-review" type='submit'>작성</button>
+						    </div>
 						</div>
 					</section>
 				</form>
