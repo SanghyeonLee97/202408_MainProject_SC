@@ -166,7 +166,7 @@ function clickreview(memberId,cafeId) {
 	    margin-bottom: 10px;
 	}
 	.flex-container {
-    display: inline-flex; /* 평점과 리뷰 점수를 한 줄에 배치 */
+    /* display: inline-flex; */ /* 평점과 리뷰 점수를 한 줄에 배치 */
     align-items: center; /* 두 요소를 수직으로 정렬 */
 	}
 	
@@ -185,8 +185,27 @@ function clickreview(memberId,cafeId) {
 		overflow: visible;
 		margin-left: 20px;
 	}
+.review-container {
+    margin-bottom: 20px; /* 리뷰 항목 간격 */
+}
+
+.stars-mood {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* 별과 MOOD 사이의 간격 */
+}
 .stars .fa-star {
     color: red; /* 원하는 색상으로 변경 */
+}
+.oval-container {
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: #f0f0f0;
+    color: #333;
+    border-radius: 20px; /* 타원형 효과 */
+    text-align: center;
+    font-size: 12px;
+    min-width: 60px; /* 최소 너비 설정 (필요시 조정) */
 }
 </style>
 </head>
@@ -205,8 +224,8 @@ function clickreview(memberId,cafeId) {
             </div>
             <section id="detail_section">
                 <div class="flex-container">
-				    <h5>평점: ${PointAvg}/5.0</h5><hr>
-				    <h5>리뷰 분석 점수: ${CafeDetail.REVIEW_POINT}</h5>
+				    <h5>평점: ${PointAvg} / 5.0</h5>
+				    <h5>리뷰 분석 점수: ${CafeDetail.REVIEW_POINT}점</h5>
 				    
 				</div>
                 <div class="cafe_info">
@@ -221,23 +240,29 @@ function clickreview(memberId,cafeId) {
 	                <h4>리뷰</h4>
 	                <button class="submit-review" onclick="clickreview('${sessionScope.user.member_id}','${CafeDetail.CAFE_ID}')">리뷰 작성하기</button>
                 </div>
-                <div id="review_example">
-                    <c:forEach var="cafeReviews" items="${CafeReview}">
-                        <c:if test="${not empty cafeReviews.REVIEW}">
-                            <p><strong>${cafeReviews.MEMBER_NAME}</strong> 님의 리뷰:</p>
-					            <div class="stars">
-					                <!-- POINT 수만큼 별을 보여줌 -->
-					                <c:forEach begin="1" end="${cafeReviews.POINT}" var="i">
-					                    <i class="fas fa-star"></i>
-					                </c:forEach>
-					            </div>
-                            <!-- <p>${cafeReviews.POINT}/5.0</p> -->
-                            <p>${cafeReviews.MOOD}</p>
-                            <p>${cafeReviews.REVIEW}</p>
-                            <hr>
-                        </c:if>
-                    </c:forEach>
-                </div>
+				<div id="review_example">
+				    <c:forEach var="cafeReviews" items="${CafeReview}">
+				        <c:if test="${not empty cafeReviews.REVIEW}">
+				            <p><strong>${cafeReviews.MEMBER_NAME}</strong> 님의 리뷰:</p>
+				            <div class="review-container">
+				                <div class="stars-mood">
+				                    <div class="stars">
+				                        <!-- POINT 수만큼 별을 보여줌 -->
+				                        <c:forEach begin="1" end="${cafeReviews.POINT}" var="i">
+				                            <i class="fas fa-star"></i>
+				                        </c:forEach>
+				                    </div>
+				                    <!-- MOOD 정보 -->
+				                    <c:if test="${not empty cafeReviews.MOOD and cafeReviews.MOOD ne '정보 없음'}">
+				                        <p class="d-inline oval-container">${cafeReviews.MOOD}</p> <!-- 타원형 디자인 적용 -->
+				                    </c:if>
+				                </div>
+				                <p>${cafeReviews.REVIEW}</p>
+				                <hr>
+				            </div>
+				        </c:if>
+				    </c:forEach>
+				</div>
             </section>
         </div>
     </div>
