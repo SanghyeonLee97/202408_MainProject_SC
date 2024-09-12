@@ -22,6 +22,7 @@ public class PyToCafeArr{
 		
 		try {
 	        JSONArray jsonArray = pythonRead.pythonRead(pyName, arg, arg2);
+	        System.out.println(arg+"t"+arg2);
 	        System.out.println("JSON Array Length: " + jsonArray.length()); // 데이터 개수 확인
 
 	        for (int i = 0; i < jsonArray.length(); i++) {

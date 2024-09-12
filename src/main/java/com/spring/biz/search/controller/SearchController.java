@@ -16,14 +16,16 @@ public class SearchController {
 	
 	@RequestMapping("search.do")
     public String searchCafe(@RequestParam(value="Category", required=false) String Category,
-    						@RequestParam(value="Keyword", required=false) String Keyword,
+    						@RequestParam(value="keyWord", required=false) String Keyword,
     						Model model) {
+		System.out.println(Category+"z"+Keyword);
 		if(Category==null) {
     		Category = "";
 		}
 		if(Keyword==null) {
     		Keyword = "";
 		}
+		System.out.println(Category+"q"+Keyword);
     	model.addAttribute("SRArrCDTO", pytoCafeArr.pyToCafeArr("general_search.py", Keyword, Category));
     	model.addAttribute("keyWord",Keyword);
     	return "search/cafe_theme";
