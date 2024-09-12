@@ -122,7 +122,7 @@ function deleteReview(memberId,cafeId) {
 				
 				<c:forEach var="myReview" items="${MRArrCDTO}">
 					<div>
-						<a href=""><img id="imgdiv" alt="" src="https://${myReview.IMAGE_URL}">${myReview.CAFE_NAME} ${myReview.POINT}점</a><hr>
+						<a href=""><img id="imgdiv" alt="" src="https://${myReview.IMAGE_URL}"><strong>${myReview.CAFE_NAME} ${myReview.POINT}점</strong></a><hr>
 						<p id="reviewp">${myReview.REVIEW}</p> 
 						<button id="mypagerebt" type="button" onclick="updateReview(${sessionScope.user.member_id},${myReview.CAFE_ID})">수정</button>
 						<button id="mypagerebt" type="button" onclick="deleteReview(${sessionScope.user.member_id},${myReview.CAFE_ID})">삭제</button>

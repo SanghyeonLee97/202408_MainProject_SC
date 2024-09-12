@@ -177,6 +177,9 @@ function clickreview(memberId,cafeId) {
 		justify-content: space-between;
 	    align-items: center;
 	}
+	p{
+		margin: 2px;
+	}
 </style>
 </head>
 <body>

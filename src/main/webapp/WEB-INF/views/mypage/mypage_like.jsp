@@ -31,17 +31,19 @@
 	    width: 350px; 
 	    height: 400px;
 	    float: left;
-	    background: beige; 
+	   /*  background: beige;  */
 	    margin-left: 130px;
 	    margin-top: 60px;
 	    overflow: hidden;
+	    border: 5px double #F5ECCE;
+	    
 	}
 	
 	.cafe-container {
 	    position: relative; 
 	    width: 350px; 
 	    height: 300px;
-	    background: beige; 
+	    /* background: beige;  */
 	    margin-left: 130px;
 	    margin-top: 70px;
 	}
@@ -66,7 +68,7 @@
 	
 	.cafe-container i {
 	    position: absolute;
-	    bottom: 10px;
+	    bottom : 1px;
 	    right: 10px;
 	    color: red;
 	    cursor: pointer;
@@ -137,7 +139,7 @@
 			    <div class="cafe-container">
 			        <a href="">
 			            <img id="imgdiv" alt="" src="${cafe.IMAGE_URL}">
-			            <span>${cafe.CAFE_NAME}</span>
+			            <span><strong>${cafe.CAFE_NAME}</strong></span>
 			        </a>
 			        
 						<!-- 좋아요 상태에 따라 하트 색상 변경 -->
