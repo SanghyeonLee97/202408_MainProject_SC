@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ded7cbd3a93d2a0aae85d1b226274ba2"></script>
 <script type="text/javascript">
 	function updateHref(event) {
 		var keyWord = document.getElementById("nowKeyWord");
@@ -189,9 +190,7 @@ function move(cafeId) {
 	            <button id="f_like_cnt" name="search.do?Category=f_like_cnt" type="button" class="filter-button" onclick="clickButton(event)">여자 좋아요</button>
 	        </div>
 		     <div class="kind_wrap">
-			     <div style="border: 1px solid black; width: 100%; height: 100px; text-align: center">
-		        	공간 
-		        </div>
+			     <div id="map" style="border: 1px solid black; width: 100%; height: 100px; text-align: center"></div>
 			    <div class='kind_slider'>
 		    		<ul class="slider">
 		    		<c:forEach var="likeCafe" items="${SRArrCDTO}">
@@ -209,7 +208,44 @@ function move(cafeId) {
 		    	</div>
 			</div>
 		</div>
-	</div>		
+	</div>
+<script>
+	var mapContainer = document.getElementById('map'),
+	mapOption = { 
+		center: new kakao.maps.LatLng(33.450701, 126.570667),
+		level: 3
+	};
+	var map = new kakao.maps.Map(mapContainer, mapOption);
+	var positions = [
+	    {
+			title: '카카오', 
+	        latlng: new kakao.maps.LatLng(33.450705, 126.570677)
+	    },
+	    {
+	        title: '생태연못', 
+	        latlng: new kakao.maps.LatLng(33.450936, 126.569477)
+	    },
+	    {
+	        title: '텃밭', 
+	        latlng: new kakao.maps.LatLng(33.450879, 126.569940)
+	    },
+	    {
+	        title: '근린공원',
+	        latlng: new kakao.maps.LatLng(33.451393, 126.570738)
+	    }
+	];
+	var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
+	for (var i = 0; i < positions.length; i ++) {
+	    var imageSize = new kakao.maps.Size(24, 35); 
+	    var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize); 
+	    var marker = new kakao.maps.Marker({
+	        map: map,
+	        position: positions[i].latlng,
+	        title : positions[i].title,
+	        image : markerImage
+	    });
+	}
+</script>
 </body>
 </html>
 <%@ include file="../common/footer.jsp" %>
