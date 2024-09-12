@@ -82,7 +82,7 @@ img {
   color: black; /* 화살표 색상 */
 }
 .container-fluid{
-width: 1500px;
+max-width: 1500px;
 }
 </style>
 
