@@ -118,6 +118,13 @@ max-width: 1500px;
 display: flex;
 }
 a{text-decoration: none; color : black}
+#map{
+border: 1px solid black;
+width: 96%;
+height: 300px; 
+text-align: center;
+margin-left: 50px;
+}
 </style>
 <script type="text/javascript">
 function move(cafeId) {		
@@ -183,30 +190,32 @@ function move(cafeId) {
 			</ul>
 		</aside>
 		</div>
-		<div style=" margin-left: 50px;">
-			<div class="button-group">
-	            <button id="like_cnt" name="search.do?Category=like_cnt" type="button" class="filter-button" onclick="clickButton(event)">좋아요 많은순</button>
-	            <button id="review_cnt" name="search.do?Category=review_cnt" type="button" class="filter-button" onclick="clickButton(event)">리뷰 많은순</button>
-	            <button id="m_like_cnt" name="search.do?Category=m_like_cnt" type="button" class="filter-button" onclick="clickButton(event)">남자 좋아요</button>
-	            <button id="f_like_cnt" name="search.do?Category=f_like_cnt" type="button" class="filter-button" onclick="clickButton(event)">여자 좋아요</button>
-	        </div>
-		     <div class="kind_wrap">
-			     <div id="map" style="border: 1px solid black; width: 100%; height: 100px; text-align: center"></div>
-			    <div class='kind_slider'>
-		    		<ul class="slider">
-		    		<c:forEach var="likeCafe" items="${SRArrCDTO}">
-		                <li>
-		                    <div class="card" style="width: 330px;" onclick="move('${likeCafe.CAFE_ID}')">
-		                        <img src="https://${likeCafe.IMAGE_URL}" class="card-img-top" alt="${likeCafe.CAFE_NAME}">
-		                        <div class="card-body" style="height: 80px;">
-		                            <h5 class="card-title" style="margin-bottom: 10px;">${likeCafe.CAFE_NAME}</h5>
-		                            <div class="rating-text">평점공간</div>
-		                        </div>
-		                    </div>
-		                </li>
-		            </c:forEach>
-		            </ul>
-		    	</div>
+		<div>
+			<div id="map"></div>
+			<div style=" margin-left: 50px; border: 1px solid red;">
+				<div class="button-group">
+		            <button id="like_cnt" name="search.do?Category=like_cnt" type="button" class="filter-button" onclick="clickButton(event)">좋아요 많은순</button>
+		            <button id="review_cnt" name="search.do?Category=review_cnt" type="button" class="filter-button" onclick="clickButton(event)">리뷰 많은순</button>
+		            <button id="m_like_cnt" name="search.do?Category=m_like_cnt" type="button" class="filter-button" onclick="clickButton(event)">남자 좋아요</button>
+		            <button id="f_like_cnt" name="search.do?Category=f_like_cnt" type="button" class="filter-button" onclick="clickButton(event)">여자 좋아요</button>
+		        </div>
+			     <div class="kind_wrap">
+				    <div class='kind_slider'>
+			    		<ul class="slider">
+			    		<c:forEach var="likeCafe" items="${SRArrCDTO}">
+			                <li>
+			                    <div class="card" style="width: 330px;" onclick="move('${likeCafe.CAFE_ID}')">
+			                        <img src="https://${likeCafe.IMAGE_URL}" class="card-img-top" alt="${likeCafe.CAFE_NAME}">
+			                        <div class="card-body" style="height: 80px;">
+			                            <h5 class="card-title" style="margin-bottom: 10px;">${likeCafe.CAFE_NAME}</h5>
+			                            <div class="rating-text">평점공간</div>
+			                        </div>
+			                    </div>
+			                </li>
+			            </c:forEach>
+			            </ul>
+			    	</div>
+				</div>
 			</div>
 		</div>
 	</div>

@@ -180,6 +180,10 @@ function clickreview(memberId,cafeId) {
 	p{
 		margin: 2px;
 	}
+	#map{
+		overflow: visible;
+		margin-left: 20px;
+	}
 </style>
 </head>
 <body>
