@@ -130,12 +130,11 @@ public class GoodController {
 							@RequestParam("rating") String rating,
 							@RequestParam("review") String review,
 							Model model) {
-		float floatRating = Float.parseFloat(rating)/2;
 		String addUpdate = goodService.add_OR_updateReview(memberId, cafeId);
 		if(addUpdate != null) {
-			goodService.updateReview(memberId,cafeId,floatRating,review);
+			goodService.updateReview(memberId,cafeId,Float.parseFloat(rating),review);
 		}else {
-			goodService.addReview(memberId,cafeId,floatRating,review);
+			goodService.addReview(memberId,cafeId,Float.parseFloat(rating),review);
 		}
 		return "redirect:/detail.do?cafeId="+cafeId;
 	}
