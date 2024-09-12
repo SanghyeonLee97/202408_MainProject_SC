@@ -209,7 +209,7 @@ function move(cafeId) {
 			                        <img src="https://${likeCafe.IMAGE_URL}" class="card-img-top" alt="${likeCafe.CAFE_NAME}">
 			                        <div class="card-body" style="height: 80px;">
 			                            <h5 class="card-title" style="margin-bottom: 10px;">${likeCafe.CAFE_NAME}</h5>
-			                            <div class="rating-text">평점공간</div>
+			                            <div class="rating-text">${likeCafe.REVIEW_POINT}</div>
 			                        </div>
 			                    </div>
 			                </li>

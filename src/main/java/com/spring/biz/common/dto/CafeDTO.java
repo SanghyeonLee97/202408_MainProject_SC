@@ -30,6 +30,8 @@ public class CafeDTO {
 	String IMAGE_URL;
 	LocalDateTime REG_DATE;
 	LocalDateTime MOD_DATE;
+	Float REVIEW_POINT;
+	
 	public int getCAFE_ID() {
 		return CAFE_ID;
 	}
@@ -191,5 +193,11 @@ public class CafeDTO {
 	}
 	public void setMOD_DATE(LocalDateTime mOD_DATE) {
 		MOD_DATE = mOD_DATE;
+	}
+	public Float getREVIEW_POINT() {
+		return REVIEW_POINT;
+	}
+	public void setREVIEW_POINT(Float rEVIEW_POINT) {
+		REVIEW_POINT = rEVIEW_POINT;
 	}
 }
