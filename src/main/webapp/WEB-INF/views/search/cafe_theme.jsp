@@ -119,11 +119,11 @@ display: flex;
 }
 a{text-decoration: none; color : black}
 #map{
-border: 1px solid black;
 width: 96%;
 height: 300px; 
-text-align: center;
 margin-left: 50px;
+display: inline-block;
+margin-top: 10px;
 }
 </style>
 <script type="text/javascript">
@@ -192,7 +192,7 @@ function move(cafeId) {
 		</div>
 		<div>
 			<div id="map"></div>
-			<div style=" margin-left: 50px; border: 1px solid red;">
+			<div style=" margin-left: 50px;">
 				<div class="button-group">
 		            <button id="like_cnt" name="search.do?Category=like_cnt" type="button" class="filter-button" onclick="clickButton(event)">좋아요 많은순</button>
 		            <button id="review_cnt" name="search.do?Category=review_cnt" type="button" class="filter-button" onclick="clickButton(event)">리뷰 많은순</button>
@@ -219,42 +219,65 @@ function move(cafeId) {
 			</div>
 		</div>
 	</div>
-<script>
-	var mapContainer = document.getElementById('map'),
-	mapOption = { 
-		center: new kakao.maps.LatLng(33.450701, 126.570667),
-		level: 3
-	};
-	var map = new kakao.maps.Map(mapContainer, mapOption);
-	var positions = [
-	    {
-			title: '카카오', 
-	        latlng: new kakao.maps.LatLng(33.450705, 126.570677)
-	    },
-	    {
-	        title: '생태연못', 
-	        latlng: new kakao.maps.LatLng(33.450936, 126.569477)
-	    },
-	    {
-	        title: '텃밭', 
-	        latlng: new kakao.maps.LatLng(33.450879, 126.569940)
-	    },
-	    {
-	        title: '근린공원',
-	        latlng: new kakao.maps.LatLng(33.451393, 126.570738)
-	    }
-	];
-	var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
-	for (var i = 0; i < positions.length; i ++) {
-	    var imageSize = new kakao.maps.Size(24, 35); 
-	    var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize); 
-	    var marker = new kakao.maps.Marker({
-	        map: map,
-	        position: positions[i].latlng,
-	        title : positions[i].title,
-	        image : markerImage
-	    });
-	}
+<script type="text/javascript">
+var map;
+
+function initializeMap() {
+    var mapContainer = document.getElementById('map');
+    var mapOption = { 
+        center: new kakao.maps.LatLng(33.450701, 126.570667),
+        level: 3
+    };
+    
+    // 지도 객체 생성
+    map = new kakao.maps.Map(mapContainer, mapOption);
+
+    // 지도 표시 후 크기 조정
+    setTimeout(function() {
+        kakao.maps.event.trigger(map, 'resize'); // 지도 크기 조정
+    }, 500); // 페이지 로드 후 500ms 대기
+
+    // 마커 위치 설정
+    var positions = [
+        {
+            title: '카카오', 
+            latlng: new kakao.maps.LatLng(33.450705, 126.570677)
+        },
+        {
+            title: '생태연못', 
+            latlng: new kakao.maps.LatLng(33.450936, 126.569477)
+        },
+        {
+            title: '텃밭', 
+            latlng: new kakao.maps.LatLng(33.450879, 126.569940)
+        },
+        {
+            title: '근린공원',
+            latlng: new kakao.maps.LatLng(33.451393, 126.570738)
+        }
+    ];
+    var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
+    for (var i = 0; i < positions.length; i++) {
+        var imageSize = new kakao.maps.Size(24, 35); 
+        var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize); 
+        var marker = new kakao.maps.Marker({
+            map: map,
+            position: positions[i].latlng,
+            title : positions[i].title,
+            image : markerImage
+        });
+    }
+}
+
+// 페이지가 로드된 후 지도를 초기화
+window.onload = initializeMap;
+
+// 창 크기 조정 시 지도가 제대로 표시되도록 보장
+window.onresize = function() {
+    if (map) {
+        kakao.maps.event.trigger(map, 'resize');
+    }
+};
 </script>
 </body>
 </html>
