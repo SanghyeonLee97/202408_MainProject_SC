@@ -17,6 +17,7 @@ public class GoodService {
 	@Autowired
 	GoodMapper goodMapper;
 	
+	//데이터매핑후 반환
 	private Map<String, Object> makeMap(String userid, String cafeid, Float rating, String review){
 		Map<String, Object> params = new HashMap<>();
 		params.put("userid", Integer.parseInt(userid));
@@ -35,7 +36,7 @@ public class GoodService {
     	List<CafeDTO> dbCafes = goodMapper.getLikedCafes(member_id);
     	return dbCafes;
     }
-
+    
     public List<MyReviewDTO> getMyReview(int userid) {
 		return goodMapper.getMyReview(userid);
 	}
