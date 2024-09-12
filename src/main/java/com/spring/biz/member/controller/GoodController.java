@@ -17,6 +17,7 @@ import com.spring.biz.common.dto.CafeDTO;
 import com.spring.biz.member.dto.MemberDTO;
 import com.spring.biz.member.service.GoodService;
 import com.spring.biz.search.service.CafeDetail;
+import com.spring.biz.search.service.GetReview;
 
 @Controller
 public class GoodController {
@@ -25,6 +26,8 @@ public class GoodController {
 	GoodService goodService;
 	@Autowired
 	CafeDetail cafeDetail;
+	@Autowired
+	GetReview getReview;
 	
 	//마이페이지 좋아요
 	@RequestMapping(value = "myGood.do", method = RequestMethod.GET)
@@ -137,5 +140,16 @@ public class GoodController {
 			goodService.addReview(memberId,cafeId,Float.parseFloat(rating),review);
 		}
 		return "redirect:/detail.do?cafeId="+cafeId;
+	}
+	
+	//리뷰업데이트 페이지이동
+	@RequestMapping("goUpdateReview.do")
+	public String goUpdateReview(@RequestParam("memberId") String memberId,
+						@RequestParam("cafeId") String cafeId,
+						Model model) {
+		model.addAttribute("memberId", memberId);
+		model.addAttribute("cafeInfo", cafeDetail.cafeDetail(cafeId));
+		model.addAttribute("getReview", getReview.getReview(cafeId).get(0));
+		return "search/update_review";
 	}
 }

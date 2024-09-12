@@ -6,6 +6,44 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<!-- FontAwesome CDN 링크 -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+    var ratingLabel = $("#rating_label");
+    var ratingMessage = $("#rating_message");
+    
+    // 페이지 로딩 시 input의 value 값을 가져와서 자동으로 실행
+    var initialScore = $("#test").val();
+    
+    // 평점 텍스트 업데이트
+    ratingLabel.text("평점: " + initialScore + "/5");
+    
+    // 문구 업데이트
+    if (initialScore <= 2) {
+        ratingMessage.html("별점 <span style='font-size: 1.5em; font-weight: bold; color: black;'>" + initialScore + "</span>점을 주셨네요. 어떤 점이 아쉬웠나요?");
+    } else {
+        ratingMessage.html("별점 <span style='font-size: 1.5em; font-weight: bold; color: black;'>" + initialScore + "</span>점을 주셨네요. 어떤 점이 좋았나요?");
+    }
+
+    // 별점 레이블 클릭 시
+    $(".rate input").on("change", function() {
+        // 선택된 별점 값을 가져오기
+        var score = $(this).val();
+        
+        // 평점 텍스트 업데이트
+        ratingLabel.text("평점: " + score + "/5");
+
+        // 문구 업데이트
+        if (score <= 2) {
+            ratingMessage.html("별점 <span style='font-size: 1.5em; font-weight: bold; color: black;'>" + score + "</span>점을 주셨네요. 어떤 점이 아쉬웠나요?");
+        } else {
+            ratingMessage.html("별점 <span style='font-size: 1.5em; font-weight: bold; color: black;'>" + score + "</span>점을 주셨네요. 어떤 점이 좋았나요?");
+        }
+    });
+});
+</script>
 <style type="text/css">
 
 .rate { 
@@ -61,119 +99,122 @@ div>div>aside ul li{
 div>div>aside ul li a{
 	color: black; 
 }
-#update_box{
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    border: 5px double #F5ECCE;
+    border-radius: 8px;
+    padding: 20px;
+    background: #f0f4f8;
+    box-sizing: border-box;
+}
+#cafe_info {
+    width: 100%;
+    max-width: 900px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+#write_box{
 	width: auto;
 	display: flex;
 	flex-direction: column;
 	padding-left: 50px;
-}   
-
-button[type=submit] {
-	position: absolute; /* 절대 위치로 설정합니다 */
-	border: none;
-	width: 115px;
-	height: 50px;
-	margin: 0; /* 기존 margin을 제거하여 위치를 정확히 설정합니다 */
-	
+}  
+.write_map{
+	    justify-content: center;
+	    display: flex;
+	    width: 100%;
+	    max-width: 900px;
+	    margin-bottom: 20px;
+	    margin-top: 30px;
 }
-
-#update_bt{
-    width: 150px;
-    height: 50px;
-    background: #F4E1D2;
+.write_map img {
+    width: 500px;   /* 100% */
+    height: 400px;
+    border-radius: 8px;
+}
+#write_example {
+    width: 800px;
+    background: beige;
+    padding: 20px;
+    box-sizing: border-box;
     position: relative;
-    top: 150px;
-    margin-left: 10px;
-    float: right;
 }
-#delete_bt{
-	width: 150px;
+#write_example textarea {
+    width: 100%;
+    height: 150px;
+    margin-bottom: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+    display: block;
+}
+#submit_container {
+    text-align: right;
+    margin-top: 10px;
+}
+button.submit-review {
+    background-color: #F0CB85;
+    color: white;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
     height: 50px;
-    background: #F4E1D2;
-    position: relative;
-    top: 150px;
-    margin-left: 10px;
-    float: right;
+    width: 100px;
+    display: inline-block;
 }
-
-#update_map{
-	padding-left : 30px;
-	justify-content : space-around;
-    display: flex;
-	width: 900px;
-	height: 280px;
-}
-#update_example{
-	width: 800px;
-	height: auto;
-	background: beige;
-	position: relative;
+button.submit-review:hover {
+    background-color: #FFB399;
 }
 </style>
 </head>
 <body>
+	<input type="text" id="test" value="${getReview.POINT}">
 	<div>
 		<div>
-			<aside>
-				<ul>
-    				<li>
-     					테마
-						<ul>
-							<li><a href="#">동물카페</a></li>
-					        <li><a href="#">이색카페</a></li>
-					        <li><a href="#">보드게임카페</a></li>
-					        <li><a href="#">스터디카페</a></li>
-					        <li><a href="#">브런치,디저트카페</a></li>
-						</ul>
-					</li>
-					<li>
-						연령별
-						 <ul>
-							<li><a href="#">10대</a></li>
-					        <li><a href="#">20대</a></li>
-					        <li><a href="#">30대</a></li>
-					        <li><a href="#">40대</a></li>
-					        <li><a href="#">50대</a></li>
-					        <li><a href="#">60대</a></li>
-						</ul>
-					</li>
-					<li>
-						편의기능
-						<ul>
-							<li><a href="#">흡연실</a></li>
-					        <li><a href="#">노키즈존</a></li>
-					        <li><a href="#">주차가능 여부</a></li>
-					        <li><a href="#">반려동물 출입 여부</a></li>
-					        <li><a href="#">24시영업 여부</a></li>
-						</ul>	
-					</li>
-				</ul>
-			</aside>
-			<div id='update_box'>홍대000카페
-				<div id='update_map'>
-					<img src="../img/2018-10-09.jpg" height="150px" width="150px">
+			<div class="container">
+				<div class='write_map'>
+					<img src="https://${cafeInfo.IMAGE_URL}" height="150px" width="150px">
 					<img src="../img/2018-10-09.jpg" height="150px" width="150px">
 				</div>
-				<section style="height: 1000px;">평점 공간 4/5(점수 평점)
-					<div class='cafe_info'>
-					<fieldset class="rate">
-						<input type="radio" id="rating10" name="rating" value="10"><label for="rating10" title="5점"></label>
-						<input type="radio" id="rating9" name="rating" value="9"><label class="half" for="rating9" title="4.5점"></label>
-						<input type="radio" id="rating8" name="rating" value="8"><label for="rating8" title="4점"></label>
-						<input type="radio" id="rating7" name="rating" value="7"><label class="half" for="rating7" title="3.5점"></label>
-						<input type="radio" id="rating6" name="rating" value="6"><label for="rating6" title="3점"></label>
-						<input type="radio" id="rating5" name="rating" value="5"><label class="half" for="rating5" title="2.5점"></label>
-						<input type="radio" id="rating4" name="rating" value="4"><label for="rating4" title="2점"></label>
-						<input type="radio" id="rating3" name="rating" value="3"><label class="half" for="rating3" title="1.5점"></label>
-						<input type="radio" id="rating2" name="rating" value="2"><label for="rating2" title="1점"></label>
-						<input type="radio" id="rating1" name="rating" value="1"><label class="half" for="rating1" title="0.5점"></label>
-					</fieldset>
-					</div>
-					<div id='update_example'>리뷰 작성한 보이는 부분
-						<button type='submit' id='update_bt'>수정</button>
-						<button type='submit' id='delete_bt'>삭제</button>
-					</div>
-				</section>
+				<div id="cafe_info">
+					<h3>${cafeInfo.CAFE_NAME}</h3>
+				</div>
+				<form action="writeReview.do">
+					<input type="hidden" name="memberId" value="${memberId}">
+					<input type="hidden" name="cafeId" value="${cafeInfo.CAFE_ID}">
+					<section style="height: 1000px;">
+						<div class='cafe_info'>
+							<fieldset class="rate">
+								<input type="radio" id="rating5" name="rating" value="5" 
+									<c:if test="${getReview.POINT==5.0}">checked="checked"</c:if>
+								><label for="rating5" title="5점"></label>
+							    <input type="radio" id="rating4" name="rating" value="4" 
+							    	<c:if test="${getReview.POINT==4.0}">checked="checked"</c:if>
+							    ><label for="rating4" title="4점"></label>
+							    <input type="radio" id="rating3" name="rating" value="3" 
+							    	<c:if test="${getReview.POINT==3.0}">checked="checked"</c:if>
+							    ><label for="rating3" title="3점"></label>
+							    <input type="radio" id="rating2" name="rating" value="2" 
+							    	<c:if test="${getReview.POINT==2.0}">checked="checked"</c:if>
+							    ><label for="rating2" title="2점"></label>
+							    <input type="radio" id="rating1" name="rating" value="1" 
+							    	<c:if test="${getReview.POINT==1.0}">checked="checked"</c:if>
+							    ><label for="rating1" title="1점"></label>
+							</fieldset>
+						</div>
+						<div id='write_example'>
+							<div id="rating_message"></div>
+						    <textarea name="review" required="required">${getReview.REVIEW}</textarea>
+						    <div id="submit_container">
+						        <button class="submit-review" type='submit'>작성</button>
+						    </div>
+						</div>
+					</section>
+				</form>
 			</div>
 		</div>	
 	</div>		

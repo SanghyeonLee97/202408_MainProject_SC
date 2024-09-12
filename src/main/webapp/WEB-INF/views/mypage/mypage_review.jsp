@@ -9,7 +9,7 @@
 <title>리뷰 쓴 페이지</title>
 <script type="text/javascript">
 function updateReview(memberId,cafeId) {
-	window.location.href = 'goReview.do?memberId='+memberId+'&cafeId='+cafeId;
+	window.location.href = 'goUpdateReview.do?memberId='+memberId+'&cafeId='+cafeId;
 }
 function deleteReview(memberId,cafeId) {
 	window.location.href = 'deleteReview.do?memberId='+memberId+'&cafeId='+cafeId;
