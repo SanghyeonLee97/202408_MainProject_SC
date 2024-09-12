@@ -9,6 +9,6 @@
     </select>
     
     <select id="getCafeReview" resultType="com.spring.biz.search.dto.ReviewDTO" parameterType="String">
-        select member.MEMBER_NAME,member_act.REVIEW from member_act inner join member on member_act.MEMBER_ID = member.MEMBER_ID where CAFE_ID=#{cafeId} and REVIEW is not null;
+        select member.MEMBER_NAME,member_act.REVIEW,member_act.POINT from member_act inner join member on member_act.MEMBER_ID = member.MEMBER_ID where CAFE_ID=#{cafeId} and REVIEW is not null;
     </select>
 </mapper>

@@ -188,7 +188,7 @@ function clickreview(memberId,cafeId) {
             </div>
             <section id="detail_section">
                 <div class="flex-container">
-				    <h5>평점: ${CafeDetail.TOTAL_POINT}/5</h5>
+				    <h5>평점: ${PointAvg}/5</h5>
 				    <span class="review-score"><h5>리뷰 점수:  </h5></span>
 				</div>
                 <div class="cafe_info">
@@ -207,7 +207,7 @@ function clickreview(memberId,cafeId) {
                     <c:forEach var="cafeReviews" items="${CafeReview}">
                         <c:if test="${not empty cafeReviews.REVIEW}">
                             <p><strong>${cafeReviews.MEMBER_NAME}</strong> 님의 리뷰:</p>
-                            <p>개인리뷰별점공간~~</p>
+                            <p>${cafeReviews.POINT}/5</p>
                             <p>${cafeReviews.REVIEW}</p>
                             <hr>
                         </c:if>

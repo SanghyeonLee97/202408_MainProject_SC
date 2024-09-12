@@ -3,6 +3,7 @@ package com.spring.biz.search.dto;
 public class ReviewDTO {
     private String MEMBER_NAME;
     private String REVIEW;
+    private Float POINT;
     
     public String getMEMBER_NAME() {
         return MEMBER_NAME;
@@ -19,4 +20,12 @@ public class ReviewDTO {
     public void setREVIEW(String REVIEW) {
         this.REVIEW = REVIEW;
     }
+
+	public Float getPOINT() {
+		return POINT;
+	}
+
+	public void setPOINT(Float pOINT) {
+		POINT = pOINT;
+	}
 }

@@ -11,10 +11,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.spring.biz.common.dto.CafeDTO;
+import com.spring.biz.common.service.AvgReturn;
 import com.spring.biz.common.service.PyToCafeArr;
+import com.spring.biz.search.dto.ReviewDTO;
 import com.spring.biz.search.service.CafeDetail;
 import com.spring.biz.search.service.GetReview;
 
+//공용 컨트롤러
 @Controller
 public class CommonController {
 	
@@ -24,12 +27,16 @@ public class CommonController {
 	GetReview getReview;
 	@Autowired
 	PyToCafeArr pyToCafeArr;
+	@Autowired
+	AvgReturn avgReturn;
 
 	//카페 상세정보
 	@RequestMapping("/detail.do")
     public String detailCafe(@RequestParam("cafeId") String cafeId,Model model) {
+		List<ReviewDTO> RDTOArr=getReview.getReview(cafeId);
         model.addAttribute("CafeDetail", cafeDetail.cafeDetail(cafeId));
-        model.addAttribute("CafeReview", getReview.getReview(cafeId));
+        model.addAttribute("CafeReview", RDTOArr);
+        model.addAttribute("PointAvg", avgReturn.avgReturn(RDTOArr));
         return "search/cafe_detail";
     }
 	
@@ -39,7 +46,7 @@ public class CommonController {
 	    int pageSize = 12; // 페이지당 항목 수를 12로 설정
 	    String gender = request.getParameter("gender");
 
-	    List<CafeDTO> allCafes = pyToCafeArr.PyToCafeArr("cafe_likes_bygender.py", gender, "");
+	    List<CafeDTO> allCafes = pyToCafeArr.pyToCafeArr("cafe_likes_bygender.py", gender, "");
 	    
 	    // 총 항목 수
 	    int totalItems = allCafes.size();
@@ -68,8 +75,6 @@ public class CommonController {
 	    return "recommand/Gen_Re";
 	}
 
-	
-	
     @RequestMapping("goAge.do")
     public String goAge(HttpServletRequest request,Model model) {
     	int page = Integer.parseInt(request.getParameter("page") != null ? request.getParameter("page") : "1");
@@ -79,7 +84,7 @@ public class CommonController {
         String age = request.getParameter("age");
         
         // 전체 데이터 가져오기
-        List<CafeDTO> allCafes = pyToCafeArr.PyToCafeArr("cafe_likes_byage.py", age, "");
+        List<CafeDTO> allCafes = pyToCafeArr.pyToCafeArr("cafe_likes_byage.py", age, "");
 
         // 총 항목 수
         int totalItems = allCafes.size();
@@ -110,12 +115,16 @@ public class CommonController {
 	
 	@RequestMapping("goMy.do")
     public String goMy(@RequestParam("memberId") String memberId,Model model) {
-        model.addAttribute("URArrCDTO", pyToCafeArr.PyToCafeArr("cafe_likes_byuser.py", memberId,""));
+        model.addAttribute("URArrCDTO", pyToCafeArr.pyToCafeArr("cafe_likes_byuser.py", memberId,""));
 		return "recommand/My_Re";
     }
 	
 	@RequestMapping("goMap.do")
     public String goMap() {
         return "common/Map";
+    }
+	@RequestMapping("godashboard.do")
+    public String godashboard() {
+        return "common/Dashboard";
     }
 }
