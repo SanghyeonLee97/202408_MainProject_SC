@@ -20,7 +20,7 @@ except Exception as e:
     print(f"Error connecting to OpenSearch: {e}")
     exit(1)
 
-# member_id = "500"  # 파이썬에서 테스트 시 사용
+# member_id = "1"  # 파이썬에서 테스트 시 사용
 member_id = sys.argv[1]
 
 
