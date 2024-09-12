@@ -66,7 +66,8 @@ public class GoodController {
 	//상세페이지 좋아요
 	@RequestMapping(value="addGood.do", method=RequestMethod.POST)
 	@ResponseBody
-	public String addGood(@RequestParam("memberId") String memberId,@RequestParam("cafeId") String cafeId) {
+	public String addGood(@RequestParam("memberId") String memberId,
+						@RequestParam("cafeId") String cafeId) {
 		if(memberId.equals("")) {
 			return "needlogin";
 		}
@@ -86,7 +87,8 @@ public class GoodController {
 	//리뷰작성 유효성검사
 	@RequestMapping(value="goReview.do", method=RequestMethod.POST)
 	@ResponseBody
-	public String goReview(@RequestParam("memberId") String memberId,@RequestParam("cafeId") String cafeId) {
+	public String goReview(@RequestParam("memberId") String memberId,
+						@RequestParam("cafeId") String cafeId) {
 		if(memberId.equals("")) {
 			return "needlogin";
 		}
@@ -97,37 +99,43 @@ public class GoodController {
 		return "done";
 	}
 	
+	//리뷰작성 페이지이동
 	@RequestMapping("goReview.do")
-	public String goReview(@RequestParam("memberId") String memberId,@RequestParam("cafeId") String cafeId,Model model) {
+	public String goReview(@RequestParam("memberId") String memberId,
+						@RequestParam("cafeId") String cafeId,
+						Model model) {
 		model.addAttribute("memberId", memberId);
 		model.addAttribute("cafeInfo", cafeDetail.cafeDetail(cafeId));
 		return "search/write_review";
 	}
 	
+	//리뷰 삭제
 	@RequestMapping("deleteReview.do")
-	public String deleteReview(@RequestParam("memberId") String memberId,@RequestParam("cafeId") String cafeId,Model model) {
-		System.out.println(memberId+" "+cafeId);
+	public String deleteReview(@RequestParam("memberId") String memberId,
+							@RequestParam("cafeId") String cafeId,
+							Model model) {
 		String deleteUpdate = goodService.add_OR_updateReview(memberId, cafeId);
 		if(deleteUpdate != null) {
 			goodService.updateReviewDelete(memberId, cafeId);
-			System.out.println("업뎃삭제임");
 		}else {
 			goodService.deleteReviewDelete(memberId, cafeId);
-			System.out.println("딜리트임");
 		}
 		return "redirect:goMyReview.do?member_id="+memberId;
 	}
 	
+	//리뷰작성
 	@RequestMapping("writeReview.do")
-	public String writeReview(@RequestParam("memberId") String memberId,@RequestParam("cafeId") String cafeId,@RequestParam("rating") String rating,@RequestParam("review") String review,Model model) {
+	public String writeReview(@RequestParam("memberId") String memberId,
+							@RequestParam("cafeId") String cafeId,
+							@RequestParam("rating") String rating,
+							@RequestParam("review") String review,
+							Model model) {
 		float floatRating = Float.parseFloat(rating)/2;
 		String addUpdate = goodService.add_OR_updateReview(memberId, cafeId);
 		if(addUpdate != null) {
 			goodService.updateReview(memberId,cafeId,floatRating,review);
-			System.out.println("업뎃임");
 		}else {
 			goodService.addReview(memberId,cafeId,floatRating,review);
-			System.out.println("인서트임");
 		}
 		return "redirect:/detail.do?cafeId="+cafeId;
 	}
