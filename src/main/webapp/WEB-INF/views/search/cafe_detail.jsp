@@ -207,7 +207,7 @@ function clickreview(memberId,cafeId) {
                     <c:forEach var="cafeReviews" items="${CafeReview}">
                         <c:if test="${not empty cafeReviews.REVIEW}">
                             <p><strong>${cafeReviews.MEMBER_NAME}</strong> 님의 리뷰:</p>
-                            <p>개인리뷰별점공간~~</p>
+                            <p>${cafeReviews.POINT}/5</p>
                             <p>${cafeReviews.REVIEW}</p>
                             <hr>
                         </c:if>

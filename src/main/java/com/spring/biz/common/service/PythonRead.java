@@ -1,4 +1,4 @@
-package com.spring.biz.common.util;
+package com.spring.biz.common.service;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -11,11 +11,11 @@ import java.nio.charset.StandardCharsets;
 import org.json.JSONArray;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 
 //파이썬 파일이름을 입력받아서 실행시킨후 결과를 jsonArray로 반환하는 코드
-@Component
+@Service
 public class PythonRead {
 	public JSONArray pythonRead(String pyName,String argument,String argument2) {
 		try {

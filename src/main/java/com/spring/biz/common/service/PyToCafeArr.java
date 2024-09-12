@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.spring.biz.common.dto.CafeDTO;
-import com.spring.biz.common.util.PythonRead;
 
 @Service
 public class PyToCafeArr{
@@ -16,7 +15,7 @@ public class PyToCafeArr{
 	@Autowired
 	PythonRead pythonRead;
 	
-	public ArrayList<CafeDTO> PyToCafeArr(String pyName,String arg,String arg2){
+	public ArrayList<CafeDTO> pyToCafeArr(String pyName,String arg,String arg2){
 
 		ArrayList<CafeDTO> arrcdto = new ArrayList<CafeDTO>();
 		

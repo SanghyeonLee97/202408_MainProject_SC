@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.spring.biz.common.dto.CafeDTO;
-import com.spring.biz.common.util.PythonRead;
+import com.spring.biz.common.service.PythonRead;
 
 @Service
 public class KeywordSearch {

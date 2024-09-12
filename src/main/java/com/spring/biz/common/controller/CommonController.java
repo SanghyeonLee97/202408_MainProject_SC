@@ -39,7 +39,7 @@ public class CommonController {
 	    int pageSize = 12; // 페이지당 항목 수를 12로 설정
 	    String gender = request.getParameter("gender");
 
-	    List<CafeDTO> allCafes = pyToCafeArr.PyToCafeArr("cafe_likes_bygender.py", gender, "");
+	    List<CafeDTO> allCafes = pyToCafeArr.pyToCafeArr("cafe_likes_bygender.py", gender, "");
 	    
 	    // 총 항목 수
 	    int totalItems = allCafes.size();
@@ -79,7 +79,7 @@ public class CommonController {
         String age = request.getParameter("age");
         
         // 전체 데이터 가져오기
-        List<CafeDTO> allCafes = pyToCafeArr.PyToCafeArr("cafe_likes_byage.py", age, "");
+        List<CafeDTO> allCafes = pyToCafeArr.pyToCafeArr("cafe_likes_byage.py", age, "");
 
         // 총 항목 수
         int totalItems = allCafes.size();
@@ -110,7 +110,7 @@ public class CommonController {
 	
 	@RequestMapping("goMy.do")
     public String goMy(@RequestParam("memberId") String memberId,Model model) {
-        model.addAttribute("URArrCDTO", pyToCafeArr.PyToCafeArr("cafe_likes_byuser.py", memberId,""));
+        model.addAttribute("URArrCDTO", pyToCafeArr.pyToCafeArr("cafe_likes_byuser.py", memberId,""));
 		return "recommand/My_Re";
     }
 	
