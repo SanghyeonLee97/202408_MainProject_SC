@@ -4,6 +4,7 @@ public class ReviewDTO {
     private String MEMBER_NAME;
     private String REVIEW;
     private Float POINT;
+    private String MOOD;
     
     public String getMEMBER_NAME() {
         return MEMBER_NAME;
@@ -27,5 +28,13 @@ public class ReviewDTO {
 
 	public void setPOINT(Float pOINT) {
 		POINT = pOINT;
+	}
+
+	public String getMOOD() {
+		return MOOD;
+	}
+
+	public void setMOOD(String mOOD) {
+		MOOD = mOOD;
 	}
 }

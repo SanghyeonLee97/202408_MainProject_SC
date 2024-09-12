@@ -30,10 +30,32 @@ public class CommonController {
 	@Autowired
 	AvgReturn avgReturn;
 
+	// MOOD 값을 설명으로 변환하는 메소드
+	private String convertMood(String mOOD) {
+	    if (mOOD == null || mOOD.isEmpty()) {
+	        return ""; // MOOD 값이 없을 때 표시할 기본 값
+	    }
+	    switch(mOOD) {
+	        case "M01": return "가성비 좋아요!";
+	        case "M02": return "고급스러워요!";
+	        case "M03": return "예뻐요!";
+	        case "M04": return "격식 있어요!";
+	        case "M05": return "이색적이에요!";
+	        default: return "기타";
+	    }
+	}
+	
 	//카페 상세정보
 	@RequestMapping("/detail.do")
     public String detailCafe(@RequestParam("cafeId") String cafeId,Model model) {
 		List<ReviewDTO> RDTOArr=getReview.getReview(cafeId);
+		
+	    // MOOD 값을 변환하여 ReviewDTO 객체에 저장
+	    for (ReviewDTO review : RDTOArr) {
+	        String convertedMood = convertMood(review.getMOOD());
+	        review.setMOOD(convertedMood); // 변환된 값으로 MOOD 설정
+	    }
+		
         model.addAttribute("CafeDetail", cafeDetail.cafeDetail(cafeId));
         model.addAttribute("CafeReview", RDTOArr);
         model.addAttribute("PointAvg", avgReturn.avgReturn(RDTOArr));

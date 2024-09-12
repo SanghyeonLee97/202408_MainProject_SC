@@ -230,6 +230,7 @@ function clickreview(memberId,cafeId) {
 					                </c:forEach>
 					            </div>
                             <!-- <p>${cafeReviews.POINT}/5.0</p> -->
+                            <p>${cafeReviews.MOOD}</p>
                             <p>${cafeReviews.REVIEW}</p>
                             <hr>
                         </c:if>
