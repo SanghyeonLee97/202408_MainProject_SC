@@ -121,20 +121,12 @@ function deleteReview(memberId,cafeId) {
 				
 				
 				<c:forEach var="myReview" items="${MRArrCDTO}">
-					<div>
-<<<<<<< HEAD
-						<a href=""><img id="imgdiv" alt="" src="https://${myReview.IMAGE_URL}"><strong>${myReview.CAFE_NAME} ${myReview.POINT}점</strong></a><hr>
-=======
+					<div>					
 						<a href="detail.do?cafeId=${myReview.CAFE_ID }">
-						<img id="imgdiv" alt="" src="https://${myReview.IMAGE_URL}">${myReview.CAFE_NAME} ${myReview.POINT}점</a><hr>
->>>>>>> 249d6e38225fe24672f19833331c27172ffbbca6
-						<p id="reviewp">${myReview.REVIEW}</p> 
+							<img id="imgdiv" alt="" src="https://${myReview.IMAGE_URL}"><strong>${myReview.CAFE_NAME} ${myReview.POINT}점</strong></a><hr>
+						<p id="reviewp">${myReview.REVIEW}</p>
 						<button id="mypagerebt" type="button" onclick="updateReview(${sessionScope.user.member_id},${myReview.CAFE_ID})">수정</button>
 						<button id="mypagerebt" type="button" onclick="deleteReview(${sessionScope.user.member_id},${myReview.CAFE_ID})">삭제</button>
-						<a href="detail.do?cafeId=${myReview.CAFE_ID }"><img id="imgdiv" alt="" src="https://${myReview.IMAGE_URL}">${myReview.CAFE_NAME} ${myReview.POINT}점
-						<p id="reviewp">${myReview.REVIEW}</p> </a>
-						<button type="button" onclick="updateReview(${sessionScope.user.member_id},${myReview.CAFE_ID})">수정</button>
-						<button type="button" onclick="deleteReview(${sessionScope.user.member_id},${myReview.CAFE_ID})">삭제</button>
 					</div>
 			    </c:forEach>
 			</article>
