@@ -33,7 +33,7 @@ public class CommonController {
 	// MOOD 값을 설명으로 변환하는 메소드
 	private String convertMood(String mOOD) {
 	    if (mOOD == null || mOOD.isEmpty()) {
-	        return ""; // MOOD 값이 없을 때 표시할 기본 값
+	        return "정보 없음"; // MOOD 값이 없을 때 표시할 기본 값
 	    }
 	    switch(mOOD) {
 	        case "M01": return "가성비 좋아요!";
