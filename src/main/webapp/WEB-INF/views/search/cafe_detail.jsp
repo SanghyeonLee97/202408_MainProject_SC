@@ -184,6 +184,9 @@ function clickreview(memberId,cafeId) {
 		overflow: visible;
 		margin-left: 20px;
 	}
+.stars .fa-star {
+    color: red; /* 원하는 색상으로 변경 */
+}
 </style>
 </head>
 <body>
@@ -219,7 +222,13 @@ function clickreview(memberId,cafeId) {
                     <c:forEach var="cafeReviews" items="${CafeReview}">
                         <c:if test="${not empty cafeReviews.REVIEW}">
                             <p><strong>${cafeReviews.MEMBER_NAME}</strong> 님의 리뷰:</p>
-                            <p>${cafeReviews.POINT}/5.0</p>
+					            <div class="stars">
+					                <!-- POINT 수만큼 별을 보여줌 -->
+					                <c:forEach begin="1" end="${cafeReviews.POINT}" var="i">
+					                    <i class="fas fa-star"></i>
+					                </c:forEach>
+					            </div>
+                            <!-- <p>${cafeReviews.POINT}/5.0</p> -->
                             <p>${cafeReviews.REVIEW}</p>
                             <hr>
                         </c:if>
