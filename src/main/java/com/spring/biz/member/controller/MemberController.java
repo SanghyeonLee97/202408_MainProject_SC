@@ -134,15 +134,21 @@ public class MemberController{
 	    return "redirect:/index";
 	}
 	
+	
 	//회원탈퇴
-	@RequestMapping(value="/프론트_개발용_폴더/deleteAccount.do", method=RequestMethod.POST)
+	@RequestMapping(value = "deleteView.do")
+	public String deleteView() {
+		return "mypage/mypage_unregister";
+	}
+	
+	@RequestMapping(value="/deleteAccount.do", method=RequestMethod.POST)
     public String deleteAccount(HttpSession session) {
         // 세션에서 사용자 정보 가져오기
         MemberDTO memberDTO = (MemberDTO) session.getAttribute("user");
 
         if (memberDTO == null) {
             // 사용자가 로그인하지 않은 경우 처리
-            return "redirect:login.jsp";
+            return "member/login";
         }
 
         // 사용자 계정 삭제
