@@ -11,31 +11,38 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ded7cbd3a93d2a0aae85d1b226274ba2"></script>
 <script>
-$(document).ready(function() {
-    var ratingLabel = $("#rating_label");
-    var ratingMessage = $("#rating_message");
-    var initialScore = $("#test").val();
-    
-    ratingLabel.text("평점: " + initialScore + "/5");
-    
-    if (initialScore <= 2) {
-        ratingMessage.html("별점 <span style='font-size: 1.5em; font-weight: bold; color: black;'>" + initialScore + "</span>점을 주셨네요. 어떤 점이 아쉬웠나요?");
-    } else {
-        ratingMessage.html("별점 <span style='font-size: 1.5em; font-weight: bold; color: black;'>" + initialScore + "</span>점을 주셨네요. 어떤 점이 좋았나요?");
-    }
+	$(document).ready(function() {
+	    var ratingLabel = $("#rating_label");
+	    var ratingMessage = $("#rating_message");
+	    var initialScore = $("#test").val();
+	    
+	    ratingLabel.text("평점: " + initialScore + "/5");
+	    
+	    if (initialScore <= 2) {
+	        ratingMessage.html("별점 <span style='font-size: 1.5em; font-weight: bold; color: black;'>" + initialScore + "</span>점을 주셨네요. 어떤 점이 아쉬웠나요?");
+	    } else {
+	        ratingMessage.html("별점 <span style='font-size: 1.5em; font-weight: bold; color: black;'>" + initialScore + "</span>점을 주셨네요. 어떤 점이 좋았나요?");
+	    }
+	
+	    $(".rate input").on("change", function() {
+	        var score = $(this).val();
+	        
+	        ratingLabel.text("평점: " + score + "/5");
+	
+	        if (score <= 2) {
+	            ratingMessage.html("별점 <span style='font-size: 1.5em; font-weight: bold; color: black;'>" + score + "</span>점을 주셨네요. 어떤 점이 아쉬웠나요?");
+	        } else {
+	            ratingMessage.html("별점 <span style='font-size: 1.5em; font-weight: bold; color: black;'>" + score + "</span>점을 주셨네요. 어떤 점이 좋았나요?");
+	        }
+	    });
+	});
+	
+	var USP = new URLSearchParams(window.location.search);
 
-    $(".rate input").on("change", function() {
-        var score = $(this).val();
-        
-        ratingLabel.text("평점: " + score + "/5");
-
-        if (score <= 2) {
-            ratingMessage.html("별점 <span style='font-size: 1.5em; font-weight: bold; color: black;'>" + score + "</span>점을 주셨네요. 어떤 점이 아쉬웠나요?");
-        } else {
-            ratingMessage.html("별점 <span style='font-size: 1.5em; font-weight: bold; color: black;'>" + score + "</span>점을 주셨네요. 어떤 점이 좋았나요?");
-        }
-    });
-});
+	if (USP.get('memberId') !== '${sessionScope.user.member_id}') {
+	    alert("비정상적 접근");
+	    window.location.href = 'index';
+	}
 </script>
 <style type="text/css">
 
@@ -171,6 +178,8 @@ button.submit-review:hover {
 </style>
 </head>
 <body>
+<c:choose>
+		<c:when test="${not empty cafeInfo}">
 	<input type="hidden" id="test" value="${getReview.POINT}">
 	<div>
 		<div>
@@ -252,6 +261,14 @@ button.submit-review:hover {
 		});
 		marker.setMap(map);
 	</script>	
+</c:when>
+	    <c:when test="${empty cafeInfo}">
+	         <script type="text/javascript">
+		        alert("카페가 존재하지 않습니다.");
+		        window.location.href = 'index';
+		    </script>
+	    </c:when>
+	</c:choose>
 </body>
 </html>
 <%@ include file="../common/footer.jsp" %>
