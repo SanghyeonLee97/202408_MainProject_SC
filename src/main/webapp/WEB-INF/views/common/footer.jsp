@@ -13,19 +13,19 @@ html, body {
 }
 .footer {
 	width: 100%;
-	height: auto;
-	color: #adb1ba;
-	background: black;
+	color: black;
+	background: #EBF5FF;
 	margin-top: 100px;
+	padding-top: 10px;
 }
 
 .footer_A {
-  text-decoration: none; 
-  color: white; 
+  text-decoration: none;
 }
 
 .footer_A:hover {
-  color: #adb1ba;
+  color: #3232FF;
+  cursor: pointer;
 }
 
 </style>
