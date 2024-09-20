@@ -114,7 +114,7 @@
 
 			<div id="mypagediv">
 				
-				<form action="update.do" method="post">
+				<form id="" action="update.do" method="post">
 						 <input type="hidden" name="member_id" value="${sessionScope.user.member_id }">
 			<header>
 				<h4>내 정보 수정</h4>

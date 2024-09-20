@@ -38,7 +38,6 @@ html, body {
   margin:0 auto; 
   position: relative;
   justify-content: space-between;
-  /* overflow: hidden; */
   margin-bottom:30px; 
 }
 .kind_slider {
@@ -79,8 +78,8 @@ aside {
         width: 220px; /* 사이드바 너비 */
         background: beige;
         height: 800px; /* 사이드바 높이를 100%로 설정 */
-        top: 0; /* 상단에 위치 */
-        left: 0; /* 왼쪽에 위치 */
+        transition: transform 0.3s ease;
+        position: sticky;
     }
 
 .filter-button {
@@ -131,6 +130,19 @@ margin-top: 10px;
 function move(cafeId) {		
 	  window.open('detail.do?cafeId=' + cafeId, '_self');
 }
+window.addEventListener('scroll', function() {
+    const aside = document.querySelector('aside');
+    const scrollY = window.scrollY;
+
+    // aside의 높이를 가져옵니다.
+    const asideHeight = aside.offsetHeight;
+
+    // 최대 높이를 화면 높이에서 aside의 높이를 뺀 값으로 설정
+    const maxTop = window.innerHeight - asideHeight;
+
+    // 현재 스크롤 위치와 maxTop을 비교하여 aside의 위치를 설정
+    aside.style.top = Math.min(scrollY, maxTop) + 'px';
+});
 </script>
 </head>
 <body>
