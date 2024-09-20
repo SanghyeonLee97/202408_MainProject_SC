@@ -110,6 +110,18 @@ public class MemberService {
 		 memberMapper.deleteAct(id);
 	 }
 	 
+	// 비밀번호 검사
+    public boolean checkPw(int memberId, String inputPassword) {
+        // 데이터베이스에서 사용자 정보 가져오기
+        MemberDTO member = memberMapper.getMemberInfo(memberId);
+
+        // 입력된 비밀번호와 데이터베이스에 저장된 비밀번호 비교
+        if (member != null) {
+            return member.getPw().equals(inputPassword); // 비밀번호가 일치하는지 확인
+        }
+        return false; // 사용자 정보가 없으면 false 반환
+    }
+	 
 	//이메일 찾기
 	 public MemberDTO findEmail(MemberDTO memberDTO) {
 	       return memberMapper.findEmail(memberDTO);

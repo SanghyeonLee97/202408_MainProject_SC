@@ -101,7 +101,7 @@
 				</header><br><br>
 				<article>	
 						비밀번호 입력시 회원탈퇴가 완료됩니다.<br><br>
-						<input id="unregister" type="text" placeholder="비밀번호를 입력하세요" >
+						<input id="unregister" type="text" name="pw" placeholder="비밀번호를 입력하세요" >
 				</article>
 				<nav>
 					<button id="unregisterbt">탈퇴</button>
@@ -110,6 +110,13 @@
 			</div>
 		</section>
 	</main>
+	<div class="errorMessage">
+	<c:if test="${not empty errorMessage}">
+		<script type="text/javascript">
+			alert('${errorMessage}');
+		</script>
+	</c:if>
+	</div>
 </body>
 </html>
 <%@ include file="../common/footer.jsp" %>

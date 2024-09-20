@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.spring.biz.member.dto.MemberDTO;
 import com.spring.biz.member.mapper.MemberMapper;
@@ -142,7 +143,7 @@ public class MemberController{
 	}
 	
 	@RequestMapping(value="/deleteAccount.do", method=RequestMethod.POST)
-    public String deleteAccount(HttpSession session) {
+    public String deleteAccount(HttpSession session, RedirectAttributes redirectattr, @RequestParam("pw") String pw) {
         // 세션에서 사용자 정보 가져오기
         MemberDTO memberDTO = (MemberDTO) session.getAttribute("user");
 
@@ -150,7 +151,13 @@ public class MemberController{
             // 사용자가 로그인하지 않은 경우 처리
             return "member/login";
         }
-
+        //비밀번호 검사
+        System.out.println("????????????"+memberDTO.getMember_id()+pw);
+        boolean isPw=memberService.checkPw(memberDTO.getMember_id(),pw);
+        if(!isPw) {
+        	redirectattr.addFlashAttribute("errorMessage","비밀번호가 올바르지 않습니다. 다시 시도하세요.");
+        	return "redirect:/deleteView.do";
+        }
         // 사용자 계정 삭제
         memberService.deleteType(memberDTO.getMember_id());
         memberService.deleteMember(memberDTO.getMember_id());
