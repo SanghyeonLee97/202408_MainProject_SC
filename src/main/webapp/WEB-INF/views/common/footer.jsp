@@ -27,6 +27,11 @@ html, body {
   color: #3232FF;
   cursor: pointer;
 }
+hr {
+    background: #dcdcdc;
+    height:1px;
+    border:0;
+}
 
 </style>
 <title>footer</title>
