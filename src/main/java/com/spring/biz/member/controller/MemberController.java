@@ -159,7 +159,7 @@ public class MemberController{
         session.invalidate();
 
         // 탈퇴 후 메인 페이지 또는 다른 페이지로 리디렉션
-        return "redirect:/index";
+        return "mypage/mypage_delete";
     }
 	
 
