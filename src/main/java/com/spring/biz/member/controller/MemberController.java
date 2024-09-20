@@ -154,6 +154,7 @@ public class MemberController{
         // 사용자 계정 삭제
         memberService.deleteType(memberDTO.getMember_id());
         memberService.deleteMember(memberDTO.getMember_id());
+        memberService.deleteAct(memberDTO.getMember_id());
 
         // 세션 무효화
         session.invalidate();
