@@ -103,13 +103,13 @@ public class MemberService {
 	 public void deleteType(int member_id) {
 		 memberMapper.deleteType(member_id);
 	 }
-	 public void deleteMember(int i) {
-	     memberMapper.deleteAccount(i);
-	    }
 	 public void deleteAct(int id) {
 		 memberMapper.deleteAct(id);
 	 }
 	 
+	 public void deleteMember(int i) {
+	     memberMapper.deleteAccount(i);
+	    }
 	// 비밀번호 검사
     public boolean checkPw(int memberId, String inputPassword) {
         // 데이터베이스에서 사용자 정보 가져오기
