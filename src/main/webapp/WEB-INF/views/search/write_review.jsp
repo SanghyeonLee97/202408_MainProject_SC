@@ -162,7 +162,6 @@ button.submit-review:hover {
 	width: 450px;
 	height: 400px;
 	position: relative;
-	border: 1px solid black;
 }
 </style>
 </head>
@@ -234,3 +233,4 @@ button.submit-review:hover {
 	</div>		
 </body>
 </html>
+<%@ include file="../common/footer.jsp" %>

@@ -254,3 +254,4 @@ button.submit-review:hover {
 	</script>	
 </body>
 </html>
+<%@ include file="../common/footer.jsp" %>
