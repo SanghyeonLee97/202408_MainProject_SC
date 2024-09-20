@@ -14,13 +14,11 @@
 		 background: #F8F8FF;
 	}
 	section>aside{
-	
 		width: 220px; height: 400px;
 		float: left;
 		background-color: beige;
 		margin-left: 250px;
-		margin-top: 30px;
-			 
+		margin-top: 30px; 
 	}
 	section>article {
 		width: 1000px;
@@ -31,28 +29,22 @@
 	    width: 350px; 
 	    height: 400px;
 	    float: left;
-	   /*  background: beige;  */
 	    margin-left: 130px;
 	    margin-top: 60px;
 	    overflow: hidden;
 	    border: 5px double #F5ECCE;
-	    
 	}
-	
 	.cafe-container {
 	    position: relative; 
 	    width: 350px; 
 	    height: 300px;
-	    /* background: beige;  */
 	    margin-left: 130px;
 	    margin-top: 70px;
 	}
-	
 	#imgdiv {
 	    width: 350px; 
 	    height: 250px;
 	}
-	
 	.cafe-container a {
 	    display: flex;
 	    flex-direction: column;
@@ -60,12 +52,10 @@
 	    color: black;
 	    align-items: center;
 	}
-	
 	.cafe-container span {
 	    font-size: 16px;
 	    margin-top: 10px;
 	}
-	
 	.cafe-container i {
 	    position: absolute;
 	    bottom : 1px;
@@ -74,30 +64,20 @@
 	    cursor: pointer;
 	    font-size: 36px;
 	}
-	/* aside ul li:hover {
-	
-    	font-size: 18px;  
-		transition: font-size 0.3s ease;
-	} */
 	section>aside ul li {
-  
 		font-size: 14px;
 		background-color: transparent; 	   
 		padding: 5px;
-		
 	}
-	
 	header>h4{
 		position: relative;
 		left: 400px;
 		top: 30px;
 	}
 	section>aside ul li:hover {
-	   
 		font-size: 18px;
 		background-color:#F5ECCE;
 		transition: font-size 0.3s ease, background-color 0.3s ease; 
-		
 	}
 	a {
  		color: black;
@@ -106,12 +86,24 @@
  		color: black;
  	}
  	button.favorite {
-	border: none;
-	background: transparent;
-	cursor: pointer;
-	font-size: 24px; /* 하트 아이콘의 크기 조절 */
-	color: #ff4757; /* 하트 색상 */
-}
+		border: none;
+		background: transparent;
+		cursor: pointer;
+		font-size: 24px; /* 하트 아이콘의 크기 조절 */
+		color: #ff4757; /* 하트 색상 */
+	}
+	div.pagination {
+        text-align: center; /* 중앙 정렬 */
+        margin-left:450px;
+        margin-top: 20px; /* 위쪽 마진 */
+        padding-top:20px;
+        border:none;
+        
+    }
+    .pagination a,strong {
+        margin: 0 20px; /* 양쪽 마진 */
+        text-decoration: none; /* 밑줄 제거 */
+    }
 </style>
 </head>
 <body>
@@ -148,27 +140,27 @@
 					
 			    </div>
 			    </c:forEach>
-			    <!-- <div class="cafe-container">
-			        <a href="">
-			            <img id="imgdiv" alt="" src="">
-			            <span>ㅇㅇ까페</span>
-			        </a>
-			        <i class="fas fa-heart"></i>
-			    </div>
-			    <div class="cafe-container">
-			        <a href="">
-			            <img id="imgdiv" alt="" src="">
-			            <span>ㅇㅇ까페</span>
-			        </a>
-			        <i class="fas fa-heart"></i>
-			    </div>
-			    <div class="cafe-container">
-			        <a href="">
-			            <img id="imgdiv" alt="" src="">
-			            <span>ㅇㅇ까페</span>
-			        </a> 
-			        <i class="fas fa-heart"></i>
-			    </div>-->
+			   
+			<div class="pagination">
+				<nav class="pagination">
+				    <c:if test="${currentPage > 1}">
+				        <a href="myGood.do?member_id=${sessionScope.user.member_id}&page=${currentPage - 1}">이전</a>
+				    </c:if>
+				
+				    <c:forEach var="i" begin="1" end="${totalPages}">
+				        <c:if test="${i == currentPage}">
+				            <strong>${i}</strong>
+				        </c:if>
+				        <c:if test="${i != currentPage}">
+				            <a href="myGood.do?member_id=${sessionScope.user.member_id}&page=${i}">${i}</a>
+				        </c:if>
+				    </c:forEach>
+				
+				    <c:if test="${currentPage < totalPages}">
+				        <a href="myGood.do?member_id=${sessionScope.user.member_id}&page=${currentPage + 1}">다음</a>
+				    </c:if>
+			</nav>
+			</div>
 			</article>
 		</section>
 	</main>

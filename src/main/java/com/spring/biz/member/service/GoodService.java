@@ -35,9 +35,16 @@ public class GoodService {
 	}
 
 	// 데이터베이스에서 카페 정보를 조회
-    public List<CafeDTO> getLikedCafes(int member_id) {
-    	List<CafeDTO> dbCafes = goodMapper.getLikedCafes(member_id);
-    	return dbCafes;
+	public List<CafeDTO> getLikedCafes(int member_id, int page, int pageSize) {
+        Map<String, Object> params = new HashMap<>();
+        params.put("member_id", member_id);
+        params.put("limit", pageSize);
+        params.put("offset", (page - 1) * pageSize);
+        return goodMapper.getLikedCafes(params);
+    }
+
+    public int getLikedCafesCount(int member_id) {
+        return goodMapper.getLikedCafesCount(member_id);
     }
     
     public List<MyReviewDTO> getMyReview(int userid) {

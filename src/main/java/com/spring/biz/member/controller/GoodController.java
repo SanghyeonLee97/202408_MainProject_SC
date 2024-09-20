@@ -31,14 +31,15 @@ public class GoodController {
 	
 	//마이페이지 좋아요
 	@RequestMapping(value = "myGood.do", method = RequestMethod.GET)
-	public ModelAndView getLikedCafes(@RequestParam int member_id) {
-		System.out.println("cccccc======================="+member_id);
-	    List<CafeDTO> cafes = goodService.getLikedCafes(member_id);
-	    for(CafeDTO cc:cafes) {
-	    	System.out.println("cc============"+cc.getCAFE_NAME());
-	    }
+	public ModelAndView getLikedCafes(@RequestParam int member_id,@RequestParam(defaultValue = "1") int page) {
+		int pageSize = 2; // 페이지당 카페 수
+	    int totalCafes = goodService.getLikedCafesCount(member_id); // 전체 카페 수
+	    List<CafeDTO> cafes = goodService.getLikedCafes(member_id, page, pageSize); // 페이징 처리된 카페 목록
+
 	    ModelAndView mav = new ModelAndView("mypage/mypage_like");
-	    mav.addObject("cafes", cafes); // "cafes"가 JSP에서 사용되는 변수 이름입니다]
+	    mav.addObject("cafes", cafes); 
+	    mav.addObject("currentPage", page);
+	    mav.addObject("totalPages", (int) Math.ceil((double) totalCafes / pageSize));
 	    
 	    return mav;
 	}
