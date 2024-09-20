@@ -15,7 +15,6 @@ public interface GoodMapper {
 	public void addReview(Map<String, Object> params);
 	public String addUpdateReview(Map<String, Object> params);
 	public void updateReview(Map<String, Object> params);
-//	public List<CafeDTO> getLikedCafes(int member_id);
 
 	public List<MyReviewDTO> getMyReview(int userid);
 	public void updateReviewDelete(Map<String, Object> params);
