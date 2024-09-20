@@ -146,7 +146,7 @@
   				</table><br><br>		
 			
 	
-				<h5>선호하는 까페 취향을 골라주세요 </h5>
+				<h5>선호하는 카페 취향을 골라주세요 </h5>
 					<label for="franchise">
 						<input type="radio" id="franchise" name='cafe_type' value='F' <c:if test="${info.cafe_type eq 'F' }"> checked </c:if> />프랜차이즈</label>&nbsp;&nbsp;
 					<label for="personal">
