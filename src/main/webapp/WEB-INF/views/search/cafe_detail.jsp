@@ -307,7 +307,7 @@ function clickreview(memberId,cafeId) {
 		    <c:when test="${empty CafeDetail}">
 		         <script type="text/javascript">
 			        alert("카페가 존재하지 않습니다.");
-			        window.location.href = 'search.do';
+			        window.location.href = 'index';
 			    </script>
 		    </c:when>
     	</c:choose>

@@ -126,11 +126,28 @@ display: inline-block;
 margin-top: 10px;
 }
 #no_cafe{
-	font-size: 50px;
-	justify-content: center; /* 가로 정렬 */
-    align-items: center; /* 세로 정렬 */
-	height: 300px;
+	font-size: 35px;
 	display: flex;
+	width: 100%
+}
+.no_cafe{
+font-size: 15px;
+}
+.centered-list {
+    display: flex;             /* Flexbox 사용 */
+    flex-direction: column;   /* 세로 방향으로 정렬 */
+    align-items: center;      /* 가운데 정렬 */
+    justify-content:center;
+    list-style: none;         /* 기본 리스트 스타일 제거 */
+    margin-left:130px;
+    height: 500px;
+}
+
+.centered-list li {
+    text-align: left;         /* 텍스트 왼쪽 정렬 */
+    width: 100%;              /* li 요소의 너비를 100%로 설정 */
+    max-width: 1500px;         /* 최대 너비 설정 (필요에 따라 조정) */
+    margin: 5px 0;           /* 항목 간의 여백 설정 */
 }
 </style>
 <script type="text/javascript">
@@ -236,10 +253,15 @@ margin-top: 10px;
 					    	</div>
 			    		</c:when>
 					    <c:when test="${empty CafeDetail}">
-					        <script type="text/javascript">
-						        alert("카페가 존재하지 않습니다.");
-						        window.location.href = 'search.do';
-						    </script>
+						    
+						    <ul class="centered-list">
+						    	<li id="no_cafe"><p style="color:red">${keyWord}</p>에 대한 검색결과가 없습니다.</li>
+								<li class="no_cafe">단어의 철자가 정확한지 확인해 보세요.</li>
+								<li class="no_cafe">한글을 영어로 혹은 영어를 한글로 입력했는지 확인해 보세요.</li>
+								<li class="no_cafe">검색어의 단어 수를 줄이거나, 보다 일반적인 검색어로 다시 검색해 보세요.</li>
+								<li class="no_cafe">두 단어 이상의 검색어인 경우, 띄어쓰기를 확인해 보세요.</li>
+								<li class="no_cafe">검색 옵션을 변경해서 다시 검색해 보세요.</li>
+							</ul>
 					    </c:when>
     				</c:choose>
 				</div>
