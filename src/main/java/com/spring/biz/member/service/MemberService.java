@@ -52,11 +52,15 @@ public class MemberService {
 		return cnt;
 	}
 	
-	public MemberDTO myInfo(int id) {
+	public MemberDTO myInfo(int member_id) {
+		System.out.println("fnfnfnfnf"+member_id);
         //  매퍼를 통해 이메일로 사용자 정보를 조회합니다
-        MemberDTO memberDTO = memberMapper.getMemberInfo(id);
-
-        // 변환된 생년월일을 설정합니다 (YYMMDD -> YYYY-MM-DD)
+        MemberDTO memberDTO = memberMapper.getMemberInfo(member_id);
+        
+        if (memberDTO == null) {
+            throw new IllegalArgumentException("Member not found for ID: " + member_id);
+        }
+         //변환된 생년월일을 설정합니다 (YYMMDD -> YYYY-MM-DD)
 //        if (memberDTO.getBirthdate() != null && !memberDTO.getBirthdate().isEmpty()) {
 //            // 변환된 생년월일을 모델에 추가
 //            memberDTO.setBirthdate(formatBirthdate(memberDTO.getBirthdate()));
@@ -102,6 +106,9 @@ public class MemberService {
 	 public void deleteMember(int i) {
 	     memberMapper.deleteAccount(i);
 	    }
+	 public void deleteAct(int id) {
+		 memberMapper.deleteAct(id);
+	 }
 	 
 	//이메일 찾기
 	 public MemberDTO findEmail(MemberDTO memberDTO) {

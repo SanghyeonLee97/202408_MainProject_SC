@@ -34,7 +34,7 @@
 	</select>
 	
 	<!-- 개인정보불러오기 -->
-	<select id="getMemberInfo" resultType="com.spring.biz.member.dto.MemberDTO" parameterType="com.spring.biz.member.dto.MemberDTO">
+	<select id="getMemberInfo" resultType="com.spring.biz.member.dto.MemberDTO" parameterType="com.spring.biz.member.dto.MemberDTO" >
 	    SELECT a.member_id, a.email, a.pw, a.member_name, a.member_tel, a.birthdate, a.gender, 
 	           b.cafe_type, b.mood 
 	    FROM member a
@@ -54,11 +54,13 @@
 	
 	<!-- 회원탈퇴 -->
 	<delete id="deleteAccount">
-		delete from member where member_id=${member_id};
+		delete from member where member_id=#{member_id};
 	</delete>
 	<delete id="deleteType">
-		delete from member_like where member_id=${member_id};
-	
+		delete from member_like where member_id=#{member_id};
+	</delete>
+	<delete id="deleteAct">
+		delete from member_act where member_id=#{member_id};
 	</delete>
 	
 	<!-- 이메일 찾기 -->

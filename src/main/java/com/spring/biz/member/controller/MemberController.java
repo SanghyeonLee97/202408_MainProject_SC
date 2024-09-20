@@ -154,12 +154,13 @@ public class MemberController{
         // 사용자 계정 삭제
         memberService.deleteType(memberDTO.getMember_id());
         memberService.deleteMember(memberDTO.getMember_id());
+        memberService.deleteAct(memberDTO.getMember_id());
 
         // 세션 무효화
         session.invalidate();
 
         // 탈퇴 후 메인 페이지 또는 다른 페이지로 리디렉션
-        return "redirect:/index";
+        return "mypage/mypage_delete";
     }
 	
 
