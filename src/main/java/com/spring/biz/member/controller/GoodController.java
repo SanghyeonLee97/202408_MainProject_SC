@@ -37,7 +37,7 @@ public class GoodController {
 		int pageSize = 2; // 페이지당 카페 수
 	    int totalCafes = goodService.getLikedCafesCount(member_id); // 전체 카페 수
 	    List<CafeDTO> cafes = goodService.getLikedCafes(member_id, page, pageSize); // 페이징 처리된 카페 목록
-
+	    System.out.println("=========eee========="+page);
 	    ModelAndView mav = new ModelAndView("mypage/mypage_like");
 	    mav.addObject("cafes", cafes); 
 	    mav.addObject("currentPage", page);

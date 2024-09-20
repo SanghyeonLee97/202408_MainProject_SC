@@ -182,7 +182,6 @@ div.pagination {
 			        
 						<!-- 좋아요 상태에 따라 하트 색상 변경 -->
                         <i class="fas fa-heart" data-cafe-id="${cafe.CAFE_ID}"><a></a></i>
-					
 			    </div>
 			    </c:forEach>
 			   
