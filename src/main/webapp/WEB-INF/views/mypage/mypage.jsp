@@ -130,14 +130,14 @@
 				  	<tr><td>이메일 </td>
 
 				        <td>
-				        	<input id="regform" type="text" readonly="readonly" name="Email" value="${info.email}">
+				        	<input id="regform" type="text" readonly="readonly" name="Email" value="${info.email}" required>
 				        </td>
 				    </tr>
-					<tr><td>비밀번호</td><td><input id="regform" type="password" name="pw" value="${info.pw }"></td></tr>
+					<tr><td>비밀번호</td><td><input id="regform" type="password" name="pw" value="${info.pw }" required></td></tr>
 
 					<tr><td>이름</td>
 					 	<td><input id="regform" type="text" name="member_name" value="${info.member_name }" readonly="readonly"></td></tr>
-					<tr><td>전화번호</td> <td><input id="regform" type="tel" name="member_tel" value="${info.member_tel }"></td></tr>
+					<tr><td>전화번호</td> <td><input id="regform" type="tel" name="member_tel" value="${info.member_tel }" required></td></tr>
 					<tr><td>생년월일</td> <td><input id="regform" type="date" name="birthdate" value="${info.birthdate }" readonly="readonly"></td></tr>
 					<tr><td>성별</td> 	 
 
