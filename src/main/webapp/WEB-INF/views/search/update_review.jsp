@@ -166,7 +166,7 @@ button.submit-review:hover {
 	width: 450px;
 	height: 400px;
 	position: relative;
-	border: 1px solid black;
+	margin-left: 20px;
 }
 </style>
 </head>
