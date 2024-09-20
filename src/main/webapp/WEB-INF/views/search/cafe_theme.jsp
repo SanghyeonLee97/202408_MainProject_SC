@@ -78,8 +78,8 @@ aside {
         width: 220px; /* 사이드바 너비 */
         background: beige;
         height: 800px; /* 사이드바 높이를 100%로 설정 */
-        transition: transform 0.3s ease;
-        position: sticky;
+		transition: transform 0.3s ease;
+		position: sticky;
     }
 
 .filter-button {
@@ -127,22 +127,19 @@ margin-top: 10px;
 }
 </style>
 <script type="text/javascript">
-function move(cafeId) {		
-	  window.open('detail.do?cafeId=' + cafeId, '_self');
-}
-window.addEventListener('scroll', function() {
-    const aside = document.querySelector('aside');
-    const scrollY = window.scrollY;
-
-    // aside의 높이를 가져옵니다.
-    const asideHeight = aside.offsetHeight;
-
-    // 최대 높이를 화면 높이에서 aside의 높이를 뺀 값으로 설정
-    const maxTop = window.innerHeight - asideHeight;
-
-    // 현재 스크롤 위치와 maxTop을 비교하여 aside의 위치를 설정
-    aside.style.top = Math.min(scrollY, maxTop) + 'px';
-});
+	function move(cafeId) {		
+		  window.open('detail.do?cafeId=' + cafeId, '_self');
+	}
+	window.addEventListener('scroll', function() {
+		const aside = document.querySelector('aside');
+	    const scrollY = window.scrollY;
+	    // aside의 높이를 가져옵니다.
+	    const asideHeight = aside.offsetHeight;
+	    // 최대 높이를 화면 높이에서 aside의 높이를 뺀 값으로 설정
+	    const maxTop = window.innerHeight - asideHeight;
+	    // 현재 스크롤 위치와 maxTop을 비교하여 aside의 위치를 설정
+	    aside.style.top = Math.min(scrollY, maxTop) + 'px';
+	});
 </script>
 </head>
 <body>
@@ -150,61 +147,59 @@ window.addEventListener('scroll', function() {
 	<div class="container-fluid" >
 		<div>
 			<aside>
-			<ul>
-   				<li>
-    					거리
-					<ul>
-						<li><a id="100" href="search.do?Category=100" onclick="updateHref(event)">100 미터 거리</a></li>
-				        <li><a id="200" href="search.do?Category=200" onclick="updateHref(event)">200 미터 거리</a></li>
-				        <li><a id="300" href="search.do?Category=300" onclick="updateHref(event)">300 미터 거리</a></li>
-				        <li><a id="400" href="search.do?Category=400" onclick="updateHref(event)">400 미터 거리</a></li>
-				        <li><a id="500" href="search.do?Category=500" onclick="updateHref(event)">500 미터 거리</a></li>
-				        <li><a id="600" href="search.do?Category=600" onclick="updateHref(event)">600 미터 거리</a></li>
-				        <li><a id="700" href="search.do?Category=700" onclick="updateHref(event)">700 미터 거리</a></li>
-				        <li><a id="800" href="search.do?Category=800" onclick="updateHref(event)">800 미터 거리</a></li>
-				        <li><a id="900" href="search.do?Category=900" onclick="updateHref(event)">900 미터 거리</a></li>
-				        <li><a id="1000" href="search.do?Category=1000" onclick="updateHref(event)">1000 미터 거리</a></li>
-				        <li><a id="1100" href="search.do?Category=1100" onclick="updateHref(event)">1100 미터 거리</a></li>
-				        <li><a id="1200" href="search.do?Category=1200" onclick="updateHref(event)">1200 미터 거리</a></li>
-					</ul>
-				</li>
-				<li>
-					연령대
-					 <ul>
-						<li><a id="age10_like_cnt" href="search.do?Category=age10_like_cnt" onclick="updateHref(event)">10대</a></li>
-				        <li><a id="age20_like_cnt" href="search.do?Category=age20_like_cnt" onclick="updateHref(event)">20대</a></li>
-				        <li><a id="age30_like_cnt" href="search.do?Category=age30_like_cnt" onclick="updateHref(event)">30대</a></li>
-				        <li><a id="age40_like_cnt" href="search.do?Category=age40_like_cnt" onclick="updateHref(event)">40대</a></li>
-				        <li><a id="age50_like_cnt" href="search.do?Category=age50_like_cnt" onclick="updateHref(event)">50대</a></li>
-				        <li><a id="age60_like_cnt" href="search.do?Category=age60_like_cnt" onclick="updateHref(event)">60대</a></li>
-					</ul>
-				</li>
-				<li>
-					편의기능
-					<ul>
-						<li><a id="wifi" href="search.do?Category=wifi" onclick="updateHref(event)">와이파이</a></li>
-						<li><a id="smokingroom" href="search.do?Category=smokingroom" onclick="updateHref(event)">흡연실</a></li>
-				        <li><a id="wheelchair" href="search.do?Category=wheelchair" onclick="updateHref(event)">휠체어</a></li>
-				        <li><a id="parking" href="search.do?Category=parking" onclick="updateHref(event)">주차</a></li>
-				        <li><a id="anientry" href="search.do?Category=anientry" onclick="updateHref(event)">반려동물</a></li>
-				        <li><a id="playroom" href="search.do?Category=playroom" onclick="updateHref(event)">놀이방</a></li>
-					</ul>	
-				</li>
-				<li>
-					분위기
-					<ul>
-						<li><a id="M01" href="search.do?Category=M01" onclick="updateHref(event)">가성비좋은</a></li>
-						<li><a id="M02" href="search.do?Category=M02" onclick="updateHref(event)">고급스러운</a></li>
-						<li><a id="M03" href="search.do?Category=M03" onclick="updateHref(event)">예쁜</a></li>
-						<li><a id="M04" href="search.do?Category=M04" onclick="updateHref(event)">격식있는</a></li>
-						<li><a id="M05" href="search.do?Category=M05" onclick="updateHref(event)">이색적인</a></li>
-					</ul>
-				</li>
-			</ul>
-		</aside>
+				<ul>
+	   				<li>거리
+						<ul>
+							<li><a id="100" href="search.do?Category=100" onclick="updateHref(event)">100 미터 거리</a></li>
+					        <li><a id="200" href="search.do?Category=200" onclick="updateHref(event)">200 미터 거리</a></li>
+					        <li><a id="300" href="search.do?Category=300" onclick="updateHref(event)">300 미터 거리</a></li>
+					        <li><a id="400" href="search.do?Category=400" onclick="updateHref(event)">400 미터 거리</a></li>
+					        <li><a id="500" href="search.do?Category=500" onclick="updateHref(event)">500 미터 거리</a></li>
+					        <li><a id="600" href="search.do?Category=600" onclick="updateHref(event)">600 미터 거리</a></li>
+					        <li><a id="700" href="search.do?Category=700" onclick="updateHref(event)">700 미터 거리</a></li>
+					        <li><a id="800" href="search.do?Category=800" onclick="updateHref(event)">800 미터 거리</a></li>
+					        <li><a id="900" href="search.do?Category=900" onclick="updateHref(event)">900 미터 거리</a></li>
+					        <li><a id="1000" href="search.do?Category=1000" onclick="updateHref(event)">1000 미터 거리</a></li>
+					        <li><a id="1100" href="search.do?Category=1100" onclick="updateHref(event)">1100 미터 거리</a></li>
+					        <li><a id="1200" href="search.do?Category=1200" onclick="updateHref(event)">1200 미터 거리</a></li>
+						</ul>
+					</li>
+					<li>연령대
+						 <ul>
+							<li><a id="age10_like_cnt" href="search.do?Category=age10_like_cnt" onclick="updateHref(event)">10대</a></li>
+					        <li><a id="age20_like_cnt" href="search.do?Category=age20_like_cnt" onclick="updateHref(event)">20대</a></li>
+					        <li><a id="age30_like_cnt" href="search.do?Category=age30_like_cnt" onclick="updateHref(event)">30대</a></li>
+					        <li><a id="age40_like_cnt" href="search.do?Category=age40_like_cnt" onclick="updateHref(event)">40대</a></li>
+					        <li><a id="age50_like_cnt" href="search.do?Category=age50_like_cnt" onclick="updateHref(event)">50대</a></li>
+					        <li><a id="age60_like_cnt" href="search.do?Category=age60_like_cnt" onclick="updateHref(event)">60대</a></li>
+						</ul>
+					</li>
+					<li>편의기능
+						<ul>
+							<li><a id="wifi" href="search.do?Category=wifi" onclick="updateHref(event)">와이파이</a></li>
+							<li><a id="smokingroom" href="search.do?Category=smokingroom" onclick="updateHref(event)">흡연실</a></li>
+					        <li><a id="wheelchair" href="search.do?Category=wheelchair" onclick="updateHref(event)">휠체어</a></li>
+					        <li><a id="parking" href="search.do?Category=parking" onclick="updateHref(event)">주차</a></li>
+					        <li><a id="anientry" href="search.do?Category=anientry" onclick="updateHref(event)">반려동물</a></li>
+					        <li><a id="playroom" href="search.do?Category=playroom" onclick="updateHref(event)">놀이방</a></li>
+						</ul>	
+					</li>
+					<li>분위기
+						<ul>
+							<li><a id="M01" href="search.do?Category=M01" onclick="updateHref(event)">가성비좋은</a></li>
+							<li><a id="M02" href="search.do?Category=M02" onclick="updateHref(event)">고급스러운</a></li>
+							<li><a id="M03" href="search.do?Category=M03" onclick="updateHref(event)">예쁜</a></li>
+							<li><a id="M04" href="search.do?Category=M04" onclick="updateHref(event)">격식있는</a></li>
+							<li><a id="M05" href="search.do?Category=M05" onclick="updateHref(event)">이색적인</a></li>
+						</ul>
+					</li>
+				</ul>
+			</aside>
 		</div>
 		<div>
-			<div id="map"></div>
+			<c:if test="${not empty SRArrCDTO}">
+				<div id="map"></div>
+			</c:if>
 			<div style=" margin-left: 50px;">
 				<div class="button-group">
 		            <button id="like_cnt" name="search.do?Category=like_cnt" type="button" class="filter-button" onclick="clickButton(event)">좋아요 많은순</button>
@@ -212,78 +207,84 @@ window.addEventListener('scroll', function() {
 		            <button id="m_like_cnt" name="search.do?Category=m_like_cnt" type="button" class="filter-button" onclick="clickButton(event)">남자 좋아요</button>
 		            <button id="f_like_cnt" name="search.do?Category=f_like_cnt" type="button" class="filter-button" onclick="clickButton(event)">여자 좋아요</button>
 		        </div>
-			     <div class="kind_wrap">
-				    <div class='kind_slider'>
-			    		<ul class="slider">
-			    		<c:forEach var="likeCafe" items="${SRArrCDTO}">
-			                <li>
-			                    <div class="card" style="width: 330px;" onclick="move('${likeCafe.CAFE_ID}')">
-			                        <img src="https://${likeCafe.IMAGE_URL}" class="card-img-top" alt="${likeCafe.CAFE_NAME}">
-			                        <div class="card-body" style="height: 80px;">
-			                            <h5 class="card-title" style="margin-bottom: 10px;">${likeCafe.CAFE_NAME}</h5>
-			                            <c:if test="${not empty likeCafe.REVIEW_POINT}">
-			                            	<div class="rating-text">리뷰점수:${likeCafe.REVIEW_POINT}점</div>
-			                            </c:if>
-			                        </div>
-			                    </div>
-			                </li>
-			            </c:forEach>
-			            </ul>
-			    	</div>
+				<div class="kind_wrap">
+					<c:choose>
+						<c:when test="${not empty SRArrCDTO}">
+						    <div class='kind_slider'>
+					    		<ul class="slider">
+					    		<c:forEach var="likeCafe" items="${SRArrCDTO}">
+					                <li>
+					                    <div class="card" style="width: 330px;" onclick="move('${likeCafe.CAFE_ID}')">
+					                        <img src="https://${likeCafe.IMAGE_URL}" class="card-img-top" alt="${likeCafe.CAFE_NAME}">
+					                        <div class="card-body" style="height: 80px;">
+					                            <h5 class="card-title" style="margin-bottom: 10px;">${likeCafe.CAFE_NAME}</h5>
+					                            <c:if test="${not empty likeCafe.REVIEW_POINT}">
+					                            	<div class="rating-text">리뷰점수:${likeCafe.REVIEW_POINT}점</div>
+					                            </c:if>
+					                        </div>
+					                    </div>
+					                </li>
+					            </c:forEach>
+					            </ul>
+					    	</div>
+			    		</c:when>
+					    <c:when test="${empty CafeDetail}">
+					        <p>카페가 존재하지 않습니다.</p>
+					    </c:when>
+    				</c:choose>
 				</div>
 			</div>
 		</div>
 	</div>
-<script type="text/javascript">
-var map;
-
-function initializeMap() {
-    var mapContainer = document.getElementById('map');
-    var mapOption = { 
-        center: new kakao.maps.LatLng(${SRArrCDTO[0].LATITUDE}, ${SRArrCDTO[0].LONGITUDE}),
-        level: 3
-    };
-    
-    // 지도 객체 생성
-    map = new kakao.maps.Map(mapContainer, mapOption);
-
-    // 지도 표시 후 크기 조정
-    setTimeout(function() {
-        kakao.maps.event.trigger(map, 'resize'); // 지도 크기 조정
-    });
-
-    // 마커 위치 설정
-    var positions = [
-    	<c:forEach var="cafe" items="${SRArrCDTO}" varStatus="status">
-	        {
-	            title: '${cafe.CAFE_NAME}', 
-	            latlng: new kakao.maps.LatLng(${cafe.LATITUDE}, ${cafe.LONGITUDE})
-	        }<c:if test="${!status.last}">,</c:if>
-    	</c:forEach>
-    ];
-    var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
-    for (var i = 0; i < positions.length; i++) {
-        var imageSize = new kakao.maps.Size(24, 35); 
-        var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize); 
-        var marker = new kakao.maps.Marker({
-            map: map,
-            position: positions[i].latlng,
-            title : positions[i].title,
-            image : markerImage
-        });
-    }
-}
-
-// 페이지가 로드된 후 지도를 초기화
-window.onload = initializeMap;
-
-// 창 크기 조정 시 지도가 제대로 표시되도록 보장
-window.onresize = function() {
-    if (map) {
-        kakao.maps.event.trigger(map, 'resize');
-    }
-};
-</script>
+	<script type="text/javascript">
+	var map;
+	
+	function initializeMap() {
+	    var mapContainer = document.getElementById('map');
+	    var mapOption = { 
+	        center: new kakao.maps.LatLng(${SRArrCDTO[0].LATITUDE}, ${SRArrCDTO[0].LONGITUDE}),
+	        level: 3
+	    };
+	    
+	    // 지도 객체 생성
+	    map = new kakao.maps.Map(mapContainer, mapOption);
+	
+	    // 지도 표시 후 크기 조정
+	    setTimeout(function() {
+	        kakao.maps.event.trigger(map, 'resize'); // 지도 크기 조정
+	    });
+	
+	    // 마커 위치 설정
+	    var positions = [
+	    	<c:forEach var="cafe" items="${SRArrCDTO}" varStatus="status">
+		        {
+		            title: '${cafe.CAFE_NAME}', 
+		            latlng: new kakao.maps.LatLng(${cafe.LATITUDE}, ${cafe.LONGITUDE})
+		        }<c:if test="${!status.last}">,</c:if>
+	    	</c:forEach>
+	    ];
+	    var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
+	    for (var i = 0; i < positions.length; i++) {
+	        var imageSize = new kakao.maps.Size(24, 35); 
+	        var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize); 
+	        var marker = new kakao.maps.Marker({
+	            map: map,
+	            position: positions[i].latlng,
+	            title : positions[i].title,
+	            image : markerImage
+	        });
+	    }
+	}
+	// 페이지가 로드된 후 지도를 초기화
+	window.onload = initializeMap;
+	
+	// 창 크기 조정 시 지도가 제대로 표시되도록 보장
+	window.onresize = function() {
+	    if (map) {
+	        kakao.maps.event.trigger(map, 'resize');
+	    }
+	};
+	</script>
 </body>
 </html>
 <%@ include file="../common/footer.jsp" %>
