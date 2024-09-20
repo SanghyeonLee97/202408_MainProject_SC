@@ -10,21 +10,21 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 <title>좋아요 한 페이지</title>
 <style type="text/css">
-	body{
-		 background: #F8F8FF;
+body{
+	background: #F8F8FF;
 	}
-	section>aside{
-		width: 220px; height: 400px;
-		float: left;
-		background-color: beige;
-		margin-left: 250px;
-		margin-top: 30px; 
+section>aside{
+	width: 220px; height: 400px;
+	float: left;
+	background-color: beige;
+	margin-left: 250px;
+	margin-top: 30px; 
 	}
-	section>article {
-		width: 1000px;
-		float: left;
+section>article {
+	width: 1000px;
+	float: left;
 	}
-	section>article>div {
+section>article>div {
 	    position: relative;
 	    width: 350px; 
 	    height: 400px;
@@ -41,22 +41,22 @@
 	    margin-left: 130px;
 	    margin-top: 70px;
 	}
-	#imgdiv {
+#imgdiv {
 	    width: 350px; 
 	    height: 250px;
 	}
-	.cafe-container a {
+.cafe-container a {
 	    display: flex;
 	    flex-direction: column;
 	    text-decoration: none;
 	    color: black;
 	    align-items: center;
 	}
-	.cafe-container span {
+.cafe-container span {
 	    font-size: 16px;
 	    margin-top: 10px;
 	}
-	.cafe-container i {
+.cafe-container i {
 	    position: absolute;
 	    bottom : 1px;
 	    right: 10px;
@@ -64,67 +64,105 @@
 	    cursor: pointer;
 	    font-size: 36px;
 	}
-	section>aside ul li {
+section>aside ul li {
 		font-size: 14px;
 		background-color: transparent; 	   
 		padding: 5px;
 	}
-	header>h4{
+header>h4{
 		position: relative;
-		left: 400px;
+		left: 465px;
 		top: 30px;
+		
 	}
-	section>aside ul li:hover {
+section>aside ul li:hover {
 		font-size: 18px;
 		background-color:#F5ECCE;
 		transition: font-size 0.3s ease, background-color 0.3s ease; 
 	}
-	a {
+a {
  		color: black;
  	}
- 	a:hover {
+a:hover {
  		color: black;
  	}
- 	button.favorite {
+button.favorite {
 		border: none;
 		background: transparent;
 		cursor: pointer;
 		font-size: 24px; /* 하트 아이콘의 크기 조절 */
 		color: #ff4757; /* 하트 색상 */
 	}
-	div.pagination {
-        text-align: center; /* 중앙 정렬 */
-        margin-left:450px;
-        margin-top: 20px; /* 위쪽 마진 */
-        padding-top:20px;
+div.pagination {
+        margin-left: 320px;
         border:none;
+        width: auto;
+        height: auto;
         
     }
-    .pagination a,strong {
-        margin: 0 20px; /* 양쪽 마진 */
-        text-decoration: none; /* 밑줄 제거 */
+.pagination a,strong {
+	margin: 0 20px; /* 양쪽 마진 */
     }
+
+
+/* 페이징 네비게이션 항목 스타일 */
+.pagination li {
+    margin: 0 1px;
+}
+
+/* 페이징 네비게이션 링크 스타일 */
+.pagination a {
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #007bff;
+    border: 1px solid #007bff;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* 페이징 네비게이션 링크 호버 스타일 */
+.pagination a:hover {
+    background-color: #007bff;
+    color: #fff;
+}
+
+/* 현재 페이지 스타일 */
+.pagination .active a {
+    border: 1px solid #007bff; /* 활성화된 페이지에도 border 추가 */
+    border-radius: 5px; /* 모서리 둥글게 */
+    padding: 10px 15px; /* 패딩 추가 */
+    background-color: #007bff; /* 배경색 추가 */
+    color: #fff; /* 글자색 */
+    font-weight: bold; /* 글자 굵기 강조 */
+}
+
+/* 비활성화된 링크 스타일 (이전/다음) */
+.pagination .disabled a {
+    color: #6c757d;
+    border-color: #6c757d;
+    pointer-events: none;
+}    
 </style>
 </head>
 <body>
 	<main>
-		<section>
+		<section> 
 			<aside>
 				<ul>
 					<li><a href="info.do?member_id=${sessionScope.user.member_id }">내 정보 수정</a></li>
 				</ul>
 				<h5>&nbsp;&nbsp;&nbsp;나의 활동</h5>
 				<ul>
-					<li><a href="myGood.do?member_id=${sessionScope.user.member_id }" >좋아요 누른 까페</a></li>
-					<li><a href="goMyReview.do?member_id=${sessionScope.user.member_id }">리뷰를 작성한 까페</a></li>
+					<li><a href="myGood.do?member_id=${sessionScope.user.member_id }" >좋아요 누른 카페</a></li>
+					<li><a href="goMyReview.do?member_id=${sessionScope.user.member_id }">리뷰를 작성한 카페</a></li>
 				</ul>
 				<ul>
 					<li><a href="deleteView.do">회원탈퇴</a></li>
 				</ul>
 			</aside>
 			<header>
-			
-				<h4>좋아요 누른 까페</h4>
+				<h4>좋아요 누른 카페</h4>
 			</header>
 			<article>
 			<c:forEach var="cafe" items="${cafes}">
@@ -149,7 +187,7 @@
 				
 				    <c:forEach var="i" begin="1" end="${totalPages}">
 				        <c:if test="${i == currentPage}">
-				            <strong>${i}</strong>
+				            <li class="active"><a href="#">${i}</a></li>
 				        </c:if>
 				        <c:if test="${i != currentPage}">
 				            <a href="myGood.do?member_id=${sessionScope.user.member_id}&page=${i}">${i}</a>

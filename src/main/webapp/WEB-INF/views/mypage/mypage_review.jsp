@@ -107,8 +107,8 @@ function deleteReview(memberId,cafeId) {
 				</ul>
 				<h5>&nbsp;&nbsp;&nbsp;나의 활동</h5>
 				<ul>		
-					<li><a href="myGood.do?member_id=${sessionScope.user.member_id }" >좋아요 누른 까페</a></li>
-					<li><a href="goMyReview.do?member_id=${sessionScope.user.member_id }">리뷰를 작성한 까페</a></li>
+					<li><a href="myGood.do?member_id=${sessionScope.user.member_id }" >좋아요 누른 카페</a></li>
+					<li><a href="goMyReview.do?member_id=${sessionScope.user.member_id }">리뷰를 작성한 카페</a></li>
 				</ul>
 				<ul>
 					<li><a href="deleteView.do">회원탈퇴</a></li>
