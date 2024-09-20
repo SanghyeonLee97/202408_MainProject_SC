@@ -125,6 +125,13 @@ margin-left: 50px;
 display: inline-block;
 margin-top: 10px;
 }
+#no_cafe{
+	font-size: 50px;
+	justify-content: center; /* 가로 정렬 */
+    align-items: center; /* 세로 정렬 */
+	height: 300px;
+	display: flex;
+}
 </style>
 <script type="text/javascript">
 	function move(cafeId) {		
@@ -229,7 +236,10 @@ margin-top: 10px;
 					    	</div>
 			    		</c:when>
 					    <c:when test="${empty CafeDetail}">
-					        <p>카페가 존재하지 않습니다.</p>
+					        <script type="text/javascript">
+						        alert("카페가 존재하지 않습니다.");
+						        window.location.href = 'search.do';
+						    </script>
 					    </c:when>
     				</c:choose>
 				</div>

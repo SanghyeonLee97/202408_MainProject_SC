@@ -64,7 +64,7 @@ function clickreview(memberId,cafeId) {
 	    flex-direction: column;
 	    align-items: center;
 	    width: 100%;
-	    max-width: 1200px;
+	    max-width: 1500px;
 	    margin: 0 auto;
 	    border: 5px double #F5ECCE;
 	    border-radius: 8px;
@@ -207,6 +207,14 @@ function clickreview(memberId,cafeId) {
     font-size: 12px;
     min-width: 60px; /* 최소 너비 설정 (필요시 조정) */
 }
+#no_cafe{
+	font-size: 50px;
+	text-align:center;
+	align-items: center;
+	display: flex;
+	height: 280px;
+}
+
 </style>
 </head>
 <body>
@@ -297,7 +305,10 @@ function clickreview(memberId,cafeId) {
 		        </div>
         	</c:when>
 		    <c:when test="${empty CafeDetail}">
-		        <p>카페가 존재하지 않습니다.</p>
+		         <script type="text/javascript">
+			        alert("카페가 존재하지 않습니다.");
+			        window.location.href = 'search.do';
+			    </script>
 		    </c:when>
     	</c:choose>
 	</div>
