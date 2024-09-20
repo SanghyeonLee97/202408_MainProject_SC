@@ -8,12 +8,18 @@
 <meta charset="UTF-8">
 <title>리뷰 쓴 페이지</title>
 <script type="text/javascript">
-function updateReview(memberId,cafeId) {
-	window.location.href = 'goUpdateReview.do?memberId='+memberId+'&cafeId='+cafeId;
-}
-function deleteReview(memberId,cafeId) {
-	window.location.href = 'deleteReview.do?memberId='+memberId+'&cafeId='+cafeId;
-}
+	function updateReview(memberId,cafeId) {
+		window.location.href = 'goUpdateReview.do?memberId='+memberId+'&cafeId='+cafeId;
+	}
+	function deleteReview(memberId,cafeId) {
+		window.location.href = 'deleteReview.do?memberId='+memberId+'&cafeId='+cafeId;
+	}
+	var USP = new URLSearchParams(window.location.search);
+	
+	if (USP.get('member_id') !== '${sessionScope.user.member_id}') {
+	    alert("비정상적 접근");
+	    window.location.href = 'index';
+	}
 </script>
 <style type="text/css">
 	body{

@@ -11,11 +11,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.spring.biz.common.dto.CafeDTO;
 import com.spring.biz.member.dto.MemberDTO;
 import com.spring.biz.member.service.GoodService;
+import com.spring.biz.search.dto.ReviewDTO;
 import com.spring.biz.search.service.CafeDetail;
 import com.spring.biz.search.service.GetReview;
 
@@ -118,12 +120,17 @@ public class GoodController {
 	@RequestMapping("deleteReview.do")
 	public String deleteReview(@RequestParam("memberId") String memberId,
 							@RequestParam("cafeId") String cafeId,
+							@SessionAttribute(value="user", required = false) MemberDTO mdto,
 							Model model) {
-		String deleteUpdate = goodService.add_OR_updateReview(memberId, cafeId);
-		if(deleteUpdate != null) {
-			goodService.updateReviewDelete(memberId, cafeId);
-		}else {
-			goodService.deleteReviewDelete(memberId, cafeId);
+		if(mdto!=null) {
+			if(mdto.getMember_id()==Integer.parseInt(memberId)) {
+				String deleteUpdate = goodService.add_OR_updateReview(memberId, cafeId);
+				if(deleteUpdate != null) {
+					goodService.updateReviewDelete(memberId, cafeId);
+				}else {
+					goodService.deleteReviewDelete(memberId, cafeId);
+				}
+			}
 		}
 		return "redirect:goMyReview.do?member_id="+memberId;
 	}
@@ -155,7 +162,10 @@ public class GoodController {
 		model.addAttribute("memberId", memberId);
 		model.addAttribute("cafeInfo", cafeDetail.cafeDetail(cafeId));
 		model.addAttribute("CafeDetail", cafeDetail.cafeDetail(cafeId));
-		model.addAttribute("getReview", getReview.getReview(cafeId).get(0));
+		List<ReviewDTO> reviews = getReview.getReview(cafeId);
+		if (reviews != null && !reviews.isEmpty()) {
+		    model.addAttribute("getReview", reviews.get(0));
+		}
 		return "search/update_review";
 	}
 	

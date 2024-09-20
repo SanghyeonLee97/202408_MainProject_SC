@@ -218,9 +218,9 @@ function clickreview(memberId,cafeId) {
 </style>
 </head>
 <body>
-    <div class="container">
-	    <c:choose>
-			<c:when test="${not empty CafeDetail}">
+	<c:choose>
+		<c:when test="${not empty CafeDetail}">
+			<div class="container">
 		        <div class="cafe_map">
 		            <img src="https://${CafeDetail.IMAGE_URL}" alt="${CafeDetail.CAFE_NAME}">
 		            <div id="map"></div>
@@ -303,15 +303,15 @@ function clickreview(memberId,cafeId) {
 						</div>
 		            </section>
 		        </div>
-        	</c:when>
-		    <c:when test="${empty CafeDetail}">
-		         <script type="text/javascript">
-			        alert("카페가 존재하지 않습니다.");
-			        window.location.href = 'index';
-			    </script>
-		    </c:when>
-    	</c:choose>
-	</div>
+	        </div>
+       	</c:when>
+	    <c:when test="${empty CafeDetail}">
+	         <script type="text/javascript">
+		        alert("카페가 존재하지 않습니다.");
+		        window.location.href = 'index';
+		    </script>
+	    </c:when>
+   	</c:choose>
     <script>
 	    var mapContainer = document.getElementById('map'),
 	    mapOption = { 
