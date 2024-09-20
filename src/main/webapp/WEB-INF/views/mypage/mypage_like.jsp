@@ -105,6 +105,13 @@
         text-decoration: none; /* 밑줄 제거 */
     }
 </style>
+<script type="text/javascript">
+   	var USP = new URLSearchParams(window.location.search);
+    if (USP.get('member_id') !== '${sessionScope.user.member_id}') {
+        alert("비정상적 접근");
+        window.location.href = 'index';
+    }
+</script>
 </head>
 <body>
 	<main>

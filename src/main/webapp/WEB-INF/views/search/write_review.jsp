@@ -165,73 +165,90 @@ button.submit-review:hover {
 	margin-left: 20px;
 }
 </style>
+<script type="text/javascript">
+   	var USP = new URLSearchParams(window.location.search);
+    if (USP.get('memberId') !== '${sessionScope.user.member_id}') {
+        alert("비정상적 접근");
+        window.location.href = 'index';
+    }
+</script>
 </head>
 <body>
-	<div>
-		<div>
-			<div class="container">
-				<div class='write_map'>
-					<img src="https://${cafeInfo.IMAGE_URL}">
-					<div id="map"></div>
-				</div>
-				<div id="cafe_info">
-					<h3>${cafeInfo.CAFE_NAME}</h3>
-				</div>
-				<form action="writeReview.do">
-					<input type="hidden" name="memberId" value="${memberId}">
-					<input type="hidden" name="cafeId" value="${cafeInfo.CAFE_ID}">
-					<section style="height: 1000px;">
-						<div class='cafe_info'>
-							<fieldset class="rate">
-					            <input type="radio" id="rating5" name="rating" value="5"><label for="rating5" title="5점"></label>
-					            <input type="radio" id="rating4" name="rating" value="4"><label for="rating4" title="4점"></label>
-					            <input type="radio" id="rating3" name="rating" value="3"><label for="rating3" title="3점"></label>
-					            <input type="radio" id="rating2" name="rating" value="2"><label for="rating2" title="2점"></label>
-					            <input type="radio" id="rating1" name="rating" value="1" checked="checked"><label for="rating1" title="1점"></label>
-							</fieldset>
+	<c:choose>
+		<c:when test="${not empty cafeInfo}">
+			<div>
+				<div>
+					<div class="container">
+						<div class='write_map'>
+							<img src="https://${cafeInfo.IMAGE_URL}">
+							<div id="map"></div>
 						</div>
-						<section id="cafe_mood_section">
-						    <h4>이 카페의 분위기는 어떤가요?</h4>
-						    <fieldset>
-						        <input type="radio" id="mood1" name="cafe_mood" value="M01" required>
-						        <label for="mood1">가성비 좋은 카페</label><br>
-						        <input type="radio" id="mood2" name="cafe_mood" value="M02">
-						        <label for="mood2">고급스러운 카페</label><br>
-						        <input type="radio" id="mood3" name="cafe_mood" value="M03">
-						        <label for="mood3">예쁜 카페</label><br>
-						        <input type="radio" id="mood4" name="cafe_mood" value="M04">
-						        <label for="mood4">격식 있는 카페</label><br>
-						        <input type="radio" id="mood5" name="cafe_mood" value="M05">
-						        <label for="mood5">이색적인 카페</label><br>
-						    </fieldset>
-						</section>
-						<div id='write_example'>
-							<div id="rating_message"></div>
-						    <textarea name="review" required="required"></textarea>
-						    <div id="submit_container">
-						        <button class="submit-review" type='submit'>작성</button>
-						    </div>
+						<div id="cafe_info">
+							<h3>${cafeInfo.CAFE_NAME}</h3>
 						</div>
-					</section>
-				</form>
+						<form action="writeReview.do">
+							<input type="hidden" name="memberId" value="${memberId}">
+							<input type="hidden" name="cafeId" value="${cafeInfo.CAFE_ID}">
+							<section style="height: 1000px;">
+								<div class='cafe_info'>
+									<fieldset class="rate">
+							            <input type="radio" id="rating5" name="rating" value="5"><label for="rating5" title="5점"></label>
+							            <input type="radio" id="rating4" name="rating" value="4"><label for="rating4" title="4점"></label>
+							            <input type="radio" id="rating3" name="rating" value="3"><label for="rating3" title="3점"></label>
+							            <input type="radio" id="rating2" name="rating" value="2"><label for="rating2" title="2점"></label>
+							            <input type="radio" id="rating1" name="rating" value="1" checked="checked"><label for="rating1" title="1점"></label>
+									</fieldset>
+								</div>
+								<section id="cafe_mood_section">
+								    <h4>이 카페의 분위기는 어떤가요?</h4>
+								    <fieldset>
+								        <input type="radio" id="mood1" name="cafe_mood" value="M01" required>
+								        <label for="mood1">가성비 좋은 카페</label><br>
+								        <input type="radio" id="mood2" name="cafe_mood" value="M02">
+								        <label for="mood2">고급스러운 카페</label><br>
+								        <input type="radio" id="mood3" name="cafe_mood" value="M03">
+								        <label for="mood3">예쁜 카페</label><br>
+								        <input type="radio" id="mood4" name="cafe_mood" value="M04">
+								        <label for="mood4">격식 있는 카페</label><br>
+								        <input type="radio" id="mood5" name="cafe_mood" value="M05">
+								        <label for="mood5">이색적인 카페</label><br>
+								    </fieldset>
+								</section>
+								<div id='write_example'>
+									<div id="rating_message"></div>
+								    <textarea name="review" required="required"></textarea>
+								    <div id="submit_container">
+								        <button class="submit-review" type='submit'>작성</button>
+								    </div>
+								</div>
+							</section>
+						</form>
+					</div>
+				</div>	
+				<script>
+				    var mapContainer = document.getElementById('map'),
+				    mapOption = { 
+				        center: new kakao.maps.LatLng(${CafeDetail.LATITUDE}, ${CafeDetail.LONGITUDE}),
+				        level: 3
+				    };
+				    
+					var map = new kakao.maps.Map(mapContainer, mapOption);
+			
+					var markerPosition  = new kakao.maps.LatLng(${CafeDetail.LATITUDE}, ${CafeDetail.LONGITUDE}); 
+					var marker = new kakao.maps.Marker({
+					    position: markerPosition
+					});
+					marker.setMap(map);
+				</script>
 			</div>
-		</div>	
-		 <script>
-	    var mapContainer = document.getElementById('map'),
-	    mapOption = { 
-	        center: new kakao.maps.LatLng(${CafeDetail.LATITUDE}, ${CafeDetail.LONGITUDE}),
-	        level: 3
-	    };
-	    
-		var map = new kakao.maps.Map(mapContainer, mapOption);
-
-		var markerPosition  = new kakao.maps.LatLng(${CafeDetail.LATITUDE}, ${CafeDetail.LONGITUDE}); 
-		var marker = new kakao.maps.Marker({
-		    position: markerPosition
-		});
-		marker.setMap(map);
-	</script>
-	</div>		
+		</c:when>
+	    <c:when test="${empty cafeInfo}">
+	         <script type="text/javascript">
+		        alert("카페가 존재하지 않습니다.");
+		        window.location.href = 'index';
+		    </script>
+	    </c:when>
+	</c:choose>
 </body>
 </html>
 <%@ include file="../common/footer.jsp" %>
