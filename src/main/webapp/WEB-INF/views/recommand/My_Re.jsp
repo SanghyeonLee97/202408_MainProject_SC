@@ -64,9 +64,14 @@ width: 300px; height: 200px;
   }
 </style>
 <script type="text/javascript">
-function move(cafeId) {		
-	  window.open('detail.do?cafeId=' + cafeId, '_self');
-}
+	function move(cafeId) {		
+		  window.open('detail.do?cafeId=' + cafeId, '_self');
+	}
+   	var USP = new URLSearchParams(window.location.search);
+    if (USP.get('memberId') !== '${sessionScope.user.member_id}') {
+        alert("비정상적 접근");
+        window.location.href = 'index';
+    }
 </script>
 </head>
 <body style="background-color: #F8F8FF">

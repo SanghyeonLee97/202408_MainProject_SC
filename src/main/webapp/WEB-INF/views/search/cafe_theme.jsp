@@ -253,9 +253,98 @@ font-size: 15px;
 					    	</div>
 			    		</c:when>
 					    <c:when test="${empty CafeDetail}">
-						    
 						    <ul class="centered-list">
-						    	<li id="no_cafe"><p style="color:red">${keyWord}</p>에 대한 검색결과가 없습니다.</li>
+						    	<li id="no_cafe"><p style="color:red">${keyWord}
+						    		<c:choose>
+										<c:when test="${param.Category == '100'}">
+											100 미터 거리
+										</c:when>
+										<c:when test="${param.Category == '200'}">
+											200 미터 거리
+										</c:when>
+										<c:when test="${param.Category == '300'}">
+											300 미터 거리
+										</c:when>
+										<c:when test="${param.Category == '400'}">
+											400 미터 거리
+										</c:when>
+										<c:when test="${param.Category == '500'}">
+											500 미터 거리
+										</c:when>
+										<c:when test="${param.Category == '600'}">
+											600 미터 거리
+										</c:when>
+										<c:when test="${param.Category == '700'}">
+											700 미터 거리
+										</c:when>
+										<c:when test="${param.Category == '800'}">
+											800 미터 거리
+										</c:when>
+										<c:when test="${param.Category == '900'}">
+											900 미터 거리
+										</c:when>
+										<c:when test="${param.Category == '1000'}">
+											1000 미터 거리
+										</c:when>
+										<c:when test="${param.Category == '1100'}">
+											1100 미터 거리
+										</c:when>
+										<c:when test="${param.Category == '1200'}">
+											1200 미터 거리
+										</c:when>
+										<c:when test="${param.Category == 'age10_like_cnt'}">
+											10대
+										</c:when>
+										<c:when test="${param.Category == 'age20_like_cnt'}">
+											20대
+										</c:when>
+										<c:when test="${param.Category == 'age30_like_cnt'}">
+											30대
+										</c:when>
+										<c:when test="${param.Category == 'age40_like_cnt'}">
+											40대
+										</c:when>
+										<c:when test="${param.Category == 'age50_like_cnt'}">
+											50대
+										</c:when>
+										<c:when test="${param.Category == 'age60_like_cnt'}">
+											60대
+										</c:when>
+										<c:when test="${param.Category == 'wifi'}">
+											와이파이
+										</c:when>
+										<c:when test="${param.Category == 'smokingroom'}">
+											흡연실
+										</c:when>
+										<c:when test="${param.Category == 'wheelchair'}">
+											휠체어
+										</c:when>
+										<c:when test="${param.Category == 'parking'}">
+											주차
+										</c:when>
+										<c:when test="${param.Category == 'anientry'}">
+											반려동물
+										</c:when>
+										<c:when test="${param.Category == 'playroom'}">
+											놀이방
+										</c:when>
+										<c:when test="${param.Category == 'M01'}">
+											가성비좋은
+										</c:when>
+										<c:when test="${param.Category == 'M02'}">
+											고급스러운
+										</c:when>
+										<c:when test="${param.Category == 'M03'}">
+											예쁜
+										</c:when>
+										<c:when test="${param.Category == 'M04'}">
+											격식있는
+										</c:when>
+										<c:when test="${param.Category == 'M05'}">
+											이색적인
+										</c:when>
+							    	</c:choose>
+						    	</p>에 대한 검색결과가 없습니다.</li>
 								<li class="no_cafe">단어의 철자가 정확한지 확인해 보세요.</li>
 								<li class="no_cafe">한글을 영어로 혹은 영어를 한글로 입력했는지 확인해 보세요.</li>
 								<li class="no_cafe">검색어의 단어 수를 줄이거나, 보다 일반적인 검색어로 다시 검색해 보세요.</li>
