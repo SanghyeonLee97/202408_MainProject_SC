@@ -140,7 +140,7 @@ function move(cafeId) {
 			<aside>
 			<ul>
    				<li>
-    					거리별
+    					거리
 					<ul>
 						<li><a id="100" href="search.do?Category=100" onclick="updateHref(event)">100 미터 거리</a></li>
 				        <li><a id="200" href="search.do?Category=200" onclick="updateHref(event)">200 미터 거리</a></li>
@@ -157,7 +157,7 @@ function move(cafeId) {
 					</ul>
 				</li>
 				<li>
-					연령별
+					연령대
 					 <ul>
 						<li><a id="age10_like_cnt" href="search.do?Category=age10_like_cnt" onclick="updateHref(event)">10대</a></li>
 				        <li><a id="age20_like_cnt" href="search.do?Category=age20_like_cnt" onclick="updateHref(event)">20대</a></li>
@@ -179,7 +179,7 @@ function move(cafeId) {
 					</ul>	
 				</li>
 				<li>
-					테마별
+					분위기
 					<ul>
 						<li><a id="M01" href="search.do?Category=M01" onclick="updateHref(event)">가성비좋은</a></li>
 						<li><a id="M02" href="search.do?Category=M02" onclick="updateHref(event)">고급스러운</a></li>
