@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="../common/header.jsp" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -149,12 +150,6 @@ font-size: 15px;
     max-width: 1500px;         /* 최대 너비 설정 (필요에 따라 조정) */
     margin: 5px 0;           /* 항목 간의 여백 설정 */
 }
-#theme{
-	font-size: 20px;
-}
-.theme{
-	font-size: 15px;
-}
 </style>
 <script type="text/javascript">
 	function move(cafeId) {		
@@ -178,49 +173,70 @@ font-size: 15px;
 		<div>
 			<aside>
 				<ul>
-	   				<li id="theme">거리
-						<ul class="theme">
-							<li><a id="100" href="search.do?Category=100" onclick="updateHref(event)">100 미터 거리</a></li>
-					        <li><a id="200" href="search.do?Category=200" onclick="updateHref(event)">200 미터 거리</a></li>
-					        <li><a id="300" href="search.do?Category=300" onclick="updateHref(event)">300 미터 거리</a></li>
-					        <li><a id="400" href="search.do?Category=400" onclick="updateHref(event)">400 미터 거리</a></li>
-					        <li><a id="500" href="search.do?Category=500" onclick="updateHref(event)">500 미터 거리</a></li>
-					        <li><a id="600" href="search.do?Category=600" onclick="updateHref(event)">600 미터 거리</a></li>
-					        <li><a id="700" href="search.do?Category=700" onclick="updateHref(event)">700 미터 거리</a></li>
-					        <li><a id="800" href="search.do?Category=800" onclick="updateHref(event)">800 미터 거리</a></li>
-					        <li><a id="900" href="search.do?Category=900" onclick="updateHref(event)">900 미터 거리</a></li>
-					        <li><a id="1000" href="search.do?Category=1000" onclick="updateHref(event)">1000 미터 거리</a></li>
-					        <li><a id="1100" href="search.do?Category=1100" onclick="updateHref(event)">1100 미터 거리</a></li>
-					        <li><a id="1200" href="search.do?Category=1200" onclick="updateHref(event)">1200 미터 거리</a></li>
+	   				<li>거리
+						<ul>
+							<c:forEach var="ran" items="${['100','200','300','400','500','600',
+														'700','800','900','1000','1100','1200']}">
+								<c:choose>
+									<c:when test="${param.Category == ran}">
+										<p style="font-weight: bold;">${ran} 미터 거리</p>
+									</c:when>
+									<c:when test="${param.Category != ran}">
+										<li><a id="${ran}" href="search.do?Category=${ran}" onclick="updateHref(event)">${ran} 미터 거리</a></li>
+									</c:when>
+								</c:choose>
+							</c:forEach>
 						</ul>
 					</li>
-					<li id="theme">연령대
-						 <ul class="theme">
-							<li><a id="age10_like_cnt" href="search.do?Category=age10_like_cnt" onclick="updateHref(event)">10대</a></li>
-					        <li><a id="age20_like_cnt" href="search.do?Category=age20_like_cnt" onclick="updateHref(event)">20대</a></li>
-					        <li><a id="age30_like_cnt" href="search.do?Category=age30_like_cnt" onclick="updateHref(event)">30대</a></li>
-					        <li><a id="age40_like_cnt" href="search.do?Category=age40_like_cnt" onclick="updateHref(event)">40대</a></li>
-					        <li><a id="age50_like_cnt" href="search.do?Category=age50_like_cnt" onclick="updateHref(event)">50대</a></li>
-					        <li><a id="age60_like_cnt" href="search.do?Category=age60_like_cnt" onclick="updateHref(event)">60대</a></li>
+					<li>연령대
+						<ul>
+							<c:forEach var="age" items="${['age10_like_cnt','age20_like_cnt','age30_like_cnt',
+														'age40_like_cnt','age50_like_cnt','age60_like_cnt']}">
+								<c:choose>
+									<c:when test="${param.Category == age}">
+										<p style="font-weight: bold;">${fn:substring(age,3,5)}대</p>
+									</c:when>
+									<c:when test="${param.Category != age}">
+										<li><a id="${age}" href="search.do?Category=${age}" onclick="updateHref(event)">${fn:substring(age,3,5)}대</a></li>
+									</c:when>
+								</c:choose>
+							</c:forEach>
 						</ul>
 					</li>
-					<li id="theme">편의기능
-						<ul class="theme">
-							<li><a id="wifi" href="search.do?Category=wifi" onclick="updateHref(event)">와이파이</a></li>
-							<li><a id="smokingroom" href="search.do?Category=smokingroom" onclick="updateHref(event)">흡연실</a></li>
-					        <li><a id="wheelchair" href="search.do?Category=wheelchair" onclick="updateHref(event)">휠체어</a></li>
-					        <li><a id="parking" href="search.do?Category=parking" onclick="updateHref(event)">주차</a></li>
-					        <li><a id="anientry" href="search.do?Category=anientry" onclick="updateHref(event)">반려동물</a></li>
-					        <li><a id="playroom" href="search.do?Category=playroom" onclick="updateHref(event)">놀이방</a></li>
+					<li>편의기능
+						<ul>
+							<c:set var="eng" value="${['wifi','smokingroom','wheelchair',
+													'parking','anientry','playroom']}" />
+							<c:set var="kor" value="${['와이파이','흡연실','휠체어',
+													 '주차','반려동물','놀이방']}" />
+							<c:forEach var="category" items="${eng}" varStatus="i">
+							    <c:choose>
+							        <c:when test="${param.Category == category}">
+							            <p style="font-weight: bold;">${kor[i.index]}</p>
+							        </c:when>
+							        <c:when test="${param.Category != category}">
+							            <li><a id="${category}" href="search.do?Category=${category}" onclick="updateHref(event)">${kor[i.index]}</a></li>
+							        </c:when>
+							    </c:choose>
+							</c:forEach>
 						</ul>	
 					</li>
-					<li id="theme">분위기
-						<ul class="theme">
-							<li><a id="M01" href="search.do?Category=M01" onclick="updateHref(event)">가성비좋은</a></li>
-							<li><a id="M02" href="search.do?Category=M02" onclick="updateHref(event)">고급스러운</a></li>
-							<li><a id="M03" href="search.do?Category=M03" onclick="updateHref(event)">예쁜</a></li>
-							<li><a id="M04" href="search.do?Category=M04" onclick="updateHref(event)">격식있는</a></li>
-							<li><a id="M05" href="search.do?Category=M05" onclick="updateHref(event)">이색적인</a></li>
+					<li>분위기
+						<ul>
+							<c:set var="id" value="${['M01','M02','M03','M04','M05']}" />
+							<c:set var="mood" value="${['가성비좋은','고급스러운','예쁜','격식있는','이색적인']}" />
+							<c:forEach var="category" items="${id}" varStatus="i">
+							    <c:choose>
+							        <c:when test="${param.Category == category}">
+							            <p style="font-weight: bold;">${mood[i.index]}</p>
+							        </c:when>
+							        <c:when test="${param.Category != category}">
+							            <li><a id="${category}" href="search.do?Category=${category}" 
+							            	onclick="updateHref(event)">${mood[i.index]}</a>
+							            </li>
+							        </c:when>
+							    </c:choose>
+							</c:forEach>
 						</ul>
 					</li>
 				</ul>
@@ -232,10 +248,22 @@ font-size: 15px;
 			</c:if>
 			<div style=" margin-left: 50px;">
 				<div class="button-group">
-		            <button id="like_cnt" name="search.do?Category=like_cnt" type="button" class="filter-button" onclick="clickButton(event)">좋아요 많은순</button>
-		            <button id="review_cnt" name="search.do?Category=review_cnt" type="button" class="filter-button" onclick="clickButton(event)">리뷰 많은순</button>
-		            <button id="m_like_cnt" name="search.do?Category=m_like_cnt" type="button" class="filter-button" onclick="clickButton(event)">남자 좋아요</button>
-		            <button id="f_like_cnt" name="search.do?Category=f_like_cnt" type="button" class="filter-button" onclick="clickButton(event)">여자 좋아요</button>
+		            <button id="like_cnt" name="search.do?Category=like_cnt" 
+		            type="button" class="filter-button" onclick="clickButton(event)">
+		            	좋아요 많은순
+		            </button>
+		            <button id="review_cnt" name="search.do?Category=review_cnt"
+					type="button" class="filter-button" onclick="clickButton(event)">
+		             	리뷰 많은순
+		             </button>
+		            <button id="m_like_cnt" name="search.do?Category=m_like_cnt"
+					type="button" class="filter-button" onclick="clickButton(event)">
+						남자 좋아요
+					</button>
+		            <button id="f_like_cnt" name="search.do?Category=f_like_cnt"
+					type="button" class="filter-button" onclick="clickButton(event)">
+						여자 좋아요
+					</button>
 		        </div>
 				<div class="kind_wrap">
 					<c:choose>
