@@ -146,9 +146,14 @@
 	    width: 100%;              /* li 요소의 너비를 100%로 설정 */
 	    max-width: 1500px;         /* 최대 너비 설정 (필요에 따라 조정) */
 	    margin: 5px 0;           /* 항목 간의 여백 설정 */
+	    list-style: none; 
+	    margin: 0;
+	    padding: 0;
 	}
 	#theme{
-	    font-size: 20px;
+	   font-size: 20px;
+	   list-style: none; 
+	     
 	    }
 	.theme{
 	    font-size: 15px;
@@ -176,13 +181,13 @@
 		<div>
 			<aside>
 				<ul>
-					<li id="theme">연령대거리
+					<li id="theme">거리
 						<ul class="theme">
 							<c:forEach var="ran" items="${['100','200','300','400','500','600',
 														'700','800','900','1000','1100','1200']}">
 								<c:choose>
 									<c:when test="${param.Category == ran}">
-										<p style="font-weight: bold;">${ran} 미터 거리</p>
+										<p style="font-weight: bold;font-size:16px; height: 5px;">${ran} 미터 거리</p>
 									</c:when>
 									<c:when test="${param.Category != ran}">
 										<li><a id="${ran}" href="search.do?Category=${ran}" onclick="updateHref(event)">${ran} 미터 거리</a></li>
@@ -197,7 +202,7 @@
 														'age40_like_cnt','age50_like_cnt','age60_like_cnt']}">
 								<c:choose>
 									<c:when test="${param.Category == age}">
-										<p style="font-weight: bold;">${fn:substring(age,3,5)}대</p>
+										<p style="font-weight: bold;font-size:16px; height: 5px;">${fn:substring(age,3,5)}대</p>
 									</c:when>
 									<c:when test="${param.Category != age}">
 										<li><a id="${age}" href="search.do?Category=${age}" onclick="updateHref(event)">${fn:substring(age,3,5)}대</a></li>
@@ -215,7 +220,7 @@
 							<c:forEach var="category" items="${eng}" varStatus="i">
 							    <c:choose>
 							        <c:when test="${param.Category == category}">
-							            <p style="font-weight: bold;">${kor[i.index]}</p>
+							            <p style="font-weight: bold; font-size:16px; height: 5px;">${kor[i.index]}</p>
 							        </c:when>
 							        <c:when test="${param.Category != category}">
 							            <li><a id="${category}" href="search.do?Category=${category}" onclick="updateHref(event)">${kor[i.index]}</a></li>
@@ -231,7 +236,7 @@
 							<c:forEach var="category" items="${id}" varStatus="i">
 							    <c:choose>
 							        <c:when test="${param.Category == category}">
-							            <p style="font-weight: bold;">${mood[i.index]}</p>
+							            <p style="font-weight: bold; font-size:16px; height: 5px;">${mood[i.index]}</p>
 							        </c:when>
 							        <c:when test="${param.Category != category}">
 							            <li><a id="${category}" href="search.do?Category=${category}" 
