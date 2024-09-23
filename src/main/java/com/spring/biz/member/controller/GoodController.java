@@ -38,7 +38,7 @@ public class GoodController {
 		int pageSize = 2; // 페이지당 카페 수
 	    int totalCafes = goodService.getLikedCafesCount(member_id); // 전체 카페 수
 	    List<CafeDTO> cafes = goodService.getLikedCafes(member_id, page, pageSize); // 페이징 처리된 카페 목록
-	    System.out.println("=========eee========="+page);
+	    
 	    ModelAndView mav = new ModelAndView("mypage/mypage_like");
 	    mav.addObject("cafes", cafes); 
 	    mav.addObject("currentPage", page);
@@ -67,13 +67,11 @@ public class GoodController {
 	@RequestMapping(value="removeCafeLike.do",method=RequestMethod.POST,produces="application/json;charset=UTF-8")
 	@ResponseBody
 	public String removeLike(@RequestParam("cafe_id") String cafe_id,HttpSession session) {
-		System.out.println("취소================="+cafe_id);
 		MemberDTO id = (MemberDTO)session.getAttribute("user");
 		if(id !=null && cafe_id !=null) {
 			int member_id = id.getMember_id();
 			goodService.removeLike(String.valueOf(member_id), cafe_id);
 			goodService.deleteNull(String.valueOf(member_id), cafe_id);
-			System.out.println("멤버아이디============"+member_id);
 			
 			return String.format("{\"success\":true, \"member_id\": \"%d\"}", member_id);
 		}else {

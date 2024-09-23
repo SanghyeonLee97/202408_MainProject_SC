@@ -34,7 +34,7 @@ public class GoodService {
 		return params;
 	}
 
-	// 데이터베이스에서 카페 정보를 조회
+
 	public List<CafeDTO> getLikedCafes(int member_id, int page, int pageSize) {
         Map<String, Object> params = new HashMap<>();
         params.put("member_id", member_id);

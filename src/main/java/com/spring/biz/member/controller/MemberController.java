@@ -50,13 +50,11 @@ public class MemberController{
 	
 	@RequestMapping(value="/addMember.do",method = RequestMethod.POST)
 	public String processAddMember(MemberDTO memberDTO) {
-		System.out.println("========등록처리");
 		if(memberDTO == null) {
 			return "member/register";
 		}
 		memberService.addMember(memberDTO);
 		memberService.addLike(memberDTO);
-		System.out.println("등록처리 완료==========================");
 		return "member/login";
 	}
 	
@@ -64,7 +62,6 @@ public class MemberController{
 	
 	@RequestMapping(value="/login.do", method=RequestMethod.GET)
 	public String loginView() {
-		System.out.println("=============로그인처리 get");
 
 		return "member/login";
 	}
@@ -103,11 +100,9 @@ public class MemberController{
 	//개인정보불러오기
 	@RequestMapping(value="/info.do", method=RequestMethod.GET)
 	public String info(@RequestParam int member_id, Model model) {
-	    System.out.println("개인정보=============================="+member_id);
 	    
 	    // 서비스 클래스를 통해 사용자 정보를 조회합니다
 	    MemberDTO memberInfo = memberService.myInfo(member_id);
-	    System.out.println("이름이름이름이름================"+memberInfo.getMember_name());
 	    // 모델에 사용자 정보를 추가합니다
 	    model.addAttribute("info", memberInfo);
 	    System.out.println(memberInfo.getMember_id());
@@ -118,10 +113,8 @@ public class MemberController{
 	//개인정보 수정
 	@RequestMapping(value="/update.do", method=RequestMethod.POST)
 	public String updateInfo(@ModelAttribute MemberDTO memberDTO) throws Exception {
-	    System.out.println("수정처리 완료==========================");
 	    memberService.updateInfo(memberDTO);
 	    memberService.updateLike(memberDTO);
-	    System.out.println("????????????????"+memberDTO.getMember_id());
 
 	    return "redirect:info.do?member_id="+memberDTO.getMember_id();
 	}
@@ -204,11 +197,9 @@ public class MemberController{
 	@ResponseBody
     public String findpw(@RequestParam("member_name") String memberName,
                             @RequestParam("email") String email) {
-		System.out.println("Contro============================"+memberName+email);
         MemberDTO memberDTO = new MemberDTO();
         memberDTO.setMember_name(memberName);
         memberDTO.setEmail(email);
-        System.out.println(memberDTO.getMember_name()+"======="+memberDTO.getEmail()+"=========="+memberDTO.getPw());
         MemberDTO result = memberService.findpw(memberDTO);
         
 
