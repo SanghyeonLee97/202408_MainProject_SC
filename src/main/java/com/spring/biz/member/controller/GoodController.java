@@ -155,7 +155,6 @@ public class GoodController {
 							@RequestParam("review") String review,
 							@RequestParam("cafe_mood") String cafe_mood,
 							Model model) {
-		System.out.println(cafe_mood);
 		String addUpdate = goodService.add_OR_updateReview(memberId, cafeId);
 		if(addUpdate != null) {
 			goodService.updateReview(memberId,cafeId,Float.parseFloat(rating),review,cafe_mood);
