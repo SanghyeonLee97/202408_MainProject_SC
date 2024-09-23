@@ -121,7 +121,7 @@
 				</ul>
 			</aside>
 			<header>
-				<h4>리뷰를 작성한 까페</h4>
+				<h4>리뷰를 작성한 카페</h4>
 			</header>
 			<article>
 				
