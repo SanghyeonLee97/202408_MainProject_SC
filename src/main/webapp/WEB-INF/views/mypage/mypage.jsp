@@ -91,7 +91,11 @@
  		margin-bottom: 20px;
  		cursor: pointer;
  	}
+ 	.regfromc {
+ 		background: lightgray;
+ 	}
 </style>
+	
 <script type="text/javascript">
    	var USP = new URLSearchParams(window.location.search);
     if (USP.get('member_id') !== '${sessionScope.user.member_id}') {
@@ -130,13 +134,13 @@
 				  	<tr><td>이메일 </td>
 
 				        <td>
-				        	<input id="regform" type="text" readonly="readonly" name="Email" value="${info.email}" required>
+				        	<input id="regform" class="regfromc" type="text" readonly="readonly" name="Email" value="${info.email}" required>
 				        </td>
 				    </tr>
 					<tr><td>비밀번호</td><td><input id="regform" type="password" name="pw" value="${info.pw }" required></td></tr>
 
 					<tr><td>이름</td>
-					 	<td><input id="regform" type="text" name="member_name" value="${info.member_name }" readonly="readonly"></td></tr>
+					 	<td><input id="regform" class="regfromc" type="text" name="member_name" value="${info.member_name }" readonly="readonly"></td></tr>
 					<tr><td>전화번호</td> <td><input id="regform" type="tel" name="member_tel" value="${info.member_tel }" required></td></tr>
 					<tr><td>생년월일</td> <td><input id="regform" type="date" name="birthdate" value="${info.birthdate }" readonly="readonly"></td></tr>
 					<tr><td>성별</td> 	 
