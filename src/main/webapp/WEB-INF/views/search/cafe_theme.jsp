@@ -21,135 +21,138 @@
 	}
 </script>
 <style type="text/css">
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: row;
-    background-color: #F8F8FF
-}
-.kind_wrap {
-  border:3px solid #464646; 
-  border-radius : 50px;
-  background-color:#F0F8FF;
-  width:1200px; 
-  max-width:2000px; 
-  height : 100%;
-  margin:0 auto; 
-  position: relative;
-  justify-content: space-between;
-  margin-bottom:30px; 
-}
-.kind_slider {
-  overflow: hidden;
-  position: relative;
-  flex-wrap: wrap;
-  gap: 10px; /* 카드 사이의 간격 */
-}
-.slider { 
-  position: relative; 
-  transition: 0.5s;
-  justify-content: space-around;
-  display: flex;
-  list-style: none;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-li {
-  flex: 0 0 auto; 
-   list-style: none;
-}
-img {
- display: block; 
-}
-
-
-.theme_img .rating-text {
-	margin-top: 5px; /* 이미지와 텍스트 사이의 여백 */
-}
-
-.button-group {
-	margin-top: 10px; /* 버튼 그룹과 이미지 사이의 여백 */
-	margin-top: 0; /* 버튼 그룹의 상단 여백 제거 */
-    padding: 0; /* 버튼 그룹의 패딩 제거 */
-}
-
-aside {
-        width: 220px; /* 사이드바 너비 */
-        background: beige;
-        height: 800px; /* 사이드바 높이를 100%로 설정 */
-		transition: transform 0.3s ease;
-		position: sticky;
+	html, body {
+	    height: 100%;
+	    margin: 0;
+	    padding: 0;
+	    display: flex;
+	    flex-direction: row;
+	    background-color: #F8F8FF
+	}
+	.kind_wrap {
+	  border:3px solid #464646; 
+	  border-radius : 50px;
+	  background-color:#F0F8FF;
+	  width:1200px; 
+	  max-width:2000px; 
+	  height : 100%;
+	  margin:0 auto; 
+	  position: relative;
+	  justify-content: space-between;
+	  margin-bottom:30px; 
+	}
+	.kind_slider {
+	  overflow: hidden;
+	  position: relative;
+	  flex-wrap: wrap;
+	  gap: 10px; /* 카드 사이의 간격 */
+	}
+	.slider { 
+	  position: relative; 
+	  transition: 0.5s;
+	  justify-content: space-around;
+	  display: flex;
+	  list-style: none;
+	  flex-wrap: wrap;
+	  gap: 10px;
+	}
+	li {
+	  flex: 0 0 auto; 
+	   list-style: none;
+	}
+	img {
+	 display: block; 
+	}
+	.theme_img .rating-text {
+		margin-top: 5px; /* 이미지와 텍스트 사이의 여백 */
+	}
+	.button-group {
+		margin-top: 10px; /* 버튼 그룹과 이미지 사이의 여백 */
+		margin-top: 0; /* 버튼 그룹의 상단 여백 제거 */
+	    padding: 0; /* 버튼 그룹의 패딩 제거 */
+	}
+	aside {
+	        width: 220px; /* 사이드바 너비 */
+	        background: beige;
+	        height: 800px; /* 사이드바 높이를 100%로 설정 */
+			transition: transform 0.3s ease;
+			position: sticky;
+	}
+	.filter-button {
+		background-color: #F4E1D2; /* 버튼 배경색 */
+		border: 1px solid #ccc; /* 버튼 테두리 색 */
+		border-radius: 5px; /* 버튼 테두리 둥글게 */
+		padding: 5px 10px; /* 버튼 패딩 */
+		margin: 5px 0; /* 버튼 사이의 여백 */
+		cursor: pointer; /* 커서 변경 */
+	}
+	.filter-button:hover {
+		background-color: skyblue; /* 버튼 호버 배경색 */
+	}
+	#main_img{
+		width: 100px; height: 100px;
+	}
+	.card{
+		margin-top: 40px;
+		border: none;
+		transition: transform .5s;
+		transform: scale(1.0);
+		margin-right: 25px
+	}
+	.card-img-top{
+		width: 330px; height: 200px;
+	}
+	.card:hover{
+		transform: scale(1.1);  
+		transition: transform .5s; 
+	}
+	li {
+		flex: 0 0 auto; 
+		list-style: none;
+	}
+	.container-fluid{
+		max-width: 1500px;
+		display: flex;
+	}
+	a{
+		text-decoration: none; color : black
+	}
+	#map{
+		width: 96%;
+		height: 300px; 
+		margin-left: 50px;
+		display: inline-block;
+		margin-top: 10px;
+	}
+	#no_cafe{
+		font-size: 35px;
+		display: flex;
+		width: 100%
+	}
+	.no_cafe{
+		font-size: 15px;
+	}
+	.centered-list {
+	    display: flex;             /* Flexbox 사용 */
+	    flex-direction: column;   /* 세로 방향으로 정렬 */
+	    align-items: center;      /* 가운데 정렬 */
+	    justify-content:center;
+	    list-style: none;         /* 기본 리스트 스타일 제거 */
+	    margin-left:130px;
+	    height: 500px;
+	}
+	.centered-list li {
+	    text-align: left;         /* 텍스트 왼쪽 정렬 */
+	    width: 100%;              /* li 요소의 너비를 100%로 설정 */
+	    max-width: 1500px;         /* 최대 너비 설정 (필요에 따라 조정) */
+	    margin: 5px 0;           /* 항목 간의 여백 설정 */
+	}
+	#theme{
+	    font-size: 20px;
+	    }
+	.theme{
+	    font-size: 15px;
     }
-
-.filter-button {
-	background-color: #F4E1D2; /* 버튼 배경색 */
-	border: 1px solid #ccc; /* 버튼 테두리 색 */
-	border-radius: 5px; /* 버튼 테두리 둥글게 */
-	padding: 5px 10px; /* 버튼 패딩 */
-	margin: 5px 0; /* 버튼 사이의 여백 */
-	cursor: pointer; /* 커서 변경 */
-}
-
-.filter-button:hover {
-	background-color: skyblue; /* 버튼 호버 배경색 */
-}
-#main_img{width: 100px; height: 100px;}
-.card{
-margin-top: 40px;
-border: none;
-transition: transform .5s;
-transform: scale(1.0);
-margin-right: 25px
-}
-.card-img-top{
-width: 330px; height: 200px;
-}
-.card:hover{
-transform: scale(1.1);  
-	transition: transform .5s; 
-}
-li {
-  flex: 0 0 auto; 
-   list-style: none;
-}
-.container-fluid{
-max-width: 1500px;
-display: flex;
-}
-a{text-decoration: none; color : black}
-#map{
-width: 96%;
-height: 300px; 
-margin-left: 50px;
-display: inline-block;
-margin-top: 10px;
-}
-#no_cafe{
-	font-size: 35px;
-	display: flex;
-	width: 100%
-}
-.no_cafe{
-font-size: 15px;
-}
-.centered-list {
-    display: flex;             /* Flexbox 사용 */
-    flex-direction: column;   /* 세로 방향으로 정렬 */
-    align-items: center;      /* 가운데 정렬 */
-    justify-content:center;
-    list-style: none;         /* 기본 리스트 스타일 제거 */
-    margin-left:130px;
-    height: 500px;
-}
-
-.centered-list li {
-    text-align: left;         /* 텍스트 왼쪽 정렬 */
-    width: 100%;              /* li 요소의 너비를 100%로 설정 */
-    max-width: 1500px;         /* 최대 너비 설정 (필요에 따라 조정) */
-    margin: 5px 0;           /* 항목 간의 여백 설정 */
-}
 </style>
 <script type="text/javascript">
 	function move(cafeId) {		
