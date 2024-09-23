@@ -100,12 +100,14 @@ button.favorite {
 		color: #ff4757; /* 하트 색상 */
 	}
 div.pagination {
-        margin-left: 320px;
-        border:none;
-        width: auto;
-        height: auto;
-        
-    }
+    margin-left: 130px; /* cafe-container와 동일한 여백 */
+    margin-top: 20px;   /* 위쪽 여백 추가 */
+    clear: both;        /* float 해제 */
+    text-align: center; /* 가운데 정렬 */
+    border: none;
+    width: auto;
+    height: auto;
+}
 .pagination a,strong {
 	margin: 0 20px; /* 양쪽 마진 */
     }
