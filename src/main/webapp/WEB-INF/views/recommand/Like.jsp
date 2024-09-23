@@ -54,9 +54,9 @@ transform: scale(1.0);
 img{
 width: 300px; height: 200px;
 }
-.card:hover{background-color: #ebe7b7;
-  				transform: scale(1.1);  
-    			transition: transform .5s; 
+.card:hover{
+	transform: scale(1.1);  
+	transition: transform .5s; 
   	}
   	#container {
     display: flex;

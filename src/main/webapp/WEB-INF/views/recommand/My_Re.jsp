@@ -56,8 +56,8 @@ img{
 width: 300px; height: 200px;
 }
 .card:hover{
-  				transform: scale(1.1);  
-    			transition: transform .5s; 
+  		transform: scale(1.1);  
+    	transition: transform .5s; 
   	}
   	.container-fluid{
   width: 1500px;

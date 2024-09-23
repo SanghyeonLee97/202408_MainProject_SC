@@ -7,45 +7,55 @@
 <script src="https://kit.fontawesome.com/266ec42c05.js" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
 <style type="text/css">
-	#main{
-		margin-left:20px; 
-		font-size: 50px; 
-	}
-	.content-head{ 
-		height: 100px; 
-		display: flex; 
-		justify-content: space-between; 
-		padding: 0 20px;
-		margin-top: 20px;
-	}
-	#list{
+#main{
+	margin-left:20px; 
+	font-size: 50px; 
+}
+.content-head{ 
+	height: 100px; 
 	display: flex; 
-	list-style-type: none; 
-	padding: 0; 
-	margin: 0; 
-	justify-content: space-around;
-	font-weight: bolder;
-	font-size: 20px; 
-	background: #FDF5E6;
-	width: 1500px;
-	}
-	#button1{
+	justify-content: space-between; 
+	padding: 0 20px;
+	margin-top: 20px;
+}
+#list{
+display: flex; 
+list-style-type: none; 
+padding: 0; 
+margin: 0; 
+justify-content: space-around;
+font-weight: bolder;
+font-size: 20px; 
+background: #FDF5E6;
+width: 1500px;
+}
+#a1:hover{
+	background-color:#EBFBFF;
+}
+#button1{
 	padding: 5px 10px;
-    border-radius: 15%;
-    border: none;
-    font-size: 20px;
-    height: 50px;
-    margin-top: 30px;
-    background-color:#F4E1D2;
-    color: #333333;
-	}
-	.container-fluid{
-		max-width: 1500px;
-	}
-	#a{
-		text-decoration: none;
-		color: black;
-	}
+	border-radius: 15%;
+	border: none;
+	font-size: 20px;
+	height: 50px;
+	margin-top: 30px;
+	background-color:#F4E1D2;
+	color: #333333;
+}
+#button1:hover{
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+.container-fluid{
+	max-width: 1500px;
+}
+#a{
+	text-decoration: none;
+	color: black;
+}
+#a1{
+	text-decoration: none;
+	color: black;
+}
 </style>
 <script type="text/javascript">
 function move1(){		
@@ -118,11 +128,11 @@ function test(member_id){
 		</div>
 		<div class="container-fluid" style=" padding: 10px; margin-top: 50px">
 			<ul id="list">
-				<li><a id="a" href="goGen.do?gender=M">성별 추천</a></li>
-				<li><a id="a" href="goAge.do?age=10">연령별 추천</a></li>
-				<li><a id="a" href="#" onclick="test('${sessionScope.user.member_id}')">선호카페 추천</a></li>
-				<li><a id="a" href="goMap.do">카페 지도보기</a></li>
-				<li><a id="a" href="godashboard.do">카페 대시보드</a></li>
+				<li><a id="a1" href="goGen.do?gender=M">성별 추천</a></li>
+				<li><a id="a1" href="goAge.do?age=10">연령별 추천</a></li>
+				<li><a id="a1" href="#" onclick="test('${sessionScope.user.member_id}')">선호카페 추천</a></li>
+				<li><a id="a1" href="goMap.do">카페 지도보기</a></li>
+				<li><a id="a1" href="godashboard.do">카페 대시보드</a></li>
 			</ul>
 		</div>
 		<form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search" action="search.do">

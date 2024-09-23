@@ -66,6 +66,9 @@ img {
   background-color: #F4E1D2;
   color: #333333;
 }
+#container button:hover{
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
 .swiper-slide {
   display: flex;
   align-items: middle;

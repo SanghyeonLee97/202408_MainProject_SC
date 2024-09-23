@@ -108,8 +108,8 @@ img{
 width: 300px; height: 200px;
 }
 .card:hover{
-  				transform: scale(1.1);  
-    			transition: transform .5s; 
+	transform: scale(1.1);  
+	transition: transform .5s; 
   	}
   #button3{
   	padding: 5px 10px;
@@ -121,7 +121,7 @@ width: 300px; height: 200px;
   	color: #333333;
   }
    #button3:hover{
-  	background-color: skyblue;
+  	box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   }
   .container-fluid{
   width: 1500px;
@@ -140,12 +140,12 @@ function goToAge(age) {
     <div class="container-fluid">
         <!-- 나이대 버튼들 -->
         <div style="display: flex">
-            <button id="button3" type="button" onclick="goToAge('10')">10대</button>
-            <button id="button3" type="button" style="margin-left: 10px;" onclick="goToAge('20')">20대</button>
-            <button id="button3" type="button" style="margin-left: 10px;" onclick="goToAge('30')">30대</button>
-            <button id="button3" type="button" style="margin-left: 10px;" onclick="goToAge('40')">40대</button>
-            <button id="button3" type="button" style="margin-left: 10px;" onclick="goToAge('50')">50대</button>
-            <button id="button3" type="button" style="margin-left: 10px;" onclick="goToAge('60')">60대</button>
+            <button id="button3" type="button" onclick="goToAge('10',this)">10대</button>
+            <button id="button3" type="button" style="margin-left: 10px;" onclick="goToAge('20',this)">20대</button>
+            <button id="button3" type="button" style="margin-left: 10px;" onclick="goToAge('30',this)">30대</button>
+            <button id="button3" type="button" style="margin-left: 10px;" onclick="goToAge('40',this)">40대</button>
+            <button id="button3" type="button" style="margin-left: 10px;" onclick="goToAge('50',this)">50대</button>
+            <button id="button3" type="button" style="margin-left: 10px;" onclick="goToAge('60',this)">60대</button>
         </div>
         <!-- 추천 카페 리스트 -->
 	     <div class="kind_wrap">

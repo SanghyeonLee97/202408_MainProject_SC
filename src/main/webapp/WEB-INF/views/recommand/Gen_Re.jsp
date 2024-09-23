@@ -120,7 +120,7 @@ width: 300px; height: 200px;
   	color: #333333;
   }
   #button2:hover{
-  	background-color: skyblue;
+  	box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   }
   .container-fluid{
   	width: 1500px;
