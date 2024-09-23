@@ -126,13 +126,7 @@
 	margin: 0 10px; /* 양쪽 마진 */
     }
 
-
-/* 페이징 네비게이션 항목 */
-.pagination li {
-    margin: 0 1px;
-}
-
-/* 페이징 네비게이션 링크 */
+/* 페이징 네비게이션 링크 스타일 */
 .pagination a {
     display: block;
     padding: 10px 15px;
@@ -142,14 +136,13 @@
     border-radius: 5px;
     transition: background-color 0.3s, color 0.3s;
 }
-
 /*호버*/
 .pagination a:hover {
     background-color: #007bff;
     color: #fff;
 }
 
-/* 현재 페이지  */
+/* 현재 페이지 스타일 */
 .pagination .active a {
     border: 1px solid #007bff; /* 활성화된 페이지에도 border 추가 */
     border-radius: 5px; /* 모서리 둥글게 */
@@ -158,6 +151,7 @@
     color: #fff; /* 글자색 */
     font-weight: bold; /* 글자 굵기 강조 */
 }
+
 /* 비활성화된 링크(이전/다음) */
 .pagination .disabled a {
     color: #6c757d;
@@ -200,9 +194,14 @@
 					<c:if test="${currentPage > 1}">
 						<a href="goMyReview.do?member_id=${sessionScope.user.member_id}&page=${currentPage - 1}" class="page_review">이전</a>
 					</c:if>
-					<c:forEach begin="1" end="${totalPages}" var="i">
-						<a href="goMyReview.do?member_id=${sessionScope.user.member_id}&page=${i}" class="page_review">${i}</a>
-					</c:forEach>
+					<c:forEach var="i" begin="1" end="${totalPages}">
+				        <c:if test="${i == currentPage}">
+				            <li class="active"><a href="#">${i}</a></li>
+				        </c:if>
+				        <c:if test="${i != currentPage}">
+				           <a href="goMyReview.do?member_id=${sessionScope.user.member_id}&page=${i}" class="page_review">${i}</a>
+				        </c:if>
+				    </c:forEach>
 					<c:if test="${currentPage < totalPages}">
 						<a href="goMyReview.do?member_id=${sessionScope.user.member_id}&page=${currentPage + 1}" class="page_review">다음</a>
 					</c:if>
