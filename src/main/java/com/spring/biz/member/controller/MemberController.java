@@ -34,7 +34,6 @@ public class MemberController{
 	public String login() {
 		List<MemberDTO> mem = mapper.membertest();
 		for(MemberDTO ss:mem) {
-			System.out.println(ss.getMember_id());
 			
 		}
 		
@@ -72,7 +71,6 @@ public class MemberController{
         MemberDTO memberDTO = new MemberDTO();
         memberDTO.setEmail(email);
         memberDTO.setPw(pw);
-        System.out.println(memberDTO.getEmail());
         
         MemberDTO dto = memberService.login(memberDTO);
 
@@ -105,7 +103,6 @@ public class MemberController{
 	    MemberDTO memberInfo = memberService.myInfo(member_id);
 	    // 모델에 사용자 정보를 추가합니다
 	    model.addAttribute("info", memberInfo);
-	    System.out.println(memberInfo.getMember_id());
 		
 	    return "mypage/mypage";
 	}
@@ -145,7 +142,6 @@ public class MemberController{
             return "member/login";
         }
         //비밀번호 검사
-        System.out.println("????????????"+memberDTO.getMember_id()+pw);
         boolean isPw=memberService.checkPw(memberDTO.getMember_id(),pw);
         if(!isPw) {
         	redirectattr.addFlashAttribute("errorMessage","비밀번호가 올바르지 않습니다. 다시 시도하세요.");
