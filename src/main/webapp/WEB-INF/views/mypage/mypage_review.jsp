@@ -117,7 +117,7 @@
  	}
  	
  	div.pagination {
-    margin-left: 130px; /* cafe-container와 동일한 여백 */
+    margin-left: 425px; 
     margin-top: 20px;   /* 위쪽 여백 추가 */
     clear: both;        /* float 해제 */
     text-align: center; /* 가운데 정렬 */
