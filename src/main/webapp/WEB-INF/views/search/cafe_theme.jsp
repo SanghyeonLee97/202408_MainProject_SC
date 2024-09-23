@@ -176,8 +176,8 @@
 		<div>
 			<aside>
 				<ul>
-	   				<li>거리
-						<ul>
+					<li id="theme">연령대거리
+						<ul class="theme">
 							<c:forEach var="ran" items="${['100','200','300','400','500','600',
 														'700','800','900','1000','1100','1200']}">
 								<c:choose>
@@ -191,8 +191,8 @@
 							</c:forEach>
 						</ul>
 					</li>
-					<li>연령대
-						<ul>
+					<li id="theme">연령대
+						<ul class="theme">
 							<c:forEach var="age" items="${['age10_like_cnt','age20_like_cnt','age30_like_cnt',
 														'age40_like_cnt','age50_like_cnt','age60_like_cnt']}">
 								<c:choose>
@@ -206,8 +206,8 @@
 							</c:forEach>
 						</ul>
 					</li>
-					<li>편의기능
-						<ul>
+					<li id="theme">편의기능
+						<ul class="theme">
 							<c:set var="eng" value="${['wifi','smokingroom','wheelchair',
 													'parking','anientry','playroom']}" />
 							<c:set var="kor" value="${['와이파이','흡연실','휠체어',
@@ -224,8 +224,8 @@
 							</c:forEach>
 						</ul>	
 					</li>
-					<li>분위기
-						<ul>
+					<li id="theme">분위기
+						<ul class="theme">
 							<c:set var="id" value="${['M01','M02','M03','M04','M05']}" />
 							<c:set var="mood" value="${['가성비좋은','고급스러운','예쁜','격식있는','이색적인']}" />
 							<c:forEach var="category" items="${id}" varStatus="i">
