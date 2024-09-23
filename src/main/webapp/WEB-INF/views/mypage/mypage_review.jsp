@@ -68,6 +68,13 @@
 	#imgdiv{
 		width: 370px; 
 		height: 250px;
+		transition: transform 0.3s ease, box-shadow 0.3s ease; /* 부드러운 효과 추가 */
+}
+
+#imgdiv:hover {
+    transform: scale(1.2); /* 이미지 크기 증가 */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* 그림자 추가 */
+}
 	}
 	section>aside ul li {
   
