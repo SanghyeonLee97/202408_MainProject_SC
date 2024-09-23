@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="../common/header.jsp" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,135 +21,138 @@
 	}
 </script>
 <style type="text/css">
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: row;
-    background-color: #F8F8FF
-}
-.kind_wrap {
-  border:3px solid #464646; 
-  border-radius : 50px;
-  background-color:#F0F8FF;
-  width:1200px; 
-  max-width:2000px; 
-  height : 100%;
-  margin:0 auto; 
-  position: relative;
-  justify-content: space-between;
-  margin-bottom:30px; 
-}
-.kind_slider {
-  overflow: hidden;
-  position: relative;
-  flex-wrap: wrap;
-  gap: 10px; /* 카드 사이의 간격 */
-}
-.slider { 
-  position: relative; 
-  transition: 0.5s;
-  justify-content: space-around;
-  display: flex;
-  list-style: none;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-li {
-  flex: 0 0 auto; 
-   list-style: none;
-}
-img {
- display: block; 
-}
-
-
-.theme_img .rating-text {
-	margin-top: 5px; /* 이미지와 텍스트 사이의 여백 */
-}
-
-.button-group {
-	margin-top: 10px; /* 버튼 그룹과 이미지 사이의 여백 */
-	margin-top: 0; /* 버튼 그룹의 상단 여백 제거 */
-    padding: 0; /* 버튼 그룹의 패딩 제거 */
-}
-
-aside {
-        width: 220px; /* 사이드바 너비 */
-        background: beige;
-        height: 800px; /* 사이드바 높이를 100%로 설정 */
-		transition: transform 0.3s ease;
-		position: sticky;
+	html, body {
+	    height: 100%;
+	    margin: 0;
+	    padding: 0;
+	    display: flex;
+	    flex-direction: row;
+	    background-color: #F8F8FF
+	}
+	.kind_wrap {
+	  border:3px solid #464646; 
+	  border-radius : 50px;
+	  background-color:#F0F8FF;
+	  width:1200px; 
+	  max-width:2000px; 
+	  height : 100%;
+	  margin:0 auto; 
+	  position: relative;
+	  justify-content: space-between;
+	  margin-bottom:30px; 
+	}
+	.kind_slider {
+	  overflow: hidden;
+	  position: relative;
+	  flex-wrap: wrap;
+	  gap: 10px; /* 카드 사이의 간격 */
+	}
+	.slider { 
+	  position: relative; 
+	  transition: 0.5s;
+	  justify-content: space-around;
+	  display: flex;
+	  list-style: none;
+	  flex-wrap: wrap;
+	  gap: 10px;
+	}
+	li {
+	  flex: 0 0 auto; 
+	   list-style: none;
+	}
+	img {
+	 display: block; 
+	}
+	.theme_img .rating-text {
+		margin-top: 5px; /* 이미지와 텍스트 사이의 여백 */
+	}
+	.button-group {
+		margin-top: 10px; /* 버튼 그룹과 이미지 사이의 여백 */
+		margin-top: 0; /* 버튼 그룹의 상단 여백 제거 */
+	    padding: 0; /* 버튼 그룹의 패딩 제거 */
+	}
+	aside {
+	        width: 220px; /* 사이드바 너비 */
+	        background: beige;
+	        height: 800px; /* 사이드바 높이를 100%로 설정 */
+			transition: transform 0.3s ease;
+			position: sticky;
+	}
+	.filter-button {
+		background-color: #F4E1D2; /* 버튼 배경색 */
+		border: 1px solid #ccc; /* 버튼 테두리 색 */
+		border-radius: 5px; /* 버튼 테두리 둥글게 */
+		padding: 5px 10px; /* 버튼 패딩 */
+		margin: 5px 0; /* 버튼 사이의 여백 */
+		cursor: pointer; /* 커서 변경 */
+	}
+	.filter-button:hover {
+		background-color: skyblue; /* 버튼 호버 배경색 */
+	}
+	#main_img{
+		width: 100px; height: 100px;
+	}
+	.card{
+		margin-top: 40px;
+		border: none;
+		transition: transform .5s;
+		transform: scale(1.0);
+		margin-right: 25px
+	}
+	.card-img-top{
+		width: 330px; height: 200px;
+	}
+	.card:hover{
+		transform: scale(1.1);  
+		transition: transform .5s; 
+	}
+	li {
+		flex: 0 0 auto; 
+		list-style: none;
+	}
+	.container-fluid{
+		max-width: 1500px;
+		display: flex;
+	}
+	a{
+		text-decoration: none; color : black
+	}
+	#map{
+		width: 96%;
+		height: 300px; 
+		margin-left: 50px;
+		display: inline-block;
+		margin-top: 10px;
+	}
+	#no_cafe{
+		font-size: 35px;
+		display: flex;
+		width: 100%
+	}
+	.no_cafe{
+		font-size: 15px;
+	}
+	.centered-list {
+	    display: flex;             /* Flexbox 사용 */
+	    flex-direction: column;   /* 세로 방향으로 정렬 */
+	    align-items: center;      /* 가운데 정렬 */
+	    justify-content:center;
+	    list-style: none;         /* 기본 리스트 스타일 제거 */
+	    margin-left:130px;
+	    height: 500px;
+	}
+	.centered-list li {
+	    text-align: left;         /* 텍스트 왼쪽 정렬 */
+	    width: 100%;              /* li 요소의 너비를 100%로 설정 */
+	    max-width: 1500px;         /* 최대 너비 설정 (필요에 따라 조정) */
+	    margin: 5px 0;           /* 항목 간의 여백 설정 */
+	}
+	#theme{
+	    font-size: 20px;
+	    }
+	.theme{
+	    font-size: 15px;
     }
-
-.filter-button {
-	background-color: #F4E1D2; /* 버튼 배경색 */
-	border: 1px solid #ccc; /* 버튼 테두리 색 */
-	border-radius: 5px; /* 버튼 테두리 둥글게 */
-	padding: 5px 10px; /* 버튼 패딩 */
-	margin: 5px 0; /* 버튼 사이의 여백 */
-	cursor: pointer; /* 커서 변경 */
-}
-
-.filter-button:hover {
-	background-color: skyblue; /* 버튼 호버 배경색 */
-}
-#main_img{width: 100px; height: 100px;}
-.card{
-margin-top: 40px;
-border: none;
-transition: transform .5s;
-transform: scale(1.0);
-margin-right: 25px
-}
-.card-img-top{
-width: 330px; height: 200px;
-}
-.card:hover{
-transform: scale(1.1);  
-	transition: transform .5s; 
-}
-li {
-  flex: 0 0 auto; 
-   list-style: none;
-}
-.container-fluid{
-max-width: 1500px;
-display: flex;
-}
-a{text-decoration: none; color : black}
-#map{
-width: 96%;
-height: 300px; 
-margin-left: 50px;
-display: inline-block;
-margin-top: 10px;
-}
-#no_cafe{
-	font-size: 35px;
-	display: flex;
-	width: 100%
-}
-.no_cafe{
-font-size: 15px;
-}
-.centered-list {
-    display: flex;             /* Flexbox 사용 */
-    flex-direction: column;   /* 세로 방향으로 정렬 */
-    align-items: center;      /* 가운데 정렬 */
-    justify-content:center;
-    list-style: none;         /* 기본 리스트 스타일 제거 */
-    margin-left:130px;
-    height: 500px;
-}
-
-.centered-list li {
-    text-align: left;         /* 텍스트 왼쪽 정렬 */
-    width: 100%;              /* li 요소의 너비를 100%로 설정 */
-    max-width: 1500px;         /* 최대 너비 설정 (필요에 따라 조정) */
-    margin: 5px 0;           /* 항목 간의 여백 설정 */
-}
 </style>
 <script type="text/javascript">
 	function move(cafeId) {		
@@ -172,49 +176,70 @@ font-size: 15px;
 		<div>
 			<aside>
 				<ul>
-	   				<li>거리
-						<ul>
-							<li><a id="100" href="search.do?Category=100" onclick="updateHref(event)">100 미터 거리</a></li>
-					        <li><a id="200" href="search.do?Category=200" onclick="updateHref(event)">200 미터 거리</a></li>
-					        <li><a id="300" href="search.do?Category=300" onclick="updateHref(event)">300 미터 거리</a></li>
-					        <li><a id="400" href="search.do?Category=400" onclick="updateHref(event)">400 미터 거리</a></li>
-					        <li><a id="500" href="search.do?Category=500" onclick="updateHref(event)">500 미터 거리</a></li>
-					        <li><a id="600" href="search.do?Category=600" onclick="updateHref(event)">600 미터 거리</a></li>
-					        <li><a id="700" href="search.do?Category=700" onclick="updateHref(event)">700 미터 거리</a></li>
-					        <li><a id="800" href="search.do?Category=800" onclick="updateHref(event)">800 미터 거리</a></li>
-					        <li><a id="900" href="search.do?Category=900" onclick="updateHref(event)">900 미터 거리</a></li>
-					        <li><a id="1000" href="search.do?Category=1000" onclick="updateHref(event)">1000 미터 거리</a></li>
-					        <li><a id="1100" href="search.do?Category=1100" onclick="updateHref(event)">1100 미터 거리</a></li>
-					        <li><a id="1200" href="search.do?Category=1200" onclick="updateHref(event)">1200 미터 거리</a></li>
+					<li id="theme">연령대거리
+						<ul class="theme">
+							<c:forEach var="ran" items="${['100','200','300','400','500','600',
+														'700','800','900','1000','1100','1200']}">
+								<c:choose>
+									<c:when test="${param.Category == ran}">
+										<p style="font-weight: bold;">${ran} 미터 거리</p>
+									</c:when>
+									<c:when test="${param.Category != ran}">
+										<li><a id="${ran}" href="search.do?Category=${ran}" onclick="updateHref(event)">${ran} 미터 거리</a></li>
+									</c:when>
+								</c:choose>
+							</c:forEach>
 						</ul>
 					</li>
-					<li>연령대
-						 <ul>
-							<li><a id="age10_like_cnt" href="search.do?Category=age10_like_cnt" onclick="updateHref(event)">10대</a></li>
-					        <li><a id="age20_like_cnt" href="search.do?Category=age20_like_cnt" onclick="updateHref(event)">20대</a></li>
-					        <li><a id="age30_like_cnt" href="search.do?Category=age30_like_cnt" onclick="updateHref(event)">30대</a></li>
-					        <li><a id="age40_like_cnt" href="search.do?Category=age40_like_cnt" onclick="updateHref(event)">40대</a></li>
-					        <li><a id="age50_like_cnt" href="search.do?Category=age50_like_cnt" onclick="updateHref(event)">50대</a></li>
-					        <li><a id="age60_like_cnt" href="search.do?Category=age60_like_cnt" onclick="updateHref(event)">60대</a></li>
+					<li id="theme">연령대
+						<ul class="theme">
+							<c:forEach var="age" items="${['age10_like_cnt','age20_like_cnt','age30_like_cnt',
+														'age40_like_cnt','age50_like_cnt','age60_like_cnt']}">
+								<c:choose>
+									<c:when test="${param.Category == age}">
+										<p style="font-weight: bold;">${fn:substring(age,3,5)}대</p>
+									</c:when>
+									<c:when test="${param.Category != age}">
+										<li><a id="${age}" href="search.do?Category=${age}" onclick="updateHref(event)">${fn:substring(age,3,5)}대</a></li>
+									</c:when>
+								</c:choose>
+							</c:forEach>
 						</ul>
 					</li>
-					<li>편의기능
-						<ul>
-							<li><a id="wifi" href="search.do?Category=wifi" onclick="updateHref(event)">와이파이</a></li>
-							<li><a id="smokingroom" href="search.do?Category=smokingroom" onclick="updateHref(event)">흡연실</a></li>
-					        <li><a id="wheelchair" href="search.do?Category=wheelchair" onclick="updateHref(event)">휠체어</a></li>
-					        <li><a id="parking" href="search.do?Category=parking" onclick="updateHref(event)">주차</a></li>
-					        <li><a id="anientry" href="search.do?Category=anientry" onclick="updateHref(event)">반려동물</a></li>
-					        <li><a id="playroom" href="search.do?Category=playroom" onclick="updateHref(event)">놀이방</a></li>
+					<li id="theme">편의기능
+						<ul class="theme">
+							<c:set var="eng" value="${['wifi','smokingroom','wheelchair',
+													'parking','anientry','playroom']}" />
+							<c:set var="kor" value="${['와이파이','흡연실','휠체어',
+													 '주차','반려동물','놀이방']}" />
+							<c:forEach var="category" items="${eng}" varStatus="i">
+							    <c:choose>
+							        <c:when test="${param.Category == category}">
+							            <p style="font-weight: bold;">${kor[i.index]}</p>
+							        </c:when>
+							        <c:when test="${param.Category != category}">
+							            <li><a id="${category}" href="search.do?Category=${category}" onclick="updateHref(event)">${kor[i.index]}</a></li>
+							        </c:when>
+							    </c:choose>
+							</c:forEach>
 						</ul>	
 					</li>
-					<li>분위기
-						<ul>
-							<li><a id="M01" href="search.do?Category=M01" onclick="updateHref(event)">가성비좋은</a></li>
-							<li><a id="M02" href="search.do?Category=M02" onclick="updateHref(event)">고급스러운</a></li>
-							<li><a id="M03" href="search.do?Category=M03" onclick="updateHref(event)">예쁜</a></li>
-							<li><a id="M04" href="search.do?Category=M04" onclick="updateHref(event)">격식있는</a></li>
-							<li><a id="M05" href="search.do?Category=M05" onclick="updateHref(event)">이색적인</a></li>
+					<li id="theme">분위기
+						<ul class="theme">
+							<c:set var="id" value="${['M01','M02','M03','M04','M05']}" />
+							<c:set var="mood" value="${['가성비좋은','고급스러운','예쁜','격식있는','이색적인']}" />
+							<c:forEach var="category" items="${id}" varStatus="i">
+							    <c:choose>
+							        <c:when test="${param.Category == category}">
+							            <p style="font-weight: bold;">${mood[i.index]}</p>
+							        </c:when>
+							        <c:when test="${param.Category != category}">
+							            <li><a id="${category}" href="search.do?Category=${category}" 
+							            	onclick="updateHref(event)">${mood[i.index]}</a>
+							            </li>
+							        </c:when>
+							    </c:choose>
+							</c:forEach>
 						</ul>
 					</li>
 				</ul>
@@ -226,10 +251,22 @@ font-size: 15px;
 			</c:if>
 			<div style=" margin-left: 50px;">
 				<div class="button-group">
-		            <button id="like_cnt" name="search.do?Category=like_cnt" type="button" class="filter-button" onclick="clickButton(event)">좋아요 많은순</button>
-		            <button id="review_cnt" name="search.do?Category=review_cnt" type="button" class="filter-button" onclick="clickButton(event)">리뷰 많은순</button>
-		            <button id="m_like_cnt" name="search.do?Category=m_like_cnt" type="button" class="filter-button" onclick="clickButton(event)">남자 좋아요</button>
-		            <button id="f_like_cnt" name="search.do?Category=f_like_cnt" type="button" class="filter-button" onclick="clickButton(event)">여자 좋아요</button>
+		            <button id="like_cnt" name="search.do?Category=like_cnt" 
+		            type="button" class="filter-button" onclick="clickButton(event)">
+		            	좋아요 많은순
+		            </button>
+		            <button id="review_cnt" name="search.do?Category=review_cnt"
+					type="button" class="filter-button" onclick="clickButton(event)">
+		             	리뷰 많은순
+		             </button>
+		            <button id="m_like_cnt" name="search.do?Category=m_like_cnt"
+					type="button" class="filter-button" onclick="clickButton(event)">
+						남자 좋아요
+					</button>
+		            <button id="f_like_cnt" name="search.do?Category=f_like_cnt"
+					type="button" class="filter-button" onclick="clickButton(event)">
+						여자 좋아요
+					</button>
 		        </div>
 				<div class="kind_wrap">
 					<c:choose>
@@ -256,95 +293,26 @@ font-size: 15px;
 						    <ul class="centered-list">
 						    	<li id="no_cafe">
 						    		<p style="color:red">${keyWord}
-							    		<c:choose>
-											<c:when test="${param.Category == '100'}">
-												100 미터 거리
-											</c:when>
-											<c:when test="${param.Category == '200'}">
-												200 미터 거리
-											</c:when>
-											<c:when test="${param.Category == '300'}">
-												300 미터 거리
-											</c:when>
-											<c:when test="${param.Category == '400'}">
-												400 미터 거리
-											</c:when>
-											<c:when test="${param.Category == '500'}">
-												500 미터 거리
-											</c:when>
-											<c:when test="${param.Category == '600'}">
-												600 미터 거리
-											</c:when>
-											<c:when test="${param.Category == '700'}">
-												700 미터 거리
-											</c:when>
-											<c:when test="${param.Category == '800'}">
-												800 미터 거리
-											</c:when>
-											<c:when test="${param.Category == '900'}">
-												900 미터 거리
-											</c:when>
-											<c:when test="${param.Category == '1000'}">
-												1000 미터 거리
-											</c:when>
-											<c:when test="${param.Category == '1100'}">
-												1100 미터 거리
-											</c:when>
-											<c:when test="${param.Category == '1200'}">
-												1200 미터 거리
-											</c:when>
-											<c:when test="${param.Category == 'age10_like_cnt'}">
-												10대
-											</c:when>
-											<c:when test="${param.Category == 'age20_like_cnt'}">
-												20대
-											</c:when>
-											<c:when test="${param.Category == 'age30_like_cnt'}">
-												30대
-											</c:when>
-											<c:when test="${param.Category == 'age40_like_cnt'}">
-												40대
-											</c:when>
-											<c:when test="${param.Category == 'age50_like_cnt'}">
-												50대
-											</c:when>
-											<c:when test="${param.Category == 'age60_like_cnt'}">
-												60대
-											</c:when>
-											<c:when test="${param.Category == 'wifi'}">
-												와이파이
-											</c:when>
-											<c:when test="${param.Category == 'smokingroom'}">
-												흡연실
-											</c:when>
-											<c:when test="${param.Category == 'wheelchair'}">
-												휠체어
-											</c:when>
-											<c:when test="${param.Category == 'parking'}">
-												주차
-											</c:when>
-											<c:when test="${param.Category == 'anientry'}">
-												반려동물
-											</c:when>
-											<c:when test="${param.Category == 'playroom'}">
-												놀이방
-											</c:when>
-											<c:when test="${param.Category == 'M01'}">
-												가성비좋은
-											</c:when>
-											<c:when test="${param.Category == 'M02'}">
-												고급스러운
-											</c:when>
-											<c:when test="${param.Category == 'M03'}">
-												예쁜
-											</c:when>
-											<c:when test="${param.Category == 'M04'}">
-												격식있는
-											</c:when>
-											<c:when test="${param.Category == 'M05'}">
-												이색적인
-											</c:when>
-								    	</c:choose>
+						    		<c:set var="id" value="${['100','200','300','400','500','600',
+						    								'700','800','900','1000','1100','1200',
+						    								'age10_like_cnt','age20_like_cnt','age30_like_cnt',
+						    								'age40_like_cnt','age50_like_cnt','age60_like_cnt',
+						    								'wifi','smokingroom','wheelchair',
+						    								'parking','anientry','playroom',
+						    								'M01','M02','M03','M04','M05']}"/>
+									<c:set var="name" value="${['100 미터 거리','200 미터 거리','300 미터 거리','400 미터 거리',
+																'500 미터 거리','600 미터 거리','700 미터 거리','800 미터 거리',
+																'900 미터 거리','1000 미터 거리','1100 미터 거리','1200 미터 거리',
+																'10대','20대','30대','40대','50대','60대',
+																'와이파이','흡연실','휠체어','주차','반려동물','놀이방',
+																'가성비좋은','고급스러운','예쁜','격식있는','이색적인']}"/>
+									<c:forEach var="category" items="${id}" varStatus="i">
+									    <c:choose>
+									        <c:when test="${param.Category == category}">
+									            ${name[i.index]}
+									        </c:when>
+									    </c:choose>
+									</c:forEach>
 								    </p>에 대한 검색결과가 없습니다.</li>
 								<li class="no_cafe">단어의 철자가 정확한지 확인해 보세요.</li>
 								<li class="no_cafe">한글을 영어로 혹은 영어를 한글로 입력했는지 확인해 보세요.</li>
