@@ -123,7 +123,7 @@
         height: auto;
     }
     .pagination a,strong {
-	margin: 0 20px; /* 양쪽 마진 */
+	margin: 0 10px; /* 양쪽 마진 */
     }
 
 
@@ -191,20 +191,20 @@
 					<div>					
 						<a href="detail.do?cafeId=${myReview.CAFE_ID }">
 						<img id="imgdiv" alt="" src="https://${myReview.IMAGE_URL}"><strong>${myReview.CAFE_NAME} ${myReview.POINT}점</strong></a><hr>
-						<p id="reviewp">${myReview.REVIEW}</p>
-						<button id="mypagerebt" type="button" onclick="updateReview(${sessionScope.user.member_id},${myReview.CAFE_ID})">수정</button>
-						<button id="mypagerebt" type="button" onclick="deleteReview(${sessionScope.user.member_id},${myReview.CAFE_ID})">삭제</button>
+							<p id="reviewp">${myReview.REVIEW}</p>
+							<button id="mypagerebt" type="button" onclick="updateReview(${sessionScope.user.member_id},${myReview.CAFE_ID})">수정</button>
+							<button id="mypagerebt" type="button" onclick="deleteReview(${sessionScope.user.member_id},${myReview.CAFE_ID})">삭제</button>
 					</div>
 				</c:forEach>
 				<div class='pagination'>
 					<c:if test="${currentPage > 1}">
-						<a href="goMyReview.do?member_id=${sessionScope.user.member_id}&page=${currentPage - 1}">이전</a>
+						<a href="goMyReview.do?member_id=${sessionScope.user.member_id}&page=${currentPage - 1}" class="page_review">이전</a>
 					</c:if>
 					<c:forEach begin="1" end="${totalPages}" var="i">
-						<a href="goMyReview.do?member_id=${sessionScope.user.member_id}&page=${i}">${i}</a>
+						<a href="goMyReview.do?member_id=${sessionScope.user.member_id}&page=${i}" class="page_review">${i}</a>
 					</c:forEach>
 					<c:if test="${currentPage < totalPages}">
-						<a href="goMyReview.do?member_id=${sessionScope.user.member_id}&page=${currentPage + 1}">다음</a>
+						<a href="goMyReview.do?member_id=${sessionScope.user.member_id}&page=${currentPage + 1}" class="page_review">다음</a>
 					</c:if>
 				</div>
 			</article>
