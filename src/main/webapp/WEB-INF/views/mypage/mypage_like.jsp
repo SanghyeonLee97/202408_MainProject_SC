@@ -44,7 +44,13 @@ section>article>div {
 #imgdiv {
 	    width: 350px; 
 	    height: 250px;
+	    transition: transform 0.3s ease, box-shadow 0.3s ease;
 	}
+#imgdiv:hover {
+    transform: scale(1.2); /* 이미지 크기 증가 */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* 그림자 추가 */
+}
+	
 .cafe-container a {
 	    display: flex;
 	    flex-direction: column;
