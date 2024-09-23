@@ -19,7 +19,7 @@
   margin:0 auto; 
   position: relative;
   justify-content: space-between;
-  /* overflow: hidden; */
+  overflow: hidden;
   margin-bottom:30px; 
 }
 .kind_slider {
