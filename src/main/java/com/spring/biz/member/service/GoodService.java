@@ -47,9 +47,17 @@ public class GoodService {
         return goodMapper.getLikedCafesCount(member_id);
     }
     
-    public List<MyReviewDTO> getMyReview(int userid) {
-		return goodMapper.getMyReview(userid);
-	}
+    public List<MyReviewDTO> getMyReview(int member_id, int page, int pageSize) {
+        Map<String, Object> params = new HashMap<>();
+        params.put("member_id", member_id);
+        params.put("limit", pageSize);
+        params.put("offset", (page - 1) * pageSize);
+        return goodMapper.getMyReview(params);
+    }
+
+    public int getMyReviewCount(int member_id) {
+        return goodMapper.getMyReviewCount(member_id);
+    }
 
     public void removeLike(String member_id, String cafe_id) {
     	goodMapper.removeLike(makeMap(member_id, cafe_id, null, null, null));

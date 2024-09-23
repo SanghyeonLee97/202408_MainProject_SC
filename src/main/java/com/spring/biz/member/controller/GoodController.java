@@ -16,6 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.spring.biz.common.dto.CafeDTO;
 import com.spring.biz.member.dto.MemberDTO;
+import com.spring.biz.member.dto.MyReviewDTO;
 import com.spring.biz.member.service.GoodService;
 import com.spring.biz.search.dto.ReviewDTO;
 import com.spring.biz.search.service.CafeDetail;
@@ -46,10 +47,21 @@ public class GoodController {
 	    return mav;
 	}
 	
+	// 마이페이지 리뷰
 	@RequestMapping("goMyReview.do")
-	public String goMyReview(@RequestParam("member_id") String memberId,Model model) {
-		model.addAttribute("MRArrCDTO", goodService.getMyReview(Integer.parseInt(memberId)));
-		return "mypage/mypage_review";
+	public ModelAndView goMyReview(@RequestParam("member_id") String memberId, 
+		            @RequestParam(defaultValue = "1") int page) {
+		int pageSize = 2; // 페이지당 리뷰 수
+		int totalReviews = goodService.getMyReviewCount(Integer.parseInt(memberId)); // 전체 리뷰 수
+		List<MyReviewDTO> reviews = goodService.getMyReview(Integer.parseInt(memberId), page, pageSize); // 페이징 처리된 리뷰 목록
+		
+		ModelAndView mav = new ModelAndView("mypage/mypage_review");
+		mav.addObject("reviews", reviews);
+		mav.addObject("currentPage", page);
+		mav.addObject("totalPages", (int) Math.ceil((double) totalReviews / pageSize));
+		mav.addObject("MRArrCDTO", reviews); // 추가 정보 전달
+		
+		return mav;
 	}
 	//마이페이지 좋아요 취소
 	@RequestMapping(value="removeCafeLike.do",method=RequestMethod.POST,produces="application/json;charset=UTF-8")

@@ -143,6 +143,19 @@
 					</div>
 			    </c:forEach>
 			</article>
+				<div>
+				    <c:if test="${currentPage > 1}">
+				        <a href="goMyReview.do?member_id=${sessionScope.user.member_id}&page=${currentPage - 1}">이전</a>
+				    </c:if>
+				
+				    <c:forEach begin="1" end="${totalPages}" var="i">
+				        <a href="goMyReview.do?member_id=${sessionScope.user.member_id}&page=${i}">${i}</a>
+				    </c:forEach>
+				
+				    <c:if test="${currentPage < totalPages}">
+				        <a href="goMyReview.do?member_id=${sessionScope.user.member_id}&page=${currentPage + 1}">다음</a>
+				    </c:if>
+				</div>
 		</section>
 	</main>
 </body>
