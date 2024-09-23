@@ -149,6 +149,12 @@ font-size: 15px;
     max-width: 1500px;         /* 최대 너비 설정 (필요에 따라 조정) */
     margin: 5px 0;           /* 항목 간의 여백 설정 */
 }
+#theme{
+	font-size: 20px;
+}
+.theme{
+	font-size: 15px;
+}
 </style>
 <script type="text/javascript">
 	function move(cafeId) {		
@@ -172,8 +178,8 @@ font-size: 15px;
 		<div>
 			<aside>
 				<ul>
-	   				<li>거리
-						<ul>
+	   				<li id="theme">거리
+						<ul class="theme">
 							<li><a id="100" href="search.do?Category=100" onclick="updateHref(event)">100 미터 거리</a></li>
 					        <li><a id="200" href="search.do?Category=200" onclick="updateHref(event)">200 미터 거리</a></li>
 					        <li><a id="300" href="search.do?Category=300" onclick="updateHref(event)">300 미터 거리</a></li>
@@ -188,8 +194,8 @@ font-size: 15px;
 					        <li><a id="1200" href="search.do?Category=1200" onclick="updateHref(event)">1200 미터 거리</a></li>
 						</ul>
 					</li>
-					<li>연령대
-						 <ul>
+					<li id="theme">연령대
+						 <ul class="theme">
 							<li><a id="age10_like_cnt" href="search.do?Category=age10_like_cnt" onclick="updateHref(event)">10대</a></li>
 					        <li><a id="age20_like_cnt" href="search.do?Category=age20_like_cnt" onclick="updateHref(event)">20대</a></li>
 					        <li><a id="age30_like_cnt" href="search.do?Category=age30_like_cnt" onclick="updateHref(event)">30대</a></li>
@@ -198,8 +204,8 @@ font-size: 15px;
 					        <li><a id="age60_like_cnt" href="search.do?Category=age60_like_cnt" onclick="updateHref(event)">60대</a></li>
 						</ul>
 					</li>
-					<li>편의기능
-						<ul>
+					<li id="theme">편의기능
+						<ul class="theme">
 							<li><a id="wifi" href="search.do?Category=wifi" onclick="updateHref(event)">와이파이</a></li>
 							<li><a id="smokingroom" href="search.do?Category=smokingroom" onclick="updateHref(event)">흡연실</a></li>
 					        <li><a id="wheelchair" href="search.do?Category=wheelchair" onclick="updateHref(event)">휠체어</a></li>
@@ -208,8 +214,8 @@ font-size: 15px;
 					        <li><a id="playroom" href="search.do?Category=playroom" onclick="updateHref(event)">놀이방</a></li>
 						</ul>	
 					</li>
-					<li>분위기
-						<ul>
+					<li id="theme">분위기
+						<ul class="theme">
 							<li><a id="M01" href="search.do?Category=M01" onclick="updateHref(event)">가성비좋은</a></li>
 							<li><a id="M02" href="search.do?Category=M02" onclick="updateHref(event)">고급스러운</a></li>
 							<li><a id="M03" href="search.do?Category=M03" onclick="updateHref(event)">예쁜</a></li>
