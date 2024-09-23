@@ -72,8 +72,8 @@
 }
 
 #imgdiv:hover {
-    transform: scale(1.2); /* 이미지 크기 증가 */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* 그림자 추가 */
+    transform: scale(1.08); /* 이미지 크기 증가 */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* 그림자 추가 */
 }
 	}
 	section>aside ul li {
@@ -96,19 +96,75 @@
  	a:hover {
  		color: black;
  	}
- 	#mypagerebt{
- 		width: 60px;
- 		height : 30px;
- 		border: none;
- 		background: #F5ECCE;
- 		position: relative;
- 		left: 200px;
- 		margin-left: 10px;
- 		
- 	}
+ 	#mypagerebt {
+	    width: 60px;
+	    height: 30px;
+	    border: none;
+	    background: #F5ECCE;
+	    position: relative;
+	    left: 200px;
+	    margin-left: 10px;
+	    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease; /* 부드러운 효과 추가 */
+	}
+
+	#mypagerebt:hover {
+	    background-color: #ebe6d7; /* 배경색 변경 */
+	    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* 그림자 추가 */
+	}	
+ 	
  	hr {
  		margin: 4px;
  	}
+ 	
+ 	div.pagination {
+        margin-left: 320px;
+        border:none;
+        width: auto;
+        height: auto;
+    }
+    .pagination a,strong {
+	margin: 0 20px; /* 양쪽 마진 */
+    }
+
+
+/* 페이징 네비게이션 항목 */
+.pagination li {
+    margin: 0 1px;
+}
+
+/* 페이징 네비게이션 링크 */
+.pagination a {
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #007bff;
+    border: 1px solid #007bff;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/*호버*/
+.pagination a:hover {
+    background-color: #007bff;
+    color: #fff;
+}
+
+/* 현재 페이지  */
+.pagination .active a {
+    border: 1px solid #007bff; /* 활성화된 페이지에도 border 추가 */
+    border-radius: 5px; /* 모서리 둥글게 */
+    padding: 10px 15px; /* 패딩 추가 */
+    background-color: #007bff; /* 배경색 추가 */
+    color: #fff; /* 글자색 */
+    font-weight: bold; /* 글자 굵기 강조 */
+}
+/* 비활성화된 링크(이전/다음) */
+.pagination .disabled a {
+    color: #6c757d;
+    border-color: #6c757d;
+    pointer-events: none;
+}  
+
 </style>
 </head>
 <body>
@@ -131,31 +187,27 @@
 				<h4>리뷰를 작성한 카페</h4>
 			</header>
 			<article>
-				
-				
 				<c:forEach var="myReview" items="${MRArrCDTO}">
 					<div>					
 						<a href="detail.do?cafeId=${myReview.CAFE_ID }">
-							<img id="imgdiv" alt="" src="https://${myReview.IMAGE_URL}"><strong>${myReview.CAFE_NAME} ${myReview.POINT}점</strong></a><hr>
+						<img id="imgdiv" alt="" src="https://${myReview.IMAGE_URL}"><strong>${myReview.CAFE_NAME} ${myReview.POINT}점</strong></a><hr>
 						<p id="reviewp">${myReview.REVIEW}</p>
 						<button id="mypagerebt" type="button" onclick="updateReview(${sessionScope.user.member_id},${myReview.CAFE_ID})">수정</button>
 						<button id="mypagerebt" type="button" onclick="deleteReview(${sessionScope.user.member_id},${myReview.CAFE_ID})">삭제</button>
 					</div>
-			    </c:forEach>
-			</article>
-				<div>
-				    <c:if test="${currentPage > 1}">
-				        <a href="goMyReview.do?member_id=${sessionScope.user.member_id}&page=${currentPage - 1}">이전</a>
-				    </c:if>
-				
-				    <c:forEach begin="1" end="${totalPages}" var="i">
-				        <a href="goMyReview.do?member_id=${sessionScope.user.member_id}&page=${i}">${i}</a>
-				    </c:forEach>
-				
-				    <c:if test="${currentPage < totalPages}">
-				        <a href="goMyReview.do?member_id=${sessionScope.user.member_id}&page=${currentPage + 1}">다음</a>
-				    </c:if>
+				</c:forEach>
+				<div class='pagination'>
+					<c:if test="${currentPage > 1}">
+						<a href="goMyReview.do?member_id=${sessionScope.user.member_id}&page=${currentPage - 1}">이전</a>
+					</c:if>
+					<c:forEach begin="1" end="${totalPages}" var="i">
+						<a href="goMyReview.do?member_id=${sessionScope.user.member_id}&page=${i}">${i}</a>
+					</c:forEach>
+					<c:if test="${currentPage < totalPages}">
+						<a href="goMyReview.do?member_id=${sessionScope.user.member_id}&page=${currentPage + 1}">다음</a>
+					</c:if>
 				</div>
+			</article>
 		</section>
 	</main>
 </body>
