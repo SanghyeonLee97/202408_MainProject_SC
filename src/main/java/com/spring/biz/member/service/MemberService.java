@@ -23,15 +23,6 @@ public class MemberService {
 	
 	public void addMember(MemberDTO memberDTO) {
 		String birth = memberDTO.getBirthdate().replace("-", "").substring(2);
-		System.out.println("[insertmember] 등록");
-		System.out.println("==================================="+memberDTO.getBirthdate()); 
-		System.out.println("==================================="+memberDTO.getEmail()); 
-		System.out.println("==================================="+memberDTO.getGender()); 
-		System.out.println("==================================="+memberDTO.getMember_id()); 
-		System.out.println("==================================="+memberDTO.getMember_name()); 
-		System.out.println("==================================="+memberDTO.getMember_tel()); 
-		System.out.println("==================================="+memberDTO.getPw()); 
-		System.out.println(memberDTO.getBirthdate().replace("-", "").substring(2));
 		memberDTO.setBirthdate(birth);
 		memberMapper.addMember(memberDTO);
 	}
@@ -40,33 +31,24 @@ public class MemberService {
 	}
 	//로그인
 	public MemberDTO login(MemberDTO memberDTO) {
-		System.out.println("[loginmember] 등록");
-		System.out.println("====================="+memberDTO.getEmail());
-		System.out.println("====================="+memberDTO.getPw());
+		
 		return memberMapper.login(memberDTO);
 	}
 	
 	public int emailCheck(String email) {
 		int cnt = memberMapper.emailCheck(email);
-		System.out.println("cnt==================="+cnt);
 		return cnt;
 	}
 	
 	public MemberDTO myInfo(int member_id) {
-		System.out.println("fnfnfnfnf"+member_id);
-        //  매퍼를 통해 이메일로 사용자 정보를 조회합니다
+	
         MemberDTO memberDTO = memberMapper.getMemberInfo(member_id);
         
         if (memberDTO == null) {
             throw new IllegalArgumentException("Member not found for ID: " + member_id);
         }
-         //변환된 생년월일을 설정합니다 (YYMMDD -> YYYY-MM-DD)
-//        if (memberDTO.getBirthdate() != null && !memberDTO.getBirthdate().isEmpty()) {
-//            // 변환된 생년월일을 모델에 추가
-//            memberDTO.setBirthdate(formatBirthdate(memberDTO.getBirthdate()));
-//        }
+         
         memberDTO.setBirthdate(formatBirthdate(memberDTO.getBirthdate()));
-        System.out.println("생일============"+memberDTO.getBirthdate());
         return memberDTO;
     }
 	 
@@ -91,11 +73,9 @@ public class MemberService {
 	 
 	 //수정
 	 public void updateInfo(MemberDTO memberDTO) {
-		 System.out.println("수정============="+memberDTO.getMember_id());
 		 memberMapper.updateInfo(memberDTO);
 	 }
 	 public void updateLike(MemberDTO memberDTO) {
-		 System.out.println("수정============="+memberDTO.getMember_id());
 		 memberMapper.updateLike(memberDTO);
 	 }
 	 

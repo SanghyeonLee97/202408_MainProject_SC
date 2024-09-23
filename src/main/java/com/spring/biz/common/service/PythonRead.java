@@ -32,7 +32,6 @@ public class PythonRead {
             try (BufferedWriter writer = new BufferedWriter(new FileWriter(tempScript))) {
                 writer.write(scriptContent.toString());
             }
-            System.out.println(argument+" "+argument2);
         	ProcessBuilder pb = new ProcessBuilder("python",tempScript.getAbsolutePath(),argument,argument2);
             Process p = pb.start();
 
