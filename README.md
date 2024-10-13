@@ -60,7 +60,13 @@
 
 
 ## 프로젝트 워크플로우
+![project_workflow_final](https://github.com/user-attachments/assets/505538d5-28a3-4bc6-9d32-eb4dfcc8ace1)
+
 
 ## ER Diagram
+![ERD](https://github.com/user-attachments/assets/d17cecea-b60b-479c-b929-3c31f4a50b8d)
+
 
 ## Software Architecture
+![Software architecture](https://github.com/user-attachments/assets/f5297deb-b232-4abd-92a1-e248b28a8bfa)
+
