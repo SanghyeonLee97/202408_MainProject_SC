@@ -70,3 +70,5 @@
 ## Software Architecture
 ![Software architecture](https://github.com/user-attachments/assets/f5297deb-b232-4abd-92a1-e248b28a8bfa)
 
+
+**2024.10.13 ~ 내용 추가중**
